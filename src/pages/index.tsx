@@ -2,10 +2,25 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@src/styles/Home.module.css";
+import { useCart } from "@saleor/sdk";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const { addToCartRest } = useCart();
+
+  const handleATC = () => {
+    addToCartRest(
+      "UHJvZHVjdFZhcmlhbnQ6NDU0",
+      1,
+      [],
+      null,
+      false,
+    ).then(e=>{
+      console.log("farzicom-storfront", e)
+    })
+  };
+
   return (
     <>
       <Head>
@@ -38,6 +53,7 @@ export default function Home() {
             </a>
           </div>
         </div>
+        <button onClick={handleATC}>Add to cart product</button>
 
         <div className={styles.center}>
           <Image
