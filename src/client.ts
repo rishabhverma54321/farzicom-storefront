@@ -1,11 +1,8 @@
-import { InMemoryCache } from "apollo-cache-inmemory";
-import { ApolloClient } from "apollo-client";
-import { createHttpLink } from "apollo-link-http";
 import { createSaleorClient } from "@saleor/sdk";
 import { apiUrl, apiUrlSSR, restApiUrl } from "@src/constants";
-import { setContext } from "apollo-link-context";
-import createUploadLink  from "apollo-upload-client/createUploadLink.mjs";
-import { ApolloLink } from "apollo-link";
+import { ApolloClient, ApolloLink, createHttpLink, InMemoryCache } from "@apollo/client";
+import { setContext } from '@apollo/client/link/context';
+import createUploadLink from "apollo-upload-client/createUploadLink.mjs";
 
 export const saleorClient = createSaleorClient({
   apiUrl,
@@ -22,7 +19,7 @@ const httpLinkSSR = createHttpLink({
   uri: apiUrlSSR,
 });
 
-const authLink = setContext(async (_, { headers }) => {
+const authLink: ApolloLink = setContext(async (_, { headers }) => {
   let token;
   if (typeof window !== "undefined") {
     token = localStorage.getItem("token");
