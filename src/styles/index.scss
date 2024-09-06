@@ -1,0 +1,29 @@
+@import "src/globalStyles/scss/index.scss";
+@import "src/components/index.scss";
+@import "Themes/index.scss";
+
+.root-component-container {
+    min-height: 700px;
+    @media (max-width: $medium-screen) {
+      min-height: 500px;
+    }
+  }
+  #wzrk-cancel {
+    background-color: #aaaaaa;
+  }
+  .async-hide {
+    opacity: 0 !important;
+  }
+  #otpless-floating-button {
+    display: none !important;
+  }
+  .mainMenuHeaderSkeleton {
+    @media (max-width: 991px) {
+      height: 100px;
+    }
+    height: 75px;
+  }
+  .productCardSkeleton {
+    height: 0px !important;
+  }
+  

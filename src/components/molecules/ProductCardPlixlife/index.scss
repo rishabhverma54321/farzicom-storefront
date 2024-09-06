@@ -1,0 +1,144 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.plixlife-button {
+  border-radius: 2px;
+  color: black !important;
+  background-color: unset;
+  background: radial-gradient(
+    44.03% 132.34% at 39.33% 26.22%,
+    #69ea72 0%,
+    #a9ef82 100%
+  );
+  span {
+    font-size: 12px;
+    text-transform: capitalize;
+    div:first-child {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      color: black;
+    }
+  }
+}
+
+.plixlife-button-notify {
+  border-radius: 2px;
+  color: black;
+  background-color: white !important;
+  border: 1px solid #000000 !important;
+  span {
+    font-size: 12px;
+    text-transform: capitalize;
+    div:first-child {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      color: black;
+    }
+  }
+
+  &:hover {
+    color: white !important;
+    background-color: rgb(2, 38, 42) !important;
+  }
+}
+.add-to-box-disabled{
+  pointer-events: none !important;
+  border-radius: 2px;
+  background:gray !important;
+  border: none !important;
+  span {
+    font-size: 12px;
+    text-transform: capitalize;
+    div:first-child {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      color: black;
+    }
+  }
+  position: relative;
+
+  &:hover {
+    color: black !important;
+    background-color: rgb(2, 38, 42) !important;
+  }
+}
+.remove-from-box{
+  border-radius: 2px;
+  color: white !important;
+  background-color: #02262a !important;
+  span {
+    font-size: 12px;
+    text-transform: capitalize;
+    div:first-child {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      color: black;
+    }
+  }
+  svg{
+    path{
+      fill:white !important;
+    }
+  }
+}
+
+.collection-variant-name {
+  font-size: 12px;
+  color: #808080;
+  @media (max-width: $small-screen) {
+    font-size: 10px;
+  }
+}
+.page-container{
+  .plixlife-button__mainText{
+    @media (max-width: $small-screen) {
+      white-space: nowrap;
+      font-size: 12px;
+    }
+  }
+  button[data-test="addProductToCartButton"]{
+    & >span{
+      @media (max-width: $small-screen) {
+        gap: 0.5rem;
+
+      }
+    }
+  }
+}
+
+.space_content{
+  & >div{
+    justify-content: space-between !important;
+    padding: 0px 16px;
+    & >div{
+      & >div{
+        @media (max-width: $small-screen) {
+          padding-top: 0 !important;
+        }
+      }
+    }
+    & >span{
+      @media (max-width: $small-screen) {
+        margin: 0 !important;
+      }
+    }
+  }
+}
+
+.faster-result-know-more{
+  display: flex;
+  align-items: center;
+>span{
+  margin-right: 0 !important;
+  margin-top: 0 !important;
+  font-size: 11px !important;
+  color: #808080;
+
+  @media(min-width:$medium-screen){
+    font-size: 14px !important;
+  }
+}
+}

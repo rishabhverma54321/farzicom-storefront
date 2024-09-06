@@ -1,0 +1,37 @@
+.containerSkeleton {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 48px;
+  row-gap: 10px;
+
+  @media (max-width: 720px) {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 10px;
+    row-gap: 10px;
+  }
+
+  @media (max-width: 540px) {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 10px;
+    row-gap: 10px;
+  }
+}
+.headerSkeleton {
+  width: 100%;
+  height: 200px;
+  animation: skeleton-loading 0.8s linear infinite alternate;
+
+  @keyframes skeleton-loading {
+    0% {
+      background-color: hsl(200, 20%, 85%);
+    }
+    100% {
+      background-color: hsl(200, 20%, 95%);
+    }
+  }
+}
+.single-line-loader{
+  display: inline-block;
+  animation: skeleton-loading 0.8s linear infinite alternate;
+  border-radius: 4px;
+}

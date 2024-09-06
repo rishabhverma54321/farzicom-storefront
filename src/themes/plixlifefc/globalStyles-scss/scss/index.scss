@@ -1,0 +1,320 @@
+@import url("~reset-css");
+
+@import "./font";
+@import "./variables.module";
+@import "./utils";
+@import "./components";
+
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&family=Rammetto+One&family=Archivo:wght@500;600;700;800&family=Archivo+Black&display=swap");
+
+html {
+  scroll-behavior: auto !important;
+}
+body {
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  color: $base-font-color;
+  overflow-x: hidden;
+  margin-right: calc(-1 * (100vw - 100%));
+
+  * {
+    box-sizing: border-box;
+  }
+
+  h1 {
+    font-size: $h1-font-size;
+    line-height: $h1-line-height;
+  }
+
+  h2 {
+    font-size: $h2-font-size;
+    line-height: $h2-font-size;
+  }
+
+  h3 {
+    font-size: $h3-font-size;
+    line-height: 1.7rem;
+  }
+
+  h4 {
+    font-size: $h4-font-size;
+  }
+
+  a {
+    text-decoration: none;
+    font-weight: normal;
+    color: inherit;
+  }
+
+  p {
+    line-height: 1.5rem;
+  }
+
+  strong {
+    font-weight: $bold-font-weight;
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  #root {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+
+    & > div:first-of-type {
+      flex: 1;
+    }
+  }
+
+  .container {
+    // width: $container-width;
+
+    max-width: 100vw;
+    // margin: 0 auto;
+    padding: 15px 7vw;
+
+    @media (max-width: $large-screen) {
+      width: 100%;
+      padding: 15px 40px;
+    }
+
+    @media (max-width: $medium-screen) {
+      width: 100%;
+      padding: 15px 20px;
+    }
+
+    @media (max-width: $small-screen) {
+      width: 100%;
+      padding: 15px 10px;
+    }
+  }
+
+  table {
+    width: 100%;
+    // margin: $spacer * 3 0;
+    font-size: $small-font-size;
+
+    th {
+      color: $gray-dark;
+      text-align: left;
+      padding: $spacer $spacer / 2;
+    }
+
+    tr {
+      color: $base-font-color;
+      border-bottom: 1px solid $gray-light;
+    }
+
+    td {
+      padding: $spacer $spacer / 2;
+      vertical-align: middle;
+
+      img {
+        vertical-align: middle;
+        margin-right: $spacer;
+      }
+    }
+  }
+
+  .checkbox {
+    position: relative;
+    display: inline;
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0.4rem;
+      top: 0.05rem;
+      width: 0.3rem;
+      height: 0.6rem;
+      border: solid $white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      z-index: 1;
+    }
+
+    input {
+      display: none;
+
+      &:checked ~ span {
+        &:before {
+          background-color: $blue;
+        }
+      }
+    }
+
+    span {
+      margin-left: $spacer * 2;
+
+      &:before {
+        background-color: $white;
+        border-radius: 0.2rem;
+        border: 1px solid $blue;
+        content: "";
+        display: block;
+        height: 1rem;
+        position: absolute;
+        top: 0;
+        width: 1rem;
+      }
+    }
+  }
+}
+
+.form-error {
+  color: $rose;
+}
+
+.headerNav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  min-height: 64px;
+}
+.top {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-name: fadeInDown;
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
+.containerSkeletonContainerFullWidth {
+  grid-template-columns: 1fr;
+}
+.containerSkeletonCardFullWidth {
+  &__image {
+    width: 100%;
+  }
+}
+.lazyload-wrapper {
+  width: inherit;
+  height: inherit;
+}
+
+.ReviewPageCard{
+  margin-top: 25px;
+  h2{
+    text-align: center;
+    @media (max-width: $medium-screen) {
+      font-size: 1.5rem;
+      line-height: 1.5rem;
+    }
+  }
+  .container{
+    img{
+      display: block;
+      margin: auto;
+    }
+  }
+  .review-helpful-container__button{
+    display: none;
+  }
+  .ReviwPageLoader{
+    max-width: 400px;
+    margin-left: 20px;
+  }
+  .GoToBtn{
+    width: 250px;
+    margin: 20px auto;
+    .shopAllButton{
+      text-align: center;
+    }
+  }
+}
+.MuiAlert-standardSuccess{
+  color: rgb(30, 70, 32) !important;
+  background-color: rgb(237, 247, 237) !important;
+  border: 0.5px solid #0000005e !important;
+  font-weight: 600 !important;
+  box-shadow: 3px 3px 6px #8888886e !important;
+}
+.MuiSnackbar-anchorOriginBottomCenter{
+  bottom: 40px !important
+}
+.waitingScreenLoader {
+  position: relative;
+  margin: 8px;
+  border: 10px solid rgba(93, 211, 124, 0.2);
+  border-radius: 50%;
+  border-top: 10px solid #5DD37C;
+  width: 140px;
+  height: 140px;
+  animation: spinner 1.5s linear infinite;
+}
+
+@keyframes spinner {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.whatsappLoginButtonWrapper-loginpage{
+
+}
+.whatsappLoginButtonWrapper{
+  width: 50% !important;
+min-width: 275px !important;
+max-width: 300px !important;
+  @media (max-width: $large-screen) {
+    width: 240px !important;
+  }
+}
+.or-Divider{
+  width: 100%;
+  @media (min-width: $small-screen) {
+    width: 50%;
+    min-width: 275px;
+  }
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0.5rem 0rem;
+  strong{
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 4px;
+    color: #8a8888;
+  }
+  span{
+    margin: 0px 8px;
+    flex: 1;
+    height: 1px;
+    background-color: #c7c7c7;
+  }
+}
+
+.whatsappLoginButtonWrapper-loginpage{
+  margin: auto;
+}

@@ -1,0 +1,80 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.subNavbarContainer {
+  min-height: 80px;
+
+  a {
+    span {
+      // background-color: white !important;
+    }
+  }
+}
+
+.subNavbarTitle {
+  font-weight: 600;
+  color: #282c3f;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.subNavbarImage {
+  min-height: 60px;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+}
+
+.subNavbarImageContainer {
+  min-height: 60px;
+  min-width: 60px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 65px;
+  width: 65px;
+}
+
+.subNavbarImageTextContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // background-color: white;
+}
+
+.imageSectionWrapperDesktop{
+  >a {
+    display: block;
+    width: 100%;
+    position: relative;
+    height: 33vw;
+  }
+}
+.imageSectionWrapperMobile{
+  >a {
+    display: block;
+    width: 100%;
+    position: relative;
+    height: 185vw;
+  }
+}
+.brandLogoImageWrapper{
+  position: relative;
+  height: 150px;
+  width: 150px;
+  span{
+    height: 150px !important;
+    width: 150px !important;
+  }
+}
+.plantbasedSectionImage{
+  width: 100%;
+  position: relative;
+  height: 40vw;
+  max-height: 500px;
+  @media (max-width:$medium-screen) {
+    height: 50vw;
+  }
+  @media (max-width:$small-screen) {
+    height: 75vw;
+  }
+}

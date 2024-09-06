@@ -1,0 +1,60 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.carousel {
+  &__control {
+    // padding: $carousel-control-padding;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &--right {
+      margin-right: -1.8rem;
+
+      @media (max-width: $container-width) {
+        margin-right: 0;
+      }
+
+      @media (max-width: $medium-screen) {
+        display: none;
+      }
+
+      svg {
+        // transform: rotate(180deg);
+        margin-top: 0.5rem;
+      }
+    }
+
+    &--left {
+      margin-left: -1.8rem;
+
+      @media (max-width: $container-width) {
+        margin-left: 0;
+      }
+
+      @media (max-width: $medium-screen) {
+        display: none;
+      }
+      svg {
+        margin-top: 0.4rem;
+      }
+    }
+  }
+
+  .slider-slide {
+    text-align: center;
+  }
+}
+
+.slider-control-centerright {
+  right: -25px !important;
+  @media (max-width: $medium-screen) {
+    right: -0 !important;
+  }
+}
+.slider-control-centerleft {
+  left: -25px !important;
+  @media (max-width: $medium-screen) {
+    left: 0 !important;
+  }
+}

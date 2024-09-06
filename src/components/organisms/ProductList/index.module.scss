@@ -1,0 +1,10 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.productListBeforeCarousel {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  @media (min-width: $medium-screen) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
