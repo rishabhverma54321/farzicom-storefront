@@ -1,0 +1,55 @@
+.brandLogosSection {
+  background-color: #f6f6f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem 0rem 1rem;
+  gap: 2rem;
+  position: relative;
+  @media (max-width: $small-screen) {
+    padding: 2rem 0rem 0.5rem;
+    gap: 0.5rem;
+  }
+  &__first {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+
+    @media (max-width: $small-screen) {
+      gap: 8px;
+    }
+  }
+  &__second {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: scroll;
+    width: 100%;
+    gap: 84px;
+    justify-content: flex-start;
+    @media (max-width: $small-screen) {
+      overflow-x: scroll;
+      width: 100%;
+      gap: 48px;
+      justify-content: flex-start;
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none;
+    }
+
+    img {
+      width: 10vw;
+      @media (max-width: $large-screen) {
+        width: 14vw;
+      }
+      @media (max-width: $small-screen) {
+        width: 40vw;
+      }
+    }
+  }
+  &__second::-webkit-scrollbar {
+    display: none;
+  }
+}

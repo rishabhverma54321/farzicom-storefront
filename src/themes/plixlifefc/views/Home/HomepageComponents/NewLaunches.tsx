@@ -4,6 +4,7 @@ import {
   getMetadataValue,
   parseJson,
   triggerHomepageBannerEvent,
+  useImageURLReplaceWithCDN,
 } from "@utils/misc";
 import { TypedSectionWithCustomMetadataProducts } from "../queries";
 import Card from "@components/molecules/Card/Card";

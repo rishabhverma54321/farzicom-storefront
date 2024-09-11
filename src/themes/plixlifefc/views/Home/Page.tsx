@@ -2,19 +2,22 @@ import React, { useEffect, useRef, useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 // FIXME:NextJs Make it a CSS module
 // import "../Home/scss/index.scss";
+import Marquee from "react-fast-marquee";
 // import {
 //   ProductHeader,
 //   ButtonPostion,
 // } from "@components/molecules/ProductHeader";
+import { cardtag } from "@components/molecules/ProductCardPlixlife";
+import { Card } from "@components/molecules/Card";
 import { CachedImage } from "@components/molecules/CachedImage";
 import { Gap } from "@components/atoms/Gap";
 // import { MyRating } from "@components/atoms/MyRating";
-// import CardsContainer from "@components/organisms/CardsContainer";
+import CardsContainer from "@components/organisms/CardsContainer";
 import { META_DEFAULTS } from "Themes/config";
 import LazyLoad from "react-lazyload";
 import {
   getMetadataValue,
-  imageURLReplaceWithCDN,
+  useImageURLReplaceWithCDN,
   parseJson,
   customEventTrigger,
   isMember,
@@ -29,9 +32,9 @@ import clevertapEvents from "Themes/lib/clevertapEvents.js";
 import makeClevertap from "Themes/lib/makeClevertap.js";
 import { getDBIdFromGraphqlId } from "@utils/core";
 import Image from "next/image";
-// import HomeBanner from "@components/molecules/HomeBanner";
+import HomeBanner from "@components/molecules/HomeBanner";
 import dynamic from "next/dynamic";
-import { ShopMetaContext } from "@src/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app";
 import { useRouter } from "next/router";
 import Script from "next/script";
 // import CollectionList from "../../../../@next/components/molecules/CollectionList/CollectionList";
@@ -47,7 +50,7 @@ import styles from "./scss/index.module.scss";
 // import Carousel from "@temp/components/ProductCarousel";
 // import { OverlayContext, OverlayTheme, OverlayType } from "@temp/components";
 import Link from "next/link";
-// import FireWorkReelSection from "../../../../@next/components/organisms/FireWorkReelSection/FireWorkReelSection";
+import FireWorkReelSection from "../../../../@next/components/organisms/FireWorkReelSection/FireWorkReelSection";
 // import MemoQuoteIcon from "@components/atoms/SvgIcons/QuoteIcon";
 // import { BestSellersNew } from "./HomepageComponents/BestSeller";
 import { ContainerSkeleton } from "@components/molecules/ContainerSkeleton";
@@ -60,96 +63,200 @@ const BestSellersNew = dynamic(
   }
 );
 
-// const IngredientSetion = dynamic(
-//   () => import("./HomepageComponents/IngredientSection"),
-//   {
-//     ssr: false,
-//   }
-// );
+const IngredientSetion = dynamic(
+  () => import("./HomepageComponents/IngredientSection"),
+  {
+    ssr: false,
+    // loading: () => (
+    //   <div className="container textstrip-loader">
+    //     <ContainerSkeleton
+    //       render={{ title: true, description: true, image: true }}
+    //       cardCount={2}
+    //     />
+    //   </div>
+    // ),
+  }
+);
 
-// const BrandLogos = dynamic(() => import("./HomepageComponents/BrandLogos"), {
-//   ssr: true,
-// });
+const BrandLogos = dynamic(() => import("./HomepageComponents/BrandLogos"), {
+  ssr: true,
+});
 
-// const TextStripNew = dynamic(() => import("./HomepageComponents/TextStrip"), {
-//   ssr: false,
-// });
+const TextStripNew = dynamic(() => import("./HomepageComponents/TextStrip"), {
+  ssr: false,
+  // loading: () => (
+  //   <div className="container textstrip-loader">
+  //     <ContainerSkeleton
+  //       render={{ title: true, description: true }}
+  //       cardCount={2}
+  //     />
+  //   </div>
+  // ),
+});
 
-// const PledgeATree = dynamic(() => import("./HomepageComponents/PledgeATree"), {
-//   ssr: false,
-// });
+const PledgeATree = dynamic(() => import("./HomepageComponents/PledgeATree"), {
+  ssr: false,
+  // loading: () => (
+  //   <div className="container textstrip-loader">
+  //     <ContainerSkeleton
+  //       render={{ title: true, description: true }}
+  //       cardCount={2}
+  //     />
+  //   </div>
+  // ),
+});
 
-// const Collection1 = dynamic(() => import("./HomepageComponents/Collection1"), {
-//   ssr: false,
-// });
+const Collection1 = dynamic(() => import("./HomepageComponents/Collection1"), {
+  ssr: false,
+  // loading: () => (
+  //   <div className="container textstrip-loader">
+  //     <ContainerSkeleton
+  //       render={{ title: true, description: true }}
+  //       cardCount={2}
+  //     />
+  //   </div>
+  // ),
+});
 
-// const MoneyBack = dynamic(() => import("./HomepageComponents/MoneyBack"), {
-//   ssr: false,
-// });
+const MoneyBack = dynamic(() => import("./HomepageComponents/MoneyBack"), {
+  ssr: false,
+  // loading: () => (
+  //   <div className="container textstrip-loader">
+  //     <ContainerSkeleton
+  //       render={{ title: true, description: true }}
+  //       cardCount={2}
+  //     />
+  //   </div>
+  // ),
+});
 
-// const NutritionistNew = dynamic(
-//   () => import("./HomepageComponents/NutritionistNew"),
-//   {
-//     ssr: false,
-//   }
-// );
+const NutritionistNew = dynamic(
+  () => import("./HomepageComponents/NutritionistNew"),
+  {
+    ssr: false,
+    // loading: () => (
+    //   <div className="container textstrip-loader">
+    //     <ContainerSkeleton
+    //       render={{ title: true, description: true }}
+    //       cardCount={2}
+    //     />
+    //   </div>
+    // ),
+  }
+);
 
-// const Collection3 = dynamic(() => import("./HomepageComponents/Collection3"), {
-//   ssr: false,
-// });
+const Collection3 = dynamic(() => import("./HomepageComponents/Collection3"), {
+  ssr: false,
+  // loading: () => (
+  //   <div className="container textstrip-loader">
+  //     <ContainerSkeleton
+  //       render={{ title: true, description: true }}
+  //       cardCount={2}
+  //     />
+  //   </div>
+  // ),
+});
 
-// const Collection2New = dynamic(
-//   () => import("./HomepageComponents/Collection2"),
-//   {
-//     ssr: false,
-//   }
-// );
+const Collection2New = dynamic(
+  () => import("./HomepageComponents/Collection2"),
+  {
+    ssr: false,
+    // loading: () => (
+    //   <div className="container textstrip-loader">
+    //     <ContainerSkeleton
+    //       render={{ title: true, description: true }}
+    //       cardCount={2}
+    //     />
+    //   </div>
+    // ),
+  }
+);
 
-// const Collection4 = dynamic(() => import("./HomepageComponents/Collection4"), {
-//   ssr: false,
-// });
+const Collection4 = dynamic(() => import("./HomepageComponents/Collection4"), {
+  ssr: false,
+  // loading: () => (
+  //   <div className="container textstrip-loader">
+  //     <ContainerSkeleton
+  //       render={{ title: true, description: true }}
+  //       cardCount={2}
+  //     />
+  //   </div>
+  // ),
+});
 
-// const CleanLabel = dynamic(() => import("./HomepageComponents/CleanLabel"), {
-//   ssr: false,
-// });
+const CleanLabel = dynamic(() => import("./HomepageComponents/CleanLabel"), {
+  ssr: false,
+  // loading: () => (
+  //   <div className="container textstrip-loader">
+  //     <ContainerSkeleton
+  //       render={{ title: true, description: true }}
+  //       cardCount={2}
+  //     />
+  //   </div>
+  // ),
+});
 
-// const Testimonials = dynamic(
-//   () => import("./HomepageComponents/Testimonials"),
-//   {
-//     ssr: false,
-//   }
-// );
+const Testimonials = dynamic(
+  () => import("./HomepageComponents/Testimonials"),
+  {
+    ssr: false,
+    // loading: () => (
+    //   <div className="container textstrip-loader">
+    //     <ContainerSkeleton
+    //       render={{ title: true, description: true }}
+    //       cardCount={2}
+    //     />
+    //   </div>
+    // ),
+  }
+);
 
-// const NewLaunches = dynamic(() => import("./HomepageComponents/NewLaunches"), {
-//   ssr: false,
-// });
+const NewLaunches = dynamic(() => import("./HomepageComponents/NewLaunches"), {
+  ssr: false,
+  // loading: () => (
+  //   <div className="container textstrip-loader">
+  //     <ContainerSkeleton
+  //       render={{ title: true, description: true }}
+  //       cardCount={2}
+  //     />
+  //   </div>
+  // ),
+});
 
-// const PlixInNews = dynamic(() => import("./HomepageComponents/PlixInNews"), {
-//   ssr: false,
-// });
+const PlixInNews = dynamic(() => import("./HomepageComponents/PlixInNews"), {
+  ssr: false,
+  // loading: () => (
+  //   <div className="container textstrip-loader">
+  //     <ContainerSkeleton
+  //       render={{ title: true, description: true }}
+  //       cardCount={2}
+  //     />
+  //   </div>
+  // ),
+});
 
-// const MemoGreenArrowRightPlixTwo = dynamic(() =>
-//   import("@components/atoms/SvgIcons/GreenArrowRightPlixTwo")
-// );
-// const MemoLeftArrowPlix = dynamic(() =>
-//   import("@components/atoms/SvgIcons/LeftArrowPlix")
-// );
-// const MemoRightArrowPlix = dynamic(() =>
-//   import("@components/atoms/SvgIcons/RightArrowPlix")
-// );
-// const MemoHalfCirclesPlix = dynamic(() =>
-//   import("@components/atoms/SvgIcons/HalfCirclesPlix")
-// );
-// const MemoSideCirlcesPlix = dynamic(() =>
-//   import("@components/atoms/SvgIcons/SideCirlcesPlix")
-// );
-// const MemoStarRingsPlix = dynamic(() =>
-//   import("@components/atoms/SvgIcons/StarRingsPlix")
-// );
-// const Star = dynamic(() => import("@components/atoms/SvgIcons/Star"));
-// const MemoizedProductList = dynamic(() =>
-//   import("@components/organisms/ProductList/ProductList")
-// );
+const MemoGreenArrowRightPlixTwo = dynamic(() =>
+  import("@components/atoms/SvgIcons/GreenArrowRightPlixTwo")
+);
+const MemoLeftArrowPlix = dynamic(() =>
+  import("@components/atoms/SvgIcons/LeftArrowPlix")
+);
+const MemoRightArrowPlix = dynamic(() =>
+  import("@components/atoms/SvgIcons/RightArrowPlix")
+);
+const MemoHalfCirclesPlix = dynamic(() =>
+  import("@components/atoms/SvgIcons/HalfCirclesPlix")
+);
+const MemoSideCirlcesPlix = dynamic(() =>
+  import("@components/atoms/SvgIcons/SideCirlcesPlix")
+);
+const MemoStarRingsPlix = dynamic(() =>
+  import("@components/atoms/SvgIcons/StarRingsPlix")
+);
+const Star = dynamic(() => import("@components/atoms/SvgIcons/Star"));
+const MemoizedProductList = dynamic(() =>
+  import("@components/organisms/ProductList/ProductList")
+);
 
 // @ts-check
 interface IPageProps {
@@ -300,156 +407,138 @@ const Page: React.FC<IPageProps> = props => {
     return true;
   }
 
-  // const SubNavbarNew = () => {
-  //   const [showCarousel, setShowCarousel] = useState(false);
-  //   useEffect(() => {
-  //     setShowCarousel(true);
-  //   }, []);
-  //   const subNavbarSection =
-  //     props.data?.subnavbarNew?.edges.length &&
-  //     props.data?.subnavbarNew?.edges[0];
-  //   const subNavbarData =
-  //     subNavbarSection &&
-  //     getMetadataValue(subNavbarSection.node.metadata, "navItems") &&
-  //     parseJson(getMetadataValue(subNavbarSection.node.metadata, "navItems"));
-  //   const subNavbarItems =
-  //     Array.isArray(subNavbarData) &&
-  //     subNavbarData?.map(item => {
-  //       return {
-  //         ...item,
-  //         navigation: item?.url,
-  //         imageDimensions: {
-  //           width: "55px",
-  //           height: "55px",
-  //         },
-  //       };
-  //     });
+  const SubNavbarNew = () => {
+    const [showCarousel, setShowCarousel] = useState(false);
+    useEffect(() => {
+      setShowCarousel(true);
+    }, []);
+    const subNavbarSection =
+      props.data?.subnavbarNew?.edges.length &&
+      props.data?.subnavbarNew?.edges[0];
+    const subNavbarData =
+      subNavbarSection &&
+      getMetadataValue(subNavbarSection.node.metadata, "navItems") &&
+      parseJson(getMetadataValue(subNavbarSection.node.metadata, "navItems"));
+    const subNavbarItems =
+      Array.isArray(subNavbarData) &&
+      subNavbarData?.map(item => {
+        return {
+          ...item,
+          navigation: item?.url,
+          imageDimensions: {
+            width: "55px",
+            height: "55px",
+          },
+        };
+      });
 
-  //   if (subNavbarItems)
-  //     return (
-  //       <div className="container">
-  //         <CardsContainer
-  //           data={subNavbarItems}
-  //           cardClass="subNavbarCard"
-  //           containerClass="subNavbarContainer"
-  //           isCarousel={
-  //             showCarousel
-  //               ? {
-  //                   slidesOnDesktop: 4,
-  //                   slidesOnTab: 4,
-  //                   slidesOnMobile: 4,
-  //                 }
-  //               : false
-  //           }
-  //           mobileCarouselProps={{
-  //             renderCenterLeftControls: () => null,
-  //             renderCenterRightControls: () => null,
-  //           }}
-  //           carouselProps={{
-  //             renderBottomCenterControls: () => null,
-  //           }}
-  //         >
-  //           {showCarousel
-  //             ? subNavbarItems?.map((item, index) => {
-  //                 const imageUrlImgixScr = imageURLReplaceWithCDN(
-  //                   item?.image
-  //                 );
+    if (subNavbarItems)
+      return (
+        <div className="container">
+          <CardsContainer
+            data={subNavbarItems}
+            cardClass="subNavbarCard"
+            containerClass="subNavbarContainer"
+            isCarousel={
+              showCarousel
+                ? {
+                    slidesOnDesktop: 4,
+                    slidesOnTab: 4,
+                    slidesOnMobile: 4,
+                  }
+                : false
+            }
+            mobileCarouselProps={{
+              renderCenterLeftControls: () => null,
+              renderCenterRightControls: () => null,
+            }}
+            carouselProps={{
+              renderBottomCenterControls: () => null,
+            }}
+          >
+            {showCarousel
+              ? subNavbarItems?.map((item, index) => {
+                  const imageUrlImgixScr = useImageURLReplaceWithCDN(
+                    item?.image
+                  );
 
-  //                 return (
-  //                   <div
-  //                     className={styles.subNavbarContainer}
-  //                     onClick={() => {
-  //                       customEventTrigger("header_icon_click", user, {
-  //                         cta_name: item?.title,
-  //                       });
-  //                     }}
-  //                   >
-  //                     <MyCustomLink href={item?.navigation}>
-  //                       <div className={styles.subNavbarImageTextContainer}>
-  //                         {imageUrlImgixScr && (
-  //                           <div className={styles.subNavbarImageContainer}>
-  //                             <Image
-  //                               src={imageUrlImgixScr}
-  //                               width="65px"
-  //                               height="65px"
-  //                               className={styles.subNavbarImage}
-  //                               alt={item?.alt}
-  //                             />
-  //                           </div>
-  //                         )}
-  //                         {item?.title && (
-  //                           <div className={styles.subNavbarTitle}>
-  //                             {item?.title}
-  //                           </div>
-  //                         )}
-  //                       </div>
-  //                     </MyCustomLink>
-  //                   </div>
-  //                 );
-  //               })
-  //             : subNavbarItems?.slice(0, 4)?.map(item => {
-  //                 const imageUrlImgixScr = imageURLReplaceWithCDN(
-  //                   item?.image
-  //                 );
+                  return (
+                    <div
+                      className={styles.subNavbarContainer}
+                      onClick={() => {
+                        customEventTrigger("header_icon_click", user, {
+                          cta_name: item?.title,
+                        });
+                      }}
+                    >
+                      <MyCustomLink href={item?.navigation}>
+                        <div className={styles.subNavbarImageTextContainer}>
+                          {imageUrlImgixScr && (
+                            <div className={styles.subNavbarImageContainer}>
+                              <Image
+                                src={imageUrlImgixScr}
+                                width={65}
+                                height={65}
+                                className={styles.subNavbarImage}
+                                alt={item?.alt}
+                              />
+                            </div>
+                          )}
+                          {item?.title && (
+                            <div className={styles.subNavbarTitle}>
+                              {item?.title}
+                            </div>
+                          )}
+                        </div>
+                      </MyCustomLink>
+                    </div>
+                  );
+                })
+              : subNavbarItems?.slice(0, 4)?.map(item => {
+                  const imageUrlImgixScr = useImageURLReplaceWithCDN(
+                    item?.image
+                  );
 
-  //                 return (
-  //                   <div
-  //                     className={styles.subNavbarContainer}
-  //                     onClick={() => {
-  //                       customEventTrigger("header_icon_click", user, {
-  //                         cta_name: item?.title,
-  //                       });
-  //                     }}
-  //                   >
-  //                     <MyCustomLink href={item?.navigation}>
-  //                       <div className={styles.subNavbarImageTextContainer}>
-  //                         {imageUrlImgixScr && (
-  //                           <div className={styles.subNavbarImageContainer}>
-  //                             <Image
-  //                               src={imageUrlImgixScr}
-  //                               width="65px"
-  //                               height="65px"
-  //                               className={styles.subNavbarImage}
-  //                               // priority
-  //                               alt={item?.imgalt}
-  //                             />
-  //                           </div>
-  //                         )}
-  //                         {item?.title && (
-  //                           <div className={styles.subNavbarTitle}>
-  //                             {" "}
-  //                             {item?.title}{" "}
-  //                           </div>
-  //                         )}
-  //                       </div>
-  //                     </MyCustomLink>
-  //                   </div>
-  //                 );
-  //               })}
-  //         </CardsContainer>
-  //         {/* <CardsContainer
-  //           data={subNavbarData}
-  //           cardClass="subNavbarCard"
-  //           containerClass="subNavbarContainer"
-  //           isCarousel={{
-  //             slidesOnDesktop: 5,
-  //             slidesOnTab: 5,
-  //             slidesOnMobile: 5,
-  //           }}
-  //           carouselProps={{
-  //             renderBottomCenterControls: () => null,
-  //             renderCenterRightControls: () => null,
-  //           }}
-  //           mobileCarouselProps={{
-  //             renderCenterLeftControls: () => null,
-  //             renderCenterRightControls: () => null,
-  //           }}
-  //         /> */}
-  //       </div>
-  //     );
+                  return (
+                    <div
+                      className={styles.subNavbarContainer}
+                      onClick={() => {
+                        customEventTrigger("header_icon_click", user, {
+                          cta_name: item?.title,
+                        });
+                      }}
+                    >
+                      <MyCustomLink href={item?.navigation}>
+                        <div className={styles.subNavbarImageTextContainer}>
+                          {imageUrlImgixScr && (
+                            <div className={styles.subNavbarImageContainer}>
+                              <Image
+                                src={imageUrlImgixScr}
+                                width={65}
+                                height={65}
+                                className={styles.subNavbarImage}
+                                // priority
+                                alt={item?.imgalt}
+                              />
+                            </div>
+                          )}
+                          {item?.title && (
+                            <div className={styles.subNavbarTitle}>
+                              {" "}
+                              {item?.title}{" "}
+                            </div>
+                          )}
+                        </div>
+                      </MyCustomLink>
+                    </div>
+                  );
+                })}
+          </CardsContainer>
+        </div>
+      );
 
-  //   return <></>;
-  // };
+    return <></>;
+  };
 
   // const BestSellerSectionComponent: React.FC<any> = React.memo(
   //   ({
@@ -609,7 +698,7 @@ const Page: React.FC<IPageProps> = props => {
   //                 <Marquee speed={40}>
   //                   {brandLogosSection?.node?.images?.edges.map(
   //                     (edge, index) => {
-  //                       const imageUrlImgixScr = imageURLReplaceWithCDN(
+  //                       const imageUrlImgixScr = useImageURLReplaceWithCDN(
   //                         edge?.node.url
   //                       );
 
@@ -635,7 +724,7 @@ const Page: React.FC<IPageProps> = props => {
   //                 <>
   //                   {brandLogosSection?.node?.images?.edges.map(
   //                     (edge, index) => {
-  //                       const imageUrlImgixScr = imageURLReplaceWithCDN(
+  //                       const imageUrlImgixScr = useImageURLReplaceWithCDN(
   //                         edge?.node.url
   //                       );
 
@@ -923,7 +1012,7 @@ const Page: React.FC<IPageProps> = props => {
   //     getMetadataValue(moneyBackSection.node.metadata, "money_back") &&
   //     parseJson(getMetadataValue(moneyBackSection.node.metadata, "money_back"));
 
-  //   const imageUrlImgixScr = imageURLReplaceWithCDN(
+  //   const imageUrlImgixScr = useImageURLReplaceWithCDN(
   //     moneyBackSectionData?.image
   //   );
 
@@ -2053,7 +2142,7 @@ const Page: React.FC<IPageProps> = props => {
   //     getMetadataValue(pleadgeTree.node.metadata, "pledgeTreeData") &&
   //     parseJson(getMetadataValue(pleadgeTree.node.metadata, "pledgeTreeData"));
 
-  //   const backgroundImageUrlWithImgix = imageURLReplaceWithCDN(
+  //   const backgroundImageUrlWithImgix = useImageURLReplaceWithCDN(
   //     "https://plixlifefc-media.farziengineer.co/hosted/pledge_background_image-bc9fe38c31ef.png"
   //   );
   //   return (
@@ -2311,12 +2400,11 @@ const Page: React.FC<IPageProps> = props => {
   parseJson(getMetadataValue(quizSectionMetaData,"quizRhWidget"))
 
   const isLoggedIn = user?.id && user?.phone;
-
   return (
     <div className="homepage_continer">
-      {/* {fireworkConfig?.isEnabled && (
+      {fireworkConfig?.isEnabled && (
         <Script id="fw-script" src="https://asset.fwcdn3.com/js/fwn-async.js" />
-      )} */}
+      )}
 
       {/* <script className="structured-data-list" type="application/ld+json"
         {structuredData(shop)}
@@ -2324,7 +2412,7 @@ const Page: React.FC<IPageProps> = props => {
 
       {/* thankyou popup  */}
 
-      {/* {showthankyouSection && (
+      {showthankyouSection && (
         <div
           className="thankyou_popup_wrapper"
           onClick={e => closeThankYouPopup(e)}
@@ -2344,13 +2432,13 @@ const Page: React.FC<IPageProps> = props => {
             </Link>
           </div>
         </div>
-      )} */}
+      )}
 
-      {/* <div className="subNavbarContainerWrapper">
+      <div className="subNavbarContainerWrapper">
         <SubNavbarNew />
-      </div> */}
+      </div>
       {/* <Image width={300} height={300} priority src="https://crista.imgix.net/hosted/CRISTA_website-25_1-07ea32f43940.png?auto=format&fit=max&w=768" /> */}
-      {/* {banners.edges.length ? (
+      {banners.edges.length ? (
         <div className="homeBanner">
           <HomeBanner
             banners={banners?.edges}
@@ -2365,16 +2453,16 @@ const Page: React.FC<IPageProps> = props => {
         </div>
       ) : (
         <> </>
-      )} */}
+      )}
 
-    {/* <BrandLogos sectionData={props.data?.nutritionBrand} /> */}
+    <BrandLogos sectionData={props.data?.nutritionBrand} />
 
-    {/* {quizSectionData?.node?.isPublished && quizRhWidget?.enable ?
+    {quizSectionData?.node?.isPublished && quizRhWidget?.enable ?
       <div className="rh-widget rh-inline homepage_quizbanner_widget" data-url="https://admin.revenuehunt.com/public/quiz/JRHkkV" ></div>:
       <></>
-    } */}
+    }
 
-    {/* {quizSectionData?.node?.isPublished && quizSectionBanner?.enable ? (
+    {quizSectionData?.node?.isPublished && quizSectionBanner?.enable ? (
         <div className="new_container homepage_quizbanner">
           <MyCustomLink href={!!isLoggedIn ? '/page/quiz':'/page/login/?redirect_to=/page/quiz'}>
             {quizSectionBanner?.img_desk ?
@@ -2405,13 +2493,13 @@ const Page: React.FC<IPageProps> = props => {
         </div>
       ) : (
         <></>
-      )} */}
+      )}
       <BestSellersNew
         sectionData={props.data?.bestSellersNew}
         firstCollectionData={props?.data?.bestSellerFirstCollectionProducts}
       />
       {/* <Gap size="1rem" largeScreenSize="1vw"  /> */}
-      {/* <LazyLoad height={450} offset={50}>
+      <LazyLoad height={450} offset={50}>
         {fireworkConfig?.isEnabled && fireworkConfig?.homepage?.enabled && (
           <div className="container new_container">
             <FireWorkReelSection
@@ -2423,61 +2511,61 @@ const Page: React.FC<IPageProps> = props => {
             />
           </div>
         )}
-      </LazyLoad> */}
-      {/* <LazyLoad height={620} offset={100}>
+      </LazyLoad>
+      <LazyLoad height={620} offset={100}>
         <IngredientSetion sectionData={props.data?.takeCare} />
-      </LazyLoad> */}
-      {/* <LazyLoad height={55}>
+      </LazyLoad>
+      <LazyLoad height={55}>
         <TextStripNew sectionData={props.data?.textStripNew} />
-      </LazyLoad> */}
+      </LazyLoad>
 
-      {/* <LazyLoad height={100} offset={400}>
+      <LazyLoad height={100} offset={400}>
         <NewLaunches bannerPosition={banners?.edges?.length + 1} />
-      </LazyLoad> */}
+      </LazyLoad>
       <Gap size="1rem" largeScreenSize="2vw" />
 
-      {/* <LazyLoad height={360} offset={200}>
+      <LazyLoad height={360} offset={200}>
         <PledgeATree sectionData={props.data?.pledgeTree} />
-      </LazyLoad> */}
+      </LazyLoad>
 
       <Gap size="1rem" largeScreenSize="2vw" />
 
-      {/* <LazyLoad height={2020} offset={200}>
+      <LazyLoad height={2020} offset={200}>
         <Collection1
           sectionData={props.data?.collection1New}
           bannerPosition={banners?.edges?.length + 2}
         />
         <MoneyBack sectionData={props.data?.moneyBackGuarantee} />
-      </LazyLoad> */}
+      </LazyLoad>
 
-      {/* <LazyLoad height={700} offset={200}>
+      <LazyLoad height={700} offset={200}>
         <NutritionistNew sectionData={props.data?.nutritionistNew} />
-      </LazyLoad> */}
+      </LazyLoad>
 
-      {/* <LazyLoad height={2020} offset={200}>
+      <LazyLoad height={2020} offset={200}>
         <Collection3 bannerPosition={banners?.edges?.length + 3} />
-      </LazyLoad> */}
+      </LazyLoad>
 
-      {/* <LazyLoad height={1720} offset={200}>
+      <LazyLoad height={1720} offset={200}>
         <Collection2New bannerPosition={banners?.edges?.length + 4} />
-      </LazyLoad> */}
+      </LazyLoad>
 
-      {/* <LazyLoad height={1720} offset={200}>
+      <LazyLoad height={1720} offset={200}>
         <Collection4 bannerPosition={banners?.edges?.length + 5} />
-      </LazyLoad> */}
+      </LazyLoad>
 
-      {/* <LazyLoad height={275} offset={200}>
+      <LazyLoad height={275} offset={200}>
         <CleanLabel sectionData={props.data?.cleanLabel} />
-      </LazyLoad> */}
+      </LazyLoad>
 
-      {/* <LazyLoad height={850} offset={200}>
+      <LazyLoad height={850} offset={200}>
         <Testimonials />
-      </LazyLoad> */}
-      {/* <div className="brandLogosSection-container">
+      </LazyLoad>
+      <div className="brandLogosSection-container">
         <LazyLoad height={430} offset={200}>
           <PlixInNews sectionData={props.data?.brandLogosNew} />
         </LazyLoad>
-      </div> */}
+      </div>
 
       {/* <HaveFun /> */}
 

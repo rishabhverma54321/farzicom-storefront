@@ -1,0 +1,86 @@
+//cardsContainer
+
+.cardContainer {
+  .card {
+    &__image {
+      a {
+        img {
+        }
+      }
+    }
+
+    &__title {
+      a {
+        p {
+        }
+      }
+    }
+    &__description {
+      p {
+      }
+    }
+
+    &__button {
+      a {
+        &__svgLeft {
+        }
+        button {
+        }
+        &__svgRight {
+        }
+      }
+    }
+  }
+}
+
+// ProductHeader
+.Header {
+  &__left {
+    span {
+    }
+    h3 {
+    }
+  }
+
+  &__right {
+    &__filter {
+      &__child {
+      }
+    }
+    &__button {
+    }
+  }
+}
+
+// card
+
+.card {
+  &__image {
+    a {
+      img {
+      }
+    }
+  }
+
+  &__title {
+    a {
+      p {
+      }
+    }
+  }
+  &__description {
+    p {
+    }
+  }
+
+  &__button {
+    a {
+      &__svgLeft {
+      }
+      button {
+      }
+      &__svgRight {
+      }
+    }
+  }
+}

@@ -1,0 +1,161 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.productList {
+  @media (min-width: $large-screen) {
+    padding: 15px 8vw !important;
+  }
+}
+
+.termsCondition {
+  background-color: transparent !important;
+  padding-top: 15px !important;
+  padding-bottom: 2rem !important;
+  h1 {
+    font-family: "cocosharp_xlextrabold";
+    color: #06543d;
+    font-style: italic;
+    font-size: 56px !important;
+
+    @media (max-width: $medium-screen) {
+      font-size: 32px !important;
+      line-height: 38px !important;
+      margin-left: 0.4rem !important;
+    }
+  }
+
+  li {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  ul {
+    margin-bottom: 1rem;
+
+    @media (max-width: $medium-screen) {
+      margin-bottom: 0.2rem;
+      margin-top: 6px !important;
+    }
+  }
+}
+
+.bxgy {
+  &_sticky {
+    background-color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 2;
+    display: flex;
+    padding: 1rem 0.5rem;
+    justify-content: space-around;
+    align-items: center;
+
+    @media(min-width: $medium-screen){
+        justify-content: center;
+        gap: 6rem;
+        padding: 1.2rem;
+    }
+
+    &_left {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.3rem;
+
+      &_box{
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+
+      svg {
+        height: 23px;
+        width: 23px;
+        margin-right: 0.2rem;
+
+        circle {
+          fill: #5dd37c;
+        }
+      }
+
+      h3{
+        font-weight: 700;
+        font-size: 17px;
+        line-height: 27.2px;
+      }
+
+      @media(min-width: $medium-screen){
+        svg{
+          height: 29px;
+          width: 29px;
+        }
+        h3{
+          font-size: 25px;
+          line-height: 34px;
+          margin-left: 0.2rem;
+        }
+      }
+    }
+
+    &_price{
+        font-weight: 700;
+        font-size: 11px;
+        line-height: 17.6px;
+
+        @media(min-width: $medium-screen){
+            font-size: 12px;
+            line-height: 19.2px;
+        }
+
+    }
+    &_priceUndiscounted{
+        text-decoration: line-through;
+    }
+    &_priceDiscounted{
+     font-weight: 700;   
+     font-size: 14px;
+     line-height: 18.4px;
+     margin-left: 0.2rem;
+     @media(min-width: $medium-screen){
+        font-size: 15px;
+    }
+
+    }
+    
+    &_right{
+      position: relative;
+        button{
+            background-color: #5DD37C;
+            font-weight: 700;
+            font-size: 13px;
+            line-height: 20px;
+            color: #FFF;
+            border-radius: 8px;
+            padding: 5px 8px;
+
+            @media(min-width: $medium-screen){
+              font-size: 19px;
+              padding: 10px 14px;
+            }
+        }
+        .bxgy_quantity{
+          font-size: 11px;
+          color: #ffffff;
+          background: #095933;
+          height: 18px;
+          width: 18px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          right: -5px;
+          top: -5px;
+          @media (max-width: $small-screen) {
+            right: -7px;
+            top: -7px;
+          }
+        }
+    }
+  }
+}

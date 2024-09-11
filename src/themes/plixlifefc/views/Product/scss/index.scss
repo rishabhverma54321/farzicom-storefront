@@ -2095,7 +2095,7 @@
       min-height: 30rem;
     }
 
-    @media screen and(max-width: $small-screen) {
+    @media screen and (max-width: $small-screen) {
       min-width: 21.5rem;
       //  max-width: 23rem;
       min-height: 21.5rem;
@@ -4252,7 +4252,7 @@ ul[class^="newStyles__Variants"] {
       @media (min-width: $large-screen) and (max-width: 1200px) {
         width: unset;
       }
-      @media (min-width: $medium-screen) and(max-width:$large-screen) {
+      @media (min-width: $medium-screen) and (max-width:$large-screen) {
         left: 0;
       }
       @media (max-width: $medium-screen) {

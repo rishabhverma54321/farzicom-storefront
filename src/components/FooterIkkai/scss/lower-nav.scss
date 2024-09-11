@@ -1,0 +1,48 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.lower-nav {
+  padding: 0 2rem;
+
+  .icons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem 0;
+  }
+
+  .icon-wrapper {
+    font-size: 2.5rem;
+  }
+
+  .icon-wrapper:not(:last-of-type) {
+    margin-right: 1rem;
+  }
+
+  .copyright-text {
+    text-align: center;
+  }
+
+  .links-container {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .link-wrapper a,
+    .link-wrapper span {
+      padding: 0 0.55rem;
+      font-family: $title-font-family;
+      font-size: 0.94rem;
+      line-height: 1.75em;
+    }
+
+    .slash {
+      display: inline;
+    }
+
+    .link-wrapper:last-of-type .slash {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,154 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+.overlayFarzicom__left {
+  background-color: transparent;
+}
+.side-nav-lotus-new {
+  height: 100vh;
+  $item-height: 3.7rem;
+  max-width: calc(100vw - 5rem);
+  // width: 20rem;
+
+  display: flex;
+  width: 100%;
+
+  &__ul-contaier {
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  &__main-ul {
+    background-color: #fff;
+    min-height: 100%;
+    padding-bottom: 20px;
+  }
+
+  ul > li {
+    height: fit-content;
+    height: -moz-fit-content;
+    height: -ms-fit-content;
+    height: -webkit-fit-content;
+    height: -o-fit-content;
+
+    margin-bottom: 6px;
+  }
+  &__menu-item {
+    display: grid;
+    height: $item-height;
+
+    li {
+      padding: 8px 0 8px 16px;
+    }
+
+    &-link,
+    &-back span {
+      align-items: center;
+      color: $base-font-color;
+      display: flex;
+      padding: 8px 0 0 16px;
+      text-decoration: none;
+      transition: 0.3s;
+
+      svg * {
+        fill: currentColor;
+      }
+    }
+
+    &-logo {
+      align-self: center;
+      padding: 0.75rem 0px;
+      display: flex;
+
+      span {
+        margin: auto;
+        font-size: 1rem;
+        color: black;
+      }
+    }
+    &-userImg {
+      padding: 0 1rem;
+    }
+    &-close {
+      // position: relative;
+      // left: 50px;
+      background-color: transparent;
+      height: 100vh;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+    &-link,
+    &-more,
+    &-back,
+    &-close {
+      transition: 0.3s;
+
+      &:hover {
+        color: $green-dark;
+      }
+
+      svg * {
+        fill: white;
+      }
+    }
+
+    &-close,
+    &-more,
+    &-back {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &-more {
+      align-self: center;
+      padding: 1.25rem 1.75rem;
+    }
+
+    &-back {
+      svg {
+        margin-right: 1rem;
+      }
+    }
+
+    &-close {
+      padding: 0 1rem;
+      color: white;
+      align-items: center;
+      display: flex;
+      height: $item-height;
+      justify-content: center;
+
+      span {
+        background-color: currentColor;
+        border-radius: 1px;
+        height: 3px;
+        width: 24px;
+      }
+
+      &:hover {
+        color: $green-dark;
+      }
+    }
+
+    &--has-subnavigation,
+    &--parent {
+      grid-template-columns: 1fr $item-height;
+    }
+
+    &--parent {
+      color: $gray;
+      border-bottom: 1px solid #ececec;
+
+      a {
+        color: inherit;
+      }
+    }
+  }
+}
+
+.subMenu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

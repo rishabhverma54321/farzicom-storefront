@@ -1,0 +1,89 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.error-message {
+  color: red;
+  margin: 10px auto;
+  font-size: 1rem;
+  padding: 5px;
+  text-align: center;
+  width: 80%;
+  margin: 0 auto 0.5rem;
+
+  @media(max-width: $small-screen){
+    width: 90%;
+  }
+}
+
+.resend-button {
+  margin: auto;
+  width: auto;
+  margin-bottom: 8px;
+  border-bottom: 2px solid #9dec9b;
+  cursor: pointer;
+}
+.resend-button.disabled-resend {
+  opacity: 0.5;
+  border-bottom: gray;
+}
+.mobileLogin {
+  width: 400px;
+  margin: auto;
+  background: white;
+  top: 5%;
+  margin-top: 10%;
+  box-shadow: $modal-box-shadow;
+
+  @media (max-width: $small-screen) {
+    width: 300px;
+    margin-top: 20%;
+  }
+
+  .header {
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    &__text {
+      flex-grow: 2;
+    }
+    .modal-close-btn {
+      position: absolute;
+      top: 0;
+      right: 2px;
+      float: right;
+      cursor: pointer;
+    }
+  }
+  .body {
+    width: 100%;
+    margin: 10px 0;
+    padding: 5px;
+
+    .otp-form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin: 20px 0;
+
+      .mobile-otp-field {
+        width: 70%;
+        margin: auto;
+        margin-bottom: 20px;
+        padding: 10px;
+        border: none;
+        border-bottom: 1px solid;
+        outline: none;
+      }
+      .otp-button {
+        margin: auto;
+        width: auto;
+        border-radius: 4px;
+
+        span {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import gql from "graphql-tag";
 
-import { TypedQuery } from "@src/core/queries";
+import { TypedQuery } from "@temp/core/queries";
 
 import {
   HomePageEntireQuery,
@@ -12,6 +12,10 @@ import {
 } from "./gqlTypes/SectionDetails";
 import { BannerQuery } from "./gqlTypes/BannerQuery";
 import { SubNavbarSectionQuery } from "./gqlTypes/SubNavbarSectionQuery";
+import {
+  SectionDetailsWithoutChildren,
+  SectionDetailsWithoutChildrenVariables,
+} from "./gqlTypes/SectionDetailsWithoutChildren";
 import {
   SectionDetailsWithoutChildrenPlix,
   SectionDetailsWithoutChildrenPlixVariables,

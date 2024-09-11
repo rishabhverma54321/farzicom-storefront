@@ -1,0 +1,48 @@
+.byconcernContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 10px;
+  column-gap: 20px;
+
+  @media (max-width: "720px") {
+    grid-template-columns: repeat(2, 1fr) !important;
+    column-gap: 10px !important;
+  }
+}
+
+.byconcernCard {
+  &__image {
+    margin: 0;
+  }
+  &__title {
+    a {
+      p {
+        font-weight: 600;
+        font-size: 17px;
+        text-align: left;
+      }
+    }
+  }
+}
+
+.byconcernHeader {
+  &__left {
+    span {
+      color: #686b78;
+    }
+    h3 {
+    }
+  }
+
+  &__right {
+    &__filter {
+      .active {
+        background-color: #56774d;
+      }
+      &__child {
+      }
+    }
+    &__button {
+    }
+  }
+}

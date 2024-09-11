@@ -1,0 +1,42 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.MobileNumberInput {
+  width: 400px;
+  margin: auto;
+  background: white;
+  top: 5%;
+  margin-top: 10%;
+  box-shadow: $modal-box-shadow;
+
+  @media (max-width: $small-screen) {
+    width: 300px;
+    margin-top: 20%;
+  }
+
+  .header {
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+
+    .modal-close-btn {
+      float: right;
+      cursor: pointer;
+    }
+  }
+  .body {
+    width: 100%;
+    margin: 10px 0;
+    padding: 5px;
+
+    .login-checkout-form {
+      width: 100%;
+      margin: 20px 0;
+
+      .mobile-login-field {
+        width: 70%;
+      }
+    }
+  }
+}

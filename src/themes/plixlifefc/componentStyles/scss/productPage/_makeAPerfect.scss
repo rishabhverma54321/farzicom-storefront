@@ -1,0 +1,21 @@
+.product-make-a-perfect-container {
+  grid-template-columns: repeat(2, 1fr) !important;
+  @media (max-width: $small-screen) {
+    grid-template-columns: 1fr !important;
+    margin-bottom: 5vh !important;
+  }
+}
+.product-make-a-perfect-card {
+  padding: 0 5% 5% 5% !important;
+  @media (max-width: $small-screen) {
+    margin-bottom: 5vh !important;
+    &__image {
+      padding: 5% 15% 5% 15% !important;
+    }
+  }
+  @media (min-width: $small-screen) {
+    &__image {
+      padding: 5% 15% 5% 15% !important;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.carousel .control-dots {
+  @media (min-width: $large-screen) {
+    bottom: 0.75rem;
+  }
+}

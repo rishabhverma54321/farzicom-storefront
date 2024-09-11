@@ -1,0 +1,105 @@
+.bestSellerSection {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: flex-start; */
+  align-items: flex-start;
+  gap: 1.7rem;
+  @media (max-width: $medium-screen) {
+    gap: 1rem;
+  }
+  margin-bottom: 32px !important;
+  @media (max-width: $medium-screen) {
+    margin-bottom: 16px !important;
+  }
+  &__left {
+    h2 {
+      font-family: 'cocosharp_xlextrabold' !important;
+      color: black !important;
+      text-transform: unset !important;
+      font-style: italic;
+      font-weight: 800;
+      font-size: 48px;
+      line-height: 40px;
+      letter-spacing: -0.02em;      
+      color: #095933 !important;
+      @media (max-width: $large-screen) {
+        font-size: 2rem;
+      }
+    }
+  }
+  &__right {
+    width: 100%;
+    border-bottom: 1px solid #ececec;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;
+    &__button {
+      width: unset !important;
+      &__atag {
+        span {
+          font-family: 'cocosharp_xlextrabold' !important;
+          font-weight: 800 !important;
+          font-size: 16px !important;
+          line-height: 150%;
+  
+          display: flex;
+          align-items: center;
+          text-align: center;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+  
+          color: #5DD37C !important;
+          @media (max-width: $small-screen) {
+            font-size: 14px !important;
+          }
+        }
+        svg{
+          margin-top: -4px;
+        }
+      }
+    }
+    &__filter {
+      height: unset !important ;
+      width: 100% !important ;
+      justify-content: flex-start !important ;
+      gap: 0rem !important ;
+
+      @media (max-width: $large-screen) {
+        gap: 0;
+      }
+
+      span {
+        padding: 8px 24px;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 100%;
+
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: #BEBEBE;
+        @media (max-width: $large-screen) {
+          padding: 8px 16px;
+        }
+        @media (max-width: $small-screen) {
+          font-size: 12px;
+        }
+        margin: 0;
+      }
+    }
+  }
+  &__right::-webkit-scrollbar {
+    display: none;
+  }
+
+  .active {
+    border-bottom: 4px solid #5DD37C !important;
+    background-color: unset !important;
+    border-radius: 0 !important;
+    text-transform: uppercase !important;
+
+    font-weight: 800 !important;
+    font-size: 12px;
+    line-height: 100%;
+
+    color: #095933 !important;
+  }
+}

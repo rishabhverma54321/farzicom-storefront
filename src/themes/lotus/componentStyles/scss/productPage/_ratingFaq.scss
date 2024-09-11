@@ -1,0 +1,17 @@
+.ratingFaqHeader {
+  display: flex;
+  margin-top: 24px;
+  margin-bottom: 35px;
+  *:not(:last-child) {
+    margin-right: 2rem;
+  }
+  .activeReview {
+    color: #56774d;
+  }
+  p {
+    font-size: 24px;
+    font-weight: 600;
+    color: #c4c4c4;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,125 @@
+.pressSlider1_wrapper{
+    .carousel__control--right{
+        right: 0% !important;
+        transform: translateX(-50%);
+    }
+    .carousel__control--left{
+        left: 0% !important;
+        transform: translateX(50%);
+        margin-left: 0px !important;
+    }
+    .slider{
+        .slide{
+            min-width: 33% !important;
+            background-color: transparent;
+        }
+    }
+    .custom-arrow-prev{
+        left: -3%;
+        @media (max-width: "992px") {
+            display: none;
+          }
+    }
+    .custom-arrow-next {
+        right: -3%;
+        @media (max-width: "992px") {
+            display: none;
+          }
+    }
+    .slick-dots,.slider-control-bottomcenter ul{
+        margin-top: 33px;
+        position: relative !important;
+        top: -23px !important;
+        @media (max-width: "992px") {
+            top: -36px !important;
+        }
+        li{
+            .slick-active{
+                background-color: blue;
+            }
+            &.active{
+                button{
+                    &::before{
+                        background-color: #095933;
+                            width: 10px;
+                            height: 10px;
+                            border-radius: 50%;
+                        opacity: 1;
+
+                    }
+                }
+            }
+            button{
+                font-size: 0;
+                line-height: 0;
+                display: block;
+                padding: 5px;
+                color: transparent;
+                border: 0;
+                outline: none;
+                background: transparent;
+                width: 20px;
+                height: 20px;
+                cursor: pointer;
+                &:before{
+                  font-size: 10px;
+                  background-color: transparent;
+                  content: '' !important;
+                  border: 1px solid #1EAF6D;
+                  width: 10px;
+                  height: 10px;
+                  border-radius: 50%;
+                  opacity: 1;
+                  position: absolute;
+              }
+              svg{
+                display: none;
+              }
+    
+            }
+        }
+    
+    }
+    .slick-dots{
+        li{
+            &.slick-active{
+                button{
+                    &:before {
+                        background-color: #095933;
+                        opacity: 1;
+                        width: 10px;
+                        height: 10px;
+                        border-radius: 50%;
+                        opacity: 1;
+                   }
+
+                }
+
+            }
+
+        }
+
+    } 
+}
+.brandlogo{
+    opacity: 0.4;
+
+    &.addOpacity{
+        opacity: 1;
+        @media (max-width: "992px") {
+            display: none;
+          }
+    }
+}
+.removeOpacity{
+    opacity: 1;
+    @media (max-width: "992px") {
+        display: inline-block;
+      }
+}
+.addsection{
+    display: inline-block !important;
+}
+.removesection{
+    display: none;
+}

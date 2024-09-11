@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -14,24 +18,81 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@src/*": ["./src/*"],
-      "@components/*": ["./src/components/*"],
-      "Themes/*": ["./src/themes/plixlifefc/*"],
-      "@globalTypes/*": ["./gqlTypes/*"],
-      "@utils/*": ["./src/utils/*"],
-      "@styles/*": ["./src/styles/*"],
-      "@styles": ["./src/styles/index.ts"],
-      "@hooks/*": ["./src/hooks/*"],
-      "images/*": ["./src/images/*"],
-      "@types/*": ["./src/types/*"]
+      "@components/*": [
+        "./src/@next/components/*"
+      ],
+      "@components/atoms": [
+        "./src/@next/components/atoms/index.ts"
+      ],
+      "@components/molecules": [
+        "./src/@next/components/molecules/index.ts"
+      ],
+      "@components/organisms": [
+        "./src/@next/components/organisms/index.ts"
+      ],
+      "@components/templates": [
+        "./src/@next/components/templates/index.ts"
+      ],
+      "@components/containers": [
+        "./src/@next/components/containers/index.ts"
+      ],
+      "@pages": [
+        "./src/@next/pages/index.ts"
+      ],
+      "Themes/*": [
+        "./src/themes/plixlifefc/*"
+      ],
+      "@globalTypes": [
+        "./gqlTypes/globalTypes.ts"
+      ],
+      "gqlTypes/*": [
+        "./gqlTypes/*"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ],
+      "@styles/*": [
+        "./src/styles/*"
+      ],
+      "@styles": [
+        "./src/styles/index.ts"
+      ],
+      "@hooks": [
+        "./src/@next/hooks/index.ts"
+      ],
+      "@hooks/*": [
+        "./src/@next/hooks/*"
+      ],
+      "images/*": [
+        "./src/images/*"
+      ],
+      "@app/*": [
+        "./src/@next/*"
+      ],
+      "@types/*": [
+        "./src/types/*"
+      ],
+      "@temp/*": [
+        "./src/*"
+      ]
     },
     "plugins": [
       {
         "transform": "@formatjs/ts-transformer",
         "import": "default"
+      },
+      {
+        "name": "next"
       }
     ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

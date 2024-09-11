@@ -5,14 +5,20 @@
 import ContainerSkeleton, {
   IContainerSkeletonProps,
 } from "@components/molecules/ContainerSkeleton";
-import { ApolloQueryResult, ErrorPolicy, FetchPolicy, SubscribeToMoreOptions, UpdateQueryOptions } from "apollo-client";
+import {
+  ApolloQueryResult,
+  ErrorPolicy,
+  FetchPolicy,
+  SubscribeToMoreOptions,
+  UpdateQueryOptions,
+} from "apollo-client";
 import { DocumentNode } from "graphql";
 import * as React from "react";
 import { Query, QueryResult } from "react-apollo";
 
-import Error from "@src/components/atoms/Error";
+import { Error } from "../components/Error";
 // import Loader from "../components/Loader";
-import { RequireAtLeastOne } from "@src/utils/tsUtils";
+import { RequireAtLeastOne } from "@temp/utils/tsUtils";
 import { maybe } from "./utils";
 
 interface LoadMore<TData, TVariables> {
@@ -70,7 +76,10 @@ export function TypedQuery<TData, TVariables>(query: DocumentNode) {
         errorPolicy={errorPolicy}
         onCompleted={onCompleted}
       >
-        {(queryData: QueryResult<TData, TVariables> & LoadMore<TData, TVariables>) => {
+        {(
+          queryData: QueryResult<TData, TVariables> &
+            LoadMore<TData, TVariables>
+        ) => {
           const { error, loading, data, fetchMore } = queryData;
           const hasData = maybe(() => !!Object.keys(data).length, false);
 
@@ -114,12 +123,10 @@ export function TypedQuery<TData, TVariables>(query: DocumentNode) {
           }
 
           if (hasData || (renderOnError && error) || alwaysRender) {
-            return (
-              <>{children({...queryData})}</>
-            );
+            return <>{children({ ...queryData })}</>;
           }
 
-          return null;
+          return <></>;
         }}
       </Query>
     );

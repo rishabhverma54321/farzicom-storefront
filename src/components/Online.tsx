@@ -1,9 +1,9 @@
 import * as React from "react";
 
-import NetworkStatus from "@components/molecules/NetworkStatus";
+import { NetworkStatus } from ".";
 
-const Online: React.FC = ({ children }: { children: React.ReactNode }) => (
-  <NetworkStatus>{(online) => (online ? children : <></>)}</NetworkStatus>
+const Online: React.FC = ({ children }) => (
+  <NetworkStatus>{online => (online ? children : null)}</NetworkStatus>
 );
 
 export default Online;

@@ -1,0 +1,52 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.plixlife-button {
+  border-radius: 2px;
+  color: black !important;
+  background-color: unset;
+  background: radial-gradient(
+    44.03% 132.34% at 39.33% 26.22%,
+    #69ea72 0%,
+    #a9ef82 100%
+  );
+  span {
+    font-size: 12px;
+    text-transform: capitalize;
+    div:first-child {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      color: black;
+    }
+  }
+}
+
+.plixlife-button-notify {
+  border-radius: 2px;
+  color: black;
+  background-color: white !important;
+  border: 1px solid #000000 !important;
+  span {
+    font-size: 12px;
+    text-transform: capitalize;
+    div:first-child {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      color: black;
+    }
+  }
+
+  &:hover {
+    color: white !important;
+    background-color: rgb(2, 38, 42) !important;
+  }
+}
+
+.collection-variant-name {
+  font-size: 12px;
+  color: #808080;
+  @media (max-width: $small-screen) {
+    font-size: 10px;
+  }
+}

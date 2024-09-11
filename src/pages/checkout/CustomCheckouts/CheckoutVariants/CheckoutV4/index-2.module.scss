@@ -1,0 +1,16 @@
+.checkoutTotal{
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+}
+.paymentLabel{
+    color: white;
+    font-size: 14px;
+}
+.paymentLabelContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}

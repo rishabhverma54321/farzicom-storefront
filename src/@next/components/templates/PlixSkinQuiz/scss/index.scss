@@ -1,0 +1,131 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.quizskinResults {
+  .nutritionistsectionSkin {
+    @media (max-width: $medium-screen) {
+      padding-bottom: 0;
+    }
+    &_heading {
+      @media (max-width: $medium-screen) {
+        max-width: 250px;
+        font-size: 24px;
+      } 
+    }
+
+    &_ProductCard {
+      background: #feffed;
+      border-radius: 11px;
+      @media (max-width: $medium-screen) {
+        width: 160px;
+        max-width: unset;
+        border-radius: 5.6px;
+        height: 95%;
+      }
+    }
+
+    &_ProductName {
+      @media (max-width: $medium-screen) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10.46px;
+        line-height: 14px;
+        color: black;
+        min-height: 40px;
+      }
+    }
+
+    &_DiscountPrice {
+      @media (max-width: $medium-screen) {
+        font-size: 9.69px;
+        line-height: 11.62px;
+      }
+    }
+
+    &_ActualPrice {
+      @media (max-width: $medium-screen) {
+        font-size: 11.3px;
+        line-height: 13.56px;
+      }
+    }
+
+    &_ProductHeader {
+      @media (max-width: $medium-screen) {
+        h2 {
+          font-size: 10px;
+          line-height: 14px;
+          //    margin-bottom: 10px;
+        }
+
+        > div {
+          border-radius: 3.9px;
+          img {
+            width: 7.5px;
+            height: 7.5px;
+          }
+
+          p {
+            font-size: 7.84px;
+            line-height: 9.51px;
+          }
+        }
+      }
+    }
+
+    &_ProductImage {
+      img {
+        border-radius: 11px 11px 0 0;
+      }
+      @media (max-width: $medium-screen) {
+        width: 160px;
+        height: 157px;
+        img {
+          border-radius: 5.6px 5.6px 0 0;
+        }
+      }
+    }
+
+    &_ProductDescription {
+      color: #06543d;
+      @media (max-width: $medium-screen) {
+        font-size: 6.53px;
+        line-height: 8.76px;
+        font-weight: 700;
+      }
+    }
+
+    &_ProductIngredients {
+      color: #06543d;
+      @media (max-width: $medium-screen) {
+        font-size: 7.84px;
+        line-height: 10.5px;
+        font-weight: 700;
+      }
+    }
+
+    &_Ingredient {
+      grid-template-columns: 1fr 1fr 1fr;
+      @media (max-width: $medium-screen) {
+        &_box {
+          > div {
+            height: 33px;
+            width: 33px;
+          }
+
+          p {
+            font-size: 7.85px;
+            line-height: 10.51px;
+          }
+        }
+      }
+    }
+  }
+
+  ._instructionHeader {
+    padding: 0 0 20px;
+    @media (max-width: $medium-screen) {
+      font-size: 23px;
+      max-width: 100%;
+    }
+  }
+}

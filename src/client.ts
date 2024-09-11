@@ -1,5 +1,5 @@
 import { createSaleorClient } from "@saleor/sdk";
-import { apiUrl, apiUrlSSR, restApiUrl } from "@src/constants";
+import { apiUrl, apiUrlSSR, restApiUrl } from "@temp/constants";
 import { ApolloClient, ApolloLink, createHttpLink, InMemoryCache } from "@apollo/client";
 import { setContext } from '@apollo/client/link/context';
 import createUploadLink from "apollo-upload-client/createUploadLink.mjs";

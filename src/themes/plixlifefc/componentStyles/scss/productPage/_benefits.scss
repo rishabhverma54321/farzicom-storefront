@@ -1,0 +1,108 @@
+.benefitsSection {
+  position: relative;
+  &__svg1 {
+    position: absolute;
+    top: 3%;
+    left: 7%;
+
+    @media (max-width: $medium-screen) {
+      position: absolute;
+      top: 9%;
+      right: -4%;
+      left: unset;
+    }
+  }
+  &__container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    column-gap: 8rem;
+
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // justify-content: space-evenly;
+    padding: 60px 7vw;
+
+    @media (max-width: $medium-screen) {
+      grid-template-columns: 1fr;
+      padding: 24px 7vw;
+    }
+    &__left {
+      display: flex;
+      flex-direction: column;
+      /* width: 50%; */
+      width: 100%;
+      justify-content: center;
+      align-items: flex-start;
+
+      &__card {
+        margin-bottom: 1rem;
+        &__title {
+          margin-bottom: 1rem;
+          p {
+            font-size: 56px;
+            line-height: 120%;
+            letter-spacing: -0.02em;
+            text-transform: capitalize;
+            font-weight: 600;
+            color: black;
+            text-align: left;
+
+            font-style: normal;
+            font-weight: 500 !important;
+
+            @media (max-width: $small-screen) {
+              font-size: 32px;
+              line-height: 40px;
+            }
+          }
+        }
+        &__description {
+          margin-bottom: 3rem;
+          @media (max-width: $small-screen) {
+            margin-bottom: 0;
+          }
+          p {
+            font-size: 18px;
+            line-height: 160%;
+            color: #000000;
+            opacity: 0.6;
+            text-align: left;
+            font-weight: normal !important;
+
+            @media (max-width: $small-screen) {
+              font-size: 14px;
+              line-height: 160%;
+            }
+          }
+        }
+        &__button {
+          a {
+            /* padding: 0px; */
+            /* background-color: black; */
+            /* width: 100%; */
+            height: unset;
+            justify-content: flex-start;
+            /* margin: 0; */
+            span {
+              background-color: #02262a;
+              padding: 8px 48px;
+              color: white;
+            }
+          }
+        }
+      }
+      &__images {
+        display: flex;
+
+        img {
+          width: 50%;
+        }
+      }
+    }
+    &__right {
+      width: 100%;
+    }
+  }
+}

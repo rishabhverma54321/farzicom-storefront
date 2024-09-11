@@ -1,0 +1,2404 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.quizheader {
+  background: #5dd37c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.7rem 4rem;
+  svg {
+    cursor: pointer;
+  }
+
+  &_logo {
+    svg {
+      width: 141.99px;
+      height: 44.29px;
+
+      @media (max-width: $medium-screen) {
+        width: 108px;
+        height: 34px;
+      }
+    }
+  }
+}
+
+.skinQuizHeader{
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: calc(44px + 1.6rem);
+  width: 100%;
+  padding: 0 4rem;
+  @media(max-width: $medium-screen){
+    padding: 0 1rem;
+    height: calc(34px + 1.6rem);
+  }
+  svg{
+    cursor: pointer;
+  }
+  &_back, &_close{
+    padding: 0.5rem;
+  }
+}
+
+
+.quizpage_padding{
+  padding: 0 80px;
+  max-width: 1500px;
+  margin: auto;
+  @media (max-width: 1350px) {
+    padding: 0 80px;
+  }
+  @media (max-width: $xlarge-screen) {
+    padding: 0 50px;
+  }
+
+  @media (max-width: $large-screen) {
+    padding: 0 68px;
+  }
+
+  @media (max-width: $small-screen) {
+    padding: 0 20px;
+  }
+}
+
+.progressbar {
+  // background: #feffed;
+  height: 41px;
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+  padding: 0 10px;
+  @media (min-width: $medium-screen) {
+    padding: 0;
+    height: 64px;
+    bottom: 0;
+    width: 70vw;
+    max-width: 1000px;
+  }
+  &_container {
+    margin-top: 0.5rem;
+    width: 100%;
+    height: 4px;
+    border-radius: 12px;
+    background: #d9d9d9;
+    @media (min-width: $medium-screen) {
+      height: 8px;
+    }
+  }
+  &_fill {
+    height: 100%;
+    border-radius: 12px;
+    background: #5dd37c;
+    transition: width 0.5s ease-out;
+  }
+
+  &_percent {
+    color: #000;
+    font-family: "CocoSharp XL";
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 150%;
+    margin-top: 0.3rem;
+    @media (min-width: $medium-screen) {
+      font-size: 16px;
+    }
+  }
+}
+
+.weight_progress {
+  width: 100% !important;
+  padding: 0px !important;
+
+  @media (min-width: $medium-screen) {
+    width: 70vw !important;
+    max-width: 1000px !important;
+  }
+}
+
+.inputcard {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.6rem 0 1.3rem 0;
+  width: 100%;
+  @media (max-width: $medium-screen) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 0.2rem;
+  }
+  &_card {
+    border-radius: 11.632px;
+    border: 1.454px solid #d9d9d9;
+    background: #fff;
+    padding: 0.5rem;
+    cursor: pointer;
+
+    &_select {
+      border-radius: 11.632px;
+      border: 1.454px solid #06543d;
+      background: #d6ffe0;
+
+      .inputcard_card_heading{
+        // font-family: 'cocosharp_xlextrabold';
+        font-weight: 700;
+        color: #06543D;
+      }
+
+      .inputcard_card_text{
+        font-weight: 700;
+      }
+    }
+
+    &_img {
+      position: relative;
+      width: 94px;
+      height: 116px;
+      @media (max-width: $small-screen) {
+        width: 75px;
+        height: 92px;
+        left: 50%;
+        transform: translateX(-50%);;
+      }
+    }
+
+    &_heading{
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 18px;
+      margin-top: 0.2rem;
+      max-width: 90%;
+
+      @media(min-width: $medium-screen){
+        font-size: 14px;
+        margin-top: 0.35rem;
+        margin-bottom: 0.2rem;
+        line-height: 20px;
+      }
+    }
+
+    &_text {
+      color: #06543d;
+      font-family: "CocoSharp XL";
+      text-align: center;
+      margin-top: 0.4rem;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%;
+
+      &_new{
+        font-size: 8px !important;
+        text-align: start;
+        color: #000;
+        max-width: 90% !important;
+        margin-top: 0.1rem !important;
+
+        @media(min-width: $medium-screen){
+          font-size: 8.7px !important;
+          margin-left: 0 !important;
+          line-height: 13px !important;
+        }
+      }
+    }
+  }
+}
+
+.checkbox{
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 17px; /* Adjust size as needed */
+  height: 17px; /* Adjust size as needed */
+  &::before {
+    content: "";
+    content: "\2713";
+    border-radius: 2px;
+    font-size: 18px;
+    text-align: center;
+    color: #FFF;
+    line-height: 20px;
+    display: inline-block;
+    width: 17px; /* Adjust size as needed */
+    height: 17px; /* Adjust size as needed */
+    background-color: #CCCCCC; /* Color of the checkbox */
+}
+&:checked::before {
+  content: "\2713"; /* Unicode character for a tick mark */
+  font-size: 18px; /* Adjust size as needed */
+  color: #fff; /* Color of the tick mark */
+  text-align: center;
+  line-height: 20px; /* Adjust based on checkbox size */
+  background-color: #06543d;
+}
+}
+
+.radio {
+  cursor: pointer;
+  /* remove standard background appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* create custom radiobutton appearance */
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  padding: 2px;
+  margin-left: 0;
+  /* background-color only for content */
+  background-clip: content-box;
+  border: 2px solid #ccc;
+  background-color: #ccc;
+  border-radius: 50%;
+
+  &:checked {
+    background-color: #06543d;
+    border: 2px solid #06543d;
+  }
+
+  &_label{
+    &_new{
+      pointer-events: none;
+    }
+  }
+}
+
+.radio_container {
+  width: 100%;
+  margin: 0.1rem 0 0.7rem 0;
+  @media(min-width: $medium-screen){
+    width: 100%;
+  }
+}
+
+.checkbox_tab input[type="checkbox"]:checked + label {
+  color: #06543d;
+  background-color: unset;
+}
+
+.radio_tab {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  border-radius: 11.632px;
+  border: 1.454px solid #d9d9d9;
+  background: #fff;
+  margin: 0.7rem 0;
+  cursor: pointer;
+
+  &_selected {
+    border: 1.5px solid #06543d;
+    background: #d6ffe0;
+  }
+
+  label {
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+    margin-left: 0.4rem !important;
+    color: #06543d;
+    font-family: "CocoSharp XL";
+    font-size: 14px !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    line-height: 150% !important;
+  }
+}
+
+.inputSelect {
+  display: flex;
+  margin: 0.8rem 0 1rem 0;
+  &_container {
+    select {
+      border-radius: 8px;
+      border: 1px solid #d9d9d9;
+      padding: 0.7rem 0.5rem;
+      background: #fff;
+      min-width: 65px;
+      text-align: center;
+
+      color: #000;
+      font-family: "CocoSharp XL";
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 150%;
+      cursor: pointer;
+
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      outline: none;
+      text-indent: 1px;
+      text-overflow: "";
+    }
+
+    label {
+      color: #000;
+      font-family: "CocoSharp XL";
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%;
+      margin: 0 0.5rem;
+    }
+
+    option {
+      font-size: 16px;
+      cursor: pointer;
+    }
+  }
+
+  &_weightContainer {
+    display: flex;
+    align-items: center;
+
+    select {
+      border-radius: 8px;
+      border: 1px solid #d9d9d9;
+      padding: 0.7rem 0.5rem;
+      background: #fff;
+      min-width: 65px;
+      text-align: center;
+
+      color: #000;
+      font-family: "CocoSharp XL";
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 150%;
+      cursor: pointer;
+
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      outline: none;
+      text-indent: 1px;
+      text-overflow: "";
+
+      @media (min-width: $medium-screen) {
+        font-size: 62px;
+        width: 125px;
+        height: 125px;
+      }
+    }
+
+    .label {
+      color: #000;
+      font-family: "CocoSharp XL";
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%;
+      margin: 0 0.5rem;
+
+      @media (min-width: $medium-screen) {
+        font-size: 26px;
+      }
+    }
+
+    option {
+      font-size: 16px;
+      cursor: pointer;
+    }
+  }
+}
+
+.quizpage {
+  &_headerCard {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+
+    @media (min-width: $medium-screen) {
+      justify-content: center;
+      gap: 15px;
+    }
+
+    &_button {
+      display: flex;
+      align-items: center;
+      padding: 0 1rem;
+      min-height: 60px;
+      font-size: 14px;
+      font-weight: 700;
+      font-family: "CocoSharp XL";
+      line-height: 16.94px;
+      border-radius: 8px;
+      max-width: 140px;
+      background-color: #eaeaea;
+      color: #888888;
+
+      &_selected {
+        background-color: #d6ffe0;
+        border: 1.5px solid #06543d;
+        color: #06543d;
+      }
+
+      @media (min-width: $medium-screen) {
+        min-width: 217px;
+        font-size: 24px;
+        line-height: 29.04px;
+        padding: 0;
+        justify-content: center;
+
+        &_selected {
+          border: 2px solid #06543d;
+        }
+      }
+    }
+  }
+
+  &_doctorCons {
+    // padding: 1rem;
+    position: relative;
+    display: flex;
+    align-items: end;
+
+    &_container {
+      border-radius: 11px;
+      width: 100%;
+      margin-top: 1.4rem;
+      min-height: 318px;
+      background: #dbf8ff;
+      @media (max-width: 380px) {
+        min-height: 300px;
+      }
+    }
+    @media (min-width: $medium-screen) {
+      min-height: 520px;
+      width: 100%;
+    }
+    &_text {
+      width: 200px;
+      padding: 1rem 0 1rem 1rem;
+
+      @media (min-width: $medium-screen) {
+        width: unset;
+        max-width: 580px;
+        padding: 2rem 0 1rem 2rem;
+      }
+      &_heading {
+        color: #06543d;
+        font-family: "cocosharp_xlextrabold";
+        font-size: 24px;
+        font-style: italic;
+        font-weight: 800;
+        line-height: 110%;
+
+        @media (min-width: $medium-screen) {
+          font-size: 41.9px;
+          line-height: 46px;
+        }
+      }
+
+      &_list {
+        width: 70%;
+        margin-top: 1rem;
+        margin-left: 1rem;
+        li {
+          color: #000;
+          font-family: "CocoSharp XL";
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          list-style: georgian outside
+            url("https://plixlifefc-media.farziengineer.co/hosted/Vector-cb27de77f099.svg");
+          line-height: 110%;
+          margin: 1rem 0;
+          max-width: 114px;
+
+          @media (min-width: $medium-screen) {
+            font-size: 22px;
+            line-height: 24.94px;
+            margin: 1.7rem 0;
+            max-width: 100%;
+            list-style: georgian outside
+              url("https://plixlifefc-media.farziengineer.co/hosted/Frame_35320-4b6571dd18e7.svg");
+          }
+        }
+
+        @media (min-width: $medium-screen) {
+          margin-top: 3rem;
+          margin-left: 2rem;
+        }
+      }
+    }
+    &_image {
+      position: absolute;
+      bottom: 0;
+      right: -20px;
+      @media (min-width: $medium-screen) {
+        display: none;
+      }
+      &_container {
+        position: relative;
+        width: 226px;
+        height: 321px;
+        aspect-ratio: 1 / 1;
+
+        @media (max-width: 380px) {
+          width: 196px;
+          height: 311px;
+        }
+      }
+    }
+
+    &_image_desk {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      @media (max-width: $medium-screen) {
+        right: -120px;
+        display: none;
+      }
+      &_container {
+        position: relative;
+        aspect-ratio: 1 / 1;
+        width: 682px;
+        height: 513px;
+      }
+    }
+  }
+
+  &_transformation {
+    &_section{
+      max-width: 1500px;
+      margin: auto;
+    }
+    &_instructionsHeader {
+      max-width: 330px;
+      color: #06543d;
+      font-family: "cocosharp_xlextrabold";
+      font-weight: 800;
+      font-style: italic;
+      font-size: 24px;
+      line-height: 32.16px;
+      padding: 20px 0;
+      // padding: 0 20px;
+
+      @media (min-width: $medium-screen) {
+        font-size: 42px;
+        line-height: 60px;
+        max-width: 600px;
+        padding: 4rem 0 2rem 0;
+      }
+    }
+
+    &_brandHighlight {
+      font-weight: bold;
+    }
+
+    &_instructionsContent {
+      display: flex;
+      margin-top: 10px;
+      align-items: center;
+      justify-content: center;
+      // padding: 0 20px;
+
+      @media (min-width: $medium-screen) {
+        flex-direction: column;
+      }
+    }
+
+    &_imageGallery {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+
+      &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        height: 320px;
+        top: -5px;
+        z-index: -1;
+        border: 1px dashed #a5a5a5;
+      }
+
+      &_line {
+        display: none;
+      }
+
+      @media (min-width: $medium-screen) {
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        position: relative;
+
+        &::before {
+          display: none;
+        }
+
+        &_line {
+          display: inline-block;
+          position: absolute;
+          width: 100%;
+          height: 0;
+          border: dashed 1.2px #a5a5a5;
+        }
+      }
+    }
+
+    &_image {
+      margin-top: 24px;
+      &:first-child {
+        margin-top: 0;
+      }
+
+      @media (min-width: $medium-screen) {
+        margin-top: 0;
+        width: 280px;
+      }
+    }
+
+    &_circleImage {
+      position: relative;
+      border-radius: 50%;
+      width: 73px;
+      height: 73px;
+
+      @media (min-width: $medium-screen) {
+        width: 143px;
+        height: 141px;
+      }
+    }
+
+    &_instructionsText {
+      display: flex;
+      flex-direction: column;
+      font-size: 14px;
+      color: #06543d;
+      font-weight: 700;
+      line-height: 134%;
+      max-width: 250px;
+      margin-left: 1.5rem;
+
+      @media (min-width: $medium-screen) {
+        flex-direction: row;
+        margin-left: 0;
+        width: 100%;
+        max-width: unset;
+        justify-content: space-around;
+        margin-top: 2.4rem;
+      }
+    }
+
+    &_monthInstructions {
+      margin-top: 24px;
+      &:first-child {
+        margin-top: 0;
+      }
+
+      @media (min-width: $medium-screen) {
+        margin-top: 0;
+        max-width: 280px;
+      }
+    }
+
+    &_monthTitle {
+      font-size: 14px;
+      color: #06543d;
+      font-weight: 700;
+      line-height: 18px;
+
+      @media (min-width: $medium-screen) {
+        font-size: 28px;
+        line-height: 42px;
+      }
+    }
+
+    &_monthText {
+      font-size: 14px;
+      color: #000;
+      // margin-top: 4px;
+      line-height: 18px;
+      font-weight: 400;
+
+      @media (min-width: $medium-screen) {
+        font-size: 22px;
+        line-height: 32px;
+        max-width: 260px;
+      }
+    }
+  }
+
+  &_width {
+    max-width: 1500px;
+    margin: auto;
+    padding: 0.8rem;
+    @media (min-width: $medium-screen) {
+      padding: 1rem 80px;
+    }
+  }
+
+  &_nutritionistsection {
+    padding: 20px 0;
+
+    @media (min-width: $medium-screen) {
+      padding: 50px 0 35px 0;
+    }
+
+    &_heading {
+      font-family: "cocosharp_xlextrabold";
+      font-weight: 800;
+      font-style: italic;
+      font-size: 22.23px;
+      line-height: 30px;
+      color: #06543d;
+      @media (min-width: $medium-screen) {
+        font-size: 42px;
+        line-height: 58.32px;
+      }
+    }
+
+    &_products {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0.8rem 0;
+    }
+
+    &_ProductCard {
+      display: flex;
+      flex-direction: column;
+      border-radius: 12px;
+      background-color: #ffffff;
+      // padding: 20px;
+      border: 1px solid#E7E7E7;
+      max-width: 265px;
+      margin: 0.5rem auto;
+      position: relative;
+
+      @media (min-width: $medium-screen) {
+        margin: 0 auto;
+
+        @media (min-width: $large-screen) {
+          max-width: 360px;
+          height: 100%;
+
+          @media (min-width: 1360px) {
+            max-width: 390px;
+
+            // @media(min-width: 1460px){
+            //   // margin-left: 0;
+            // }
+          }
+        }
+      }
+    }
+
+    &_ProductHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      position: absolute;
+      top: 0;
+      z-index: 1;
+      width: 100%;
+
+      h2 {
+        color: #043d99;
+        background-color: #dff8ff;
+        font-family: "CocoSharp XL";
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: 700;
+        border-radius: 8px 0px 8px 0px;
+        padding: 0.1rem 0.5rem;
+
+        @media (min-width: $medium-screen) {
+          font-size: 20px;
+          line-height: 28.2px;
+          border-radius: 12px 0px 12px 0px;
+          padding: 0.1rem 1rem;
+        }
+      }
+    }
+
+    &_ProductImage {
+      position: relative;
+      border-radius: 8px 8px 0px 0px;
+      width: 265px;
+      height: 250px;
+
+      @media (min-width: $large-screen) {
+        width: 360px;
+        height: 351px;
+        @media (min-width: 1360px) {
+          width: 390px;
+          height: 381px;
+        }
+      }
+    }
+
+    &_ProductRating {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #dff8ff;
+      border-radius: 6px;
+      padding: 0.1rem 0.2rem;
+      margin: 0.5rem 0.5rem 0 0;
+      img {
+        height: 12px;
+        width: 12px;
+        margin-right: 4px;
+      }
+      p {
+        font-family: "CocoSharp XL";
+        font-size: 12px;
+        line-height: 16px;
+        font-weight: 700;
+      }
+      @media (min-width: $medium-screen) {
+        padding: 0.1rem 0.4rem;
+        img {
+          width: 17px;
+          height: 17px;
+        }
+        p {
+          font-size: 17px;
+          line-height: 20.91px;
+        }
+      }
+    }
+
+    &_ProductName {
+      font-family: "CocoSharp XL";
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 20px;
+      text-align: center;
+      padding: 0.4rem 0;
+
+      @media (min-width: $medium-screen) {
+        font-size: 23px;
+        max-width: 80%;
+        margin: auto;
+        line-height: 33px;
+        padding: 0.5rem 0;
+      }
+    }
+
+    // &_PriceSection,
+    // &_ProductDescription,
+    // &_Ingredients,
+    // &_UsageInstruction {
+    //   margin-bottom: 20px;
+    // }
+
+    &_Ingredient {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      column-gap: 0.3rem;
+      padding: 0 0.2rem;
+      @media (min-width: $medium-screen) {
+        column-gap: 0.5rem;
+      }
+      &_box {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: start;
+        align-items: center;
+        margin-top: 0.5rem;
+        max-width: 80px;
+        @media (min-width: $medium-screen) {
+          max-width: 120px;
+        }
+        &_image {
+          position: relative;
+          height: 43px;
+          width: 43px;
+
+          @media (min-width: $medium-screen) {
+            width: 66px;
+            height: 66px;
+          }
+        }
+
+        p {
+          font-family: "CocoSharp XL";
+          font-weight: 400;
+          font-size: 9px;
+          line-height: 13.4px;
+          text-align: center;
+
+          @media (min-width: $medium-screen) {
+            font-size: 13px;
+            line-height: 20px;
+          }
+        }
+      }
+    }
+
+    &_UsageInstruction {
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      margin-left: 0.5rem;
+      margin-bottom: 0.4rem;
+      div {
+        position: relative;
+        height: 26px;
+        width: 26px;
+        @media (min-width: $medium-screen) {
+          width: 40px;
+          height: 40px;
+        }
+      }
+
+      p {
+        font-family: "CocoSharp XL";
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 13.4px;
+        max-width: 210px;
+        margin-left: 0.3rem;
+        @media (min-width: $medium-screen) {
+          font-size: 15px;
+          line-height: 20px;
+          max-width: 281px;
+          margin-left: 0.5rem;
+        }
+      }
+
+      @media (min-width: $medium-screen) {
+        margin-bottom: 0.8rem;
+      }
+    }
+
+    &_ProductDescription {
+      font-family: "CocoSharp XL";
+      font-weight: 400;
+      font-size: 10px;
+      line-height: 13.33px;
+      text-align: center;
+      max-width: 90%;
+      margin: 0.4rem auto auto;
+
+      @media (min-width: $medium-screen) {
+        font-size: 15.5px;
+        line-height: 20px;
+        margin: 0.6rem auto 0;
+      }
+    }
+
+    &_PriceSection {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &_DiscountPrice {
+      font-family: "CocoSharp XL";
+      text-decoration: line-through;
+      font-weight: 400;
+      color: #777;
+      font-size: 14.82px;
+      line-height: 17.8px;
+
+      @media (min-width: $medium-screen) {
+        font-size: 22px;
+        line-height: 27px;
+      }
+    }
+
+    &_ActualPrice {
+      font-family: "CocoSharp XL";
+      font-weight: 700;
+      font-size: 17.29px;
+      line-height: 20.75px;
+      margin-left: 0.4rem;
+      @media (min-width: $medium-screen) {
+        font-size: 26px;
+        line-height: 32px;
+      }
+    }
+
+    &_ProductDivider,
+    &_UsageDivider {
+      height: 2px;
+      background-color: #eee;
+      margin: 8px 0;
+    }
+
+    &_ProductIngredients {
+      font-family: "CocoSharp XL";
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 16px;
+      text-align: center;
+      @media (min-width: $medium-screen) {
+        font-size: 18px;
+        line-height: 24px;
+        margin: 0.3rem 0;
+      }
+    }
+
+    &_Ingredient {
+      display: flex;
+      // flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      @media (min-width: $medium-screen) {
+        padding: 0.3rem;
+      }
+    }
+
+    &_IngredientIcon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-size: cover;
+      margin-bottom: 10px;
+    }
+  }
+
+  &_trustedSection {
+    padding: 20px 0;
+    @media(min-width: $medium-screen){
+      padding: 2rem 0 2rem 0;
+    }
+    &_heading {
+      color: #06543d;
+      font-family: "cocosharp_xlextrabold";
+      font-weight: 800;
+      font-style: italic;
+      font-size: 24px;
+      line-height: 32.16px;
+      // padding: 0 20px;
+
+      @media (min-width: $medium-screen) {
+        font-size: 42px;
+        line-height: 60px;
+      }
+
+      &_sub{
+        font-family: "CocoSharp XL";
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 30px;
+        margin-top: 0.2rem;
+
+        @media(min-width: $medium-screen){
+          font-size: 30px;
+        }
+      }
+    }
+
+    &_image{
+      &_desk{
+        position: relative;
+        height: 500px;
+        width: 100%;
+        margin-top: 1rem;
+        @media(max-width: $medium-screen){
+          display: none;
+        }
+      }
+      &_mob{
+        position: relative;
+        margin-top: 1rem;
+        height: 600px;
+        width:100%;
+
+        @media(min-width: $medium-screen){
+          display: none;
+        }
+      }
+    }
+  }
+
+  &_freetrail{
+    max-width: 1350px;
+    margin: 1.5rem auto auto;
+    background-color: #C5F0FF;
+    border-radius: 8px;
+    padding: 1rem 0.5rem;
+    display: flex;
+    justify-content: space-around;
+    &_image{
+      position: relative;
+      height: 64px;
+      width: 64px;
+    }
+
+    @media(min-width: $medium-screen){
+      padding: 2rem 1rem;
+      justify-content: center;
+      align-items: center;
+      margin: 2.5rem auto auto;
+      &_image{
+        position: relative;
+        height: 179px;
+        width: 179px;
+      }
+    }
+
+    &_box{
+      max-width: 250px;
+      margin-left: 0.8rem;
+      h2{
+        font-family: "CocoSharp XL";
+        font-size: 15px;
+        line-height: 18px;
+        font-weight: 700;
+        color: #043D99;
+      }
+
+      p{
+        font-family: "CocoSharp XL";
+        font-size: 10px;
+        line-height: 14px;
+        font-weight: 400;
+        color: #043D99; 
+        max-width: 200px;
+        margin: 0.3rem 0 0.5rem;
+      }
+
+      &_bottom{
+        font-family: "CocoSharp XL";
+        font-size: 10px;
+        line-height: 14px;
+        font-weight: 400;
+        color: #000000; 
+        text-decoration: underline;
+      }
+
+      @media(min-width: $medium-screen){
+      max-width: 100%;
+      margin-left: 2.5rem;
+        h2{
+          font-size: 35px;
+          line-height: 42px;
+        }
+
+        p{
+          font-size: 18px;
+          line-height: 27px;
+          max-width: 642px;
+          margin: 0.5rem 0 1.2rem;
+          color: #000;
+        }
+
+        &_bottom{
+          font-size: 23px;
+          line-height: 32px;
+        }
+      }
+    } 
+  }
+  &_results{
+
+    &_products{
+      margin-top: 1.5rem;
+      padding-top: 2rem !important;
+      padding-bottom: 2rem !important;
+      background-color: #FFF5B6;
+    }
+  }
+}
+
+.quizProduct {
+  display: grid;
+  row-gap: 1.5rem;
+  margin-top: 2rem;
+  @media (min-width: $large-screen) {
+    margin-top: 2rem;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 3rem;
+  }
+  &_review {
+    background-color: #fff !important;
+    margin-top: 4rem;
+    padding: 0 !important;
+    .review_image {
+      span {
+        position: relative !important;
+        display: block !important;
+        height: 100% !important;
+      }
+    }
+
+    @media (max-width: $medium-screen) {
+      margin-top: 2rem;
+    }
+
+    &_heading {
+      font-family: "cocosharp_xlextrabold";
+      font-size: 24px;
+      font-weight: 800;
+      font-style: italic;
+      color: #06543d;
+      line-height: 32px;
+      margin: 3rem 0 1rem;
+      @media (min-width: $medium-screen) {
+        font-size: 42px;
+        margin: 6rem 0 2rem;
+      }
+    }
+  }
+  &_container {
+    border-radius: 14px;
+    background-color: white;
+    max-width: 681px;
+    margin: auto;
+
+    @media (min-width: $large-screen) {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      // margin-top: 2rem;
+    }
+
+    &_title {
+      border-radius: 14px 14px 0px 0px;
+      padding: 0.5rem 1rem;
+      color: #06543d;
+      font-family: "cocosharp_xlextrabold";
+      font-size: 20px;
+      font-style: italic;
+      font-weight: 800;
+      line-height: 160%;
+      background: #ffe431;
+      text-align: center;
+
+      &_2 {
+        background: #ffa857;
+      }
+
+      @media (max-width: 380px) {
+        font-size: 18px;
+      }
+
+      @media (min-width: 1300px) {
+        font-size: 34px;
+      }
+    }
+
+    &_list {
+      padding: 1rem;
+      &_text {
+        color: #06543d;
+        font-family: "CocoSharp XL";
+        font-size: 14.606px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 160%;
+        margin-bottom: 1rem;
+
+        @media (min-width: $medium-screen) {
+          font-size: 16.6px;
+        }
+      }
+
+      &_cards {
+        > div:nth-child(1) {
+          display: none;
+        }
+      }
+    }
+
+    &_bottom {
+      padding: 1rem;
+      background: #fffad8;
+      border-radius: 0px 0px 14px 14px;
+
+      &_atc {
+        margin-top: 0.7rem;
+        @media (min-width: $medium-screen) {
+          button {
+            > span {
+              > div {
+                > span {
+                  font-size: 25px;
+                }
+              }
+            }
+          }
+        }
+        &_add {
+          margin-top: 0.7rem;
+          border-radius: 7.522px;
+          background: #5dd37c;
+          text-align: center;
+          padding: 8px 0;
+          color: #fff;
+          font-family: "cocosharp_xlextrabold";
+          font-size: 21px;
+          font-style: normal;
+          font-weight: 800;
+          line-height: 150%;
+          letter-spacing: 1.58px;
+          text-transform: uppercase;
+          cursor: pointer;
+
+          @media (min-width: $medium-screen) {
+            font-size: 25px;
+            padding: 4px 0;
+          }
+        }
+      }
+
+      &_subtotal {
+        color: #808080;
+        font-family: "CocoSharp XL";
+        font-size: 17.867px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 150%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media (min-width: $medium-screen) {
+          font-size: 20.5px;
+        }
+
+        > div:nth-child(2) {
+          font-weight: 400;
+          text-decoration: line-through;
+          @media (min-width: $medium-screen) {
+            font-size: 18.3px;
+          }
+        }
+      }
+
+      &_bundle {
+        color: #808080;
+        font-family: "CocoSharp XL";
+        font-size: 17.867px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 150%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media (min-width: $medium-screen) {
+          font-size: 20.5px;
+        }
+
+        > div:nth-child(2) {
+          font-weight: 400;
+          text-align: start;
+          @media (min-width: $medium-screen) {
+            font-size: 18.3px;
+          }
+        }
+      }
+
+      &_total {
+        color: #000;
+        font-family: "CocoSharp XL";
+        font-size: 17.867px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 120%;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 0.3rem;
+        @media (min-width: $medium-screen) {
+          font-size: 20.5px;
+        }
+
+        div:nth-child(1) {
+          display: flex;
+          align-items: center;
+          span {
+            border-radius: 3.443px;
+            background: #ff891c;
+            padding: 0.3rem 0.3rem 0.2rem;
+            color: #fff;
+            font-family: "CocoSharp XL";
+            font-size: 8.608px;
+            font-style: normal;
+            font-weight: 800;
+            line-height: 110%;
+            margin-left: 0.3rem;
+
+            @media (min-width: $medium-screen) {
+              font-size: 9.8px;
+              padding: 0.4rem 0.4rem 0.2rem;
+              border-radius: 4px;
+            }
+          }
+        }
+
+        span {
+          font-size: 20px;
+          @media (min-width: $medium-screen) {
+            font-size: 22.5px;
+          }
+        }
+      }
+
+      &_timer {
+        div {
+          color: #000;
+          font-family: "CocoSharp XL";
+          font-size: 10.036px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 150%;
+          text-align: center;
+          letter-spacing: 0.703px;
+          margin-top: 0.3rem;
+
+          @media (min-width: $medium-screen) {
+            font-size: 11.536px;
+
+            span {
+              font-size: 16.48px;
+            }
+          }
+
+          span {
+            color: #5dd37c;
+            font-family: "CocoSharp XL";
+            font-size: 14.337px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 150%;
+            letter-spacing: 1.004px;
+          }
+        }
+      }
+      &_text{
+        margin-top: 1rem;
+        font-family: 'cocosharp_xlextrabold';
+        font-weight: 800;
+        font-style: italic;
+        font-size: 20px;
+        line-height: 26px;
+        color: #06543D;
+
+        @media(min-width: $medium-screen){
+          margin-top: 1.3rem;
+          font-size: 35px;
+          line-height: 45px;
+          text-align: center;
+        }
+      }
+    }
+
+    &_sticky {
+      position: fixed;
+      width: 100%;
+      z-index: 2;
+      bottom: 0;
+      left: 0;
+      background-color: #fff;
+      box-shadow: 0px -2px 17px 0px rgba(0, 0, 0, 0.25);
+      // background-color: red;
+
+      &_width {
+        max-width: 1500px;
+        margin: auto;
+        padding: 0.8rem;
+        @media (min-width: $medium-screen) {
+          padding: 1rem 80px;
+        }
+      }
+
+      p {
+        color: #06543d;
+        font-family: "CocoSharp XL";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        text-align: center;
+        line-height: 150%;
+
+        @media (min-width: $medium-screen) {
+          font-size: 24px;
+        }
+      }
+
+      &_container {
+        display: flex;
+        position: relative;
+        @media (min-width: $medium-screen) {
+          max-width: 600px;
+          margin: auto;
+        }
+        &_atc {
+          color: #fff;
+          font-family: "cocosharp_xlextrabold";
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 800;
+          line-height: 120%;
+          letter-spacing: 2.4px;
+          border-radius: 6px;
+          background: #5dd37c;
+          width: 100%;
+          padding: 14px 14px;
+          margin-top: 5px;
+          border-radius: 8px;
+          cursor: pointer;
+          text-align: center;
+
+          @media (min-width: $medium-screen) {
+            font-size: 24.642px;
+          }
+        }
+        &_price {
+          position: absolute;
+          right: 1.5rem;
+          top: 15px;
+          span:nth-child(1) {
+            color: #fff;
+            font-family: "CocoSharp XL";
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 150%;
+            text-decoration: line-through;
+            margin-right: 0.5rem;
+            @media (min-width: $medium-screen) {
+              font-size: 21.873px;
+              margin-right: 1rem;
+            }
+          }
+          span:nth-child(2) {
+            color: #fff;
+            font-family: "CocoSharp XL";
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 800;
+            line-height: 150%;
+            @media (min-width: $medium-screen) {
+              font-size: 29px;
+            }
+          }
+
+          @media (min-width: $medium-screen) {
+            top: 14px;
+          }
+        }
+      }
+
+      &_item {
+        background-color: #5dd37c;
+        border-radius: 8px;
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+        div {
+          font-family: "cocosharp_xlextrabold";
+          font-size: 16px;
+          line-height: 16px;
+          font-weight: 800;
+          color: #fff;
+
+          @media (min-width: $medium-screen) {
+            font-size: 24.62px;
+            line-height: 25px;
+          }
+        }
+
+        div:nth-child(2) {
+          display: flex;
+          gap: 0.4rem;
+          align-items: center;
+
+          span {
+            height: 100%;
+          }
+        }
+
+        @media (min-width: $medium-screen) {
+          max-width: 600px;
+          margin: auto;
+          padding: 1.2rem 2rem;
+          border-radius: 12px;
+        }
+      }
+    }
+
+    .product_card {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+
+      &_box {
+        display: flex;
+        align-items: start;
+        margin: 0.8rem 0;
+
+        @media (min-width: $large-screen) {
+          width: 80%;
+        }
+      }
+      &_image {
+        position: relative;
+        height: 58px;
+        aspect-ratio: 1 / 1;
+
+        @media (min-width: $medium-screen) {
+          height: 66px;
+        }
+
+        img {
+          border-radius: 10.096px;
+        }
+      }
+
+      &_text {
+        margin-left: 0.8rem;
+        align-items: start;
+        width: 150px;
+
+        @media (min-width: $medium-screen) {
+          width: 165px;
+        }
+        h3 {
+          color: #000;
+          font-family: "CocoSharp XL";
+          font-size: 11.61px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 140%;
+
+          @media (min-width: $medium-screen) {
+            font-size: 13.3px;
+          }
+        }
+
+        p {
+          // margin-top: 0.3rem;
+          font-family: "CocoSharp XL";
+          font-size: 8.293px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 140%;
+          @media (min-width: $medium-screen) {
+            font-size: 9.6px;
+          }
+        }
+
+        &_price {
+          display: flex;
+          align-items: center;
+          // margin-top: 0.4rem;
+          &_mrp {
+            font-family: "CocoSharp XL";
+            font-size: 10px;
+            font-weight: 400;
+            line-height: 12px;
+
+            span {
+              text-decoration: line-through;
+            }
+          }
+
+          &_listPrice {
+            font-family: "CocoSharp XL";
+            font-size: 15px;
+            font-weight: 700;
+            line-height: 17.33px;
+            margin-left: 0.5rem;
+          }
+        }
+      }
+
+      &_price {
+        margin-top: 0.8rem;
+        span:nth-child(1) {
+          display: block;
+          color: #808080;
+          font-family: "CocoSharp XL";
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 14px;
+          text-decoration: line-through;
+          // margin-right: 0.5rem;
+          @media (min-width: $medium-screen) {
+            // font-size: 21.873px;
+            // margin-right: 1rem;
+          }
+        }
+        span:nth-child(2) {
+          display: block;
+          text-align: end;
+          // margin-top: 0.8rem;
+          color: #000;
+          font-family: "CocoSharp XL";
+          font-size: 14.606px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          @media (min-width: $medium-screen) {
+            font-size: 16.6px;
+          }
+        }
+      }
+
+      &_atcContainer {
+        height: 100%;
+        display: flex;
+        align-items: center;
+      }
+
+      &_atc {
+        font-family: "cocosharp_xlextrabold";
+        background-color: #5dd37c;
+        font-weight: 800;
+        padding: 4px 0 2px;
+        width: 64px;
+        border-radius: 4px;
+        color: #fff;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: 2px;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      &_free {
+        font-family: "cocosharp_xlextrabold";
+        background-color: #ff891c;
+        font-weight: 800;
+        padding: 4px 0 2px;
+        width: 64px;
+        text-align: center;
+        border-radius: 4px;
+        color: #fff;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: 2px;
+      }
+    }
+
+    .product_card_icon {
+      display: flex;
+      justify-content: center;
+
+      svg {
+        height: 22px;
+        width: 22px;
+
+        @media (min-width: $medium-screen) {
+          height: 25px;
+          width: 25px;
+        }
+      }
+    }
+
+    &_top {
+      h4 {
+        font-family: "CocoSharp XL";
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 20.8px;
+        color: #06543d;
+        margin: 0.4rem 0;
+
+        @media (min-width: $medium-screen) {
+          font-size: 26px;
+          line-height: 30px;
+        }
+      }
+
+      p {
+        font-family: "CocoSharp XL";
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 20.8px;
+        color: #06543d;
+        width: 85%;
+        margin: 0.4rem 0 1rem;
+
+        @media (min-width: $medium-screen) {
+          font-size: 26px;
+          line-height: 40px;
+        }
+      }
+
+      .dividerContainer {
+        width: 90%;
+        margin: auto;
+      }
+    }
+
+    &_chevron {
+      svg {
+        width: 11px !important;
+        height: 11px !important;
+
+        path {
+          fill: #fff;
+          stroke: #fff;
+        }
+
+        @media (min-width: $medium-screen) {
+          width: 16px !important;
+          height: 16px !important;
+        }
+      }
+    }
+
+    &_modal {
+      @media (max-width: $small-screen) {
+        align-items: center;
+      }
+      > div:nth-child(1) {
+        min-height: fit-content;
+        height: fit-content;
+        max-width: 340px;
+        margin: auto;
+        border-radius: 10px;
+        padding: 1rem 0.8rem;
+        @media (min-width: $small-screen) {
+          min-width: 340px;
+
+          @media (min-width: $medium-screen) {
+            max-width: 660px;
+            padding: 2rem 1.5rem 1.5rem;
+            border-radius: 19px;
+          }
+        }
+      }
+
+      &_box {
+        position: relative;
+        h3 {
+          font-family: "CocoSharp XL";
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 18px;
+          max-width: 305px;
+
+          @media (min-width: $medium-screen) {
+            font-size: 23px;
+            line-height: 36px;
+            max-width: 100%;
+          }
+        }
+
+        &_close {
+          position: absolute;
+          right: -25px;
+          top: -35px;
+
+          svg {
+            height: 36px;
+            width: 36px;
+            circle {
+              fill: #d9d9d9;
+              opacity: 1;
+            }
+            path {
+              fill: #808080;
+              height: 15px;
+              width: 15px;
+            }
+          }
+          @media (min-width: $medium-screen) {
+            right: -35px;
+            top: -50px;
+            cursor: pointer;
+            svg {
+              height: 45px;
+              width: 45px;
+            }
+          }
+        }
+
+        &_button {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-top: 0.5rem;
+          button {
+            display: flex;
+            align-items: center;
+            all: unset;
+            border-radius: 15.89px;
+            font-family: "cocosharp_xlextrabold";
+            font-size: 16px;
+            font-weight: 800;
+            line-height: 20px;
+            color: #fff;
+            width: 90%;
+            margin: 0.3rem 0;
+            border-radius: 8px;
+            padding: 0.7rem 1rem;
+            text-align: center;
+            background-color: #5dd37c;
+            letter-spacing: 5%;
+            &:focus {
+              outline: revert;
+            }
+          }
+
+          @media (min-width: $medium-screen) {
+            margin-top: 1rem;
+            button {
+              font-size: 26px;
+              line-height: 39px;
+              letter-spacing: 1px;
+              border-radius: 15px;
+              cursor: pointer;
+              width: 92%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.graphContainer {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-basis: 0;
+  width: fit-content;
+
+  @media (max-width: 991px) {
+    max-width: 100%;
+  }
+}
+
+.weightGraphImage {
+  aspect-ratio: 4;
+  object-fit: auto;
+  object-position: center;
+  width: 100%;
+  stroke-width: 3.492px;
+  stroke: #5dd37c;
+  border: 3px solid rgba(93, 211, 124, 1);
+  margin-top: 5px;
+
+  @media (max-width: 991px) {
+    max-width: 100%;
+  }
+}
+
+.weightInfo {
+  display: flex;
+  margin-left: 11px;
+  width: 84px;
+  flex-direction: column;
+  font-size: 10px;
+  color: #000;
+  white-space: nowrap;
+  line-height: 168%;
+
+  @media (max-width: 991px) {
+    margin-left: 10px;
+    white-space: initial;
+  }
+}
+
+.weightInfoBox {
+  border-radius: 5.239px;
+  background-color: #fceba2;
+  display: flex;
+  flex-direction: column;
+  padding: 6px 5px;
+
+  @media (max-width: 991px) {
+    white-space: initial;
+  }
+}
+
+.weightInfoBar {
+  border-radius: 3.492px;
+  background-color: #fff;
+  width: 100%;
+  height: 74px;
+}
+
+.weightInfoText {
+  font-family: CocoSharp XL, -apple-system, Roboto, Helvetica, sans-serif;
+  margin-top: 6px;
+}
+
+.weightInfoIcon {
+  aspect-ratio: 2.38;
+  object-fit: auto;
+  object-position: center;
+  width: 12px;
+  fill: #fceba2;
+  align-self: center;
+}
+
+.weightDays {
+  align-self: center;
+  display: flex;
+  margin-top: 121px;
+  width: 100%;
+  max-width: 725px;
+  gap: 20px;
+  font-size: 17px;
+  color: #06543d;
+  line-height: 134%;
+  justify-content: space-between;
+
+  @media (max-width: 991px) {
+    max-width: 100%;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+}
+
+.weightDay {
+  font-family: CocoSharp XL, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.weightGraph {
+  display: flex;
+  gap: 20px;
+  font-weight: 700;
+  flex-direction: column;
+  padding: 4rem 0 2rem;
+  overflow-x: hidden;
+  margin: auto;
+  max-width: 1050px;
+
+  @media (max-width: 991px) {
+    flex-wrap: wrap;
+  }
+
+  @media(max-width: $medium-screen){
+    gap: 10px;
+    padding: 3rem 0 1.5rem;
+  }
+
+  &_graph{
+    position: relative;
+    display: flex;
+    width: 100%;
+    align-items: end;
+  }
+  
+  &_coordinates{
+    justify-content: space-between;
+      &_start{
+        position: absolute;
+        left: 5rem;
+        padding: 0.3rem;
+        border-radius: 5px;
+        background-color: #FCEBA2;
+        z-index: 3;
+
+        &_img{
+          position: relative;
+          width: 73px;
+          height: 73px;
+        }
+
+        p{
+          font-family: 'CocoSharp XL';
+          line-height: 17px;
+          font-weight: 700;
+          font-size: 10px;
+          text-align: center;
+          
+        }
+
+        @media(max-width: $medium-screen){
+          &_img{
+            width: 42px;
+            height: 42px;
+          }
+
+          p{
+            margin-top: 0.2rem;
+            line-height: 10px;
+            font-size: 7px;
+          }
+        }
+    }
+
+    &_end{
+      position: absolute;
+      right: 2rem;
+      padding: 0.3rem;
+      border-radius: 5px;
+      background-color: #FCEBA2;
+      z-index: 3;
+
+      &_img{
+        position: relative;
+        width: 73px;
+        height: 73px;
+      }
+
+      p{
+        font-family: 'CocoSharp XL';
+        line-height: 17px;
+        font-weight: 700;
+        font-size: 10px;
+        text-align: center;
+      }
+
+      @media(max-width: $medium-screen){
+        &_img{
+          width: 42px;
+          height: 42px;
+        }
+
+        p{
+          margin-top: 0.2rem;
+          line-height: 10px;
+          font-size: 7px;
+        }
+      }
+  }
+
+  &_svg{
+    position: absolute;
+    left: 7.5rem;
+    right: 2rem;
+    z-index: 2;
+    circle:nth-child(3){
+      cx: 99.2%;
+    }
+    &_mob{
+      display: none;
+    }
+    @media(max-width: $medium-screen){
+      left: 6rem;
+      right: 3.5rem;
+      path{
+        stroke-width: 2px;;
+      }
+      circle{
+        r: 3.5px;
+      }
+      circle:nth-child(3){
+        cx: 98%;
+      }
+      &_desk{
+        display: none;
+      }
+      &_mob{
+        display: block;
+      }
+    }
+  }
+
+  &_avg{
+    position: absolute;
+    background-color: #D9FFE3;
+    width: 100%;
+    z-index: -1;
+    @media(max-width: $medium-screen){
+      z-index: unset;
+    }
+  }
+
+  &_line{
+    width: 100%;
+    position: absolute;
+    border-top: 3px solid #5DD37C;
+    border-style: dashed;
+
+    @media(max-width: $medium-screen){
+      border-top: 1px solid #5DD37C;
+      border-style: dashed;
+      z-index: 1;
+    }
+  }
+
+  &_point{
+    position: absolute;
+    font-family: 'CocoSharp XL';
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 20.76px;
+    color: #06543D;
+    z-index: 1;
+    @media(max-width: $medium-screen){
+      font-size: 7px;
+      line-height: 11.76px;
+      z-index: 2;
+    }
+  }
+  }
+
+  &_mark{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem 0;
+    margin-left: 50px;
+    p{
+      font-family: "CocoSharp XL";
+      font-weight: 400;
+      font-size: 18.1px;
+      line-height: 24.26px;
+      max-width: 150px;
+    }
+
+    &_avg{
+      display: flex;
+      align-items: center;
+      >div{
+       width: 31px;
+       height: 31px;
+       background-color: #D9FFE3;
+       margin-right: 0.5rem;
+      }
+    }
+
+    &_line{
+      display: flex;
+      align-items: center;
+      >div{
+        border-top: 3px solid #5DD37C;
+        border-style: dashed;
+        width: 33px;
+        margin-right: 0.5rem;
+      }
+    }
+
+    &_svg{
+      display: flex;
+      align-items: start; 
+      margin-top: 1rem;
+      >div{
+        margin-top: 0.5rem;
+        width: 33px;
+        border: 3px solid #5DD37C;
+        border-radius: 5px;
+        margin-right: 0.7rem;
+      }
+    }
+
+    @media(max-width: $medium-screen){
+      margin-left: 0;
+      align-items: center;
+      p{
+        font-size: 8.5px;
+        line-height: 10px;
+      }
+
+      &_avg{
+        >div{
+         width: 14px;
+         height: 14px;
+        }
+      }
+
+      &_line{
+        >div{
+          border-top: 1px solid #5DD37C;
+          border-style: dashed;
+          width: 15px;
+          margin-right: 0.2rem;
+        }
+      }
+
+      &_svg{
+        margin-top: 0.6rem;
+        >div{
+          margin-top: 0.3rem;
+          width: 15px;
+          border: 1px solid #5DD37C;
+          border-radius: 5px;
+          margin-right: 0.5rem;
+        }
+
+        p{
+          max-width: 72px;
+        }
+      }
+  
+    }
+
+  }
+  .weightLabels {
+    font-family: "cocosharp_xlextrabold";
+    align-self: start;
+    display: flex;
+    font-size: 17px;
+    color: #06543d;
+    white-space: nowrap;
+    height: 100%;
+    line-height: 134%;
+    margin-bottom: 31px;
+    // padding: 0 20px 0 0;
+    // background-color: black;
+
+    // @media (max-width: 991px) {
+    //   display: none;
+    //   white-space: initial;
+    // }
+    @media(max-width: $medium-screen){
+      font-size: 10px;
+      line-height: 13px;
+      margin-bottom: 21px;
+    }
+
+    &_box{
+      position: relative;
+      height: 100%;
+    }
+
+    &_vertical {
+      position: relative;
+      top: -10px;
+      &_height {
+        height: inherit;
+        background: #06543d;
+        width: 5.24px;
+        margin-left: 1rem;
+
+        @media(max-width: $medium-screen){
+          width: 3px;
+        }
+      }
+    }
+  }
+
+  .quizHorizontalLabel {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &_line{
+        width: 100%;
+        height: 6px;
+        background: #06543d;
+        @media(max-width: $medium-screen){
+          height: 3px;
+        }
+    }
+
+    &_label{
+        padding: 0 2rem;
+        font-family: "cocosharp_xlextrabold";
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 0.5rem;
+
+        p{
+            font-weight: 700;
+            font-size: 17px;
+            line-height: 23px;
+            color: #06543D;
+
+            @media(max-width: $medium-screen){
+              font-size: 10px;
+              line-height: 13px;
+            }
+        }
+    }
+  }
+}

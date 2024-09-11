@@ -1,0 +1,129 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.ourInsta-main-container {
+  max-width: 100vw;
+  padding: 15px 7vw;
+  // background-color: #fdf7f1;
+
+  @media (max-width: "992px") {
+    width: 100%;
+    padding: 15px 40px;
+  }
+  @media (max-width: $medium-screen) {
+    width: 100%;
+    padding: 15px 0;
+  }
+
+  @media (min-width: "720px") {
+    .bottomButton {
+      display: none;
+    }
+  }
+  .bottomButton__atag {
+    justify-content: center;
+  }
+
+  @media (max-width: $small-screen) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.ourInstaContainer {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 10px;
+  column-gap: 15px;
+
+  @media (max-width: "720px") {
+    grid-template-columns: repeat(1, 1fr);
+    > *:not(:first-child) {
+      display: none;
+    }
+  }
+}
+
+.ourInstaCard {
+  &__image {
+    a {
+      display: inline-block;
+      img {
+        @media (max-width: 720px) {
+          width: 100vw !important;
+        }
+        animation: image-loading 1s linear infinite alternate;
+      }
+    }
+  }
+
+  @keyframes image-loading {
+    0% {
+      background-color: hsl(200, 20%, 70%);
+    }
+    100% {
+      background-color: hsl(200, 20%, 95%);
+    }
+  }
+}
+
+.ourInstaHeader {
+  &__left {
+    span {
+      color: #686b78;
+    }
+    h3 {
+    }
+  }
+  &__right {
+    &__button {
+      background-color: #f2f8ff;
+      border-radius: 15px;
+      padding: 5px 15px;
+      color: black;
+      font-size: 15px;
+
+      button {
+      }
+
+      @media (max-width: "720px") {
+        display: none;
+      }
+    }
+  }
+  //New Changes
+  &__row1 {
+    @media (max-width: $small-screen) {
+      display: flex !important;
+      justify-content: center !important;
+    }
+  }
+  &__heading {
+    @media (max-width: $small-screen) {
+      font-size: $h4-font-size;
+    }
+  }
+}
+
+.instBottomButton {
+  @media (max-width: $small-screen) {
+    align-self: center;
+    background-color: $light-sky-blue;
+    border-radius: 21px;
+    padding: 16px;
+    width: fit-content;
+  }
+  margin-top: 15px;
+  button {
+    line-height: 27px;
+  }
+  span {
+    color: $gray-deep;
+  }
+  svg {
+    path {
+      stroke: $gray-deep;
+    }
+  }
+}

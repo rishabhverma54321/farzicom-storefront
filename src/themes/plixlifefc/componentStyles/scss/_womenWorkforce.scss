@@ -1,0 +1,23 @@
+.womenWorkforceButton {
+  color: #e05778;
+  border: 1px solid #e05778;
+  border-radius: 4px;
+  transition: 0.2s;
+  &__atag {
+    padding: 1rem;
+  }
+}
+.womenWorkforceButton:hover {
+  color: white;
+  background-color: #e05778;
+}
+
+.womenWorkforceCard {
+  img {
+    width: 70%;
+  }
+}
+
+.womenWorkforceCardsContainer {
+  padding: 0 0 1rem 0;
+}

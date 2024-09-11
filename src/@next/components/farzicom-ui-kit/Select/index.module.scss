@@ -1,0 +1,21 @@
+.selectContainer1 {
+  width: 100%;
+
+  &__select {
+    width: 100%;
+    outline: none;
+    border: 1px solid #c4c4c4;
+    // border-bottom: 1px solid black;
+    text-decoration: none;
+    background-color: unset;
+
+    font-size: 0.9rem;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  &__label {
+  }
+
+  &__option {
+  }
+}

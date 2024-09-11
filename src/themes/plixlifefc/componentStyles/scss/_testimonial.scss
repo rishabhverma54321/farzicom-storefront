@@ -1,0 +1,150 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.testimonialSection {
+  background-color: #eefdeb;
+  padding: 100px 7vw !important;
+  @media (max-width: $medium-screen) {
+    padding: 50px 7vw !important;
+  }
+  position: relative;
+  &__svg1 {
+    position: absolute;
+    top: -43px;
+    left: -20px;
+    @media (max-width: $medium-screen) {
+      display: none;
+    }
+  }
+  &__svg2 {
+    position: absolute;
+    right: -20px;
+    top: 78%;
+    @media (max-width: $medium-screen) {
+      display: none;
+    }
+  }
+  &__container {
+    .carousel__control {
+      svg {
+        path {
+          fill: #a9ef82 !important;
+        }
+      }
+    }
+    > div {
+      > div {
+        > ul {
+          min-height: 493px !important;
+          @media (max-width: $medium-screen) {
+            min-height: 403px !important;
+          }
+          li {
+            min-height: 493px !important;
+            @media (max-width: $medium-screen) {
+              min-height: 403px !important;
+            }
+          }
+        }
+      }
+    }
+    background-color: white;
+    border: 2px solid #9dec9b;
+    background-image: url("/plixlifefc/assets/testimonial-background-with-icons3.png");
+    @media (max-width: $medium-screen) {
+      background-image: url("/plixlifefc/assets/testimonial-background-with-icons3_mobile.png");
+    }
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: contain;
+
+    padding: 1rem;
+    &__div {
+      padding: 2rem 11rem 5rem 11rem;
+      @media (max-width: $large-screen) {
+        padding: 2rem 6rem 5rem 6rem;
+      }
+      @media (max-width: $medium-screen) {
+        padding: 8px 4rem;
+      }
+      @media (max-width: $small-screen) {
+        padding: 8px;
+      }
+      &__card {
+        gap: 20px;
+        @media (max-width: $medium-screen) {
+          gap: 16px;
+        }
+        &__image {
+          &__container {
+            margin-inline: auto;
+            position: relative;
+            width: 144px !important;
+            height: 144px !important;
+            @media (max-width: $medium-screen) {
+              width: 96px !important;
+              height: 96px !important;
+            }
+          }
+          position: relative;
+          padding: 0 4rem;
+          @media (max-width: $medium-screen) {
+            padding: 0 1rem;
+          }
+          svg {
+            font-size: 74px;
+            position: absolute;
+            top: 37%;
+            right: -34%;
+
+            @media (max-width: $small-screen) {
+              top: 32%;
+              right: -54%;
+            }
+          }
+        }
+        &__title {
+          margin-top: 8px;
+          &__container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            &__heading1 {
+              font-weight: 700;
+            }
+            &__heading2 {
+              font-size: 14px;
+              line-height: 160%;
+              @media (max-width: $medium-screen) {
+                font-size: 12px;
+              }
+            }
+          }
+        }
+        &__description {
+          font-weight: 500;
+          font-size: 24px;
+          line-height: 2rem;
+          @media (max-width: $medium-screen) {
+            font-size: 18px;
+            line-height: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.carousel__control--right {
+  // margin-right: 12rem !important;
+  position: absolute !important;
+  right: 7vw !important;
+  margin-right: 0 !important;
+}
+
+.carousel__control--left {
+  // margin-left: 12rem !important;
+  position: absolute !important;
+  left: 7vw !important;
+}

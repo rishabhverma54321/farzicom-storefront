@@ -1,0 +1,195 @@
+.customerStudySection{
+    &__background{
+        background-color: #ffffff;
+    }
+    &__wrapper{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1.5rem;
+        @media (max-width:$small-screen) {
+            padding-top: 8px !important;
+        }
+    }
+    &__header{
+        margin-bottom: 0px !important;
+        &__heading{
+            font-family: "cocosharp_xlextrabold" !important;
+            font-style: italic;
+            font-weight: 800;
+            font-size: 52px;
+            line-height: 120%;            
+            letter-spacing: -0.02em;
+            color: #095933;
+            @media (min-width: $large-screen) {
+                font-size: 52px;
+                line-height: 120%;            
+            }
+            @media (max-width: $large-screen) {
+                font-size: 32px;
+                line-height: 120%;
+            }
+        }
+    }
+    &__content{
+        margin: 0px;
+        @media (max-width:$small-screen) {
+            margin:0rem;
+        }
+        background-color: white;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: flex-start;
+     @media (max-width: $large-screen) {
+        flex-direction: column;
+     }
+     @media (min-width: $large-screen) {
+            //  box-shadow:  0px 1px 19px 6px rgba(233, 237, 153, 0.5);
+     }
+    }
+    &__image{
+        padding: 1.5rem;
+        width: 50%;
+        // margin: auto;
+        flex: 1;
+        object-fit: contain;
+        object-position: center;
+        @media (max-width: $small-screen) {
+            background-color:#FEFFED ;
+            padding-bottom: 0rem;
+            // display: none;
+            width: 100%;
+         }
+
+    }
+    &__text{
+        flex: 1;
+        padding: 1.5rem;
+        @media (max-width:$small-screen) {
+            padding: 0;
+        >div{
+            padding: 0.5rem;
+            padding-top: 0px;
+            // box-shadow:  0px 1px 19px 6px rgba(233, 237, 153, 0.5);
+        }
+        }
+    }
+    &__subHeader{
+        color: black !important;
+        font-weight: 700;
+        font-size: 24px;
+        @media (max-width:$small-screen) {
+            text-align: left;
+            font-family: "CocoSharp XL" !important;
+            font-style: italic;
+            font-weight: 800;
+            color: #095933;
+            padding: 15px 0px;
+        }
+        @media (min-width: $large-screen) {
+            margin-top: 1rem !important;
+            font-size: 30px;
+            margin-bottom: 1rem;
+         }
+    }
+    &__point{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        @media (max-width:$small-screen) {
+            align-items: baseline;
+        }
+        .point_icon{
+            width: 60px;
+            height: 60px;
+            margin: 0px 14px 0px 0px;
+            @media (max-width:$small-screen) {
+                width: 75px;
+                height: 75px;
+                top: 19px;
+                position: relative;
+            }
+            img{
+                width: 100%;
+                height: 100%;
+            }
+            & >span{
+                position: relative !important;
+                display: block !important;
+                height: 100% !important;
+                img{
+                    position: relative !important;
+                    width: 100% !important;
+                    height: 100% !important;
+                    max-width: 100% !important;
+                    max-height: unset !important;
+                    min-width: unset !important;
+                    min-height: unset !important;
+                    object-fit: cover;
+                    object-position: bottom;
+                }
+              }
+            
+        }
+        h1{
+            font-family: "CocoSharp XL";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 95px;
+            line-height: 160%;
+            color: #1EAF6D;
+            height: 110px;
+            display: flex;
+            align-items: baseline;
+            @media (max-width: $large-screen) {
+                font-size: 69.2416px;
+                line-height: 160%;
+                height: 90px;
+            }
+        display: inline;
+        }
+        >div{
+            margin-left: 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            width: calc(100% - 60px - 4px - 14px);
+            @media (max-width: $small-screen) {
+                width: calc(100% - 75px - 4px - 14px);
+            }
+            span{
+                font-family: 'CocoSharp XL';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 22px;
+                line-height: 160%;
+                color: #095933;
+                @media (max-width: $small-screen) {
+                    font-size: 14px;
+                 }
+            }
+            span:nth-child(2){
+                font-size: 20px;
+                @media (max-width: $small-screen) {
+                    font-size: 12px;
+                    line-height: 14px;
+                 }
+            }
+        }
+
+        &__percent{
+            font-family: 'CocoSharp XL' !important;
+            font-style: normal !important;
+            font-weight: 700 !important;
+            font-size: 35px !important;
+            line-height: 160% !important;            
+            color: #1EAF6D !important;
+            @media (max-width: $large-screen) {
+                font-size: 23px;
+             }
+            // top: 0px;
+            // left: 25%;
+            // position: absolute;
+        }
+    }
+}

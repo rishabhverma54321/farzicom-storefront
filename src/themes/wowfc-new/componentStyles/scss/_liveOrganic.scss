@@ -1,0 +1,45 @@
+@import "../../globalStyles-scss/scss/variables.module.scss";
+
+.liveOrganicContainer {
+  grid-template-columns: repeat(5, 1fr) !important;
+  column-gap: 80px !important;
+  justify-items: center;
+  @media (max-width: $large-screen) {
+    column-gap: 20px !important ;
+  }
+}
+.homepageIcons {
+  min-height: 144px;
+  @media (min-width: $large-screen) {
+    min-height: 314px;
+  }
+
+  .liveOrganicContainer {
+    grid-template-columns: repeat(6, 1fr) !important;
+    column-gap: 40px !important;
+    min-height: 84px;
+    @media (min-width: $large-screen) {
+      min-height: 184px;
+    }
+  }
+}
+
+.liveOrganicCard {
+  min-height: 84px;
+  @media (min-width: $large-screen) {
+    min-height: 184px;
+  }
+  &__image {
+    padding: 16px;
+    img {
+      height: auto;
+    }
+  }
+}
+.liveOrganicContainer {
+  width: 90%;
+  margin: auto;
+  @media (max-width: $small-screen) {
+    width: 100%;
+  }
+}

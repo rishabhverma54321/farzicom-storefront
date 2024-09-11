@@ -1,0 +1,173 @@
+.byob-gallery{
+  /* Gallery Container */
+  .byob-product-list {
+  
+    /* Hide Collection Variant Name */
+    .collection-variant-name {
+      display: none;
+    }
+  
+    /* Adjust Add to Cart Button */
+    .atc-button {
+      margin-top: 0;
+  
+      span {
+  
+        /* Media Query for Small Screens */
+        @media (max-width: 768px) {
+          font-size: 12px;
+          gap: 0.4rem;
+  
+          /* Icon Size Adjustment */
+          div:first-child {
+            svg {
+              height: 13px;
+            }
+          }
+        }
+  
+        /* Media Query for Medium Screens */
+        @media (min-width: 768px) {
+          div:nth-child(2) {
+            span {
+              margin-bottom: 0.1rem;
+            }
+          }
+        }
+      }
+    }
+  
+    /* Adjust Space Content */
+    .space_content {
+      >div {
+        span {
+          margin-top: 0;
+        }
+  
+        >div {
+          >div {
+            padding: 0 !important;
+          }
+        }
+      }
+    }
+  
+    /* Adjust Remove from Box Button */
+    .remove-from-box {
+  
+      /* Media Query for Small Screens */
+      @media (max-width: 768px) {
+        padding: 6px 0 !important;
+  
+        &__mainText {
+          width: 70%;
+        }
+      }
+  
+      &__leftSide {
+        svg {
+          width: 12px;
+          height: 12px !important;
+  
+          /* Media Query for Small Screens */
+          @media (max-width: 768px) {
+            width: 10px;
+            height: 10px !important;
+          }
+        }
+  
+        span {
+          font-size: 13px;
+  
+          /* Media Query for Small Screens */
+          @media (max-width: 768px) {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+  }
+  
+  /* Product Card */
+  .productCardByb {
+  
+    /* Button Container Padding */
+    &__buttonContainer {
+      padding: 4px 8px 8px 8px !important;
+  
+      /* Media Query for Medium Screens */
+      @media (min-width: 768px) {
+        padding: 0px 8px 8px 8px !important;
+      }
+    }
+  
+    /* Image Size Adjustment */
+    &__image {
+  
+      /* Media Query for Large Screens */
+      @media (min-width: 1024px) {
+        height: 250px;
+      }
+    }
+  
+    /* Rating Styling */
+    &__rating {
+      display: flex;
+      gap: 0.2rem;
+      align-items: center;
+  
+      span {
+        font-size: 14px;
+        font-family: "CocoSharp XL";
+        font-weight: 700;
+        color: #808080;
+      }
+  
+      img {
+        width: 14px;
+      }
+  
+      /* Hide Rating on Small Screens */
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+  }
+  
+  /* Rating Container */
+  .byob-rating {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.25rem 0.15rem;
+    display: flex !important;
+    align-items: start !important;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0px 4px 4px 0px #00000040;
+  
+    span {
+      line-height: 14px;
+      color: #000;
+    }
+  
+    img {
+      height: 14px;
+      width: 14px;
+      margin-right: 3px !important;
+    }
+  
+    /* Media Query for Small Screens */
+    @media (max-width: 768px) {
+      padding: 0.15rem 0.1rem;
+  
+      img {
+        margin-right: 2px !important;
+      }
+  
+      span {
+        line-height: 13px;
+      }
+    }
+  }
+}

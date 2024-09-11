@@ -1,0 +1,83 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.cardOverlayContainer {
+  background-color: #ffffff;
+  border-radius: 8px;
+  width: 42vw;
+  margin: auto;
+  margin-top: 10vh;
+  padding: 30px 50px 20px 50px;
+  max-height: 80vh;
+  overflow-y: scroll;
+
+  @media (max-width: $large-screen) {
+    width: 70vw;
+    padding: 18px 20px;
+  }
+
+  @media (max-width: $medium-screen) {
+    width: 80vw;
+    max-height: 70vh;
+  }
+
+  @media (max-width: $small-screen) {
+    width: 90vw;
+  }
+
+  &__close {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.authenticCardClass {
+  width: 100%;
+  gap: 8px;
+  &__image {
+    width: 60px;
+    height: 60px;
+
+    @media (max-width: $medium-screen) {
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  &__title {
+    text-align: left !important;
+    p {
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 140%;
+    }
+  }
+
+  &__description {
+    p {
+      max-height: unset !important;
+      text-align: left !important;
+      font-weight: 400 !important;
+      font-size: 14px;
+      line-height: 160%;
+      color: rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  &__button {
+    width: fit-content !important;
+    background: #02262a;
+    border-radius: 2px;
+    padding: 14px 70px;
+    justify-self: center;
+    align-self: center;
+    margin-top: 32px;
+
+    @media (max-width: $medium-screen) {
+      width: 100% !important;
+    }
+
+    span {
+      color: white !important;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+.brandPromisesContainer {
+  @media (max-width: $large-screen) {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+.brandPromisesCard {
+  justify-content: flex-start;
+  padding: 0 1rem;
+  &__image {
+    img {
+      width: 50%;
+      @media (max-width: $medium-screen) {
+        width: 70%;
+      }
+    }
+  }
+  &__description {
+    p {
+      text-align: left !important;
+      max-height: 400px;
+      line-height: 1rem;
+    }
+  }
+  @media (max-width: $medium-screen) {
+    padding: 0 0.5rem;
+  }
+}

@@ -1,0 +1,56 @@
+.drinkWiseHeader {
+  &__right {
+    height: 40px !important;
+    overflow-x: scroll !important;
+    scrollbar-width: none !important; /* Firefox */
+    -ms-overflow-style: none !important;
+    &__filter {
+      .active {
+        background-color: $orangeDrinkSwa !important;
+      }
+      @media (max-width: $medium-screen) {
+        justify-content: space-between !important;
+        width: 90% !important;
+      }
+    }
+  }
+  &__right::-webkit-scrollbar {
+    /* WebKit */
+    width: 0 !important;
+    height: 0 !important;
+  }
+}
+
+.drinkWiseSectionProduct {
+  background-color: $orangeDrinkSwa !important;
+  color: white;
+  font-weight: bold;
+  &__wishlistContainer {
+    @media (max-width: $medium-screen) {
+      right: 32px;
+    }
+  }
+  &__imageLink {
+    img {
+      border-radius: 0 0 8px 88px !important;
+      box-shadow: 2px -2px 4px rgba(0, 0, 0, 0.1);
+    }
+  }
+  &__cardInfo {
+    p {
+      font-size: 1.3rem;
+    }
+  }
+  &__priceContainer {
+    span {
+      color: white !important;
+    }
+  }
+  &__buttonContainer {
+    button {
+      background-color: white;
+      color: $orangeDrinkSwa;
+      border-color: $orangeDrinkSwa;
+    }
+  }
+}

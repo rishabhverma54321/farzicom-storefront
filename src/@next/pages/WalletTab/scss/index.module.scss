@@ -1,0 +1,91 @@
+.plixCbCard {
+  // background: linear-gradient(295.62deg, #88df94 -0.15%, #d9ffde 106.48%);
+  background-color: #D1FFD9;
+  border-radius: 8px;
+  background-image: url("/plixlifefc/assets/cb_wallet_background.png");
+  background-size: 100%;
+  background-position: right;
+  background-repeat: no-repeat;
+  @media (max-width: 540px) {
+    background-image: url("/plixlifefc/assets/cb_wallet_background_mobileonly.png");
+    background-position: right bottom;
+  }
+  div {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  padding: 1.5rem;
+  span {
+    font-family: 'CocoSharp XL' !important;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 40px;    
+    letter-spacing: -0.02em;    
+    color: #095933;
+    margin-inline: 8px;
+  }
+}
+
+.subtitle{
+  div{
+    font-family: 'CocoSharp XL';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 140%;
+    text-align: center;
+    color: #095933;
+
+    opacity: 0.6;
+    padding: 14px 0px 10px 0px;
+  }
+}
+
+.walletdesc{
+  display: flex;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  div{
+    font-family: 'CocoSharp XL';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 160%;
+    padding: 0px;
+    color: #000000;
+    max-width: 668px;
+    opacity: 0.4;
+  }
+}
+.t_title{
+  div{
+    font-family: 'CocoSharp XL';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 160%;
+    letter-spacing: -0.03em;
+    color: #000000;
+    padding-bottom: 20px;
+  }
+}
+.credit{
+  div{
+    font-family: 'CocoSharp XL';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 160%;    
+    letter-spacing: -0.03em;
+    color: #000000;
+  }
+}
+
+.reason{
+  div{
+    padding-top: 0px;
+  }
+}

@@ -1,0 +1,25 @@
+// .videoCardContainer {
+//   padding: 0 20px;
+// }
+
+.videoCardCard {
+  padding: 0 20px;
+  &__image {
+    a {
+      iframe {
+      }
+    }
+  }
+
+  &__title {
+    a {
+      p {
+      }
+    }
+  }
+  &__description {
+    padding-bottom: 10px;
+    p {
+    }
+  }
+}

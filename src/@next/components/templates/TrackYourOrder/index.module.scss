@@ -1,0 +1,825 @@
+// Custom Pages
+
+
+.track_order_container {
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (min-width: 576px) {
+    max-width: 540px;
+  }
+
+  @media (min-width: 768px) {
+    max-width: 720px;
+  }
+
+
+  @media (min-width: 992px) {
+    max-width: 960px;
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 1140px;
+  }
+
+  @media (min-width: 1400px) {
+    max-width: 1270px;
+  }
+}
+
+
+.track_order_cover_section {
+padding-top: 93px;
+padding-bottom: 98px;
+position: relative;
+overflow: hidden;
+background-color: #feffed;
+
+@media (min-width: 768px) {
+  padding-top: 70px;
+  padding-bottom: 90px;
+}
+
+&::after,
+&::before {
+  content: "";
+  position: absolute;
+  background-repeat: no-repeat;
+}
+
+&::before {
+  background-image: url('/plixlifefc/assets/tyoicon1.svg');
+  background-position: right;
+  width: 64px;
+  height: 69px;
+  right: -10px;
+  bottom: 35px;
+
+  @media (min-width: 768px) {
+    width: 63px;
+    height: 168px;
+    bottom: 150px;
+    right: 0;
+  }
+}
+
+&::after {
+  background-image: url('/plixlifefc/assets/tyoicon2.svg');
+  width: 72px;
+  height: 133px;
+  left: -2px;
+  top: -54px;
+
+  @media (min-width: 768px) {
+    background-image: url('/plixlifefc/assets/tyoicon2.svg');
+
+    width: 207px;
+    height: 247px;
+    top: 80px;
+    left: -5px;
+  }
+}
+
+&_row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  .form_col {
+    width: 100%;
+    text-align: center;
+
+    @media (min-width: 768px) {
+      max-width: 500px;
+    }
+
+    .icon_img {
+      margin-bottom: 32px;
+      line-height: 0;
+
+      @media (min-width: 768px) {
+        margin-bottom: 56px;
+      }
+
+      svg {
+        height: 102px;
+
+        @media (min-width: 768px) {
+          height: 155px;
+        }
+      }
+    }
+
+    h1 {
+      font-family: "cocosharp_xlextrabold" !important;
+      color: #095933;
+      font-size: 32px;
+      font-style: italic;
+      font-weight: 800;
+      line-height: 38px;
+      margin-bottom: 12px;
+
+      @media (min-width: 768px) {
+        font-size: 56px;
+        line-height: 67px;
+        letter-spacing: -0.04em;
+      }
+    }
+
+    p {
+      font-family: "CocoSharp XL" !important;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 22px;
+      margin-bottom: 30px;
+
+      @media (min-width: 768px) {
+        font-size: 18px;
+        line-height: 29px;
+      }
+    }
+
+    .need_help_text {
+      font-family: "CocoSharp XL";
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 22px;
+      margin-top: 32px;
+
+      @media (min-width: 768px) {
+        margin-top: 56px;
+      }
+
+      a {
+        font-family: 'cocosharp_xlextrabold';
+        font-weight: 800;
+        color: #5dd37c;
+        letter-spacing: 0.05em;
+        text-decoration: underline;
+        text-transform: uppercase;
+        margin-left: 10px;
+      }
+    }
+
+    .track_order_form {
+      width: 100%;
+    }
+
+    .form_row {
+      margin-bottom: 18px;
+      position: relative;
+
+      @media (min-width: 768px) {
+        margin-bottom: 24px;
+      }
+    }
+
+    .form_control {
+      width: 100%;
+      border: 1px solid #e7e7e7;
+      border-radius: 8px;
+      padding: 12px 14px;
+      color: #808080;
+      font-family: "CocoSharp XL";
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 22px;
+      background-color: #fff;
+      background-clip: padding-box;
+      &::placeholder{
+        color: rgba(0,0,0,.2);
+      }
+      &::-moz-placeholder{
+        color: rgba(0,0,0,.2);
+
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .button_track_order {
+      font-family: 'cocosharp_xlextrabold';
+      font-size: 16px;
+      font-weight: 800;
+      line-height: 16px;
+      letter-spacing: 0.05em;
+      text-align: center;
+      text-transform: uppercase;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      padding: 16px;
+      outline: none;
+      border: none;
+      background-color: #5dd37c;
+      color: #fff;
+      width: 100%;
+    }
+  }
+}
+}
+
+.order_status_header{
+  padding: 35px 104px 20px 104px;
+  font-size: 25px;
+  @media (max-width: 768px) {
+      padding: 35px 20px 20px 20px;
+      font-size: 15px;
+  }
+}
+.order_status_wrapper{
+  display: inline-block;
+  width: 100%;
+  padding: 40px 80px 24px;
+  @media (max-width: 768px) {
+    padding: 30px 15px 24px;
+  }
+  .order_status{
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      p{
+          width: calc(100% / 5);
+          text-align: center;
+          font-size: 12px;
+          font-family: "CocoSharp XL" !important;
+          font-weight: 400;
+          line-height: 18px;
+          @media (max-width: 768px) {
+              font-size: 10px;
+              line-height: 12px;
+          }
+          &:first-child{
+              text-align: left;
+          }
+          &:last-child{
+              text-align: right;
+          }
+      }
+      
+  }
+  .order_progress_wrapper{
+      width: 100%;
+      height: auto;
+      position: relative;
+      .order_status_section{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          padding-top: 20px;
+          &.returned{
+              .order_status_icon{
+                  background-color: rgb(255, 101, 0);
+              }
+          }
+          .icon_section{
+              width: 20%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              &:first-child{
+                  justify-content: flex-start;
+              }
+              &:last-child{
+                  justify-content: flex-end;
+              }
+          }
+          .order_status_icon{
+              display: inline-block;
+              width: 14px;
+              height: 14px;
+              background: #E7E7E7;
+              border-radius: 50%;
+              @media (max-width: 768px) {
+                width: 12px;
+                height: 12px;
+              }
+          }
+          .active_state{
+            background-color: #095933;
+          }
+          .delivered_active_state{
+            background-color: #095933;
+          }
+      }
+      .order_progressbar{
+          position: absolute;
+          width: 100%;
+          border: 1px solid #E7E7E7;
+          top: 26px;
+          z-index: -1;
+      }
+      .order_progressbar_overlay{
+          position: absolute;
+          width: 0%;
+          border: 1px solid #095933;
+          top: 26px;
+          z-index: -1;
+          &.delivered_progressbar{
+            background-color: rgb(255, 101, 0);
+            border: 1px solid rgb(255, 101, 0);
+          }
+      }
+  }
+
+}
+
+
+.track_order_page_header {
+  background-image: url("/plixlifefc/assets/track-order-header-bg-small.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: #feffed;
+  padding: 55px 0;
+  margin-bottom: 24px;
+
+  @media (min-width: 768px) {
+    background-image: url("/plixlifefc/assets/track-order-header-bg-large.svg");
+    margin-bottom: 42px;
+  }
+
+  &_inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .button_back {
+    background-color: transparent;
+    border: 0;
+
+    svg {
+      height: 15px;
+
+      @media (min-width: 768px) {
+        height: 18px;
+      }
+    }
+  }
+
+  h1 {
+    font-size: 24px;
+    font-family: "CocoSharp XL" !important;
+    font-weight: 700;
+    line-height: 29px;
+    text-align: center;
+    color: #095933;
+    margin-bottom: 0;
+
+    @media (min-width: 768px) {
+      font-size: 32px;
+      line-height: 38px;
+      text-align: left;
+    }
+  }
+}
+
+.track_order_details {
+  &_section {
+    @media (min-width: 768px) {
+      margin-bottom: 62px;
+    }
+  }
+
+  &_row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 24px;
+
+    @media (min-width: 992px) {
+      flex-direction: row;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .order_status_col {
+      width: 100%;
+      border: 1px solid #e7e7e7;
+      border-radius: 8px;
+      overflow: hidden;
+
+      @media (min-width: 992px) {
+        width: 32.5%;
+      }
+
+      .order_status_progress_card {
+        &.order_status_inprogress {
+          .order_status_progress_card_header {
+            background-color: #f6f6f6;
+          }
+
+          .delivery_status {
+            color: #ffa227;
+          }
+        }
+
+        .deliverd{
+          background: #EFFBF2 !important;
+          border-radius: 8px 8px 0px 0px;
+          .delivery_status {
+            color: #095933;
+          }
+        }
+
+        &.order_status_completed {
+          .order_status_progress_card_header {
+            background-color: #effbf2;
+
+            .delivery_status {
+              color: #095933;
+            }
+          }
+
+          .delivery_status {
+            color: #1eaf6d;
+          }
+        }
+
+        &_header {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: flex-end;
+          justify-content: space-between;
+          padding: 20px;
+
+          @media (min-width: 768px) {
+            padding-top: 22px;
+            padding-bottom: 22px;
+          }
+
+          .delivery_status_icon {
+            margin-right: 18px;
+            line-height: 0;
+
+            svg {
+              width: 28px;
+              height: 28px;
+
+              @media (min-width: 768px) {
+                width: 34px;
+                height: 34px;
+              }
+            }
+          }
+
+          .delivery_status {
+            font-family: "CocoSharp XL" !important;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 25px;
+            margin-right: auto;
+
+            @media (min-width: 768px) {
+              font-size: 24px;
+              line-height: 34px;
+            }
+          }
+
+          .delivery_status_date {
+            font-family: "CocoSharp XL" !important;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 17px;
+            color: #000;
+
+            @media (min-width: 768px) {
+              font-size: 14px;
+              line-height: 26px;
+            }
+          }
+        }
+
+        &_body {
+          display: flex;
+          flex-wrap: wrap;
+
+          @media (min-width: 768px) {
+          }
+        }
+
+        &_item {
+          padding: 18px 20px;
+
+          border-top: 1px solid #e7e7e7;
+          width: 50%;
+
+          @media (min-width: 768px) {
+            padding-bottom: 22px;
+          }
+
+          &:nth-child(odd) {
+            border-right: 1px solid #e7e7e7;
+          }
+
+          &_title {
+            font-family: "CocoSharp XL" !important;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 14px;
+            color: #808080;
+            @media (min-width: 768px) {
+              font-size: 14px;
+              line-height: 21px;
+            }
+          }
+
+          &_content {
+            font-family: "CocoSharp XL" !important;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 17px;
+            color: #000;
+            margin-top: 2px;
+
+            @media (min-width: 768px) {
+              font-size: 18px;
+              line-height: 27px;
+              margin-top: 0;
+            }
+          }
+
+          &_date {
+            font-family: "CocoSharp XL" !important;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 14px;
+            margin-top: 4px;
+            color: #000;
+
+            @media (min-width: 768px) {
+              line-height: 18px;
+              margin-top: 2px;
+            }
+          }
+        }
+      }
+    }
+
+    .order_details_col {
+      border-top: 1px solid #e7e7e7;
+      margin-left: -20px;
+      margin-right: -20px;
+
+      @media (min-width: 576px) {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        border: 1px solid #e7e7e7;
+        border-radius: 8px;
+      }
+
+      @media (min-width: 992px) {
+        width: calc(67.5% - 16px);
+      }
+
+      .order_details_card {
+        &_progress {
+          border-bottom: 1px solid #e7e7e7;
+
+          &_nav {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 30px 15px 24px;
+
+            @media (min-width: 768px) {
+              padding: 40px 15px 24px;
+            }
+
+            &_item {
+              min-height: 32px;
+              padding: 22px 5px 0;
+              position: relative;
+              width: 20%;
+
+              @media (min-width: 768px) {
+                min-height: 44px;
+                padding-top: 26px;
+              }
+
+              &:first-of-type {
+                min-height: auto;
+                margin-bottom: 0;
+
+                &::after {
+                  display: none;
+                }
+              }
+
+              &::before,
+              &::after {
+                content: "";
+                position: absolute;
+              }
+
+              &::before {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background-color: #e7e7e7;
+                left: 0;
+                right: 0;
+                margin: auto;
+                top: 0;
+                z-index: 1;
+
+                @media (min-width: 768px) {
+                  width: 16px;
+                  height: 16px;
+                }
+              }
+
+              &::after {
+                border-top: 2px solid #e7e7e7;
+                width: 100%;
+                left: -50%;
+                top: 6px;
+
+                @media (min-width: 768px) {
+                  top: 8px;
+                }
+              }
+
+              &_status {
+                font-family: "CocoSharp XL" !important;
+                font-size: 10px;
+                line-height: 15px;
+                font-weight: 400;
+                text-align: center;
+
+                @media (min-width: 768px) {
+                  font-size: 12px;
+                  line-height: 18px;
+                }
+              }
+
+              &.active {
+                &::before {
+                  background-color: #095933;
+                  width: 12px;
+                  height: 12px;
+                  left: -3px;
+                  top: 0px;
+
+                  @media (min-width: 768px) {
+                    width: 14px;
+                    height: 14px;
+                    top: 2px;
+                  }
+                }
+
+                &::after {
+                  border-top-color: #095933;
+                }
+
+                .order_status_progress_card_nav_item {
+                  &_status {
+                    color: #000000;
+                    font-family: "CocoSharp XL" !important;
+                    font-weight: 700;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        &_summary {
+          &_title {
+            font-family: "CocoSharp XL" !important;
+            font-size: 18px;
+            line-height: 29px;
+            font-weight: 700;
+            color: #000;
+            padding: 18px 20px 12px;
+            margin-bottom: 0;
+
+            @media (min-width: 768px) {
+              font-size: 20px;
+              line-height: 32px;
+              padding-left: 24px;
+              padding-top: 24px;
+            }
+
+            &:first-of-type {
+              padding-top: 24px;
+            }
+          }
+
+          &_item {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 12px 20px;
+            color: #000;
+            font-family: "CocoSharp XL" !important;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 17px;
+
+            @media (min-width: 768px) {
+              font-size: 14px;
+              line-height: 25px;
+              padding-left: 24px;
+              padding-right: 24px;
+            }
+
+            &:nth-child(odd) {
+              background-color: #fff;
+            }
+
+
+            &:nth-child(even) {
+              background-color: #f6f6f6;
+
+            }
+
+            &.active {
+              background-color: #effbf2;
+            }
+
+            &_left {
+              width: 110px;
+              padding-right: 10px;
+
+              @media (min-width: 768px) {
+                width: 150px;
+              }
+            }
+
+            &_right {
+              display: flex;
+              flex-direction: column;
+              width: calc(100% - 110px);
+              gap: 10px;
+
+              @media (min-width: 768px) {
+                flex-direction: row;
+                width: calc(100% - 150px);
+              }
+            }
+
+            &_location,
+            &_desc {
+              @media (min-width: 768px) {
+                width: calc(50% - 5px);
+              }
+            }
+          }
+        }
+
+        &_body {
+          &_help {
+            padding-top: 28px;
+            padding-bottom: 28px;
+            text-align: center;
+            background: #f5f5f5;
+            margin-top: 12px;
+
+            @media (min-width: 768px) {
+              padding-top: 21px;
+              padding-bottom: 32px;
+              margin-top: 24px;
+              margin-left: 22px;
+              margin-right: 22px;
+              background-color: transparent;
+              border-top: 1px solid #e7e7e7;
+            }
+
+            .need_help_text {
+              font-family: "CocoSharp XL" !important;
+              font-size: 14px;
+              font-weight: 400;
+              line-height: 22px;
+
+              a {
+                font-family: "cocosharp_xlextrabold" !important;
+                font-weight: 800;
+                color: #5dd37c;
+                letter-spacing: 0.05em;
+                text-decoration: underline;
+                text-transform: uppercase;
+                margin-left: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.remark{
+  padding: 10px 20px;
+}
+.green{
+  color: #1EAF6D !important;
+}

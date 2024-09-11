@@ -1,20 +1,15 @@
-import "@src/styles/index.scss";
+import "@temp/styles/index.scss";
 import { SaleorProvider } from "@saleor/sdk";
 import NextQueryParamProvider from "next-query-params";
-import {
-  OverlayProvider,
-  OverlayManager,
-  OverlayProvider2,
-  OverlayManager2,
-} from "@components/templates";
 import type { AppProps } from "next/app";
-import { client, saleorClient } from "@src/client";
+import { client, saleorClient } from "@temp/client";
 import { ApolloProvider } from "react-apollo";
 import { IntlProvider } from "react-intl";
 import { ThemeProvider } from "styled-components";
 import React from "react";
 import { defaultTheme, GlobalStyle } from "Themes/globalStyles";
 import ErrorBoundary from "./ErrorBoundary";
+import { OverlayManager, OverlayManager2, OverlayProvider, OverlayProvider2 } from "@temp/components";
 
 export const ShopMetaContext = React.createContext({} as any);
 
@@ -31,7 +26,7 @@ export default function App({ Component, pageProps }: AppProps) {
               <ApolloProvider client={client}>
                 <OverlayProvider2>
                   <OverlayProvider>
-                    <GlobalStyle />
+                    <GlobalStyle/>
                     {/* <NextQueryParamProvider> */}
                     <Component {...pageProps} />
                     {/* </NextQueryParamProvider> */}

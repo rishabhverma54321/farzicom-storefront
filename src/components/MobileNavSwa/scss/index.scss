@@ -1,0 +1,160 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+.overlayFarzicom__left {
+  background-color: transparent;
+  width: 100%;
+}
+.side-nav-swa {
+  height: 100vh;
+  $item-height: 3.7rem;
+  // width: 20rem;
+
+  display: flex;
+
+  &__ul-contaier {
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  &__main-ul {
+    --mobile-nav-bg-color: #ffffff;
+    background-color: var(--mobile-nav-bg-color);
+    min-height: 100%;
+    padding-bottom: 9rem;
+  }
+
+  ul > li {
+    height: fit-content;
+    height: -moz-fit-content;
+    height: -ms-fit-content;
+    height: -webkit-fit-content;
+    height: -o-fit-content;
+  }
+
+  &__menu-item {
+    display: grid;
+    height: $item-height;
+
+    li {
+      padding: 8px 0 8px 16px;
+    }
+
+    &-link,
+    &-back span {
+      align-items: center;
+      color: $base-font-color;
+      display: flex;
+      padding: 8px 0 0 16px;
+      text-decoration: none;
+      transition: 0.3s;
+
+      svg * {
+        fill: currentColor;
+      }
+    }
+
+    &-logo {
+      align-self: center;
+      display: flex;
+      gap: 0.75rem;
+
+      span {
+        font-size: 0.975rem;
+        line-height: 1.5em;
+        color: #1d2136;
+      }
+    }
+    &-userImg {
+      padding: 0 1rem;
+    }
+    &-close {
+      // position: relative;
+      // left: 50px;
+      background-color: transparent;
+      height: 100vh;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+    &-link,
+    &-more,
+    &-back,
+    &-close {
+      transition: 0.3s;
+
+      &:hover {
+        color: $green-dark;
+      }
+
+      svg * {
+        fill: currentColor;
+      }
+    }
+
+    &-close,
+    &-more,
+    &-back {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &-more {
+      align-self: center;
+      padding: 1.25rem 1.75rem;
+    }
+
+    &-back {
+      svg {
+        margin-right: 1rem;
+      }
+    }
+
+    &-close {
+      padding: 0 1rem;
+      color: white;
+      align-items: center;
+      display: flex;
+      height: $item-height;
+      justify-content: center;
+
+      span {
+        background-color: currentColor;
+        border-radius: 1px;
+        height: 3px;
+        width: 24px;
+      }
+
+      &:hover {
+        color: $green-dark;
+      }
+    }
+
+    &-close {
+      background: #fff4f1;
+      padding: 0 0.5rem;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+
+      svg {
+        color: #1d2136;
+      }
+    }
+
+    &--has-subnavigation,
+    &--parent {
+      grid-template-columns: 1fr $item-height;
+    }
+
+    &--parent {
+      grid-template-columns: 1fr;
+      color: $gray;
+      border-bottom: 1px solid #ececec;
+      padding: 0.5rem;
+      margin-bottom: 0.5rem;
+
+      a {
+        color: inherit;
+      }
+    }
+  }
+}

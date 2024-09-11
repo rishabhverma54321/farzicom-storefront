@@ -45,8 +45,8 @@ const NewTestimonials = () => {
                   <h2>{titledata}</h2>
                   {/* desktop only */}
                   <div className="testimonial_container_wrapper">
-                    {testimonialData.map((testimonial, index) => (
-                      <div key={`${testimonial?.title?.name}+${index}`} className="testimonial_container">
+                    {testimonialData.map(testimonial => (
+                      <div className="testimonial_container">
                         <div className="testimonial_image">
                           <CachedImage
                             url={testimonial.image}
@@ -84,7 +84,7 @@ const NewTestimonials = () => {
                       swipeToSlide={true}
                     >
                       {testimonialData.map((testimonial, i) => (
-                        <div key={`${testimonial?.title?.name}+${i}`} className={`testimonial_container container_${i}`}>
+                        <div className={`testimonial_container container_${i}`}>
                           <div className="testimonial_image">
                             <CachedImage
                               url={testimonial.image}

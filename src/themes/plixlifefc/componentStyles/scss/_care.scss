@@ -1,0 +1,73 @@
+.care-main-container {
+  max-width: 100vw;
+  padding: 15px 7vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 70px;
+  @media (max-width: "992px") {
+    width: 100%;
+    padding: 15px 40px;
+  }
+  @media (max-width: $medium-screen) {
+    width: 100%;
+    padding: 15px 20px;
+    grid-template-columns: 1fr;
+  }
+  @media (max-width: $small-screen) {
+    width: 100%;
+    padding: 15px 0;
+  }
+}
+
+.careHeader {
+  &__left {
+    span {
+      color: #686b78;
+    }
+    h3 {
+    }
+  }
+}
+
+.careContentCard {
+  @media (max-width: 720px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  &__image {
+  }
+  &__title {
+    p {
+      text-align: left;
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+  &__description {
+    p {
+      text-align: left;
+      color: #686b78;
+    }
+  }
+}
+
+.careButton {
+  margin-top: 7px;
+  a {
+    @media (min-width: 720px) {
+      justify-content: left;
+    }
+  }
+}
+
+.careRightCard {
+  justify-content: flex-start !important;
+  align-items: center;
+  &__image {
+    width: 80%;
+
+    img {
+    }
+  }
+}

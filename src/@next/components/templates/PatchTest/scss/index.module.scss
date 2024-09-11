@@ -1,0 +1,451 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+.patchTest {
+  width: 100vw;
+  overflow: hidden;
+  &__wrapper {
+    padding: 4rem 5vw 4rem !important;
+    display: flex;
+    gap: 3rem;
+    flex-direction: row-reverse;
+    position: relative;
+    z-index: 1;
+
+    @media (max-width: $medium-screen) {
+      flex-direction: column;
+      padding: 2rem 5vw 2rem !important;
+      gap: 1.5rem;
+    }
+  }
+
+  &__backgroundColor {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    height: 530px;
+    background-color: #feffed;
+    width: 100vw;
+
+    @media (max-width: $medium-screen) {
+      box-shadow: unset;
+    }
+  }
+
+  &__background {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    > span {
+      width: 163px !important;
+      height: 192px !important;
+    }
+    @media (max-width: $medium-screen) {
+      bottom: 4rem;
+      top: unset;
+      right: -1rem;
+      > span {
+        width: 80px !important;
+        height: 70px !important;
+      }
+    }
+
+    @media (min-width: $medium-screen) and (max-width: $large-screen) {
+      > span {
+        width: 100px !important;
+        height: 110px !important;
+      }
+    }
+  }
+
+  &__image {
+    margin: auto;
+    > span {
+      width: 536px !important;
+      height: 518px !important;
+      @media (max-width: $large-screen) {
+        width: 296px !important;
+        height: 296px !important;
+      }
+    }
+
+    @media (min-width: $large-screen) and (max-width: $xlarge-screen) {
+      > span {
+        width: 396px !important;
+        height: 396px !important;
+      }
+    }
+  }
+
+  &__text {
+    margin-top: 2rem;
+
+    h1 {
+      font-size: 56px !important;
+      width: 30%;
+      @media (max-width: $large-screen) {
+        font-size: 42px !important;
+        line-height: 120%;
+        width: 100%;
+      }
+    }
+
+    p {
+      font-family: "CocoSharp XL" !important;
+      margin-top: 1rem;
+      display: block;
+      width: 65%;
+      font-size: 16px !important;
+      line-height: 200%;
+      text-align: start;
+      letter-spacing: -0.02em;
+      color: #095933;
+      opacity: 0.7;
+
+      @media (min-width: $medium-screen) and (max-width: 1400px) {
+        width: 90%;
+      }
+
+      @media (max-width: $medium-screen) {
+        width: 100%;
+        margin-top: 0.6rem;
+        font-size: 14px !important;
+        color: #000000;
+        opacity: 1;
+        line-height: 160%;
+      }
+    }
+
+    @media (max-width: $medium-screen) {
+      margin-top: 0;
+    }
+  }
+
+  &__subheading {
+    font-family: "cocosharp_xlextrabold" !important;
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+    font-weight: 700 !important;
+    font-size: 24px !important;
+    line-height: 160%;
+    text-align: start;
+    color: #095933 !important;
+
+    @media (max-width: $medium-screen) {
+      font-size: 20px !important;
+    }
+  }
+
+  &__heading {
+    font-family: "cocosharp_xlextrabold" !important;
+    display: block;
+    width: 100%;
+    font-style: italic;
+    font-weight: 800 !important;
+    font-size: 42px !important;
+    line-height: 120%;
+    text-align: start;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
+    color: #06543d !important;
+
+    @media (max-width: $medium-screen) {
+      font-size: 24px !important;
+      line-height: 120%;
+    }
+  }
+}
+
+.leaveOn {
+  &__wrapper {
+    padding: 4rem 5vw 4rem !important;
+    gap: 3rem;
+    display: flex;
+    position: relative;
+
+    @media (max-width: $medium-screen) {
+      padding: 0 5vw 8rem !important;
+    }
+  }
+
+  &__backgroundIcon2 {
+    display: none;
+    @media (max-width: $medium-screen) {
+      display: block;
+      position: absolute;
+      bottom: -4rem;
+      left: 0;
+      z-index: -1;
+      > span {
+        width: 118px !important;
+        height: 217px !important;
+      }
+    }
+  }
+
+  &__backgroundIcon {
+    position: absolute;
+    left: 0;
+    bottom: -1rem;
+    > span {
+      width: 262px !important;
+      height: 56px !important;
+    }
+    @media (max-width: $medium-screen) {
+      bottom: -0.5rem;
+      top: unset;
+      left: -6rem;
+      > span {
+        width: 220px !important;
+        height: 32px !important;
+      }
+    }
+  }
+
+  &__image {
+    position: absolute;
+    right: 0;
+    top: -10rem;
+    z-index: -1;
+    > span {
+      width: 850px !important;
+      height: 690px !important;
+      @media (max-width: $medium-screen) {
+        width: 271px !important;
+        height: 211px !important;
+      }
+    }
+
+    @media (max-width: $medium-screen) {
+      top: unset;
+      bottom: -5rem;
+    }
+
+    @media (min-width: $large-screen) and (max-width: 1400px) {
+      top: -5rem;
+      > span {
+        width: 750px !important;
+        height: 640px !important;
+      }
+    }
+
+    @media (min-width: $medium-screen) and (max-width: $large-screen) {
+      top: 0;
+      > span {
+        width: 550px !important;
+        height: 440px !important;
+      }
+    }
+  }
+
+  &__text {
+    width: 50%;
+    h4 {
+      width: 80%;
+    }
+
+    @media (max-width: $medium-screen) {
+      width: 100vw;
+      h4 {
+        width: 100%;
+      }
+      h3 {
+        font-size: 32px !important;
+      }
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 2rem;
+    margin-top: 2rem;
+
+    li {
+      p {
+        font-family: "CocoSharp XL";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 160%;
+        letter-spacing: -0.02em;
+        color: #000000;
+      }
+    }
+
+    &__index {
+      font-family: "cocosharp_xlextrabold";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 160%;
+      letter-spacing: -0.02em;
+      text-transform: capitalize;
+      color: #000000;
+    }
+  }
+}
+
+.rinseOff {
+  &__wrapper {
+    padding: 2rem 5vw 2rem !important;
+    gap: 3rem;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    background: #feffed;
+    gap: 0;
+
+    @media (max-width: $medium-screen) {
+      padding: 2rem 5vw 10rem !important;
+    }
+  }
+
+  &__text {
+    @media (max-width: $medium-screen) {
+      h3 {
+        font-size: 32px !important;
+      }
+    }
+  }
+
+  &__image {
+    > span {
+      mix-blend-mode: darken;
+      width: 700px !important;
+      height: 640px !important;
+    }
+
+    @media (min-width: $medium-screen) and (max-width: 1400px) {
+      > span {
+        width: 500px !important;
+        height: 440px !important;
+      }
+    }
+
+    @media (max-width: $medium-screen) {
+      position: absolute;
+      bottom: -4rem;
+      right: -3rem;
+      > span {
+        width: 321px !important;
+        height: 261px !important;
+        img {
+          -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+        }
+      }
+    }
+  }
+}
+
+.peeling {
+  &__wrapper {
+    padding: 2rem 0 5vw 4rem !important;
+    gap: 3rem;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    gap: 6rem;
+
+    @media (max-width: $medium-screen) {
+      padding: 4rem 5vw 14rem !important;
+    }
+  }
+  &__backgroundIcon2 {
+    position: absolute;
+    bottom: -2rem;
+    > span {
+      width: 100px !important;
+      height: 119px !important;
+    }
+
+    @media (max-width: $medium-screen) {
+      right: -2rem;
+      transform: rotate(-50deg);
+    }
+  }
+
+  &__text {
+    @media (max-width: $medium-screen) {
+      h3 {
+        font-size: 32px !important;
+      }
+    }
+  }
+
+  &__image {
+    > span {
+      mix-blend-mode: darken;
+      width: 660px !important;
+      height: 520px !important;
+    }
+
+    @media (min-width: $large-screen) and (max-width: 1400px) {
+      > span {
+        width: 500px !important;
+        height: 440px !important;
+      }
+    }
+
+    @media (min-width: $medium-screen) and (max-width: $large-screen) {
+      > span {
+        width: 400px !important;
+        height: 340px !important;
+      }
+    }
+
+    @media (max-width: $medium-screen) {
+      position: absolute;
+      bottom: 0;
+      left: -2rem;
+      > span {
+        width: 281px !important;
+        height: 221px !important;
+        img {
+          -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+        }
+      }
+    }
+  }
+
+  &__backgroundIcon {
+    position: absolute;
+    left: 0;
+    top: -4rem;
+    > span {
+      width: 118px !important;
+      height: 201px !important;
+    }
+    @media (min-width: $large-screen) and (max-width: 1400px) {
+      > span {
+        width: 88px !important;
+        height: 171px !important;
+      }
+    }
+
+    @media (min-width: $medium-screen) and (max-width: $large-screen) {
+      > span {
+        width: 68px !important;
+        height: 151px !important;
+      }
+    }
+
+    @media (max-width: $medium-screen) {
+      top: 6.5rem;
+      transform: rotate(-90.9deg);
+      left: unset;
+      right: 0rem;
+      > span {
+        width: 55px !important;
+        height: 94px !important;
+      }
+    }
+  }
+}

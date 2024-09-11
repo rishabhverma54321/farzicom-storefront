@@ -80,6 +80,7 @@ export const commonMessages = defineMessages({
     defaultMessage: "Promo code",
   },
   total: {
+    id:"ct-total",
     defaultMessage: "Total",
   },
   grandTotal: {

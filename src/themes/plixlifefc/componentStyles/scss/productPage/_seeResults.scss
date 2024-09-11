@@ -1,0 +1,128 @@
+.tab-card {
+  margin-top: 44px !important;
+  @media (max-width: $small-screen) {
+    padding: 0 1rem;
+    margin-top: 1rem !important;
+  }
+  &__image {
+    margin-bottom: 2rem;
+    img {
+      width: 100%;
+      object-fit: cover;
+      @media (min-width: $medium-screen) {
+        display: none;
+      }
+      @media (max-width: $small-screen) {
+        border-radius: 12px;
+      }
+    }
+  }
+  &__title {
+    margin-bottom: 20px !important;
+    text-align: left !important;
+    @media (max-width: $medium-screen) {
+      margin-top: 1rem;
+      margin-bottom: 6px !important;
+    }
+
+    p {
+      line-height: 140%;
+      font-size: 1.5rem;
+      font-style: normal;
+      font-weight: 500 !important;
+    }
+    h4 {
+      padding: 1em 0;
+      font-weight: 400;
+      font-size: 0.85rem;
+      color: #000000;
+      text-align: right !important;
+    }
+    a {
+      text-align: left;
+    }
+  }
+  &__description {
+    p {
+      font-weight: 400;
+      color: #000000;
+      text-align: start;
+      opacity: 0.6;
+
+      width: 70%;
+
+      max-height: unset !important;
+
+      @media (max-width: $medium-screen) {
+        width: 100%;
+        font-size: 14px;
+      }
+      font-size: 1rem;
+      line-height: 160%;
+    }
+  }
+}
+
+.see-results-section {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: auto;
+  position: relative;
+  @media (max-width: $medium-screen) {
+    grid-template-columns: 1fr;
+  }
+
+  &__svg1 {
+    position: absolute;
+    top: -6%;
+    left: -2%;
+    @media (max-width: $medium-screen) {
+      position: absolute;
+      top: -6%;
+      right: -14%;
+      left: unset;
+      grid-template-columns: 1fr;
+    }
+  }
+  &__svg2 {
+    position: absolute;
+    right: 36%;
+    bottom: 0;
+    @media (max-width: $medium-screen) {
+      display: none;
+    }
+  }
+}
+
+.results-image {
+  align-self: center;
+  object-fit: fill;
+  margin: 0 !important;
+  &__image {
+    a {
+      display: flex;
+    }
+  }
+  @media (max-width: $medium-screen) {
+    display: none !important;
+  }
+}
+
+.see-result-col1 {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  background-color: #eefdeb;
+}
+.see-results-r {
+}
+// .see-result-tab {
+// }
+
+// .see-result-tab-items {
+//   font-size: 0.85rem;
+//   color: rgba(33, 33, 33, 0.5);
+//   ::after {
+//     color: #000000;
+//   }
+// }

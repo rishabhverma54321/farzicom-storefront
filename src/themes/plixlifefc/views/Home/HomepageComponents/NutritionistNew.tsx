@@ -3,6 +3,7 @@ import {
   customEventTrigger,
   getMetadataValue,
   parseJson,
+  useImageURLReplaceWithCDN,
 } from "@utils/misc";
 import { MyCustomLink } from "@components/next-react/MyCustomLink";
 import { CachedImage } from "@components/molecules/CachedImage";

@@ -1,0 +1,25 @@
+@import "../../globalStyles-scss/scss/variables.module.scss";
+
+.liveOrganicContainer {
+  grid-template-columns: repeat(5, 1fr) !important;
+  column-gap: 80px !important;
+  @media (max-width: $large-screen) {
+    column-gap: 20px !important ;
+  }
+}
+
+.liveOrganicCard {
+  &__image {
+    padding: 16px;
+    img {
+      height: auto;
+    }
+  }
+}
+.liveOrganicContainer {
+  width: 90%;
+  margin: auto;
+  @media (max-width: $small-screen) {
+    width: 100%;
+  }
+}

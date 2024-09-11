@@ -1,0 +1,172 @@
+[
+  {
+    "storeName": "Acropolis Mall,\n Kolkata",
+    "address": "Shop No. GK-002, Situated at 1858/1, Rajdanga Main Road, Kolkata, 70017, P.S",
+    "area": "Kolkata, West Bengal"
+  },
+  {
+    "storeName": "Amanora Mall, Pune",
+    "address": "Amanora Mall, Amanora - Magarpatta Road, Hadapsar, Pune 411028",
+    "area": "Pune, Maharashtra"
+  },
+  {
+    "storeName": "City Center, Siliguri",
+    "address": "CITY CENTER MALL, Ground Floor, Uttaroyon, Matigara, City Center, Nr Chang Hospital, Siliguri, Darjeeling, WB-734010",
+    "area": "Silliguri, West Bengal"
+  },
+  {
+    "storeName": "City Centre II, Kolkata",
+    "address": "City Centre II, Lotus Kiosk, Noapara, Action Area-IID, Kolkata 700157.",
+    "area": "Kolkata, West Bengal"
+  },
+  {
+    "storeName": "City Centre, Rohini",
+    "address": "Lotus Kiosk, Ground Floor, Rohini city center.New Delhi-110085",
+    "area": "Rohini, New Delhi"
+  },
+  {
+    "storeName": "DB Mall, Bhopal",
+    "address": "D B MALL (Ground Floor, Infront of Shopper's Stop) Arera Hills, Plot No.-205, Hoshangabad Rd, Khasra ? 1511 & 1509, Zone ? I,M.P.Nagar, Bhopal, MP-462011",
+    "area": "IMP Nagar, Madhya Pradesh"
+  },
+  {
+    "storeName": "Elante Mall, Chandigarh",
+    "address": "Elante Mall, Lower Ground Floor, Plot No. 178-178A, Industrial & Business Park, Phase-1, Chandigarh, (U.T)",
+    "area": "Chandigarh, Chandigarh"
+  },
+  {
+    "storeName": "Forum Mall, Hyderabad",
+    "address": "FORUM SUJANA MALL,Ground Floor, Plot No. S-16, Opp Malaysian Township, Survey No. 1009, KPHB Phase-VI, Kukatpally, Hyderabad ? 500072",
+    "area": "Kukatpally, Telegana"
+  },
+  {
+    "storeName": "Gaur Mall, Ghaziabad",
+    "address": "Gaur Central Mall A-1 to A-4, RDC, Raj Nagar, Ghaziabad-201002, (U.P).",
+    "area": "Raj Nagar, Uttar Pradesh"
+  },
+  {
+    "storeName": "GVK One, Hyderabad",
+    "address": "GVK One Mall, 6-3-251/1, Road No.1, Banjara Hills, Hyderabad-500034.",
+    "area": "Hyderabad, Telegana"
+  },
+  {
+    "storeName": "Inorbit Mall, Malad",
+    "address": "INORBIT MALL Ground Floor, Near Lift, Opp Klavin Clain Show Room, Malad Link Road, Malad (W), Mumbai-400064",
+    "area": "Malad, Maharashtra"
+  },
+  {
+    "storeName": "Inorbit Mall, Vashi",
+    "address": "INORBIT MALL (Ground floor),Plot No.-39/1, Sector-30A, Vashi, Navi Mumbai-400705",
+    "area": "Vashi, Maharashtra"
+  },
+  {
+    "storeName": "Korum Mall, Thane",
+    "address": "KORUM MALL (Upper ground floor),Samata Nagar, Thane (W), Thane-400601 (MH)",
+    "area": "Thane, Maharashtra"
+  },
+  {
+    "storeName": "Lake Mall, Kolkata",
+    "address": "LAKE MALL, Upper Ground Floor, Rash Behari Avenue, Kolkata, WB-700029",
+    "area": "Kolkata, West Bengal"
+  },
+  {
+    "storeName": "Logix City Center",
+    "address": ":LOGIX CITY CENTER MALL, KIOSK NO.-01, 1st FLOOR, BW-58, SECTOR-32, NOIDA, UP-201301",
+    "area": "Noida, Uttar Pradesh"
+  },
+  {
+    "storeName": "Lulu Mall, Cochin",
+    "address": "LULU INTERNATIONAL SHOPPING MALL, KG-04, Ground Floor, Infront of Body Shop, 34/1000, NH-47, Edapally, Cochin, Kerala ? 682024",
+    "area": "Cochin, Kerala"
+  },
+  {
+    "storeName": "Mahagun Metro Mall",
+    "address": "MAHAGUN METRO MALL, Upper Ground Floor, Plot No.- VC-3, Sector-3, Vaishali, Ghaziabad, UP-201010",
+    "area": "Vaishali, Uttar Pradesh"
+  },
+  {
+    "storeName": "Mall of India",
+    "address": "DLF MALL OF INDIA, SECOND FLOOR, PLOT NO-M 03, SECTTOR-18, NOIDA, UP-201301",
+    "area": "Noida, Uttar Pradesh"
+  },
+  {
+    "storeName": "Mall of Travancore",
+    "address": "Shop No. 13A, Lotus Store, Mall of Travancore, Chakal-Enchakkal, Bypass Road, Chakai, Thiruvananthapuram",
+    "area": "Thiruvananthapuram, Kerala"
+  },
+  {
+    "storeName": "Mantri Square Mall",
+    "address": "Shop No. K/UG/07A, Lotus Store, S-86, Mantri Square, # 1 Sampige Road, Malleswaram, Bengaluru 560 003",
+    "area": "Malleswaram, Karnataka"
+  },
+  {
+    "storeName": "Model Town, Jalandhar",
+    "address": "Shop No. 60, Model Town Market, Jalandhar, Punjab - 144003",
+    "area": "Jalandhar, Punjab"
+  },
+  {
+    "storeName": "Moments Mall",
+    "address": "MOMENTS MALL, 67, Patel Road, Kirti Nagar, New Delhi-110015.",
+    "area": "Kirti Nagar, New Delhi"
+  },
+  {
+    "storeName": "Pacific Mall, Dehradun",
+    "address": ",PACIFIC MALL Lower Ground Floor, Jakhan, Rajpur Road, Opp Scholars Home School, Dehradun, UK-248006",
+    "area": "Dehradun, Uttarakhand"
+  },
+  {
+    "storeName": "Pacific Mall, Delhi",
+    "address": "Lotus Kiosk, Pacific Mall, Tagore Garden, Najafgarh Road, Block-6, New Delhi-110018",
+    "area": "Tagore Garden, New Delhi"
+  },
+  {
+    "storeName": "Saharaganj Mall, Lucknow",
+    "address": "SAHARAGANJ MALL, Kiosk No.- K14, Ground Floor, Hazratganj, Lucknow, UP-226001",
+    "area": "Hazratganj, Uttar Pradesh"
+  },
+  {
+    "storeName": "Seawoods Grand Central",
+    "address": "Shop No. G1K11, Plot No.R-1, Sector 40, Seawoods Railway Station, Navi Mumbai - 400 706 (Maharashtra)",
+    "area": "Navi Mumbai, Maharashtra"
+  },
+  {
+    "storeName": "SGS Mall, Pune",
+    "address": "SGS Mall ? SGS Mall, Lotus Kiosk, 231, Moledina Road, Camp, Pune - 410001",
+    "area": "Pune, Maharashtra"
+  },
+  {
+    "storeName": "Shipra Mall",
+    "address": "SHIPRA MALL, Upper Ground Floor, Plot No-9, Vaibhav Khand, Indirapuram, Ghaziabad, UP-201014",
+    "area": "Indirapuram, Uttar Pradesh"
+  },
+  {
+    "storeName": "TGIP",
+    "address": "THE GREAT INDIA PLACE, Plot No.: A-2, Sector-38-A, Noida, UP- 201301",
+    "area": "Noida, Uttar Pradesh"
+  },
+  {
+    "storeName": "Viviana Mall, Thane",
+    "address": "VIVIANA MALL Upper Basement, Near Information Desk),Eastern Express Highway,Thane (W), Beside Jupiter Hospital, Mumbai, Maharashtra -400606",
+    "area": "Thane, Maharashtra"
+  },
+  {
+    "storeName": "VR Mall, Mohali",
+    "address": "NORTH COUNTRY MALL, Ground Floor, Near Costa Coffee, Ballomajra, Kharar-Mohali Road, NH-21, Sector-118, Sahibzada Ajit Singh Nagar,(Mohali) Punjab-140301",
+    "area": "Mohali, Punjab"
+  },
+  {
+    "storeName": "VR Mall, Surat",
+    "address": "VIRTUOUS RETAIL MALL, Ground Floor, F.P. No.-29, Nr Dumas Resort, Surat-Dumas Road, Magdalla, Surat, Gujarat-395007",
+    "area": "Surat, Gujarat"
+  },
+  {
+    "storeName": "Westend Mall, Pune",
+    "address": "Westend Mall/\" Lotus Kiosk, S.No. 169/1, D.P. Rd, Sector I, Aundh, Pune - 411007.",
+    "area": "Pune, Maharashtra"
+  },
+  {
+    "storeName": "Z Square Mall, Kanpur",
+    "address": "Z Square Mall Lotus Kiosk, 16/113, The Mall, M.G. Road, Kanpur, 208001(U.P)",
+    "area": "M G Road, Uttar Pradesh"
+  }
+]

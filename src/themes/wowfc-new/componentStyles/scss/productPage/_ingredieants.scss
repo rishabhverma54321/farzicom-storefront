@@ -1,0 +1,80 @@
+.ingredieantsContent {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 10px;
+  column-gap: 50px;
+
+  @media (max-width: "720px") {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+}
+
+.ingredieantsLeftCard {
+  &__image {
+    max-height: 370px;
+    animation: image-loading 1s linear infinite alternate;
+  }
+  @keyframes image-loading {
+    0% {
+      background-color: hsl(200, 20%, 70%);
+    }
+    100% {
+      background-color: hsl(200, 20%, 95%);
+    }
+  }
+}
+
+.ingredieantsRightCard {
+  @media (max-width: $medium-screen) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  &__title {
+    max-width: 400px;
+
+    p {
+      font-weight: 600;
+      font-size: 17px;
+      text-align: left;
+    }
+  }
+  &__description {
+    //max-width: 400px;
+    @media (max-width: 720) {
+      display: -webkit-box;
+      -webkit-line-clamp: 7;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    p {
+      text-align: left;
+      color: #686b78;
+    }
+    > p {
+      max-height: none;
+    }
+  }
+}
+
+.ingredieantsHeader {
+  &__left {
+    span {
+      color: #686b78;
+    }
+    h3 {
+    }
+  }
+
+  &__right {
+    &__filter {
+      .active {
+        background-color: #56774d;
+      }
+      &__child {
+      }
+    }
+    &__button {
+    }
+  }
+}

@@ -1,0 +1,48 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.product-list-class {
+  min-height: 450px;
+
+  @media (max-width: $large-screen) {
+    min-height: 450px;
+  }
+  &__header {
+    min-height: 26px;
+
+    &___right {
+      &__filter {
+        &__child {
+          background-color: transparent;
+          color: $grey;
+        }
+      }
+    }
+    &__right__button {
+      a {
+        justify-content: flex-end !important;
+      }
+      @media (max-width: 720px) {
+        display: none;
+      }
+    }
+    &__row1 {
+      @media (max-width: $small-screen) {
+        display: flex !important;
+        justify-content: center !important;
+      }
+    }
+    &__left {
+      > span {
+        @media (max-width: $small-screen) {
+          color: $grey;
+        }
+      }
+    }
+    &__heading {
+      @media (max-width: $small-screen) {
+        font-size: $h4-font-size;
+        line-height: 27px;
+      }
+    }
+  }
+}

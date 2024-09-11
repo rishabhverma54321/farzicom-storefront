@@ -1,0 +1,42 @@
+
+.slider__wrapper {
+  position: relative;
+  min-width: inherit;
+  min-height: inherit;
+  user-select: none;
+  overflow: hidden;
+  @media (max-width: 720px) {
+    border-radius: 12px;
+  }
+}
+
+.slider__stick {
+  position: absolute;
+  width: 3px;
+  height: 100%;
+  background-color: #fff;
+}
+
+.slider__stick:hover {
+  cursor: ew-resize;
+}
+
+.slider__handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.slider__container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+
+  img {
+    object-fit: fill;
+    height: 100%;
+    width: auto;
+  }
+}

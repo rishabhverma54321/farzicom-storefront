@@ -1,0 +1,26 @@
+.announcement {
+  background-color: #014221;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &_heading {
+    font-weight: 700;
+    font-size: 12.45px;
+    line-height: 17.43px;
+    color: #fff;
+  }
+
+  &_button {
+    padding: 0.2rem 0.8rem 0.3rem;
+    border-radius: 5px;
+    a {
+      font-weight: 700;
+      font-size: 11.45px;
+      line-height: 14.43px;
+      color: #5dd37c;
+    }
+    background-color: #fff;
+  }
+}

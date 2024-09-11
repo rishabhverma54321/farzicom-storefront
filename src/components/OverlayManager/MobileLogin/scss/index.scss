@@ -1,0 +1,57 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.mobileLogin {
+  width: 400px;
+  background-color: #fff;
+  margin: 50px auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  .header {
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    .modal-close-btn {
+      cursor: pointer;
+    }
+    span {
+      width: 90%;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+
+    .login-checkout-form {
+      display: flex;
+      flex-direction: column;
+
+      .mobile-login-field {
+        padding: 10px;
+        width: 25%;
+      }
+
+      .otp-button {
+        width: 40%;
+        margin: auto;
+        span {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+
+  @media (max-width: $medium-screen) {
+    width: 90%;
+  }
+}

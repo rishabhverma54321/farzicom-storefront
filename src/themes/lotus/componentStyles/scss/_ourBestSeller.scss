@@ -1,0 +1,83 @@
+.ourBestSellerHeader {
+  &__left {
+    span {
+      color: #686b78;
+    }
+    h3 {
+    }
+  }
+
+  &__right {
+    &__filter {
+      @media (min-width: 720px) {
+        margin-right: 10px;
+        padding-right: 20px;
+        border-right: 1px solid #e5e5e5;
+      }
+
+      &__child {
+      }
+    }
+    &__button {
+      a {
+        span {
+          color: #56774d;
+          font-size: 12px;
+        }
+      }
+    }
+    @media (max-width: 720px) {
+      &__button {
+        display: none;
+      }
+    }
+  }
+}
+
+.ourBestSellerHeaderBottomButton {
+  a {
+    justify-content: center;
+  }
+}
+.lotusNewCardClass {
+  min-height: 330px;
+
+  &__imageLink {
+    img {
+      min-height: 180px;
+    }
+  }
+  &__buttonContainer {
+    align-self: center;
+    @media (max-width: $large-screen) {
+      width: 200px !important;
+    }
+    @media (max-width: $small-screen) {
+      width: 170px !important;
+      padding: 0px;
+    }
+    @media (min-width: $small-screen) {
+      margin-top: 16px;
+      align-self: flex-start !important;
+    }
+  }
+  &__productName {
+    @media (max-width: $medium-screen) {
+      font-weight: 400 !important;
+    }
+    font-family: $base-font-family;
+  }
+  &__priceContainer {
+    .price-show-wrapper {
+      > div {
+        align-items: flex-start !important;
+        > span {
+          @media (max-width: $medium-screen) {
+            font-weight: 400 !important;
+          }
+          font-family: $base-font-family;
+        }
+      }
+    }
+  }
+}

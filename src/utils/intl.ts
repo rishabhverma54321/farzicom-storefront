@@ -201,6 +201,7 @@ export const checkoutMessages = defineMessages({
     defaultMessage: "Shipping Address",
   },
   continueShopping: {
+    id: "continue-shopping",
     defaultMessage: "CONTINUE SHOPPING",
   },
   continueShoppingCapitalize: {

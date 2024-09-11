@@ -1,0 +1,67 @@
+.whatsNewContent {
+  display: grid;
+  grid-template-columns: 9fr 10fr;
+  column-gap: 30px;
+  row-gap: 10px;
+  align-items: flex-start;
+  place-items: flex-start;
+  @media (max-width: "720px") {
+    grid-template-columns: 1fr;
+  }
+}
+
+.whatsNewLeftCard {
+  &__image {
+    a {
+      img {
+        border-radius: 4px;
+      }
+    }
+  }
+
+  &__title {
+    a {
+      p {
+        text-align: left;
+        font-size: 16px;
+        font-weight: 600;
+        margin-top: 15px;
+        @media (max-width: 540px) {
+          text-align: center;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }
+    }
+  }
+  &__description {
+    p {
+      font-weight: 600;
+      font-size: 14px;
+      @media (min-width: 540px) {
+        text-align: left;
+      }
+      span {
+        font-weight: 300;
+        color: #686b78;
+      }
+    }
+  }
+}
+
+.whatsNewProductContainer {
+  width: 45vw;
+
+  @media (max-width: 720px) {
+    width: 100vw;
+  }
+}
+
+.whatsNewButton {
+  color: #56774d;
+  margin-top: 12px;
+  &__atag {
+    justify-content: flex-start !important;
+    padding: 0 16px;
+  }
+}

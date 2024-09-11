@@ -1,0 +1,219 @@
+.activeVariant {
+  background: #effbf2;
+  border: 3px solid #5dd37c !important;
+  box-sizing: border-box;
+  border-radius: 8px;
+
+  input[type="radio"]:after {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #69de7a;
+    content: "";
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+    // outline-offset: 2px;
+    // outline: auto;
+    outline-color: #69de7a;
+    background-image: url("https://images.plixlife.com/hosted/check-636671037071.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  input[type="radio"] {
+    position: absolute;
+    top: -10px;
+    right: -5px;
+  }
+}
+.activeVariantNew {
+  background: #5dd37c;
+  border: 3px solid #5dd37c !important;
+  color: #fff;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+.activeVariantConcern{
+  border-radius: 12.609px !important;
+  border: 2.831px solid #5DD37C !important;
+
+  @media(max-width: $medium-screen){
+    border-radius: 8.818px !important;
+    border: 1.98px solid #5DD37C !important;
+  }
+}
+.inActiveVariant {
+  input[type="radio"] {
+    display: none;
+  }
+}
+.hideTick {
+  @media (max-width: $small-screen) {
+    input {
+      display: none;
+    }
+  }
+}
+
+.smallVariant2 {
+  &__image {
+    max-width: 80px;
+    max-height: 80px;
+  }
+  &__months {
+    max-width: 100px;
+  }
+}
+
+.variantSelectBox_new {
+  min-width: 147px;
+  label {
+    width: 100%;
+  }
+
+  @media (max-width: $medium-screen) {
+    min-width: 104px;
+
+    @media (max-width: 370px) {
+      min-width: 90px;
+    }
+  }
+}
+
+.variantSelectBox_label_row4 {
+  // height: fit-content !important;
+  flex-direction: column;
+  justify-content: end;
+  > div {
+    > div {
+      flex-direction: column;
+    }
+  }
+}
+
+.variantSelectBox_label_row6 {
+  @media (max-width: 370px) {
+    font-size: 10px !important;
+    white-space: nowrap;
+  }
+}
+
+.variantSelectBox_label_undiscounted_taxed {
+  font-family: "CocoSharp XL";
+  font-size: 14.71px;
+  font-style: normal;
+  color: #808080;
+  font-weight: 700;
+  line-height: 140%;
+
+  @media (max-width: $medium-screen) {
+    font-size: 10px;
+    span {
+      font-size: 10px !important;
+    }
+  }
+}
+
+.variantSelectBox_label_pricecontainer_taxed {
+  align-items: end !important;
+  @media (min-width: $medium-screen) {
+    align-items: start !important;
+    // justify-content: end !important;
+  }
+  div {
+    align-items: start;
+  }
+}
+
+.productVariantslider {
+  padding-bottom: 10px;
+
+  @media(max-width: $medium-screen){
+    padding-bottom: 0;
+  }
+
+  &_input {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #5DD37C 0%, #FFE91F 50%, #D35D5D 100%);
+    position: relative;
+    margin: 10px 0;
+   
+    @media(max-width: $medium-screen){
+      height: 7px;
+    }
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 11px;
+      height: 30px;
+      background: url("https://plixlifefc-media.farziengineer.co/hosted/Group_35103-13a1468a14ed.svg")
+        no-repeat center center;
+      background-size: contain;
+      
+      cursor: pointer;
+      margin-top: -7.5px;
+      box-shadow: none;
+      @media(max-width: $medium-screen){
+        width: 10px;
+        height: 23px;
+      }
+    }
+
+    &::-moz-range-thumb {
+      width: 11px;
+      height: 30px;
+      background: url("https://plixlifefc-media.farziengineer.co/hosted/Group_35103-13a1468a14ed.svg")
+        no-repeat center center;
+      background-size: contain;
+      box-shadow: none;
+      cursor: pointer;
+    }
+
+    &::-ms-thumb {
+      width: 11px;
+      height: 30px;
+      background: url("https://plixlifefc-media.farziengineer.co/hosted/Group_35103-13a1468a14ed.svg")
+        no-repeat center center;
+      background-size: contain;
+      box-shadow: none;
+      cursor: pointer;
+    }
+  }
+
+  &_labels {
+    display: flex;
+    justify-content: space-between;
+    color: #000;
+    text-align: center;
+    font-family: "CocoSharp XL";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    margin-top: 0.5rem;
+
+    @media(max-width: $medium-screen){
+      font-size: 11px;
+      margin-top: 0.2rem;
+    }
+  }
+}
+
+.variant_concern_slider{
+  gap: 12px !important;
+  @media(max-width: $medium-screen){
+    gap: 10px !important;
+
+    @media(max-width: 390px){
+      gap: 8px !important;
+    }
+  }
+}

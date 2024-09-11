@@ -1,0 +1,38 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.app-handler {
+  @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
+  padding-left: 4.2rem;
+  background: #e5e5e5;
+  // background: #f4f8f9;
+}
+
+@media (max-width: 992px) {
+  .app-handler {
+    padding-left: 0;
+  }
+}
+
+.app-handler .yarnbazar-body {
+  margin: 1.688rem;
+  @media (max-width: $xlarge-screen) {
+    margin: 0.85rem;
+  }
+  @media (max-width: $large-screen) {
+    margin: 0.85rem 0 0;
+  }
+}
+
+@media (max-width: 575px) {
+  .app-handler {
+    background: #f4f8f9;
+    width: 100%;
+    margin: auto 0;
+  }
+}
+
+.woot-widget-holder {
+  iframe {
+    visibility: unset !important;
+  }
+}

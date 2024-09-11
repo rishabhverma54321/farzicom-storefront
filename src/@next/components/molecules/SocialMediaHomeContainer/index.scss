@@ -1,0 +1,25 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.show {
+  display: block;
+  padding: 10px;
+}
+.hide {
+  display: none;
+}
+
+// .eapps-instagram-feed,
+// .eapps-instagram-feed-content,
+// .eapps-instagram-feed-posts-slider-inner,
+// #eapps-instagram-feed-1 {
+//   @media (max-width: $medium-screen) {
+//     width: 260px !important;
+//   }
+// }
+
+.fb_iframe_widget_fluid span,
+.fb_iframe_widget iframe {
+  @media (max-width: $medium-screen) {
+    width: 310px !important;
+  }
+}

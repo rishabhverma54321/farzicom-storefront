@@ -1,0 +1,12 @@
+.orderHistory__skeletonContainer {
+  grid-template-columns: 1fr !important;
+  &__card {
+    padding: 16px 0 !important;
+    &__image {
+      width: 100% !important;
+    }
+    &__title {
+      margin-top: 8px !important;
+    }
+  }
+}

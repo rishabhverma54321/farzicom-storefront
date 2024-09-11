@@ -1,0 +1,119 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+.couponlist {
+ &__wrapper{
+  width: 100vw;
+//   min-height: 100vh;
+  background-color: rgba(black, 1);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 0rem;
+  height: 100vh;
+  overflow-y: scroll;
+ 
+ }
+ &__closeIcon{
+    position: absolute;
+    cursor: pointer;
+    right: 10px;
+    top: 10px;
+ }
+ &__listContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h3{
+        color: white;
+    }
+    margin: auto;
+    @media (max-width: $large-screen) {
+        width: 90vw;
+    }
+    margin-top: 0rem;
+    h3{
+        margin-bottom: 1rem;
+        text-align: center;
+        font-size: 22px;
+    }
+ }
+ &__list{
+    width: min-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+ }
+ &__card{
+    margin: 0.25rem 0rem;
+    display: flex;
+    // max-height: 120px;
+    min-height: 100px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #FAF4EA;
+    width: 100%;
+    min-width: 90vw;
+    position: relative;
+    @media (min-width: $small-screen) {
+        min-width: 450px;
+        align-items: center;
+    }
+    &__image{
+       
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex: 1;
+        img{
+            // max-width: 100%;
+            max-height: 100px;
+            max-width: 100px;
+            @media (max-width: $small-screen) {
+                max-height: 110px;
+            }
+            // object-fit: cover;
+        }
+    }
+    &__text{
+        padding: 1rem 0.5rem;
+        flex: 3;
+        @media (max-width:$small-screen) {
+            font-size: 14px;
+        }
+    }
+    &__coupon{
+        background-color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color:white;
+        padding: 0.25rem;
+        font-size: 14px;
+        position: absolute;
+        bottom: 5px;
+        right: 0px;
+        &::before{
+            position: absolute;
+            content: "";
+            left: -18px;
+            top: 0;
+            display: block;
+            width: 10px;
+            height: 0;
+            border: 14px solid #000;
+            border-right: 5px solid #000;
+            border-bottom-color: #000;
+            border-left-color: transparent;
+            transform: rotate(0);
+        }
+        svg{
+            margin-left: 4px;
+            path{
+                fill: white;
+            }
+        }
+    }
+ }
+}

@@ -1,0 +1,91 @@
+
+.have_fun_container{
+  background: #D1FFD9;
+  position: relative;
+  // z-index: 1;
+  @media (max-width: $small-screen) {
+      overflow: hidden;
+  }
+  .inner_have_fun{
+    padding: 43px 104px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media (max-width: $small-screen) {
+      padding: 32px 0px;
+    }
+    p{
+      font-family: "CocoSharp XL";
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 140%;
+      text-align: center;
+      color: #095933;
+      margin-bottom: 8px;
+      max-width: 380px;
+      @media (max-width: $small-screen) {
+
+      }
+    }
+    h3{
+      font-family: 'cocosharp_xlextrabold_italic';
+      font-style: italic;
+      font-weight: 800;
+      font-size: 42px;
+      line-height: 140%;      
+      text-align: center;      
+      color: #095933;
+      max-width: 459px;
+      @media (max-width: $small-screen) {
+        font-weight: 800;
+        font-size: 24px;
+        line-height: 140%;
+      }  
+    }
+  }
+  .have_fun_svg1{
+    position: absolute;
+    top: 0px;
+    left: 153px;
+    @media (max-width: $small-screen) {
+      display: none;
+    }
+  }
+  .have_fun_svg2{
+    position: absolute;
+    top: 0px;
+    right: 0;
+    @media (max-width: $small-screen) {
+      display: none;
+      svg{
+        transform: translate(44%,50%) rotate(45deg);
+        width: 59px;
+      }
+    }
+    &.mobileOnly{
+      display: none;
+      @media (max-width: $small-screen) {
+        display: block;
+      }
+    }
+  }
+  .have_fun_svg3{
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    @media (max-width: $small-screen) {
+      svg{
+        transform: translate(-44%, 53%) rotate(23deg);
+        width: 94px;
+      }
+    }
+  }
+  .have_fun_svg4{
+    position: absolute;
+    bottom: -4px;
+    right: 257px;
+    @media (max-width: $small-screen) {
+      display: none;
+    }
+  }
+}

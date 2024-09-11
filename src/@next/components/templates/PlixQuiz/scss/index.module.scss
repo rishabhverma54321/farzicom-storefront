@@ -1,0 +1,442 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.containermain{
+  background-color: #effbf2;
+}
+
+.container {
+  padding: 52px 90px;
+  padding-bottom: 80px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  min-height: inherit;
+  background-color: #effbf2;
+  max-width: 1500px;
+  margin: auto;
+
+  @media (max-width: 1350px) {
+    padding: 52px 60px;
+  }
+  @media (max-width: $xlarge-screen) {
+    padding: 52px 50px;
+  }
+
+  @media (max-width: $large-screen) {
+    padding: 52px 68px;
+    flex-direction: column-reverse;
+  }
+
+  @media (max-width: $small-screen) {
+    padding: 0px;
+    background: #fff;
+  }
+}
+
+.errormessage {
+  color: red;
+  font-family: "CocoSharp XL";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%; /* 28px */
+}
+
+.form {
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  //   flex-direction: row;
+  margin-inline: auto;
+  border-radius: 8px;
+  border-radius: 16px;
+  max-width: 620px;
+
+  @media(min-width: 1490px){
+    max-width: 100%;
+  }
+
+  @media (max-width: $large-screen) {
+    margin-top: 1.6rem;
+
+    @media (max-width: $small-screen) {
+      max-width: 340px;
+      margin: 1.6rem auto;
+
+      form {
+        max-width: inherit;
+      }
+    }
+  }
+
+  &_email {
+    margin-left: 1rem !important;
+
+    @media (min-width: $large-screen) and (max-width: 1100px) {
+      margin-left: 0 !important;
+      margin-top: 1rem !important;
+    }
+
+    @media (max-width: $medium-screen) {
+      margin-left: 0 !important;
+      margin-top: 1rem !important;
+
+      @media (max-width: $small-screen) {
+        width: 100% !important;
+        margin-top: 1.5rem !important;
+      }
+    }
+  }
+
+  &_gender {
+    margin-top: 1rem !important;
+    @media (max-width: $small-screen) {
+      width: 100% !important;
+      margin-top: 1.5rem !important;
+    }
+  }
+
+  &_name {
+    @media (max-width: $small-screen) {
+      width: 100% !important;
+    }
+  }
+}
+
+.banner {
+  position: relative;
+  width: 669px;
+  height: 588px;
+  border-radius: 0px 8px 8px 0px;
+
+  @media (max-width: $large-screen) {
+    width: 100%;
+    height: auto;
+    
+    @media(max-width: $small-screen){
+      width: 100%;
+      height: 222px;
+
+      img{
+        height: inherit;
+        object-fit: cover;
+      }
+    }
+  }
+
+  > img {
+    width: 100%;
+    border-radius: 0px 15px 15px 0px;
+    @media (max-width: $small-screen) {
+      border-radius: 0px;
+    }
+  }
+
+  &_mob{
+    @media(min-width: $small-screen){
+      display: none;
+    }
+  }
+
+  &_desk{
+    @media(max-width: $small-screen){
+      display: none;
+    }
+  }
+}
+
+.label {
+  font-family: "CocoSharp XL";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  letter-spacing: -0.4px;
+
+  @media (max-width: 1100px) {
+    font-size: 18px;
+
+    @media(max-width: $small-screen){
+      font-size: 20px;
+    }
+  }
+
+  span {
+    color: #b20000;
+  }
+}
+
+.input {
+  text-align: start;
+  width: 100%;
+  padding: 0.5rem 0.5rem;
+  min-width: 290px;
+  border-radius: 8px;
+  outline: none;
+  border: 1px solid #e7e7e7;
+  background: #fff;
+  font-size: 1rem;
+  margin-top: 0.3rem;
+
+  font-family: "CocoSharp XL";
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 140%; /* 22.4px */
+  letter-spacing: -0.32px;
+
+  @media (max-width: $small-screen) {
+    max-width: 100%;
+  }
+
+  &::placeholder {
+    color: #d3d3d3;
+    font-size: 16px;
+  }
+
+  &::-webkit-input-placeholder {
+    /* WebKit, Blink, Edge */
+    color: #d3d3d3;
+    font-size: 16px;
+  }
+  &:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: #d3d3d3;
+    font-size: 16px;
+  }
+  &::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: #d3d3d3;
+    font-size: 16px;
+  }
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #d3d3d3;
+    font-size: 16px;
+  }
+  &::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #d3d3d3;
+    font-size: 16px;
+  }
+}
+
+.quizQuestion {
+  &_container {
+    margin-top: 1.8rem !important;
+    margin-right: 1rem !important;
+  }
+
+  &_parent {
+    margin-bottom: 0.7rem;
+  }
+
+  &_answeres {
+    margin-top: 1rem;
+  }
+
+  &_option {
+    margin: 0.4rem 0;
+    &_hide {
+      display: none;
+    }
+  }
+
+  &_radio {
+    display: flex;
+    align-items: center;
+    input {
+      margin-right: 1rem;
+    }
+    &_child {
+      margin-left: 2rem;
+      label {
+        font-family: "CocoSharp XL";
+        font-size: 18px;
+        line-height: 216%;
+      }
+    }
+
+    &_custom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      > div {
+        display: flex;
+        align-items: center;
+      }
+      span {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        padding: 2px;
+        /* background-color only for content */
+        background-clip: content-box;
+        border: 2px solid #ccc;
+        // background-color: #ccc;
+        border-radius: 50%;
+        margin-right: 1rem;
+      }
+
+      svg {
+        cursor: pointer;
+        path {
+          fill: #39b54a;
+        }
+      }
+      
+      &_chevron{
+        @media(max-width: $small-screen){
+          padding: 0.5rem;
+        }
+      }
+
+      &_select {
+        span {
+          background-color: #5dd37c;
+          border: 2px solid #5dd37c;
+        }
+      }
+    }
+  }
+
+  .radio {
+    cursor: pointer;
+    /* remove standard background appearance */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* create custom radiobutton appearance */
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    padding: 2px;
+    margin-left: 0;
+    /* background-color only for content */
+    background-clip: content-box;
+    border: 2px solid #ccc;
+    // background-color: #ccc;
+    border-radius: 50%;
+
+    &:checked {
+      background-color: #5dd37c;
+      border: 2px solid #5dd37c;
+    }
+  }
+}
+
+.submitButton {
+  margin-top: 1rem;
+  display: flex;
+  width: 499px;
+  height: 48px;
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  background: #5dd37c;
+  flex-shrink: 0;
+
+  color: #feffed;
+  text-align: center;
+  font-family: "CocoSharp XL";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 100%;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  @media (max-width: $small-screen) {
+    width: 100%;
+  }
+
+  &_disable {
+    color: #666666;
+    background: #ccc;
+    pointer-events: none;
+  }
+}
+
+.quizPopup{
+  width: 90%;
+  margin: auto;
+  padding: 1rem;
+  background-color: #feffed;
+  border-radius: 8px;
+  @media (min-width: $medium-screen) {
+    width: 480px;
+  }
+
+  &_container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 3;
+  }
+
+  &__image {
+    margin: 0.6rem 0 1.4rem 0;
+    span {
+      height: 119px !important;
+      width: 144px !important;
+      margin: auto !important;
+    }
+  }
+
+  &__heading {
+    text-align: center;
+    font-family: "CocoSharp XL";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    color: #095933;
+    @media (min-width: $medium-screen) {
+      font-size: 32px;
+    }
+  }
+
+  &__text {
+    color: #000;
+    margin-top: 1rem;
+    text-align: center;
+    font-family: "CocoSharp XL";
+    font-size: 14px;
+    font-style: normal;
+    color: #095933;
+    font-weight: 400;
+    line-height: 160%;
+    @media (min-width: $medium-screen) {
+      font-size: 16px;
+    }
+  }
+
+  &__button {
+    padding: 1rem 1.5rem;
+    margin: 1.5rem auto;
+    width: 80%;
+    text-align: center;
+    font-family: "CocoSharp XL";
+    border-radius: 8px;
+    background-color: #5dd37c;
+    color: #feffed;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 100%; /* 16px */
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    @media (min-width: $medium-screen) {
+      font-size: 18px;
+    }
+  }
+}

@@ -1,0 +1,822 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+.discountPercentStrip{
+  font-size: 8px;
+  background-color: white;
+  padding: 0.25rem;
+  font-weight: 400px;
+  color: #06543D;
+  line-height: 10px;
+  margin: 0px 6px 4px 6px;
+}
+
+.checkoutTotal{
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 4px;
+    font-family: "CocoSharp XL";
+    >span:nth-child(1){
+      min-width: 40px;
+    }
+}
+.paymentLabel{
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+}
+.paymentSubLabel{
+  color: #06543D;
+  font-size: 12px;
+}
+.paymentLabelIcon{
+   img{
+    height: 30px;
+    margin-right: 6px;
+    @media (max-width: 370px) {
+      height: 25px;
+      margin-right: 4px;
+  }
+   }
+}
+.paymentLabelContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    font-family: "CocoSharp XL" !important;
+}
+.paymentIconsWrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  >div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.paymentBackButton{
+  @media (max-width: $large-screen) {
+    display: none;
+  }
+}
+.paymentSectionHeader{
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    span:nth-child(1){
+      cursor: pointer;
+      margin-left: 0.15rem;
+    }
+    svg{
+      @media (max-width: $medium-screen) {
+        height: 14px;
+        width: 14px;
+    }
+        fill: $plix-bright-green;
+        path{
+            fill: $plix-bright-green
+        }
+    }
+    >span:nth-child(2){
+        font-weight: 700;
+        font-size: 18px;
+        margin-left: 8px;
+        @media (max-width: $medium-screen) {
+            font-size: 14px;
+        }
+    }
+}
+
+
+
+.upiInput{
+    margin-bottom: 1rem;
+    min-width: 180px;
+    height: 40px;
+    font-size: 14px;
+    border: 1px solid $checkout-border-gray;
+    border-radius: 8px;
+    padding: 1rem;
+    outline: none !important;
+    &:focus-visible{
+      border: 1px solid $plix-bright-green;
+      outline: none !important;
+    }
+  }
+  .netbankingSelectInput{
+    min-width: 180px;
+    height: 40px;
+    font-size: 14px;
+    width: 100%;
+    border: 1px solid lightgray;
+    padding: 0.5rem;
+    border-radius: 5px;
+    color: black;
+    &:focus-visible{
+      border: 1px solid gray;
+      outline: none !important;
+    }
+    option{
+      padding: 0.5rem;
+   
+    }
+  }
+  .paymentRadioWrapper{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  
+  
+  //Upi Box Element Styles
+  .upiPaymentInfo{
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    >div{
+      margin-bottom: 1rem;
+      span{
+        font-weight: 500;
+      }
+      p{
+        margin-bottom: 0.25rem;
+      }
+    }
+  }
+  .upiVerifyWrapper{
+    margin-left: 0.25rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  
+    button{
+  
+      text-decoration: underline;
+      color: #095933;
+      font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    span{
+      color: red;
+      font-size: 12px;
+      margin-left: 16px;
+    }
+  }
+  .upiSectionHeader{
+    font-size: 14px;
+    margin-bottom: 0.5rem;
+    margin-left: 0.5rem;
+  }
+  .upiInputWrapper{
+    width: 100%;
+   >input{
+    width: 100%;
+   }
+   position: relative;
+  }
+  .trailingIcon{
+    position: absolute;
+    top: 20%;
+    right: 20px;
+    @media (max-width: $large-screen) {
+      right: 10px;
+    }
+  }
+  
+  //NB Box Element styles
+  .nbPaymentInfo{
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    >div{
+      margin-bottom: 1rem;
+      span{
+        font-weight: 500;
+      }
+    }
+  }
+  .nbBanks{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 1rem 0rem;
+    >button{
+      display: flex;
+      flex-direction: column;
+      color: black;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      cursor: pointer;
+      &:hover{
+        background: $gray-light;
+      }
+      svg{
+        position: absolute;
+        top: 3px;
+        right: 3px;
+      }
+      padding: 0.5rem;
+      width: 72px;
+      img{
+        width: 30px;
+        height: 30px;
+        margin-bottom: 0.5rem;
+      }
+      span{
+        text-align: center;
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: 14px;
+      }
+    }
+  }
+  .netbankingFormWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  //Card payment stylings
+
+  .cardInputWrapper{
+    min-width: 120px;
+    padding: 8px 16px;
+    >div:nth-child(1){
+      font-weight: 400;
+      color: #c4c4c4;
+      font-size: 12px;
+    }
+    padding-top: 0.35rem;
+    background-color: white;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    >div:nth-child(2){
+      iframe{
+        max-height: 30px;
+      }
+    }
+    svg{
+      margin-right: 8px;
+    }
+  }
+  .cardInputRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    >div{
+      flex: 1;
+      
+    }
+    >div:nth-child(1){
+      iframe{
+        max-width: 28px;
+        margin:0px 4px 0px 4px !important;
+      }
+    }
+    >div:nth-child(2){
+      margin-left: 8px;
+    }
+    iframe{
+      input{
+        padding-left: 0.25rem;
+      }
+    }
+  }
+  .cardExpiryWrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 100px;
+  }
+
+  .cardDateWrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    >div{
+      min-width: 30px;
+      max-width: 100px;
+    }
+  }
+  .addNewCardWrapper{
+    display: flex;
+    flex-direction: column;
+    background-color: #EFFBF2;
+    padding: 1rem;
+    iframe {
+      max-height: 50px;
+    }
+    >div{
+    }
+  }
+  .cardDetailsHeader{
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    margin-left: 0.9rem;
+  }
+  
+  
+  //Wallet stylings
+  .walletSelect{
+    visibility: hidden;
+  }
+  .walletList{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: #EFFBF2;
+    padding: 1rem;
+  
+  }
+  .walletItem{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    button {
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+      color: black;
+      >div:nth-child(2){
+        >span{
+          >svg{
+            path{
+              fill: $plix-bright-green;
+            }
+          }
+        }
+      }
+      >div{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        >span{
+          font-weight: 700;
+        }
+      }
+      display: flex;
+      flex-direction: row;
+      justify-content:space-between;
+      align-items: center;
+      img{
+        width: 30px;
+        height: 30px;
+        margin-right: 8px;
+      }
+      margin: 0.25rem 0rem;
+      margin-bottom: 0.5rem;
+      width: 100%;
+      border-radius: 8px;
+      background-color: white;
+    }
+    >div{
+     input{
+      font-size: 16px;
+      text-transform: uppercase;
+      -webkit-appearance: none;
+      color: #E7F7EA;
+      background-color: $plix-bright-green !important;
+      // @media (max-width: $large-screen) {
+      //   font-size: 14px;
+      // }
+     }
+    }
+  }
+
+  .codInfoWrapper{
+    >div:nth-child(1){
+      font-weight: 700;
+     
+    }
+    >div{
+      margin: 1rem 0rem;
+    }
+  }
+
+
+
+
+  //AddressModalStyles
+  .modalWrapper{
+    // display: flex;
+    // justify-content: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .modalContent{
+    position: relative;
+    z-index: 2;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 100vw;
+    overflow-y: hidden;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 25px 25px 0px 0px;;
+    >div{
+      margin: auto;
+  
+    }
+    max-height:50vh;
+    height: fit-content;
+    @media (min-width: $large-screen) {
+      // bottom: 25%;
+      border-radius: 8px !important;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+      width: 50vw;
+    }
+    @media (max-width: $large-screen) {
+      padding: 1.5rem 1rem 3rem;
+      max-height:70vh;
+      height: fit-content;
+    }
+    //Hide scrollbar
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+      &::-webkit-scrollbar { 
+        display: none;
+    }
+  }
+  .modalBackground{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.35);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: $large-screen) {
+      justify-content: flex-end;
+    }
+  }
+  .formCloseButton{
+   span{
+    position: absolute;
+    top: -15%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    cursor:pointer;
+   }
+  }
+
+  .newUserFormWrapper{
+    @media (max-width: $large-screen) {
+      background-color: white;
+      width: 100vw;
+      position: fixed;
+      z-index: 2;
+      bottom: 0;
+      left: 0;
+      margin: 0rem !important;
+      padding: 1rem 0rem 0rem !important;
+      border-radius: 0px !important;
+      max-height: 70vh !important;
+      overflow-y: scroll;
+      >form{
+        >div{
+          padding: 0rem 0.75rem;
+        }
+      }
+      >div{
+        margin-top: 0rem;
+      }
+      >button{
+        margin: 0.5rem 1rem;
+      }
+    }
+
+  }
+
+  .savedAddressUnitButtons{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 0.75rem;
+    span{
+      font-size: 12px;
+      font-weight: 500;
+    }
+    span:nth-child(1){
+      color: $plix-bright-green;
+    }
+    span:nth-child(2){
+      margin-left: 1rem;
+      color: #BE0000;
+    }
+  }
+
+  .addAddressButton{
+    background-color: $light-green-plix;
+    border-radius: 8px;
+    color: $plix-bright-green;
+    font-weight: 700;
+    padding: 0.5rem;
+    font-size: 14px;
+    margin: 0.25rem 0rem;
+  }
+  .deliveryTruckLabel{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    >span{
+      margin: 4px 0px 0px 8px;
+      font-size: 14px;
+    }
+    margin-bottom: 0.5rem;
+  }
+  .saveAddressButtonWithTotalAmount{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: $plix-bright-green !important;
+    align-items: center;
+    padding: 0.25rem 1.25rem;
+    border-radius: 8px;
+    >span{
+      color: white;
+      font-weight: 700;
+    }
+    >button{
+      margin: 0.25rem !important;
+      background-color: white !important;
+      color: $plix-bright-green !important;
+      padding: 0.5rem 1rem !important;
+      text-transform: capitalize;
+      min-width: 100px;
+      >div{
+        color: $plix-bright-green !important;
+      }
+    }
+
+  }
+  .saveAddressButtonWithTotalAmountWrapper{
+    @media (max-width: $large-screen) {
+      position: fixed;
+      bottom: 0;
+      width: calc(100% - 2rem);
+      padding-bottom: 1rem;
+    }
+  }
+
+  .upiAppsWrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: relative;
+    >a{
+      flex: 1;
+      margin: 0.25rem;
+    }
+    // background-color: #06543D;
+    // font-weight: 500;
+    // color: white;
+    // display: flex;
+    // flex-direction: row;
+    // align-items: center;
+    // justify-content: space-between;
+    // font-size: 14px;
+    // padding: 0.5rem 1rem;
+    // box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    // border: 1px solid $checkout-border-gray;
+    // margin-bottom: 0.75rem;
+    // border-radius: 8px;
+    // img{
+    //   max-width: 80px;
+    // }
+  }
+  .upiAppsLoader{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    >div{
+      color: #06543D;
+    }
+  }
+  .upiDivider{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 1rem 0rem;
+    strong{
+      font-size: 14px;
+      font-weight: 500;
+      margin-top: 4px;
+    }
+    span{
+      margin: 0px 8px;
+      flex: 1;
+      height: 1px;
+      background-color: black;
+    }
+  }
+
+  .addressButtonList{
+    display: flex;
+    flex-direction: column;
+    @media (max-width:$large-screen) {
+      position: fixed;
+      bottom: 0;
+      width: calc(100% - 2rem);
+      background-color: white;
+      padding-top: 0.25rem;
+      border-top: 2px solid $checkout-border-gray;
+    }
+  }
+  .submitButton{
+    background-color: $plix-bright-green;
+    border-radius: 8px;
+    color: white;
+    font-weight: 700;
+    padding: 1rem;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin: 1rem;
+    > div{
+      background-color: transparent !important;
+      height: 20px !important;
+      width: 20px !important;
+      color: white !important;
+    }
+  }
+  .addressList{
+    overflow-y: scroll;
+    min-height: 20vh;
+    height: 25vh;
+   @media (max-width: $small-screen) {
+    height: 50vh;
+    padding-bottom: 15rem;
+   }
+  }
+  .modalAddressWrapper{
+    @media (max-width: $large-screen) {
+      height: 40vh;
+      padding-bottom: 10rem;
+     }
+     height: 360px;
+    overflow-y: scroll;
+
+  }
+
+  .upiAppsMobileOnly{
+    @media (min-width: $large-screen) {
+      display: none;
+     }
+  }
+  .upiWaitingScreen{
+    position: fixed;
+    min-height: 200px;
+    z-index: 2;
+    left: 0%;
+    top: 0%;
+    opacity: 1 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    // top: 35%;
+    padding: 2rem;
+    // padding-bottom: 4rem;
+    border-radius: 3px;
+    background-color: white;
+    height: 100vh;
+    width: 100vw;
+   >span{
+      font-size: 32px;
+      font-weight: 800;
+      margin: 2rem 0rem 1rem;
+      font-style: italic;
+      color: $plix-bright-green;
+    }
+   >p{
+      font-size: 14px;
+      font-weight: 700;
+    }
+    small{
+      text-align: center;
+      font-size: 13px;
+      margin: 0.25rem 0rem;
+    }
+  
+    font-family: "CocoSharp XL";
+  }
+  .upiRetryButton{
+    border-radius: 8px;
+    border: 0px !important;
+    position: absolute;
+    text-transform: uppercase;
+    bottom: 90px;
+    font-size: 14px;
+    color: white;
+    background-color: $plix-bright-green;
+    width: 80%;
+    margin: auto;
+    padding: 0.75rem 1rem;
+    margin-top: 1rem;
+    font-weight: 700;
+    font-family: "CocoSharp XL";
+  }
+  .tcPrivacy{
+    position: absolute;
+    font-size: 12px;
+    bottom: 2%;
+    left: 5%;
+  }
+  .onlySmallScreen{
+    @media (min-width: $large-screen) {
+      display: none;
+     }
+  }
+
+  .extraCbForPrepaidStrip{
+    width: 100% !important;
+    margin-top: 0.25rem !important;
+   span{
+    text-align: left;
+    font-size: 12px;
+   }
+   >div{
+    padding: 0.5rem 0.25rem;
+   }
+  }
+  .codModalWrapper{
+    position: fixed;
+    background-color: white;
+    z-index: 2;
+    @media (min-width: $medium-screen) {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 500px;
+      height: fit-content;
+      border-radius: 8px;
+    }
+    @media (max-width: $medium-screen) {
+      bottom: 0;
+      left: 0;
+      width: 100vw;
+      height: fit-content;
+    }
+    // >div{
+    //   margin: 0.5rem 0rem;
+    // }
+  }
+  .codModalHeader{
+    @media (min-width: $medium-screen) {
+      border-radius: 8px 8px 0px 0px;
+    }
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    background-color: $plix-bright-green;
+    padding: 1rem 1.15rem;
+    span{
+      cursor: pointer;
+      svg{
+        fill: white;
+        path{
+          stroke: white;
+        }
+      }
+    }
+  }
+  .codModalContent{
+
+    padding: 0.25rem 1rem 1rem;
+    >div{
+      margin: 0.5rem 0rem !important;
+    }
+  }

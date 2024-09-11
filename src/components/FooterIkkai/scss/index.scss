@@ -1,0 +1,22 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.footer {
+  padding-bottom: 1rem;
+  &-hr {
+    margin: 0;
+    width: 100%;
+    border-top: 2px solid rgba(187, 187, 187, 0.5);
+  }
+}
+
+.footer-color {
+  color: $footer-text-ikkai !important;
+}
+
+.sections-wrapper {
+  width: 100%;
+  background-image: url("../../../images/footer-bg.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}

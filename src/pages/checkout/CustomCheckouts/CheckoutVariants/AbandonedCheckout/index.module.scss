@@ -1,0 +1,17 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.continueShopping {
+  margin-top: 5rem;
+  background-color: $primary-button;
+  height: 100%;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}

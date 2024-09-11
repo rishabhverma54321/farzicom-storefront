@@ -1,0 +1,20 @@
+.show-on-desktop {
+  display: none !important;
+
+  @media (min-width: 540px) {
+    display: block !important;
+  }
+}
+
+.show-on-mobile {
+  display: none !important;
+
+  @media (max-width: 540px) {
+    display: block !important;
+  }
+}
+
+.homebanner .carousel .slide img {
+  height: unset !important;
+  max-height: unset !important;
+}

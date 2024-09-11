@@ -1,0 +1,21 @@
+.pledge_tree_review {
+  .slick-dots li.slick-active button:before {
+    color: #5dd37c !important;
+  }
+
+  .slick-slide {
+    @media(max-width: $small-screen){
+      margin: 0 10px !important;
+    }
+  }
+
+  .slick-list {
+    @media (min-width: 380px) and (max-width: $small-screen) {
+      min-height: 240px !important;
+    }
+
+    @media (max-width: 380px) {
+      min-height: 235px !important;
+    }
+  }
+}

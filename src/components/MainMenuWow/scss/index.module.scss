@@ -1,0 +1,110 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.inputContainer {
+  flex-direction: row-reverse;
+  align-items: center;
+  display: flex;
+
+  &__label {
+    position: absolute;
+    padding: 0 1rem;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+.searchInputContainer {
+  width: 100%;
+  padding: 0 0.5rem 0.5rem;
+
+  @media (min-width: $medium-screen) {
+    padding: 0;
+  }
+}
+
+.searchResultListContainerWrapper {
+  position: relative;
+}
+
+.searchResultListContainer {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  box-shadow: rgb(0 0 0 / 35%) 0px 3px 6px;
+  background-color: white;
+}
+
+.mainNavContainerWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  padding: 15px 4vw;
+
+  @media (max-width: $medium-screen) {
+    display: none;
+  }
+}
+
+.mainNavContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.logoSearchContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 70%;
+  gap: 2rem;
+}
+
+.desktopHide {
+  @media (min-width: $medium-screen) {
+    display: none !important;
+  }
+}
+
+.navList {
+  display: flex;
+  gap: 1rem;
+}
+
+.headerTextContainer {
+  padding: 0.45rem 1rem;
+  width: 100%;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  background-color: $main-menu-color;
+}
+
+.headerText {
+  font-family: CircularStdBook;
+  font-size: 12px;
+  line-height: 1.3em;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+.logoContainer {
+  width: 100px;
+  height: 60px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+
+.cartIcon {
+  path {
+    stroke: #000000;
+  }
+}
+
+// .close {
+//   position: absolute;
+//   padding: 0 1rem;
+// }

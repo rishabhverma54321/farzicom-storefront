@@ -1,0 +1,45 @@
+.campaignSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 10rem;
+    background-color: #eefdeb;
+    // padding-bottom: 2rem;
+    @media (max-width: 991px) {
+      flex-direction: column;
+      padding: 1rem 0rem;
+    }
+    &__left_card {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+  
+    &__right__card {
+      padding: 1rem;
+      text-align: center !important;
+      // color: white !important;
+      @media (max-width: 991px) {
+        padding: 2rem;
+      }
+      &__title {
+        > p {
+          // color: white !important;
+          font-size: 32px;
+          font-weight: 500;
+        }
+        @media (min-width: 991px) {
+          margin-bottom: 40px;
+        }
+      }
+      &__description {
+        > p {
+          font-family: Gilroy, "sans-serif";
+          max-height: fit-content;
+        }
+      }
+    }
+  }
+  

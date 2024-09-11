@@ -1,0 +1,51 @@
+.subNavbarContainer {
+  column-gap: 0 !important;
+}
+.subNavbarCard {
+  margin: 0 !important;
+  a {
+    display: inline-block;
+    width: 100%;
+  }
+  &__image {
+    width: 71px;
+    height: 71px;
+    margin: auto;
+    a {
+      img {
+        border-radius: 50%;
+        border: 0.1px solid #888888;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: 0 !important;
+
+    p {
+      font-size: 10px;
+      white-space: nowrap;
+    }
+  }
+  &__description {
+    p {
+    }
+  }
+
+  &__button {
+    a {
+      &__svgLeft {
+      }
+      button {
+      }
+      &__svgRight {
+      }
+    }
+  }
+}
+
+.wow-subnavbar {
+  @media (max-width: $medium-screen) {
+    min-height: 124px;
+  }
+}

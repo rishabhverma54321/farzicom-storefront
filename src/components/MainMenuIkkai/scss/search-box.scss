@@ -1,0 +1,37 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.m-search-box {
+  display: none;
+  @media (max-width: 991px) {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    display: block;
+    width: 100%;
+    background: $search-background;
+
+    .wrapper {
+      margin: 0 1rem;
+      padding: 0.6rem 1rem;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      background: white;
+    }
+
+    .search-icon-wrapper {
+      margin-right: 1rem;
+
+      svg {
+        font-size: 1.5rem;
+      }
+    }
+
+    .label-wrapper {
+      font-family: $title-font-family;
+      font-weight: 400;
+      font-size: 0.8rem;
+      line-height: 1em;
+      color: #838383;
+    }
+  }
+}

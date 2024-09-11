@@ -1,0 +1,48 @@
+.awardSection{
+    &__header{
+        margin-bottom: 0px !important;
+        &__heading{
+            font-size: 30px;
+            line-height: 38px;
+            text-align: center;
+            color: black !important;
+            @media (min-width: $large-screen) {
+                color: black !important;
+                font-size: 48px;
+                line-height: 60px;
+                width: 70%;
+                margin: auto;
+            }
+        }
+    }
+    &__content{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        &__awardCard{
+            width: 23% !important;
+            padding: 1rem 2rem;
+            @media (max-width: $large-screen) {
+                width: 45% !important;
+                padding: 1rem 0.5rem ;
+            }
+            &__image{
+                max-width: 280px;
+                margin: auto;
+            }
+            &__title{
+                margin-top: 0.30rem !important;
+                p{
+                    text-transform: none;
+                    font-size: 14px;
+                    @media (min-width: $large-screen) {
+                        font-size: 22px;
+                        line-height: 27px;
+                    }
+                }
+            }
+        }
+    }
+}

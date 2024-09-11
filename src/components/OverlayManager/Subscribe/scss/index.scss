@@ -1,0 +1,148 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.WriteAReviewContainer {
+  background-color: white;
+  width: 40vw;
+  min-width: 300px;
+  margin: auto;
+  margin-top: 10%;
+  box-shadow: $modal-box-shadow;
+  max-width: 80%;
+  border-radius: 6px;
+
+  &__header {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &__text {
+      flex-grow: 2;
+    }
+
+    &__close {
+      position: absolute;
+      right: 8%;
+      top: 36%;
+      cursor: pointer;
+    }
+  }
+
+  &__body {
+    padding: 16px 32px 32px;
+
+    @media (max-width: $medium-screen) {
+      padding: 0 20px 20px 20px;
+    }
+
+    &__rating {
+      display: flex;
+      justify-content: center;
+      padding: 20px 0 0 15px;
+    }
+  }
+
+  &__afterSubmitMessage {
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  button {
+    border-radius: 4px;
+  }
+}
+
+.formContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-direction: column;
+  width: 100%;
+  @media (max-width: $medium-screen) {
+    gap: 0.5rem;
+  }
+}
+
+.rowContainer {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+.subscribe {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.subscribe li {
+  float: left;
+  width: 30%;
+  height: 40px;
+  position: relative;
+
+  @media (max-width: $medium-screen) {
+    width: 46%;
+  }
+}
+
+.subscribe label,
+.subscribe input {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.subscribe input[type="radio"],
+.subscribe input[type="checkbox"] {
+  opacity: 0.011;
+  z-index: 100;
+}
+
+.subscribe input[type="radio"]:checked + label,
+input[type="checkbox"]:checked + label {
+  background-color: $green-light;
+  color: white;
+}
+
+.subscribe label {
+  padding: 5px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.subscribe label:hover {
+  background: $green-light;
+  color: white;
+}
+
+.weekdaysLabel {
+}
+.weekdaysLi {
+  width: 20% !important;
+}

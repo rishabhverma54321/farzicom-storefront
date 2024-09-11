@@ -1,8 +1,8 @@
 /* eslint-disable global-require */
 
-// import { BannerType } from "@globalTypes/globalTypes.ts";
-// import { generatePageUrl } from "@src/core/utils";
-// import { ProductsList_banners_edges } from "./views/Home/gqlTypes/ProductsList";
+import { BannerType } from "@globalTypes";
+import { generatePageUrl } from "@temp/core/utils";
+import { ProductsList_banners_edges } from "./views/Home/gqlTypes/ProductsList";
 
 export const showCashback =
   process.env.REACT_APP_SHOW_CASHBACK === "true" ||
@@ -32,7 +32,7 @@ export const CLIENT_INITIALS = "";
 export const NO_PHOTO_PLACEHOLDER =
   "https://plixlifefc-media.farziengineer.co/hosted/no-photo-b9149c792286.png";
 
-export const tvcBuild = (image:any, icon:any, ByobPopUp:any) => {
+export const tvcBuild = (image, icon, ByobPopUp) => {
   const script = `  if (!sessionStorage.getItem("tvc_build_popup")) {
       sessionStorage.setItem("tvc_build_popup", "true");
     }; window.onload = setTimeout(function () {  if (sessionStorage.getItem("tvc_build_popup") == "true") {    if (!document.querySelector("#tvc_membership_popup")) {      if (       document.location.href === "https://www.plixlife.com/" ||        document.location.href ===          "https://plixlifefcstage-nh.farziengineer.co/" ||        document.location.href ===          "https://plixlifeprestage-nh.farziengineer.co/" || document.location.href ===          "http://localhost:3000/"      ) {        var div = document.createElement("div");        document.body.style.overflowY = "hidden";        div.style.cssText = 'position: absolute;  bottom: 0px;  width:100vw;  z-index: 3;  height: 100Vh;  ';        div.setAttribute("id", "tvc_membership_popup");        div.innerHTML = '<style> @media screen and (max-width:420px){.main-image{width:90vw}} @media screen and (min-width:420px) and (max-width: 920px){.main-image{width:50vw; min-width: 380px;}} @media screen and (min-width: 920px ){.main-image{width:30vw}} .container-popup {  position: relative;  position: fixed;  top: 0;  right: 0;  bottom: 0;  left: 0;  background-color: rgba(0,0,0,0.5)}.close{  top: 12px;  position: absolute; padding:0.5rem;  right: 13px;  display: flex;  justify-content: center;  align-items: center;}.tvc_member_buttons button{  border-radius: 5px;  font-weight: bold;  padding: 14px;}.main-popup{  position: fixed;  width: 100vw;  height: 100vh;  display: flex;  align-items: center;  justify-content: center;}.tvc_member_buttons{  position: absolute;  bottom: 0px;  display: flex;  gap: 5px;  width: 94%;  margin: 10px 12px;  flex-direction: column;}</style>  <div class="container-popup">  <div class="main-popup">    <div style="position:relative">  <div class="close"> <img              src=${
@@ -47,27 +47,27 @@ export const tvcBuild = (image:any, icon:any, ByobPopUp:any) => {
   return script;
 };
 
-// export const primaryBanner: ProductsList_banners_edges[] = [
-//   {
-//     node: {
-//       id: "Q3VzdG9tQmFubmVyVHlwZToy",
-//       text: "test",
-//       type: BannerType.BANNERTYPES_HOME_PAGE,
-//       relatedId: null,
-//       link: "/",
-//       name: "test",
-//       created: "2021-11-02T07:01:41.577014+00:00",
-//       imageUrl:
-//         "https://plixlifefc.imgix.net/banners/e9b5ce8979c74381a18a8d06301cb3e0.png?auto=format&sharp=20&ixlib=react-9.3.0&w=3038",
-//       imageMobileUrl:
-//         "https://plixlifefc.imgix.net/banners/b24c699230274b5ebcfd93f3d5873d2f.png?auto=format&sharp=20&ixlib=react-9.3.0&w=180&dpr=3",
-//       position: 1,
-//       isEnabled: true,
-//       __typename: "CustomBannerType",
-//     },
-//     __typename: "CustomBannerTypeEdge",
-//   },
-// ];
+export const primaryBanner: ProductsList_banners_edges[] = [
+  {
+    node: {
+      id: "Q3VzdG9tQmFubmVyVHlwZToy",
+      text: "test",
+      type: BannerType.BANNERTYPES_HOME_PAGE,
+      relatedId: null,
+      link: "/",
+      name: "test",
+      created: "2021-11-02T07:01:41.577014+00:00",
+      imageUrl:
+        "https://plixlifefc.imgix.net/banners/e9b5ce8979c74381a18a8d06301cb3e0.png?auto=format&sharp=20&ixlib=react-9.3.0&w=3038",
+      imageMobileUrl:
+        "https://plixlifefc.imgix.net/banners/b24c699230274b5ebcfd93f3d5873d2f.png?auto=format&sharp=20&ixlib=react-9.3.0&w=180&dpr=3",
+      position: 1,
+      isEnabled: true,
+      __typename: "CustomBannerType",
+    },
+    __typename: "CustomBannerTypeEdge",
+  },
+];
 
 export const IMAGE_CDN = "imgix";
 export const IMAGE_CDN_PROVIDERS = {
@@ -80,7 +80,6 @@ export const IMAGE_CDN_PROVIDERS = {
 
 export const BASE_URL = "/";
 export const PRODUCTS_PER_PAGE = 100;
-const generatePageUrl = (slug: string) => `/page/${slug}/`;
 export const SUPPORT_EMAIL = "support@example.com";
 export const PROVIDERS = {
   RAZORPAY: {
@@ -134,31 +133,31 @@ export enum Social_Media {
   twitter = "twitter",
 }
 
-// export const SOCIAL_MEDIA = [
-//   {
-//     ariaLabel: Social_Media.instagram,
-//     href: "https://www.instagram.com/swa.artisanalsyrups/",
-//     path: require("images/instagram-icon.svg"),
-//   },
-// ];
+export const SOCIAL_MEDIA = [
+  {
+    ariaLabel: Social_Media.instagram,
+    href: "https://www.instagram.com/swa.artisanalsyrups/",
+    path: require("images/instagram-icon.svg"),
+  },
+];
 
-// export const SHARE_INFO = [
-//   {
-//     ariaLabel: Social_Media.twitter,
-//     href: "https://www.facebook.com/swaartisanalsyrups",
-//     path: require("images/instagram-icon.svg"),
-//   },
-//   {
-//     ariaLabel: Social_Media.facebook,
-//     href: "https://www.instagram.com/swa.artisanalsyrups/",
-//     path: require("images/instagram-icon.svg"),
-//   },
-//   {
-//     ariaLabel: Social_Media.whatsapp,
-//     href: "https://www.facebook.com/swaartisanalsyrups",
-//     path: require("images/instagram-icon.svg"),
-//   },
-// ];
+export const SHARE_INFO = [
+  {
+    ariaLabel: Social_Media.twitter,
+    href: "https://www.facebook.com/swaartisanalsyrups",
+    path: require("images/instagram-icon.svg"),
+  },
+  {
+    ariaLabel: Social_Media.facebook,
+    href: "https://www.instagram.com/swa.artisanalsyrups/",
+    path: require("images/instagram-icon.svg"),
+  },
+  {
+    ariaLabel: Social_Media.whatsapp,
+    href: "https://www.facebook.com/swaartisanalsyrups",
+    path: require("images/instagram-icon.svg"),
+  },
+];
 
 export const CONTACT_US_OPTIONS = [
   { value: "Order Related", label: "Order Related" },
@@ -170,20 +169,20 @@ export const CONTACT_US_OPTIONS = [
   { value: "Other", label: "Other" },
 ];
 
-// export const CONTACT_INFO = [
-//   {
-//     text: "hello@plixlife.com",
-//     path: require("images/mail_24px.png"),
-//     url: "mailto:hello@plixlife.com",
-//     title: "hello@plixlife.com",
-//   },
-//   {
-//     text: "",
-//     path: require("images/call_24px.png"),
-//     url: "tel:+91-8810685354",
-//     title: "+91-8810685354",
-//   },
-// ];
+export const CONTACT_INFO = [
+  {
+    text: "hello@plixlife.com",
+    path: require("images/mail_24px.png"),
+    url: "mailto:hello@plixlife.com",
+    title: "hello@plixlife.com",
+  },
+  {
+    text: "",
+    path: require("images/call_24px.png"),
+    url: "tel:+91-8810685354",
+    title: "+91-8810685354",
+  },
+];
 
 export const CLIENT_ADDRESS = {
   addressLine1: "Satiya Nutraceuticals Pvt. Ltd",
@@ -370,12 +369,12 @@ export const CUSTOM_SHOPMETA_FIELDS = [
   "logo",
   "manifestData",
   "membership_v3",
-  "membership_v3",
   "meta__product__related_products",
   "money_back",
   "navbar_couponlist",
   "offer_policies",
   "offer_progress_bar",
+  "bx_gy_offer_progress_bar",
   "offer_progress_bar_new",
   "orderfaq",
   "personalised_box_config",
@@ -399,10 +398,10 @@ export const CUSTOM_SHOPMETA_FIELDS = [
   "wallet_disabled",
   "atc_recalculation",
   "gokwik_config",
-  "kwikpass_config",
   "cart_banner",
   "announcement_bar",
-  "country_list"
+  "country_list",
+  "proceed_pay_logo"
 ];
 
 export const CUSTOM_PDP_METADATA_FIELDS = [
@@ -425,7 +424,8 @@ export const CUSTOM_PDP_METADATA_FIELDS = [
   "freebie_includes",
   "variant_redirection",
   "concern_ui",
-  "sachet_price"
+  "sachet_price",
+  "variant_config"
 ];
 
 export const CUSTUM_REVIEW_PDP_METADATA_FIELDS = ["html_content_head_review"];

@@ -4,6 +4,7 @@ import {
   getMetadataValue,
   parseJson,
   triggerHomepageBannerEvent,
+  useImageURLReplaceWithCDN,
 } from "@utils/misc";
 import Image from "next/image";
 import { TypedSectionWithCustomMetadataProducts } from "../queries";

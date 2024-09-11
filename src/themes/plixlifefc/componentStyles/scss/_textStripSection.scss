@@ -1,0 +1,70 @@
+.textStripSection {
+  display: flex;
+  padding: 20px 8px;
+  justify-content: flex-start;
+  @media (max-width: 720px) {
+    justify-content: flex-start;
+    padding: 15px 8px;
+  }
+  background-image: url("https://plixlifefc-media.farziengineer.co/hosted/backgroundText-93934b7aba35-a7dbdeb30394.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  .textItem {
+    display: flex;
+    justify-content: flex-start;
+    gap: 8px;
+    margin-left: 8px;
+    span {
+      white-space: nowrap;
+      font-family: "CocoSharp XL" !important;
+      font-size: 20px;
+      font-weight: 700;
+      font-style: italic;
+      text-transform: capitalize;
+      @media (max-width: 720px) {
+        font-size: 16px;
+      }
+    }
+  }
+}
+.marquee-container {
+  overflow-y: hidden;
+  .marquee {
+    column-gap: 50px;
+    div {
+      display: flex;
+      align-items: flex-start;
+    }
+  }
+}
+div[class^="OurStory2_textStripSection"]{
+  .marquee{
+    column-gap: 0px;
+
+  }
+}
+.overlay {
+  background-color: transparent !important;
+  --gradient-color: none !important;
+}
+
+.brandLogosSection__second {
+  margin-right: 0px;
+  margin-left: 0px;
+  .marquee-container .marquee {
+    column-gap: 96px;
+    margin-left: 96px;
+  }
+  @media (max-width: 720px) {
+    .marquee-container .marquee {
+      column-gap: 56px;
+      margin-left: 56px;
+    }
+  }
+}
+
+.textStripSection {
+  .marquee {
+    column-gap: unset;
+  }
+}

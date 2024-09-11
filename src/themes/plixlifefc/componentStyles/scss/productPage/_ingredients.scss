@@ -1,0 +1,99 @@
+.ingredientSection{
+   &__wrapper{
+      display: flex;
+      flex-direction: column;
+   }
+   &__header{
+     margin-top: 1rem;
+      text-align: center;
+      color: black !important;
+      &__heading{
+        font-family: "cocosharp_xlextrabold" !important;
+        font-style: italic;
+        font-weight: 800 !important;
+        font-size: 52px !important;
+        text-align: left;
+        line-height: 120% !important;      
+        letter-spacing: -0.02em;
+        color: #095933;
+          @media (min-width: $large-screen) {
+           font-size: 48px;
+           line-height: 60px;
+        }
+        @media (max-width: $large-screen) {
+           font-size: 32px !important;
+           line-height: 120% !important;
+         //   margin-top: 24px !important;
+        }
+      }
+   }
+   &__content{
+     display: flex;
+     flex-direction: column;
+     @media (min-width: $large-screen) {
+        flex-direction: row-reverse !important;
+        align-items: flex-start;
+        padding: 15px 0px !important;
+     }
+     @media (max-width: $small-screen) {
+        padding-bottom: 0px  !important;
+     }
+   }
+   &__rightImage{
+     flex: 1;
+     width: 605px;
+     height: 605px;
+     min-width: unset !important;
+     margin-right: 20px;
+     @media (min-width: $large-screen) {
+        min-width: 700px;
+     }
+     @media (max-width: $small-screen) {
+        max-width: 335px;
+        margin: 30px 0px 0px 0px;
+     }
+   }
+   &__card{
+     flex: 1;
+      &__title{
+         p{
+           @media (min-width: $large-screen) {
+              font-size: 32px;
+           }
+           font-size: 14px;
+           text-align: left !important;
+          color: #23523E;
+          font-weight: 500;
+         }
+         margin-bottom: 1rem !important;
+      }
+      &__textHtml{
+         p{
+          text-align: left !important;
+          font-family: 'CocoSharp XL';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 22px;
+          line-height: 160%;        
+          color: #000000;
+          @media (max-width: $large-screen) {
+           font-size: 14px;
+           line-height: 26px;
+        }
+        
+         }
+         margin-bottom: 1rem;
+      }
+      &__button{
+        margin-top: 1rem;
+          align-self: center;
+          background: #095933;
+          color: white;
+          display: inline;
+          width: fit-content !important;
+          padding: 0.5rem 1rem;
+          margin-bottom: 0.5rem;
+      }
+   }
+    
+  }

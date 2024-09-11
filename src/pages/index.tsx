@@ -3,7 +3,7 @@ import {
   homePageQueryNext,
 } from "Themes/views/Home/queries";
 import React, { useContext, useEffect } from "react";
-import { clientSSR } from "@src/client";
+import { clientSSR } from "@temp/client";
 import Head from "next/head";
 import { getMetadataValue, getScriptMeta, parseJson } from "@utils/misc";
 import {

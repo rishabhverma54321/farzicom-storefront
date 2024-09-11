@@ -1,0 +1,28 @@
+.plixProductPagetabs {
+  &__ul {
+    @media (max-width: $medium-screen) {
+      // padding-left: 1rem !important;
+    }
+    @media (max-width: $small-screen) {
+      gap: 0.5rem !important;
+    }
+    &__li {
+      text-transform: capitalize;
+      color: #808080;
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.05em;
+
+      @media (max-width: $small-screen) {
+        font-size: 10px !important;
+        line-height: 120%;
+        text-transform: uppercase;
+        margin: 0px !important;
+      }
+    }
+    .active-tab--title {
+      font-weight: 700 !important;
+      color: black;
+    }
+  }
+}

@@ -1,0 +1,39 @@
+// .slider-list {
+//   height: 100% !important;
+// }
+// .slider-list li {
+//   height: 100% !important;
+// }
+.testimonial-cerousel {
+  //   width: 50% !important;
+  align-self: center;
+
+  //   @media (max-width: 720px) {
+  //     width: 100%;
+  //   }
+}
+.slider-control-bottomcenter {
+  bottom: -60px !important;
+  ul {
+    gap: 10px !important;
+    position: unset !important;
+    li {
+      button {
+        fill: #E2E3E4 !important;
+        opacity: 1 !important;
+        width: 10px;
+        height: 10px;
+      }
+    }
+    li.active{
+      button {
+        fill: #000 !important;
+        opacity: 1 !important;
+      }
+    }
+  }
+}
+
+// .testimonial-slide-container {
+//   width: 50% !important;
+// }

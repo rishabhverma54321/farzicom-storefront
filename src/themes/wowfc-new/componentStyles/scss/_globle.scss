@@ -1,0 +1,26 @@
+.newContainer {
+  max-width: 100vw;
+  padding: 15px 7vw;
+
+  @media (max-width: "992px") {
+    width: 100%;
+    padding: 15px 40px;
+  }
+  @media (max-width: $medium-screen) {
+    width: 100%;
+    padding: 15px 20px;
+  }
+  @media (max-width: $small-screen) {
+    width: 100%;
+    padding: 15px 0;
+  }
+
+  @media (min-width: "720px") {
+    .bottomButton {
+      display: none;
+    }
+  }
+  .bottomButton__atag {
+    justify-content: center;
+  }
+}

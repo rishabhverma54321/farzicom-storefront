@@ -1,0 +1,71 @@
+.inputContainer1 {
+  position: relative;
+  width: 100%;
+
+  &__input {
+    border: 1px solid #c4c4c4;
+    /* border-bottom: 1px solid black; */
+    outline: none;
+    text-decoration: none;
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  &__label {
+    width: 100%;
+    // position: absolute;
+    white-space: nowrap;
+    cursor: text;
+    transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in;
+  }
+
+  &__input:-webkit-autofill,
+  &__input:-webkit-autofill:hover,
+  &__input:-webkit-autofill:focus {
+    background-color: unset !important;
+    transition: background-color 5000s ease-in-out 0s !important;
+  }
+
+  .inputContainer1__input:focus + .inputContainer1__label {
+    top: -0.5rem;
+    font-size: 0.8rem;
+    left: 0.8rem;
+  }
+}
+
+.inputContainer2 {
+  position: relative;
+  width: 100%;
+
+  &__input {
+    border: none;
+    outline: none;
+    text-decoration: none;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    text-align: center;
+  }
+  &__label {
+    // position: absolute;
+    white-space: nowrap;
+    cursor: text;
+    transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in;
+  }
+
+  &__input:-webkit-autofill,
+  &__input:-webkit-autofill:hover,
+  &__input:-webkit-autofill:focus {
+    background-color: unset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  .inputContainer1__input:focus + .inputContainer1__label {
+    top: -0.5rem;
+    font-size: 0.8rem;
+    left: 0.8rem;
+  }
+}

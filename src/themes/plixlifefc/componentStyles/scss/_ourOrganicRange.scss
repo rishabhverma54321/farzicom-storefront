@@ -1,0 +1,50 @@
+.organicContainer {
+  grid-template-columns: repeat(2, 1fr) !important;
+  column-gap: 20px !important;
+}
+
+.organicCard {
+  &__image {
+    a {
+      img {
+      }
+    }
+  }
+
+  &__title {
+    a {
+      p {
+        font-size: 24px;
+        font-weight: 600;
+        text-align: left;
+        margin-bottom: 0;
+        @media (max-width: 720px) {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+.organicHeader {
+  &__left {
+    span {
+      color: #686b78;
+    }
+    h3 {
+    }
+  }
+
+  &__right {
+    &__filter {
+      &__child {
+      }
+    }
+    &__button {
+      color: #686b78;
+      @media (max-width: 720px) {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,1663 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.newContainer {
+  padding: 1rem 90px;
+
+  @media (max-width: 1350px) {
+    padding: 1rem 60px;
+  }
+
+  @media (max-width: $xlarge-screen) {
+    padding: 1rem 50px;
+  }
+
+  @media (max-width: $large-screen) {
+    padding: 1rem 68px;
+    flex-direction: column-reverse;
+  }
+
+  @media (max-width: $small-screen) {
+    padding: 1rem 16px;
+  }
+}
+
+.container {
+  max-width: 100%;
+  margin: auto;
+  overflow: hidden;
+
+  .banner_section {
+    &_mob {
+      position: relative;
+      height: 460px;
+      width: 100%;
+
+      @media (min-width: $medium-screen) {
+        display: none;
+      }
+    }
+
+    &_desk {
+      position: relative;
+      height: 524px;
+      width: 100%;
+
+      @media (max-width: $medium-screen) {
+        display: none;
+      }
+    }
+  }
+
+  .brandlogo {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    justify-content: start;
+    margin-left: 20px;
+
+    // overflow-x: scroll;
+    @media (max-width: 1350px) {
+      margin-left: 60px;
+    }
+
+    @media (max-width: $xlarge-screen) {
+      margin-left: 50px;
+    }
+
+    @media (max-width: $large-screen) {
+      margin-left: 68px;
+      flex-direction: column-reverse;
+    }
+
+    @media (max-width: $small-screen) {
+      margin-left: 20px;
+    }
+
+    @media (min-width: $medium-screen) {
+      gap: 84px;
+    }
+
+    &_img {
+      position: relative;
+      width: 150px;
+      height: 150px;
+    }
+  }
+
+  .rating {
+    display: flex;
+    align-items: end;
+
+    @media (min-width: $medium-screen) {
+      margin-top: 1.5rem;
+    }
+
+    &_img {
+      position: relative;
+      width: 58px;
+      height: 58px;
+    }
+
+    &_container {
+      margin-left: 1rem;
+
+      &_upper {
+        display: flex;
+        align-items: end;
+
+        h3 {
+          color: #808080;
+          font-family: "CocoSharp XL";
+          font-size: 32px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 100%;
+          margin-right: 0.3rem;
+        }
+
+        span {
+          margin-bottom: 0.1rem;
+
+          span {
+            span {
+              span {
+                @media (min-width: $medium-screen) {
+                  font-size: 18px;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &_lower {
+        display: flex;
+        margin-top: 0.3rem;
+
+        svg {
+          width: 14px;
+          height: 14px;
+          margin-right: 0.4rem;
+
+          path {
+            fill: #1976d2;
+          }
+        }
+
+        p {
+          color: #1976d2;
+          font-family: "CocoSharp XL";
+          font-size: 15px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 100%;
+        }
+      }
+    }
+  }
+
+  .gap {
+    background: #dfdfdf;
+    height: 1.895px;
+    width: 94%;
+    margin: auto;
+
+    @media (max-width: $medium-screen) {
+      width: 90%;
+    }
+  }
+
+  .videosection {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .weightcause {
+    background: #feffed;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+
+    @media (min-width: $medium-screen) {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    &_heading {
+      color: #06543d;
+      font-family: "cocosharp_xlextrabold";
+      font-size: 24px;
+      font-style: italic;
+      font-weight: 800;
+      line-height: 100%;
+
+      @media (min-width: $medium-screen) {
+        font-size: 40px;
+        margin-left: 2rem;
+      }
+    }
+
+    &_button {
+      width: fit-content;
+      margin: auto;
+      position: relative;
+      z-index: 1;
+
+      @media (min-width: $medium-screen) {
+        max-width: 500px;
+        width: fit-content;
+      }
+    }
+
+    &_layer {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0.7rem;
+      left: 0.4rem;
+      z-index: -1;
+      border-radius: 10px;
+      border: 2px solid #f8002e;
+      background: #8f0001;
+
+      @media (min-width: $medium-screen) {
+        left: 0.7rem;
+        border-radius: 12.267px;
+      }
+    }
+
+    &_bottom {
+      border-radius: 8px;
+      background: #f8002e;
+      padding: 0.8rem 1.2rem 0.6rem;
+      display: flex;
+      justify-content: center;
+
+      a {
+        color: #fff;
+        font-family: "CocoSharp XL";
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 138%;
+        /* 19.32px */
+        letter-spacing: 1.4px;
+      }
+
+      @media (min-width: $medium-screen) {
+        padding: 1rem 2rem 0.6rem;
+        border-radius: 14px;
+        width: 100%;
+
+        a {
+          font-size: 21.595px;
+        }
+      }
+    }
+
+    &_cards {
+      margin: 1rem 0 2rem 0;
+
+      @media (min-width: $medium-screen) {
+        margin: 2rem 0 3rem 0;
+      }
+
+      &_container {
+        width: 100%;
+        height: 100%;
+
+        &_list {
+          padding: 1rem 0.7rem 0.7rem 0.7rem;
+          background-color: #fff5b6;
+          border-radius: 9px;
+          width: 90%;
+          margin: auto;
+          height: 100%;
+
+          @media (min-width: $large-screen) {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            align-items: center;
+            width: 96%;
+            padding: 2rem;
+          }
+        }
+
+        &_img {
+          position: relative;
+          width: 190px;
+          height: 190px;
+
+          @media (max-width: $large-screen) {
+            left: 50%;
+            transform: translate(-50%, 0%);
+            width: 110px;
+            height: 110px;
+          }
+        }
+
+        &_card {
+          @media (min-width: $large-screen) {
+            max-width: 55%;
+          }
+
+          @media (max-width: $large-screen) {
+            text-align: center;
+          }
+        }
+
+        &_heading {
+          color: #06543d;
+          font-family: "CocoSharp XL";
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 100%;
+          margin-top: 0.8rem;
+
+          @media (min-width: $medium-screen) {
+            font-size: 28px;
+          }
+        }
+
+        &_text {
+          color: #000;
+          font-family: "CocoSharp XL";
+          font-size: 11px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 139%;
+          margin-top: 0.6rem;
+
+          @media (min-width: $medium-screen) {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+
+  .skincause {
+    background: #feffed;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+
+    @media (min-width: $medium-screen) {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    &_heading {
+      color: #06543d;
+      font-family: "cocosharp_xlextrabold";
+      font-size: 24px;
+      font-style: italic;
+      font-weight: 800;
+      line-height: 100%;
+
+      @media (min-width: $medium-screen) {
+        font-size: 40px;
+        margin-left: 2rem;
+      }
+    }
+
+    &_button {
+      width: fit-content;
+      margin: auto;
+      position: relative;
+      z-index: 1;
+
+      @media (min-width: $medium-screen) {
+        max-width: 500px;
+        width: fit-content;
+      }
+    }
+
+    &_bottom {
+      border-radius: 8px;
+      background: #980089;
+      padding: 0.8rem 1.2rem 0.6rem;
+      display: flex;
+      justify-content: center;
+
+      a {
+        color: #fff;
+        font-family: "CocoSharp XL";
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 138%;
+        /* 19.32px */
+        letter-spacing: 1.4px;
+      }
+
+      @media (min-width: $medium-screen) {
+        padding: 1rem 2rem;
+        border-radius: 14px;
+        width: 100%;
+
+        a {
+          font-size: 21.595px;
+        }
+      }
+    }
+
+    &_cards {
+      margin: 1rem 0 2rem 0;
+
+      @media (min-width: $medium-screen) {
+        margin: 2rem 0 3rem 0;
+      }
+
+      &_container {
+        width: 100%;
+        height: 100%;
+
+        &_list {
+          padding: 1rem 0.7rem 0.7rem 0.7rem;
+          background-color: #fff5b6;
+          border-radius: 9px;
+          width: 90%;
+          margin: auto;
+          height: 100%;
+
+          @media (min-width: $large-screen) {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            align-items: center;
+            width: 96%;
+            padding: 2rem;
+          }
+        }
+
+        &_img {
+          position: relative;
+          width: 110px;
+          height: 110px;
+
+          @media (min-width: $large-screen) {
+            width: 190px;
+            height: 190px;
+          }
+        }
+
+        &_card {
+          @media (min-width: $large-screen) {
+            max-width: 55%;
+          }
+        }
+
+        &_heading {
+          color: #06543d;
+          font-family: "CocoSharp XL";
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 100%;
+          margin-top: 0.8rem;
+
+          @media (min-width: $medium-screen) {
+            font-size: 28px;
+          }
+        }
+
+        &_text {
+          color: #000;
+          font-family: "CocoSharp XL";
+          font-size: 11px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 139%;
+          margin-top: 0.6rem;
+
+          @media (min-width: $medium-screen) {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+
+  .weightloss {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+
+    @media (min-width: $large-screen) {
+      padding-top: 2.5rem;
+    }
+
+    &_mob {
+      @media (min-width: $large-screen) {
+        display: none;
+      }
+    }
+
+    &_desk {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+
+      @media (max-width: $large-screen) {
+        display: none;
+      }
+
+      &_left {
+        max-width: 40%;
+
+        @media (max-width: 1300px) {
+          max-width: 45%;
+        }
+
+        .weightcause_button {
+          @media (min-width: $medium-screen) {
+            width: fit-content;
+            margin-left: 0;
+          }
+        }
+
+        .weightcause_bottom {
+          margin-left: 0;
+          width: 90%;
+
+          @media (min-width: 500px) {
+            width: 100%;
+          }
+        }
+      }
+
+      &_right {
+        width: 100%;
+        max-width: 700px;
+      }
+    }
+
+    &_heading {
+      color: #06543d;
+      font-family: "CocoSharp XL";
+      font-size: 25.967px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 100%;
+      margin: 0.5rem 0 0.7rem 0.5rem;
+
+      @media (min-width: $large-screen) {
+        font-size: 27.698px;
+        margin: 0.5rem 0 0.7rem 0;
+      }
+    }
+
+    &_sub_heading {
+      color: #06543d;
+      font-family: "cocosharp_xlextrabold";
+      font-size: 34.623px;
+      font-style: italic;
+      font-weight: 800;
+      line-height: 100%;
+      margin: 0.5rem 0;
+
+      @media (min-width: $large-screen) {
+        font-size: 42px;
+        margin-bottom: 1rem;
+      }
+    }
+
+    &_img {
+      &_mob {
+        position: relative;
+        width: 100%;
+        height: 370px;
+        margin: 1rem 0;
+      }
+
+      &_desk {
+        position: relative;
+        height: 527px;
+        width: inherit;
+        max-width: inherit;
+      }
+    }
+
+    &_text {
+      color: #000;
+      font-family: "CocoSharp XL";
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 136%;
+      /* 21.76px */
+      letter-spacing: 0.48px;
+      margin-bottom: 1rem;
+
+      @media (min-width: $large-screen) {
+        font-size: 17px;
+        width: 90%;
+        line-height: 154%;
+        /* 27.72px */
+        letter-spacing: 0.54px;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  .faqSection {
+    margin-bottom: 3rem;
+
+    button {
+      color: #000;
+    }
+
+    div:nth-child(1) {
+      h2 {
+        margin-right: 1rem;
+      }
+
+      @media (max-width: $medium-screen) {
+        svg {
+          width: 37.502px;
+          height: 54.665px;
+        }
+      }
+    }
+
+    div:nth-child(2) {
+      @media (max-width: $medium-screen) {
+        padding: 0;
+      }
+    }
+
+    &_heading {
+      color: #06543d;
+      font-family: "cocosharp_xlextrabold";
+      font-size: 32px;
+      font-style: italic;
+      font-weight: 800;
+      line-height: 120%;
+      /* 67.2px */
+      letter-spacing: -1.12px;
+      text-transform: capitalize;
+
+      @media (min-width: $medium-screen) {
+        font-size: 56px;
+      }
+    }
+  }
+
+  .relatedProducts {
+    margin-bottom: 1rem;
+
+    @media (min-width) {
+      margin-bottom: 0;
+    }
+
+    .weightcause_bottom {
+      @media (min-width: $medium-screen) {
+        max-width: 550px;
+      }
+    }
+  }
+
+  .goalsection {
+    background: #feffed;
+
+    &_heading {
+      &_mob {
+        color: #06543d;
+        font-family: "cocosharp_xlextrabold";
+        font-size: 24px;
+        font-style: italic;
+        font-weight: 800;
+        line-height: 138%;
+        padding-top: 0.5rem;
+
+        @media (min-width: $medium-screen) {
+          display: none;
+        }
+      }
+
+      &_desk {
+        color: #06543d;
+        font-family: "cocosharp_xlextrabold";
+        font-size: 40px;
+        font-style: italic;
+        font-weight: 800;
+        line-height: 138%;
+        margin-top: 2rem;
+
+        @media (max-width: $medium-screen) {
+          display: none;
+        }
+      }
+    }
+
+    div:nth-child(1) {
+      .goalsection_container_heading {
+        @media (max-width: $medium-screen) {
+          max-width: 100%;
+        }
+      }
+
+      // .goalsection_container_text {
+      //   @media (min-width: $medium-screen) {
+      //     max-width: 240px;
+      //   }
+      // }
+    }
+
+    // div:nth-child(3) {
+    //   .goalsection_container_text {
+    //     @media (min-width: $medium-screen) {
+    //       max-width: 240px;
+    //     }
+    //   }
+    // }
+
+    &_box {
+      @media (min-width: $large-screen) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 1.4rem 0;
+        gap: 1rem;
+      }
+    }
+
+    &_container {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      align-items: start;
+      padding: 1rem;
+      border-radius: 9px;
+      margin: 1.5rem auto;
+
+      @media (min-width: $large-screen) {
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        margin: 0;
+        gap: 1rem;
+        max-width: 390px;
+        min-height: 420px;
+      }
+
+      &_img {
+        position: relative;
+        height: 90px;
+        width: 90px;
+
+        @media (min-width: $large-screen) {
+          width: 169px;
+          height: 169px;
+        }
+      }
+
+      &_box1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 134px;
+
+        @media (min-width: $large-screen) {
+          width: 100%;
+        }
+      }
+
+      &_box2 {
+        width: 170px;
+
+        @media (min-width: $medium-screen) {
+          width: 100%;
+        }
+      }
+
+      &_step {
+        color: #5dd37c;
+        font-family: "CocoSharp XL";
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 100%;
+        margin-bottom: 0.5rem;
+
+        @media (min-width: $medium-screen) {
+          font-size: 23px;
+
+          @media (min-width: $large-screen) {
+            text-align: center;
+            margin: 0.8rem 0;
+          }
+        }
+      }
+
+      &_heading {
+        color: #06543d;
+        font-family: "CocoSharp XL";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 117%;
+        margin-bottom: 0.3rem;
+
+        @media (min-width: $medium-screen) {
+          font-size: 27px;
+
+          @media (min-width: $large-screen) {
+            text-align: center;
+          }
+        }
+      }
+
+      &_text {
+        color: #000;
+        font-family: "CocoSharp XL";
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 139%;
+
+        @media (min-width: $medium-screen) {
+          font-size: 17px;
+
+          @media (min-width: $large-screen) {
+            text-align: center;
+            max-width: 94%;
+            margin: 0.8rem auto 0 auto;
+          }
+        }
+      }
+
+      &_timer {
+        &_mob {
+          color: #000;
+          font-family: "CocoSharp XL";
+          font-size: 11px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 139%;
+          text-align: center;
+          margin-top: 0.8rem;
+          display: flex;
+          align-items: center;
+
+          strong {
+            margin-left: 0.2rem;
+          }
+
+          img {
+            width: 10px;
+            height: 10px;
+            margin-left: 0.2rem;
+            margin-bottom: 0.1rem;
+          }
+
+          @media (min-width: $medium-screen) {
+            display: none;
+          }
+        }
+
+        &_desk {
+          color: #000;
+          font-family: "CocoSharp XL";
+          font-size: 16.867px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 139%;
+          text-align: center;
+
+          img {
+            width: 13.5px;
+            height: 13.5px;
+          }
+
+          @media (max-width: $large-screen) {
+            text-align: left;
+
+            @media (max-width: $medium-screen) {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .reviewsection {
+    &_heading {
+      color: #06543d;
+      font-family: "cocosharp_xlextrabold";
+      font-size: 22px;
+      font-style: italic;
+      font-weight: 800;
+      line-height: 138%;
+      margin-top: 0.5rem;
+      margin-bottom: 10px;
+
+      @media (min-width: $medium-screen) {
+        font-size: 40px;
+        margin-top: 1.3rem;
+        margin-bottom: 16px;
+      }
+    }
+
+    &_sub_heading {
+      color: #5dd37c;
+      font-family: "CocoSharp XL";
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 138%;
+      max-width: 220px;
+      margin-bottom: 1rem;
+
+      @media (min-width: $medium-screen) {
+        font-size: 32px;
+        max-width: 100%;
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    &_container {
+      border-radius: 8px;
+      background: #feffed;
+      padding: 0.6rem;
+
+      @media (min-width: $large-screen) {
+        padding: 1rem 1.5rem 1rem 1rem;
+        display: flex !important;
+        gap: 1rem;
+        border-radius: 18px;
+      }
+
+      &_review {
+        color: #000;
+        font-family: "CocoSharp XL";
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 171%;
+
+        @media(min-width: $medium-screen) {
+          font-size: 14px;
+        }
+      }
+
+      &_img {
+        &_mob {
+          position: relative;
+          width: 100%;
+          min-height: 314.85px;
+          height: 100%;
+
+          @media (min-width: $medium-screen) {
+            display: none;
+          }
+        }
+
+        &_desk {
+          position: relative;
+          width: 504px;
+          height: 504px;
+
+          @media (max-width: $large-screen) {
+            margin: auto;
+
+            @media (max-width: $medium-screen) {
+              display: none;
+            }
+          }
+        }
+      }
+
+      &_name {
+        color: #06543d;
+        font-family: "CocoSharp XL";
+        font-size: 22.556px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 138%;
+        display: flex;
+        align-items: center;
+
+        svg {
+          margin-left: 0.3rem;
+        }
+
+        @media (min-width: $medium-screen) {
+          font-size: 34px;
+
+          svg {
+            margin-left: 0.8rem;
+            width: 30px;
+            height: 30px;
+          }
+        }
+      }
+
+      &_description {
+        &_mob {
+          color: #000;
+          font-family: "CocoSharp XL";
+          font-size: 14.158px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 171%;
+          margin-top: 0.2rem;
+
+          span {
+            margin-left: 0.5rem;
+            color: #5dd37c;
+            font-family: "CocoSharp XL";
+            font-size: 13.158px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 171%;
+            /* 22.5px */
+            text-decoration-line: underline;
+            cursor: pointer;
+          }
+
+          @media (min-width: $medium-screen) {
+            font-size: 18px;
+
+            span {
+              font-size: 18px;
+            }
+
+            @media (min-width: $large-screen) {
+              display: none;
+            }
+          }
+        }
+
+        &_desk {
+          color: #000;
+          font-family: "CocoSharp XL";
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 174%;
+          /* 27.72px */
+          letter-spacing: 0.54px;
+          max-width: 500px;
+          margin-top: 1rem;
+
+          span {
+            position: absolute;
+            right: 0.5rem;
+            bottom: -2rem;
+            color: #5dd37c;
+            font-family: "CocoSharp XL";
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 171%;
+            /* 22.5px */
+            text-decoration-line: underline;
+            cursor: pointer;
+          }
+
+          @media (max-width: $large-screen) {
+            display: none;
+          }
+        }
+      }
+
+      &_rating {
+        &_mob {
+          @media (min-width: $medium-screen) {
+            display: none;
+          }
+        }
+
+        &_desk {
+          span {
+            font-size: 1.8rem;
+          }
+
+          @media (max-width: $medium-screen) {
+            display: none;
+          }
+        }
+      }
+
+      &_bottom {
+        margin-top: 0.7rem;
+        color: #000;
+        font-family: "CocoSharp XL";
+        font-size: 13.258px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 135%;
+        max-width: 120px;
+        text-align: center;
+
+        @media(min-width: $large-screen) {
+          max-width: 180px;
+          font-size: 20px;
+        }
+
+        div {
+          color: #000;
+          font-family: "CocoSharp XL";
+          font-size: 11.278px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 171%;
+          text-align: start;
+
+          @media (min-width: $medium-screen) {
+            line-height: 161%;
+            font-size: 17px;
+          }
+        }
+
+        p {
+          color: #000;
+          font-family: "CocoSharp XL";
+          font-size: 13.158px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 171%;
+          margin-right: 0.5rem;
+
+          @media (min-width: $medium-screen) {
+            line-height: 131%;
+            font-size: 18px;
+          }
+        }
+      }
+
+      &_right {
+        margin: 1rem 0 0.5rem 0;
+
+        @media (min-width: $large-screen) {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          margin-top: 6rem;
+        }
+
+        &_name {
+          display: flex;
+          justify-content: space-between;
+          align-items: start;
+
+          div:nth-child(2) {
+            margin-top: 0.5rem;
+
+            @media(min-width: $medium-screen) {
+              margin-top: 0;
+            }
+          }
+        }
+
+        &_bottom {
+          display: flex;
+          justify-content: space-between;
+        }
+
+        &_description {
+          @media (min-width: $large-screen) {
+            position: relative;
+          }
+        }
+
+        &_upper {}
+      }
+    }
+  }
+
+  .ingredients {
+    @media (min-width: $medium-screen) {
+      margin-top: 1rem;
+
+      @media (min-width: $large-screen) {
+        display: flex;
+        align-items: start;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+    }
+
+    &_heading {
+      &_mob {
+        color: #06543d;
+        font-family: "cocosharp_xlextrabold";
+        font-size: 24px;
+        font-style: italic;
+        font-weight: 800;
+        line-height: 138%;
+        margin: 1rem 0 0.5rem 0;
+
+        @media (min-width: $medium-screen) {
+          display: none;
+        }
+      }
+
+      &_desk {
+        color: #06543d;
+        font-family: "cocosharp_xlextrabold";
+        font-size: 40px;
+        font-style: italic;
+        font-weight: 800;
+        line-height: 138%;
+
+        @media (max-width: $large-screen) {
+          margin-top: 1rem;
+
+          @media (max-width: $medium-screen) {
+            display: none;
+          }
+        }
+      }
+    }
+
+    &_container {
+      @media (min-width: $medium-screen) {
+        max-width: 550px;
+      }
+    }
+
+    &_image {
+      &_mob {
+        position: relative;
+        min-height: 335px;
+        height: 100%;
+        width: 100%;
+
+        @media (min-width: $medium-screen) {
+          display: none;
+        }
+      }
+
+      &_mob2 {
+        position: relative;
+        min-height: 199px;
+        height: 100%;
+        width: 100%;
+        margin-top: 1.8rem;
+
+        @media (min-width: $medium-screen) {
+          display: none;
+        }
+      }
+
+      &_desk {
+        position: relative;
+        width: 620px;
+        height: 448px;
+
+        @media (max-width: $medium-screen) {
+          display: none;
+        }
+      }
+    }
+
+    &_sub_heading {
+      color: #06543d;
+      font-family: "CocoSharp XL";
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 138%;
+      margin: 0.6rem 0;
+
+      @media (min-width: $medium-screen) {
+        font-size: 32px;
+        margin: 0.2rem 0;
+      }
+    }
+
+    &_description {
+      color: #000;
+      font-family: "CocoSharp XL";
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 136%;
+      /* 21.76px */
+      letter-spacing: 0.48px;
+      max-width: 96%;
+      margin-bottom: 1.2rem;
+
+      @media (min-width: $medium-screen) {
+        font-size: 21px;
+        line-height: 39px;
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    &_button {
+      .weightcause_button {
+        @media (min-width: $medium-screen) {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  .expire {
+    background-color: #06543d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.7rem 0;
+
+    &_heading {
+      color: #fff;
+      font-family: "CocoSharp XL";
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      margin-right: 1rem;
+
+      @media (min-width: $medium-screen) {
+        font-size: 28px;
+      }
+    }
+
+    &_timer {
+      display: flex;
+
+      &_colon {
+        color: #fff;
+        font-family: "CocoSharp XL";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+
+        @media (min-width: $medium-screen) {
+          font-size: 23.5px;
+        }
+      }
+
+      &_box {
+        border-radius: 3px;
+        background: #feffed;
+        margin: 0 0.5rem;
+        padding: 0.2rem 0.4rem;
+
+        @media (min-width: $medium-screen) {
+          padding: 0.4rem 0.5rem;
+        }
+
+        &_time {
+          color: #06543d;
+          font-family: "CocoSharp XL";
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 100%;
+
+          @media (min-width: $medium-screen) {
+            font-size: 21.5px;
+
+            @media (min-width: $large-screen) {
+              font-size: 23.5px;
+            }
+          }
+        }
+
+        &_text {
+          color: #06543d;
+          font-family: "CocoSharp XL";
+          font-size: 10px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+
+          @media (min-width: $medium-screen) {
+            font-size: 14.688px;
+            line-height: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .resultSection {
+    border-radius: 8px;
+    background: #deffe7;
+    padding: 1rem 1rem 2rem;
+    margin-top: 0.5rem;
+
+    &_container {
+      @media (max-width: $medium-screen) {
+        padding: 1rem 1rem 0;
+      }
+    }
+
+    @media (min-width: $medium-screen) {
+      padding: 1.2rem 1.2rem 2.4rem;
+      margin-top: 1rem;
+    }
+
+    &_box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      &_heading {
+        color: #06543d;
+        font-family: "CocoSharp XL";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 138%;
+        margin-bottom: 0.3rem;
+
+        @media (min-width: $medium-screen) {
+          font-size: 41.491px;
+          margin-bottom: 0.5rem;
+        }
+      }
+
+      &_text {
+        color: #000;
+        font-family: "CocoSharp XL";
+        font-size: 8px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 138%;
+        margin-bottom: 1rem;
+
+        @media (min-width: $medium-screen) {
+          font-size: 16.596px;
+          margin-bottom: 2.5rem;
+        }
+      }
+    }
+  }
+
+  .skinResultSection {
+    border-radius: 8px;
+    background: #FFD4FB;
+    padding: 1rem 1rem 2rem;
+    margin-top: 0.5rem;
+
+    &_container {
+      @media (max-width: $medium-screen) {
+        padding: 1rem 1rem 0;
+      }
+    }
+
+    @media (min-width: $medium-screen) {
+      padding: 1.2rem 1.2rem 2.4rem;
+      margin-top: 1rem;
+    }
+
+    &_box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      &_heading {
+        color: #06543d;
+        font-family: "CocoSharp XL";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 138%;
+        margin-bottom: 0.3rem;
+
+        @media (min-width: $medium-screen) {
+          font-size: 41.491px;
+          margin-bottom: 0.5rem;
+        }
+      }
+
+      &_text {
+        color: #000;
+        font-family: "CocoSharp XL";
+        font-size: 8px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 138%;
+        margin-bottom: 1rem;
+
+        @media (min-width: $medium-screen) {
+          font-size: 16.596px;
+          margin-bottom: 2.5rem;
+        }
+      }
+    }
+  }
+
+  .stickybottom {
+    background: #feffed;
+    padding: 1rem 1rem 1.5rem;
+    width: 100%;
+    box-shadow: 0px -5px 16.1px 6px rgba(0, 0, 0, 0.25);
+    position: fixed;
+    bottom: 0;
+    z-index: 2;
+
+    .weightcause_button {
+      width: 90%;
+    }
+  }
+
+  .beautyFormWithin {
+
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+}
+
+.beautyBanner {
+  padding-top: 2rem;
+}
+
+.beautyBannerImageText {
+  font-family: "CocoSharp XL";
+  font-size: 16px;
+  font-weight: 800;
+  text-align: left;
+  color: #000000;
+  padding-top: 15px;
+  padding-left: 15px;
+  line-height: 24px;
+  position: absolute;
+  top: 0%;
+}
+
+.beautyBannerHead {
+  font-family: "cocosharp_xlextrabold";
+  font-size: 40px;
+  line-height: 40px;
+  font-weight: 800;
+  text-align: left;
+  font-style: italic;
+  color: #06543D;
+}
+
+.beautyBannerSubHead {
+  font-family: "CocoSharp XL";
+  font-size: 32px;
+  line-height: 32px;
+  font-weight: 700;
+  text-align: left;
+  margin-top: 16px;
+  margin-bottom: 1.5rem;
+  margin-left: 2px;
+  color: #000;
+}
+
+.beautyBannerImageContainer {
+  width: 100%;
+  height: 500px;
+  position: relative;
+  background-color: #D9D9D9;
+}
+
+@media (max-width: $medium-screen) {
+  .beautyBannerHead {
+    font-size: 24px;
+    line-height: 29.52px;
+  }
+
+  .beautyBannerSubHead {
+    font-size: 20px;
+    line-height: 20px;
+    margin-top: 8px;
+  }
+}
+
+.beautyBannerSection {
+  &_mob {
+    @media (min-width: $medium-screen) {
+      display: none;
+    }
+  }
+
+  &_desk {
+    @media (max-width: $medium-screen) {
+      display: none;
+    }
+  }
+}
+
+.hariQuiz{
+  .skincause_bottom{
+    min-width: 420px;
+    @media(max-width: $medium-screen){
+      min-width: 275px;
+    }
+  }
+
+  &_relatedproduct{
+    .relatedProducts{
+      h3{
+        color: #A80097 !important;
+      }
+    }
+  }
+
+  &_growth{
+    .beautyBanner{
+      margin-bottom: 0 !important;
+      @media(max-width: $medium-screen){
+        padding-bottom: 0 !important;
+      }
+    }
+  }
+}
+
+.hairsolution{
+  padding-top: 2.4rem;
+  padding-bottom: 2rem;
+  @media(max-width: $medium-screen){
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  h3{
+    font-family: "CocoSharp XL";
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24.6px;
+    color: #06543D;
+    margin-left: 0.2rem;
+  }
+  h2{
+    font-family: "cocosharp_xlextrabold";
+    font-weight: 800;
+    font-style: italic;
+    font-size: 40px;
+    line-height: 40px;
+    color: #06543D;
+    margin: 0.5rem 0 1rem;
+
+    @media(max-width: $medium-screen){
+      font-size: 24px;
+      line-height: 29.52px;
+      margin: 0.8rem 0 0.3rem;
+    }
+  }
+
+  &_para{
+    p{
+      font-family: "CocoSharp XL";
+      font-weight: 400;
+      font-size: 17.48px;
+      line-height: 24.6px;
+      margin-bottom: 1.5rem;
+    }
+    padding-bottom: 1rem;
+    @media(max-width: $medium-screen){
+      p{
+        font-size: 16px;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}

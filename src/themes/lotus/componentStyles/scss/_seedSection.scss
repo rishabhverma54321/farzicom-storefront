@@ -1,0 +1,346 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.wow-green.container {
+  padding-top: 0px !important;
+  @media (max-width: $medium-screen) {
+    padding: 0px !important;
+  }
+}
+#second-para {
+  scroll-margin-top: 78px;
+}
+.heroBanner {
+  //height: 620px;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  padding-top: 40px;
+  padding-bottom: 50px;
+  color: #fff;
+  img.wow-logo {
+    max-width: 150px;
+  }
+  &Content {
+    max-width: 500px;
+    margin: auto !important;
+    @media (max-width: $large-screen) {
+      padding: 10px;
+    }
+    &__title {
+      p {
+        font-size: 4.3rem;
+        line-height: 4rem;
+        font-weight: 500;
+        color: #fff;
+        @media (max-width: $large-screen) {
+          font-size: 3rem;
+          line-height: 3rem;
+        }
+      }
+    }
+    &__description {
+      p {
+        font-size: 1rem;
+      }
+    }
+    &__image {
+      width: 150px;
+      margin: auto;
+    }
+  }
+  &Seeds {
+    margin-top: 50px;
+    &__title {
+      p {
+        font-size: 2.8rem;
+        font-weight: 600;
+        color: #fff;
+      }
+    }
+    &__description {
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .arrowContainer {
+    text-align: center;
+    font-size: 4rem;
+    .angle-double-down {
+      display: inline-block;
+      transform: rotateZ(-90deg);
+      cursor: pointer;
+    }
+  }
+  .angle-double-down::before {
+    content: "\00AB";
+  }
+}
+.sectionContainer {
+  display: flex;
+  justify-content: space-between;
+  @media (max-width: $large-screen) {
+    flex-direction: column;
+  }
+  .leftCard {
+    background-color: #e9c89edb;
+    max-width: 50%;
+    padding: 20px;
+    @media (max-width: $large-screen) {
+      max-width: none;
+    }
+    &Content {
+      &__title {
+        text-align: left;
+        p {
+          font-size: 2rem;
+          font-weight: 600;
+          line-height: 2rem;
+          color: #fff;
+        }
+      }
+      &__description {
+        p {
+          text-align: left;
+          font-size: 1rem;
+        }
+      }
+    }
+    &Header {
+      &__title {
+        text-align: left;
+        p {
+          font-size: 1.5rem;
+          font-weight: 600;
+        }
+      }
+    }
+    &IconsContainer {
+      grid-template-columns: repeat(1, 1fr) !important;
+      padding-left: 20px;
+    }
+    &Icons {
+      flex-direction: row !important;
+      justify-content: left;
+      gap: 12px;
+      align-items: center;
+      &__image {
+        width: 50px;
+      }
+      &__title {
+        text-transform: none;
+        p {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+  .gifContainer {
+    margin: 0 auto;
+    img {
+      max-width: 100%;
+    }
+    @media (max-width: $large-screen) {
+      text-align: center;
+    }
+  }
+  .CarouselLeftText {
+    padding: 2rem;
+    &__title {
+      text-align: left;
+      p {
+        font-size: 2rem;
+        font-weight: 500;
+        line-height: 2rem;
+      }
+    }
+    &__description {
+      p {
+        text-align: left;
+      }
+    }
+  }
+  .CarouselNumber.CarouselLeftText {
+    &__title {
+      p {
+        background-color: #85b185;
+        width: 50px;
+        margin: auto;
+        padding: 10px;
+        border-radius: 25px;
+        text-align: center;
+      }
+    }
+    &__description {
+      p {
+        text-align: center;
+      }
+    }
+  }
+  .carousel-root {
+    flex-basis: 160%;
+    margin-top: 20px;
+  }
+}
+.fullWidthCarousel {
+  background-color: #e9c89edb;
+  padding: 2.5rem;
+  min-height: 400px;
+  margin-top: 30px;
+  &Header {
+    &__title {
+      margin-bottom: 25px;
+      p {
+        text-align: center;
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 2.8rem;
+        line-height: 2rem;
+        @media (max-width: $large-screen) {
+          font-size: 1.8rem;
+        }
+      }
+    }
+  }
+  li.slider-slide {
+    border-radius: 30px;
+    overflow: hidden;
+  }
+  .ourInstaCard {
+    border-radius: 30px;
+    overflow: hidden;
+  }
+  .slider.carousel {
+    padding: 20px;
+  }
+  .CarouselArrowContainer::before {
+    content: "\2794";
+    font-size: 2rem;
+    color: #888;
+  }
+  .CarouselArrowContainer {
+    background-color: #fff;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 20px;
+  }
+  .carousel__control--left {
+    margin-left: 1rem;
+    transform: rotateZ(180deg);
+    @media (max-width: $medium-screen) {
+      margin-left: 0rem;
+    }
+  }
+  .carousel__control--right {
+    margin-right: 1rem;
+    @media (max-width: $medium-screen) {
+      margin-right: 0rem;
+    }
+  }
+  &BottomText {
+    &__title {
+      p {
+        font-size: 1.4rem;
+        line-height: 2rem;
+        @media (max-width: $large-screen) {
+          font-size: 1rem;
+          line-height: 1.2rem;
+        }
+      }
+      margin-bottom: 20px;
+    }
+    &__button {
+      &__atag {
+        width: 182px;
+        margin: auto;
+        background: white;
+        border-radius: 40px;
+        padding: 1.6rem;
+        span {
+          font-size: 1.1rem !important;
+          color: #000 !important;
+        }
+      }
+    }
+  }
+}
+.secondaryBanner {
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  padding: 5rem;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  @media (max-width: $large-screen) {
+    flex-direction: column;
+    padding: 10px;
+  }
+  &Content {
+    max-width: 500px;
+    margin: 0;
+    align-items: flex-end;
+    @media (max-width: $large-screen) {
+      align-items: center;
+    }
+    &__title {
+      p {
+        font-size: 4.3rem;
+        line-height: 4rem;
+        font-weight: 500;
+        color: #fff;
+      }
+    }
+    &__description {
+      p {
+        font-size: 1rem;
+      }
+    }
+    &__image {
+      width: 150px;
+      margin: 0;
+    }
+  }
+  &Seeds {
+    max-width: 700px;
+    @media (max-width: $large-screen) {
+      order: 2;
+    }
+    &__title {
+      p {
+        font-size: 4rem;
+        font-weight: 600;
+        color: #fff;
+        text-align: left;
+        line-height: 4.5rem;
+        @media (max-width: $large-screen) {
+          font-size: 2.9rem;
+          font-weight: 500;
+          line-height: 3.3rem;
+        }
+      }
+      margin-bottom: 30px;
+    }
+    &__description {
+      p {
+        font-size: 1rem;
+      }
+    }
+    &__button {
+      &__atag {
+        width: 280px;
+        background: #e9c89edb;
+        border-radius: 40px;
+        padding: 1.6rem;
+        span {
+          font-size: 1.1rem !important;
+          color: #000 !important;
+        }
+      }
+    }
+  }
+}

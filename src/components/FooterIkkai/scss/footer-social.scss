@@ -1,0 +1,110 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.social-footer {
+  .social-title {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.5em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .newsletter-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .text-wrapper {
+    font-family: $title-font-family;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: white;
+  }
+
+  .image-wrapper {
+    img {
+      width: 4rem;
+    }
+  }
+
+  .signup-invite-text {
+    padding: 0 1rem;
+    font-family: $title-font-family;
+    font-size: 0.85rem;
+    line-height: 1.5em;
+    text-align: center;
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    font-size: 1.25rem;
+
+    .link:not(:first-of-type) {
+      margin-left: 2rem;
+    }
+  }
+
+  .invite-input-container {
+    padding: 0 1rem;
+    display: flex;
+    justify-content: center;
+
+    .invite-input-wrapper {
+      width: 100%;
+      max-width: 40rem;
+      display: flex;
+      align-items: center;
+    }
+
+    #newsletter-email-input {
+      flex: 10;
+      padding: 0.65rem;
+      width: 100%;
+      outline: 0;
+      border: 1px solid #e5e5e5;
+      border-right: 0;
+
+      font-family: $title-font-family;
+      font-size: 0.9rem;
+      line-height: 1em;
+      letter-spacing: 0.3px;
+    }
+
+    .email-icon-wrapper {
+      flex: 1;
+      align-self: stretch;
+      padding: 0.65rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: #d36396;
+      border-radius: 0;
+      border: 1px solid #d36396;
+
+      .text {
+        display: none;
+      }
+    }
+
+    @media (min-width: $large-screen) {
+      padding: 0;
+
+      .email-icon-wrapper {
+        svg {
+          display: none;
+        }
+        .text {
+          display: block;
+          font-family: $title-font-family;
+          font-weight: 600;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "Irish Moss": {
+    "name": "Irish Moss",
+    "desc": "The Irish Moss or the Carrageen Moss derives its name from the Irish word ‘Carraigin’ meaning ‘Little Rock’. This species of red algae goes by the scientific name Chondrus Crispus, and grows in abundance along the rocky edges of the Atlantic coast. A native of Europe and North America, the Irish Moss has always been consumed by the locals for its medicinal properties, and lately, it has been identified by scientists as a superfood.",
+    "benefits": [
+      "Loaded with essential nutrients",
+      "Rich in antioxidants",
+      "Penetrates the skin to provide deep nourishment",
+      "Prevents water loss",
+      "Moisturizes the skin leaving it rejuvenated and supple"
+    ]
+  },
+  "Macadamia Nut": {
+    "name": "Macadamia Nut",
+    "desc": "Named after the noted Scottish-Australian chemist and politician John Macadam, Macademia is an evergreen genus of four species of trees that are part of the Proteaceae plant family. Native to north eastern New South Wales and central and south eastern Queensland, the Macademia Nut is now cultivated commercially to meet its global demand.",
+    "benefits": [
+      "Rich in Palmitoleic Acid that’s naturally present in youthful skin",
+      "Reverses the effect of ageing",
+      "Lightens scars and sunburn",
+      "Restores the natural brightness of the skin"
+    ]
+  },
+  "Frangi Pani": {
+    "name": "Frangi Pani",
+    "desc": "Plumeria or Frangipani is a genus of the flowering plants belonging to the Apocynaceae family. Most species are deciduous shrubs or small trees and they are indigenous to Mexico, Central America and the Caribbean, and as far south as Brazil and north as Florida. This flower is however extensively grown as cosmopolitan ornamentals in warm regions.",
+    "benefits": [
+      "Frangipani is a fragrant flower that evokes deep internal cleansing which refreshes the body, mind and soul ",
+      "When infused in an alcohol-free solution, the flower helps in uplifting and re-energizing fatigued skin",
+      "Glycosides present in Frangipani help to get other vital ingredients absorbed into the skin and keep the skin hydrated by binding onto water molecules ",
+      "It supports healthy collagen production",
+      "Lignin, an organic substance present in this flower keeps skin supple and toned. Oxidative stress-induced tissue damage can also be diminished with the use of this essential oil"
+    ]
+  },
+  "Acai Berries": {
+    "name": "Acai Berries",
+    "desc": "Mainly found in swamps and floodplains, Acai Berries are native to Brazil, Peru, Suriname, and Trinidad and Tobago. Acai oil finds its use in skincare products for being rich in antioxidants. While it’s safer than other tropical oils, the anti-oxidants in acai oil have a longer shelf life.",
+    "benefits": [
+      "An effective emollient, Acai Berry is known for its incredible moisturizing properties",
+      "It’s noted for repairing drying and ageing skin",
+      "It soothes skin conditions, such as psoriasis or acne",
+      "It effectively restores the skin’s elasticity levels and contains anti-bacterial properties",
+      "They are naturally high in essential fatty acids like Omega 6 and 9 and have a fatty acid profile similar to olive oil that helps in maintaining glowing skin",
+      "It is one of the highest plant sources of antioxidants, with one berry holding ten times the amount of antioxidants as grapes"
+    ]
+  },
+  "French Clay": {
+    "name": "French Clay",
+    "desc": "Practitioners of alternative medicines often use French Clay for both external cosmetic treatments as well as some internal applications. It was used in ancient Egypt, Greece, and Rome to treat a variety of skin problems and digestive disorders. While French Green Clay belongs to a subcategory of clay minerals known as Illite Clays that are formed by weathering or by changes produced in aluminium rich minerals by heat and acidic ground water. the other two groups that are extensively used are Kaolinite and Smectite Clays.",
+    "benefits": [
+      "French Clay draws out surface oil and reduces shine, while purifying pores for the deepest cleaning possible",
+      "When used on skin, French Clay attaches itself to oil, bacteria, and impurities from the skin, as it dries, and eliminates them to leave the skin feeling cleansed, clarified, and balanced",
+      "By restoring essential minerals to the skin, it nourishes and replenishes the skin’s moisture balance and promotes regeneration of skin cells",
+      "It minimizes the appearance of enlarged pores, repairs damage, revitalizes dull skin, and reduce the chance of congestion that leads to breakouts",
+      "The drying action of Clays leaves pores looking tighter, clearer, and brighter",
+      "Clays are known to soothe irritation and inflammation associated with skin allergies, skin disorders, rashes, and sunburns"
+    ]
+  },
+  "Cranberry": {
+    "name": "Cranberry",
+    "desc": "Cranberry is one of the very few fruits native to North America. We come to know from the accounts of pilgrims that these fruits were widely found in Massachusetts, and were consumed for their high nutritional properties.",
+    "benefits": [
+      "Cranberry oil is the only one with a perfect ratio of omega-3, omega-6 and omega-9 fatty acids. It gets readily absorbed, and the antioxidants penetrate deeply to provide skin with intense hydration and nourishment",
+      "While anyone can benefit from its regular usage, people with damaged, rough, and dull skin gain the most because of its potent antiseptic properties and ability to brighten the skin naturally.",
+      "Cranberries also fight free radicals that may cause wrinkles.",
+      "For centuries, cranberries have been known for their medicinal, antioxidant properties and anti-ageing benefits",
+      "It enhances cell power, and the high concentration of  antioxidants such as vitamin C, B and B-5 defends the skin against environmental damage"
+    ]
+  },
+  "Shea Butter": {
+    "name": "Shea Butter",
+    "desc": "The shea tree grows naturally in the wild and dry savannah belt of West Africa from Senegal in the west to Sudan in the east, and in the foothills of the Ethiopian highlands. It occurs in 21 countries across the African continent. Shea butter is mainly used in lip gloss, skin moisturizer creams and emulsions to treat the dryness of skin and hair.",
+    "benefits": [
+      "Excellent daily skin moisturiser for face and body",
+      "Restores elasticity to skin and reduces blemishes and wrinkles",
+      "Anti-aging and anti-free radical agent known to increase circulation to the skin",
+      "Helps reduces acne and scarring",
+      "Helps softens tough skin on hands and feet"
+    ]
+  },
+  "Oliver Butter": {
+    "name": "Oliver Butter",
+    "desc": "Derived from European Olive Oil, Olive Butter is a common ingredient in creams, lotions and body butters. Known for being an extra rich emollient with deep moisturizing, nourishing and antioxidant properties, it’s also used directly on the skin by many.",
+    "benefits": [
+      "Olive Butter contains the moisturizing and antioxidant properties of olive oil with the deep moisturizing and skin nourishing qualities of a thicker butter. When used it leaves the skin healthy and hydrated ",
+      "It restores the skin's natural elasticity by penetrating deeply and offering deep moisturizing effect.",
+      "Olive butter is rich in antioxidants and has traditionally been used in the Mediterranean for its anti-ageing properties",
+      "It lubricates the skin and improves its elasticity and skin tone.",
+      "Olive butter is a rich, thick moisturizer. While it offers the benefits of Olive Oil, it’s consistency is such that it feels less greasy"
+    ]
+  },
+  "Argon Oil": {
+    "name": "Argon Oil",
+    "desc": "Argan trees are found in abundance in Morocco. Argan oil is the plant oil produced from the kernels of this tree.",
+    "benefits": [
+      "Studies indicate that argan oil may be effective at reducing signs of ageing skin.",
+      "Argan oil has been traditionally used to treat skin infections, skin tissues may benefit from its anti-inflammatory compounds ",
+      "It’s a popular emollient",
+      "Some research indicates the fatty acids in argan oil may support healthy, hydrated skin",
+      "Argan oil is often used as a remedy for treating stretch marks",
+      "Argan oil is effective for treating acne. It reduces redness and soothes irritation caused by acne"
+    ]
+  },
+  "White Peony": {
+    "name": "White Peony",
+    "desc": "Paeonia lactiflora or the White Peony was first brought to England in the mid-18th century. This is the parent to most of the modern varieties. The Latin epithet lactiflora means “with milk white flowers” and these beautiful white flowers have always been known for their skin illuminating properties.",
+    "benefits": [
+      "White Peony extract illuminates and brightens skin.",
+      "It helps to reduce dark spots, blemishes and pigmentation.",
+      "Regular usage of the extract gives one visibly brighter complexion ",
+      "Peonies contain a compound call paeonol, which is thought to be antibacterial, anti-fungal, and anti-inflammatory",
+      "Paeonol also activates the skin’s natural defence mechanisms and help it to regenerate, thereby toning and firming the epidermis"
+    ]
+  }
+}

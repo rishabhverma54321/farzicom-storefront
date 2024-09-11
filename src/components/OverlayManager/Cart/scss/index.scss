@@ -1,0 +1,266 @@
+// @import "Themes/globalStyles-scss/scss/variables.module.scss";
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+// @import "../../../../globalStyles/scss/variables.module.scss";
+
+.overlayFarzicom--cart {
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus {
+    border: none;
+    // -webkit-text-fill-color: #686b78;
+    // -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+  background-color: rgba(64, 63, 63, 0.25);
+}
+.cart {
+  opacity: 1;
+  display: grid;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+  color: $lotus-black;
+  grid-template-areas:
+    "header"
+    "offer"
+    "list"
+    "footer";
+  grid-template-rows: min-content min-content auto min-content;
+  height: 100%;
+  width: 100%;
+  width: 22.5rem;
+
+  @media (max-width: 520px) {
+    width: 90vw;
+  }
+
+  .overlayFarzicom__header {
+    grid-area: header;
+    justify-content: initial;
+    text-transform: capitalize;
+    height: 2rem;
+    &__cart-icon {
+      // margin-bottom: 5px;
+    }
+    &__text {
+      margin: 0;
+    }
+    &__close-icon {
+      margin-left: auto;
+    }
+  }
+  .overlayFarzicom__offer-shipping {
+    grid-area: offer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $green-medium;
+    height: 25px;
+
+    .overlayFarzicom__offer-shipping__strip {
+      color: white;
+    }
+  }
+
+  &__list {
+    grid-area: list;
+    padding: 0 $spacer;
+    overflow: auto;
+
+    &__item {
+      padding: $spacer 0;
+      border-bottom: 1px solid $gray-light;
+      display: flex;
+      align-content: stretch;
+
+      img {
+        max-width: 6.25rem;
+        height: 6.25rem;
+      }
+
+      &__details {
+        width: 100%;
+        padding: 0 $spacer;
+
+        p {
+          font-weight: $bold-font-weight;
+          text-transform: uppercase;
+          line-height: 1.5;
+        }
+
+        &__variant {
+          display: flex;
+          justify-content: space-between;
+          margin-top: $spacer / 2;
+
+          span {
+            color: $gray;
+            font-size: $small-font-size;
+          }
+        }
+
+        &__delete-icon {
+          background-color: $gray-light;
+          border-radius: $spacer;
+          width: 1.5rem;
+          height: 1.5rem;
+          text-align: center;
+          line-height: 1.5rem;
+          margin-top: $spacer / 2;
+          cursor: pointer;
+
+          svg * {
+            transition: 0.3s;
+          }
+
+          &:hover {
+            svg * {
+              fill: $green-dark;
+            }
+          }
+        }
+      }
+    }
+  }
+  &__productsRow {
+    padding: 0 0.7rem;
+    // overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  &__footer {
+    grid-area: footer;
+    background-color: $green-lightest;
+    bottom: 0;
+    width: 100%;
+    position: sticky;
+    &__couponCode {
+      padding: $medium-spacer $spacer;
+      // display: flex;
+      // padding: 1rem;
+      // border-bottom: 3px solid white;
+      input {
+        font-size: 16px;
+        // border: none;
+        // padding: 10px 15px;
+        // font-size: 13px;
+        // color: #686b78;
+        // outline: none;
+        // width: 100%;
+        // height: 45px;
+      }
+      // > button {
+      //   padding: 10px 15px;
+      //   font-size: 14px;
+      //   font-weight: $bold-font-weight;
+      //   color: $green-medium;
+      //   background-color: white;
+      // }
+    }
+
+    &__price {
+      display: flex;
+      flex-direction: column;
+      padding: $medium-spacer $spacer;
+      // padding-bottom: $spacer;
+      // margin-bottom: $spacer;
+      // font-weight: $bold-font-weight;
+      justify-content: space-between;
+      border-top: 2px solid white;
+      // border-bottom: 1px solid $gray;
+      > div {
+        padding: 0;
+        border: none;
+        > div {
+          padding: 2px 0;
+        }
+      }
+    }
+    &__totalPrice {
+      border-top: 2px solid white;
+      display: flex;
+      padding: 0.5rem 1rem;
+      font-weight: $bold-font-weight;
+      justify-content: space-between;
+    }
+    // &__savingWrapper {
+    //   display: flex;
+    //   align-items: center;
+    //   justify-content: center;
+    //   margin: $medium-spacer;
+    //   background-color: #dbead7;
+    //   border-radius: 3px;
+    //   > svg {
+    //     margin-right: 10px;
+    //   }
+    //   &__savingStrip {
+    //     > span {
+    //       font-weight: 600;
+    //       color: $green-medium;
+    //     }
+    //   }
+    // }
+    &__button {
+      margin: 0 auto 0;
+      text-align: center;
+
+      &__continue__shopping {
+        width: 100%;
+        padding: $button-padding;
+        border: none;
+        outline: none;
+        font-family: $base-font-family;
+        cursor: pointer;
+        background-color: white;
+        border: 1px solid black;
+        margin-bottom: 4px;
+
+        @media (max-width: $small-screen) {
+          padding: $button-padding-small-screen;
+        }
+        > span {
+          text-transform: uppercase;
+          display: inline-block;
+          font-size: $button-font-size;
+          font-weight: $button-font-weight;
+          line-height: $button-line-height;
+          letter-spacing: 1px;
+          color: black;
+        }
+      }
+
+      &__place__order {
+        width: 100%;
+        background-color: $green-medium;
+        padding: $button-padding;
+        border: none;
+        outline: none;
+        font-family: $base-font-family;
+        cursor: pointer;
+
+        @media (max-width: $small-screen) {
+          padding: $button-padding-small-screen;
+        }
+        > span {
+          text-transform: uppercase;
+          display: inline-block;
+          color: $white;
+          font-size: $button-font-size;
+          font-weight: $button-font-weight;
+          line-height: $button-line-height;
+          letter-spacing: 1px;
+        }
+      }
+    }
+  }
+
+  &__empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    > span {
+      margin-top: 20px;
+      color: #282c3f;
+    }
+  }
+}

@@ -1,0 +1,158 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.testimonialHeader {
+  &__left {
+    span {
+      color: #686b78;
+    }
+    h3 {
+    }
+  }
+  @media (max-width: 720px) {
+    padding: 0 10px;
+    text-align: center;
+  }
+
+  //New Changes
+  &__row1 {
+    @media (max-width: $small-screen) {
+      display: flex !important;
+      justify-content: center !important;
+    }
+  }
+  &__heading {
+    @media (max-width: $small-screen) {
+      font-size: $h4-font-size;
+      text-align: center;
+    }
+  }
+  &__left {
+    @media (max-width: $small-screen) {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.sub-testimonial-container {
+  display: flex;
+  gap: 50px;
+  background-color: #f0ffec;
+  padding: 1rem 0;
+
+  @media (max-width: 720px) {
+    flex-direction: column;
+    gap: 0;
+    padding: 0 1rem 1rem 1rem;
+  }
+
+  .slider-list {
+    // min-height: 400px;
+  }
+}
+
+.testimonialLeftCard {
+  width: 100%;
+
+  &__image {
+    img {
+    }
+  }
+
+  &__title {
+    p {
+      font-weight: 600;
+      text-align: left;
+      margin-top: 10px;
+
+      @media (max-width: "720px") {
+        font-weight: 400;
+        padding-left: 20px;
+        padding-right: 20px;
+        text-align: center;
+      }
+    }
+  }
+  &__description {
+    p {
+      font-weight: 600;
+      font-size: 14px;
+      @media (min-width: 540px) {
+        text-align: left;
+      }
+      span {
+        font-weight: 300;
+        color: #686b78;
+      }
+    }
+  }
+}
+
+.testimonialRightCard {
+  padding: 10px 20px;
+  color: #686b78;
+
+  background-color: #f0ffec;
+  width: 70% !important;
+  margin: auto !important;
+  border-radius: 16px;
+  padding: 2rem;
+
+  // border: 1px solid #f6f6f6;
+  // box-shadow: 2px 2px 4px rgb(0 0 0 / 20%);
+
+  @media (max-width: 720px) {
+    width: 100% !important;
+    padding: 8px;
+  }
+
+  &__image {
+    order: 1;
+
+    img {
+      width: 200px !important;
+      height: 200px !important;
+      border-radius: 50%;
+      @media (max-width: "720px") {
+        width: 100px !important;
+        height: 100px !important;
+      }
+    }
+  }
+
+  &__title {
+    order: 3;
+    a {
+      p {
+      }
+    }
+  }
+  &__description {
+    order: 2;
+    p {
+      @media (min-width: 720px) {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      line-height: 22px;
+    }
+  }
+
+  &__button {
+    order: 4;
+    a {
+      &__svgLeft {
+      }
+      button {
+      }
+      &__svgRight {
+      }
+    }
+  }
+}
+.testimonialRightCardContainer {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}

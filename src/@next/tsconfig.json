@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig",
+  "compilerOptions": {
+    "strict": true
+  },
+  "include": [
+    "../../webpack.d.ts",
+    "**/*",
+    "../components/OverlayManager/YarnSetting/YarnSetting.tsx",
+    "../components/OverlayManager/YarnSetting"
+  ]
+}

@@ -1,0 +1,97 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.co__wrapper {
+  background-color: white;
+  width: 50vw;
+  margin: auto;
+  margin-top: 15vh;
+  height: fit-content;
+  max-height: 70vh;
+  overflow-y: scroll;
+
+  @media (max-width: $large-screen) {
+    width: 50vw;
+  }
+
+  @media (max-width: $medium-screen) {
+    width: 80vw;
+  }
+
+  @media (max-width: $small-screen) {
+    width: 90vw;
+  }
+}
+
+.co__head {
+  display: flex;
+  justify-content: space-between;
+  background: $radial-green;
+  padding: 15px 24px;
+  color: $blue-dark;
+  align-items: center;
+  z-index: 1;
+  svg {
+    path {
+      fill: $blue-dark;
+    }
+  }
+  h5 {
+    margin-left: 8px;
+  }
+  > div {
+    cursor: pointer;
+  }
+}
+
+.co__applycoupon {
+  padding: 25px 24px;
+  z-index: 1;
+}
+
+.co__available__head {
+  display: flex;
+  background: #eefdeb;
+  padding: 12px 24px;
+  z-index: 1;
+  h5 {
+    margin-left: 8px;
+  }
+}
+
+.co__available__body {
+  padding: 24px;
+}
+
+.offer {
+  &__description {
+    padding: 20px 0 8px 0;
+    border-bottom: 1px solid #efedec;
+
+    &__title {
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 24px;
+    }
+    &__detail {
+      font-size: 12px;
+      color: #b8b5b2;
+    }
+  }
+  &__actions {
+    padding: 1rem 0;
+    display: flex;
+    border-bottom: 1px solid #efedec;
+    justify-content: space-between;
+    font-size: 14px;
+    & div {
+      font-weight: 600;
+      border: 1px dashed #e7e7e7;
+      box-sizing: border-box;
+      border-radius: 4px;
+      padding: 8px 18px;
+    }
+    & button {
+      font-weight: 700;
+    }
+  }
+}

@@ -1,0 +1,222 @@
+.quizProduct_container_sticky_button {
+  justify-content: start !important;
+  padding: 18px 6px !important;
+  border-radius: 12px !important;
+  span{
+    width: 100%;
+  }
+  &__mainText {
+    span {
+      font-family: "cocosharp_xlextrabold";
+      text-align: center !important;
+      // letter-spacing: 5% !important;
+      @media (min-width: $medium-screen) {
+        font-size: 24.642px !important;
+      }
+    }
+  }
+}
+
+.quizpage_nutritionistsection {
+  // .slick-slide{
+  //   >div{
+  //     max-width: 245px;
+  //   }
+  // }
+  .slick-slide {
+    @media (min-width: 1400px) {
+      width: 530px !important;
+    }
+  }
+  .slick-dots {
+    width: 90% !important;
+    margin: auto;
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    background: #d9d9d9;
+    left: 5%;
+    border-radius: 9px;
+    height: 6px;
+
+    li {
+      width: 31.6%;
+    }
+
+    @media (min-width: $large-screen) {
+      bottom: -5%;
+      width: 100% !important;
+      left: 0;
+    }
+
+    @media (max-width: 340px) {
+      width: 80% !important;
+      left: 10%;
+    }
+
+    // li:nth-child(3) {
+    //   background: #ffffff;
+    //   border-radius: 9px;
+    //   width: 31.6%;
+    //   height: 8px;
+    // }
+
+    button {
+      width: 100%;
+      &::before {
+        display: none;
+      }
+    }
+
+    .slick-active {
+      background: #5dd37c !important;
+      border-radius: 9px !important;
+      width: 80.6% !important;
+      height: 6px !important;
+      margin: 0 !important;
+
+      @media (min-width: $medium-screen) {
+        width: 52% !important;
+      }
+    }
+  }
+}
+
+.quizProduct {
+  .overlayFarzicom__modal{
+    min-height: 20px;
+    width: 20px;
+  }
+  .quizProduct_container_bottom__mainText {
+    font-family: "cocosharp_xlextrabold";
+    span{
+      font-size: 20px;
+
+      @media(min-width: $large-screen){
+        font-size: 25px;
+      }
+    }
+  }
+}
+
+.quizProductCard{
+  .nutritionistsectionSkin {
+    @media (max-width: $medium-screen) {
+      padding-bottom: 0;
+    }
+    &_heading {
+      @media (max-width: $medium-screen) {
+        max-width: 100%;
+        font-size: 22px;
+      } 
+    }
+
+    &_ProductCard {
+      background: #feffed;
+      border-radius: 11px;
+      @media (max-width: $medium-screen) {
+        width: 160px;
+        max-width: unset;
+        border-radius: 5.6px;
+        height: 95%;
+      }
+    }
+
+    &_ProductName {
+      @media (max-width: $medium-screen) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10.46px;
+        line-height: 14px;
+        color: black;
+        min-height: 40px;
+      }
+    }
+
+    &_DiscountPrice {
+      @media (max-width: $medium-screen) {
+        font-size: 9.69px;
+        line-height: 11.62px;
+      }
+    }
+
+    &_ActualPrice {
+      @media (max-width: $medium-screen) {
+        font-size: 11.3px;
+        line-height: 13.56px;
+      }
+    }
+
+    &_ProductHeader {
+      @media (max-width: $medium-screen) {
+        h2 {
+          font-size: 10px;
+          line-height: 14px;
+          //    margin-bottom: 10px;
+        }
+
+        > div {
+          border-radius: 3.9px;
+          img {
+            width: 7.5px;
+            height: 7.5px;
+          }
+
+          p {
+            font-size: 7.84px;
+            line-height: 9.51px;
+          }
+        }
+      }
+    }
+
+    &_ProductImage {
+      img {
+        border-radius: 11px 11px 0 0;
+      }
+      @media (max-width: $medium-screen) {
+        width: 160px;
+        height: 157px;
+        img {
+          border-radius: 5.6px 5.6px 0 0;
+        }
+      }
+    }
+
+    &_ProductDescription {
+      color: #06543d;
+      @media (max-width: $medium-screen) {
+        font-size: 6.53px;
+        line-height: 8.76px;
+        font-weight: 700;
+      }
+    }
+
+    &_ProductIngredients {
+      color: #06543d;
+      @media (max-width: $medium-screen) {
+        font-size: 7.84px;
+        line-height: 10.5px;
+        font-weight: 700;
+      }
+    }
+
+    &_Ingredient {
+      grid-template-columns: 1fr 1fr 1fr;
+      @media (max-width: $medium-screen) {
+        &_box {
+          > div {
+            height: 33px;
+            width: 33px;
+          }
+
+          p {
+            font-size: 6px;
+            line-height: 10.51px;
+          }
+        }
+      }
+    }
+  }
+}

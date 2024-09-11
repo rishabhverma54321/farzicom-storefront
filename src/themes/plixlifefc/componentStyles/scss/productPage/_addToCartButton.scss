@@ -1,0 +1,121 @@
+.mobileAddToCartPdp {
+  background: $plix-bright-green !important;
+  border: 1px solid $plix-bright-green !important;
+  color: white !important;
+  span {
+    width: 100% !important;
+  }
+  &__mainText {
+    width: 2100% !important;
+    font-weight: 700;
+    div{
+      svg{
+        path{
+          fill: white !important;
+        }
+      }
+    }
+  }
+
+  &:active {
+    // background-color: #02262a;
+  }
+
+  &:hover {
+    color: #fff !important;
+  }
+}
+
+.mobileAddToCartPdp-sticky {
+  background: transparent!important;
+  border: 1.5px solid $plix-bright-green !important;
+  color: black !important;
+  padding: 10px 0px !important;
+  flex: 1;
+  border-radius: 3px;
+  margin-right: 8px;
+  height: 45px !important;
+  span {
+    width: 100% !important;
+  }
+  &__mainText {
+    width: 2100% !important;
+    font-weight: 700;
+    div{
+      >div{
+        width:100%;
+        justify-content: center;
+        font-size: 19px !important;
+        color: black;
+        svg{
+          margin-top: 2px;
+          path{
+            fill: black !important;
+          }
+        }
+      }
+    }
+  }
+  
+  &:active {
+    // background-color: #02262a;
+  }
+
+  &:hover {
+    color: #fff !important;
+  }
+}
+
+.buynowpdp-sticky{
+  flex: 1;
+  margin-left: 8px;
+  margin-right:8px;
+  background: #5DD37C !important;
+  padding: 10px 0px !important;
+  // font-size: 22px;
+  border-radius: 3px;
+  color: white;
+  font-weight: 700;
+  margin-top: 5px;
+  border: 1px solid $plix-bright-green !important;
+  &__mainText {
+    font-weight: 700;
+  }
+  height: 45px !important;
+  div{
+    >div{
+      font-size: 19px !important;
+      svg {
+        margin-top: 2px;
+        path {
+          fill: white !important;
+        }
+      }
+    }
+  }
+
+}
+
+.desktopAddToCartPdp {
+  background: $plix-bright-green !important;
+  border: 1px solid $plix-bright-green !important;
+  color: white !important;
+  &__mainText{
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+  span{
+    div:nth-child(3){
+      svg{
+        display: none;
+      }
+    }
+  }
+
+  &:active {
+    background-color: #02262a !important;
+  }
+  &:hover {
+    color: #fff !important;
+  }
+}

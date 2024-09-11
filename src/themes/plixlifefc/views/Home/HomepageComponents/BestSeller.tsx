@@ -8,9 +8,9 @@ import MemoGreenArrowRightPlixTwo from "@components/atoms/SvgIcons/GreenArrowRig
 import MemoizedProductList from "@components/organisms/ProductList/ProductList";
 import { TypedCollectionWithProducts } from "../queries";
 import { ContainerSkeleton } from "@components/molecules/ContainerSkeleton";
-import { CUSTOM_PRODUCT_METADATA_FIELDS } from "Themes/config";
+import { CUSTOM_PRODUCT_METADATA_FIELDS } from "@temp/themes/plixlifefc/config";
 import { useAuthState } from "@saleor/sdk";
-import gtmConfig from "Themes/lib/gtmConfig";
+import gtmConfig from "@temp/themes/plixlifefc/lib/gtmConfig";
 const handleDots = (dots: any) => {
   dots = dots.slice(0, 3);
   return <ul>{dots}</ul>;
@@ -31,6 +31,7 @@ const BestSellerSectionComponent: React.FC<any> = React.memo(
     bestSellerSectionNavMetaData,
     firstCollectionData,
   }) => {
+
     const { user } = useAuthState();
 
     const [bestSellerActiveId, setBestSellerActiveId] = useState(
@@ -39,10 +40,10 @@ const BestSellerSectionComponent: React.FC<any> = React.memo(
         : ""
     );
 
-    const [products, setProducts] = useState<any>(
-      firstCollectionData?.collection?.products?.edges?.map((edge) => edge.node)
+    const [products, setProducts] = useState<null, any[]>(
+      firstCollectionData?.collection?.products?.edges?.map(edge => edge.node)
     );
-    const [bestSellerActiveName, setBestSellerActiveName] = useState<any>({
+    const [bestSellerActiveName, setBestSellerActiveName] = useState<cardtag>({
       name:
         bestSellerSectionNavData && bestSellerSectionNavData?.length
           ? bestSellerSectionNavMetaData[0]?.meta?.title
@@ -61,21 +62,21 @@ const BestSellerSectionComponent: React.FC<any> = React.memo(
               headerClass="bestSellerSection"
               navbar={{
                 data: bestSellerSectionNavData,
-                navbarHandler: (id) => {
+                navbarHandler: id => {
                   setBestSellerActiveId(id);
                   if (bestSellerActiveId !== id) {
                     customEventTrigger("best_seller_section_click", user, {
                       cta_name: bestSellerSectionNavMetaData?.find(
-                        (data) => data.id === id
+                        data => data.id === id
                       )?.meta.title,
                     });
                   }
                   setBestSellerActiveName({
                     name: bestSellerSectionNavMetaData?.find(
-                      (data) => data.id === id
+                      data => data.id === id
                     )?.meta.title,
                     tagColor: bestSellerSectionNavMetaData?.find(
-                      (data) => data.id === id
+                      data => data.id === id
                     )?.meta.tagColor,
                   });
                 },
@@ -88,13 +89,16 @@ const BestSellerSectionComponent: React.FC<any> = React.memo(
                 link: "/collection/best-sellers/99/",
                 onClick: () => {
                   if (gtmConfig.shopAllCta.enable) {
-                    customEventTrigger(gtmConfig.shopAllCta.value, user, {
-                      heading_name: "Best Seller",
-                    });
+                    customEventTrigger(
+                      gtmConfig.shopAllCta.value,
+                      user,
+                      {
+                        heading_name: "Best Seller",
+                      }
+                    );
                   }
-                },
+                }
               }}
-              heading={""}
             />
 
             {bestSellerActiveId === firstCollectionData?.collection?.id ? (
@@ -130,13 +134,13 @@ const BestSellerSectionComponent: React.FC<any> = React.memo(
                 variables={{
                   firstPage: 1,
                   id: bestSellerActiveId,
-                  productMetafields: CUSTOM_PRODUCT_METADATA_FIELDS,
+                  productMetafields: CUSTOM_PRODUCT_METADATA_FIELDS
                 }}
                 fetchPolicy="cache-first"
               >
                 {({ data, loading }) => {
                   const productsArray = data?.collection?.products?.edges?.map(
-                    (edge) => edge.node
+                    edge => edge.node
                   );
 
                   if (loading) {
@@ -197,7 +201,6 @@ const BestSellerSectionComponent: React.FC<any> = React.memo(
   },
   mmatchPropsAreEqual
 );
-BestSellerSectionComponent.displayName = "BestSellerSectionComponent";
 
 export const BestSellersNew = ({ sectionData, firstCollectionData }) => {
   // props.data?.bestSellersNew?
@@ -211,7 +214,7 @@ export const BestSellersNew = ({ sectionData, firstCollectionData }) => {
   const bestSellerSectionNavMetaData = [];
   if (tabSequenceWithSlug === undefined) {
     bestSellerSection &&
-      bestSellerSection.node.collections.edges.map((edge) => {
+      bestSellerSection.node.collections.edges.map(edge => {
         const collectionMetadata = edge.node.metadata;
         const meta =
           collectionMetadata &&
@@ -230,9 +233,9 @@ export const BestSellersNew = ({ sectionData, firstCollectionData }) => {
       });
   } else {
     const addedCollections = [];
-    tabSequenceWithSlug.map((bestSellerSlug) => {
+    tabSequenceWithSlug.map(bestSellerSlug => {
       bestSellerSection &&
-        bestSellerSection.node.collections.edges.map((edge) => {
+        bestSellerSection.node.collections.edges.map(edge => {
           if (bestSellerSlug === edge.node.slug) {
             addedCollections.push(edge.node.slug);
             const collectionMetadata = edge.node.metadata;
@@ -256,9 +259,9 @@ export const BestSellersNew = ({ sectionData, firstCollectionData }) => {
     });
 
     bestSellerSection &&
-      bestSellerSection.node.collections.edges.map((edge) => {
+      bestSellerSection.node.collections.edges.map(edge => {
         let collectionFound = false;
-        addedCollections.map((addedCollectionSlug) => {
+        addedCollections.map(addedCollectionSlug => {
           if (edge.node.slug === addedCollectionSlug) {
             collectionFound = true;
           }

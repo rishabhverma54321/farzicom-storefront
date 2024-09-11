@@ -3,7 +3,8 @@ import {
   customEventTrigger,
   getMetadataValue,
   parseJson,
-  triggerHomepageBannerEvent,N,
+  triggerHomepageBannerEvent,
+  useImageURLReplaceWithCDN,
 } from "@utils/misc";
 import Image from "next/image";
 import { TypedSectionWithCustomMetadataProducts } from "../queries";

@@ -1,0 +1,53 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.menu-dropdown {
+  position: relative;
+  padding:0.6rem 0.6rem;
+
+  &__body {
+    display: none;
+    position: absolute;
+    right: -4.5rem;
+    top: 2.2rem;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    background-color: $white;
+    // padding: $spacer;
+    width: max-content;
+    min-width: 11.4rem;
+    margin-top: 0.5rem;
+    text-align: left;
+    padding: 0rem 0.5rem;
+
+    &__rightdown {
+      right: 0rem !important;
+      left: 1rem !important;
+    }
+
+    &--visible {
+      display: block;
+      z-index: 5;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      font-style: normal;
+      font-weight: normal;
+
+      line-height: 2rem;
+      align-items: flex-start;
+      padding: 10px 10px 10px 4px;
+      gap: 10px;
+      a {
+        width: 100%;
+      }
+      // li {
+      //   width: 80%;
+      // }
+
+      @media(max-width:$medium-screen){
+        padding: 10px 10px 10px 0;
+      }
+    }
+  }
+}

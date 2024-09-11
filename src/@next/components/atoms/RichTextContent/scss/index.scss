@@ -1,0 +1,31 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.rich-text-container {
+  // width: 70%;
+  max-width: 1140px;
+
+  color: #444;
+  line-height: 1.5;
+  line-height: 22.54px;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+}
+.custom-rich-text-link {
+  color: green;
+  text-decoration: underline;
+}
+.rich-text-unstyled__plixshop__collection-description {
+  margin-bottom: 1rem;
+}
+.unordered-list {
+  &__plixshop__collection-description {
+    list-style: inherit !important;
+    margin-left: 15px !important;
+  }
+  &__plixlife__rich__text {
+    list-style: inherit !important;
+    margin-left: 15px !important;
+  }
+}

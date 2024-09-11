@@ -1,0 +1,12 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.continueShopping {
+  &__input {
+    background-color: $primary-button;
+    height: 100%;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+}

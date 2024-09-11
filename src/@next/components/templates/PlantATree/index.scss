@@ -1,0 +1,143 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.mainContainer{
+  background-color: #eefdeb;
+}
+.PlantPageSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  // align-items: flex-start;
+  padding-inline: 6rem;
+  @media (max-width: $xlarge-screen) {
+    padding-inline: 2rem;
+  }
+  @media (max-width: $medium-screen) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-inline: 0rem;
+  }
+  &__divider {
+    width: 100%;
+    height: 1px;
+    background-color: lightgrey;
+    // margin: 30px 0px;
+  }
+  &__leftCard {
+    @media (max-width: $medium-screen) {
+      width: 100%;
+      padding: 0.5rem;
+    }
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    &__image {
+      margin: 3rem;
+      margin-top: 4rem;
+      // padding: 2rem;
+      flex: 1;
+      max-width: 120px;
+      @media (max-width: $medium-screen) {
+        text-align: center;
+        margin: 1rem;
+      }
+    }
+    &__title {
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 27px;
+      margin-bottom: 0.5rem;
+      @media (max-width: $medium-screen) {
+        font-size: 18px;
+        line-height: 24px;
+      }
+    }
+  }
+  &__rightCard {
+    margin: 1rem;
+    padding: 2rem;
+    flex: 4;
+    @media (max-width: $xlarge-screen) {
+      padding: 2rem 0rem;
+    }
+    @media (max-width: $medium-screen) {
+      text-align: center;
+      padding-top: 0;
+    }
+    &__title {
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 27px;
+      margin-bottom: 0.5rem;
+    }
+    &__description {
+      line-height: 30px;
+    }
+    &__moreText {
+      margin: 20px 0px;
+      a {
+        color: green;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__video {
+    &__container {
+      align-items: center !important;
+      margin-bottom: 1rem;
+    }
+    &__leftContainer {
+      flex: 3;
+      margin-right: 2rem;
+      @media (max-width: $medium-screen) {
+        margin-right: 0rem;
+      }
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      height: 100%;
+      // margin-bottom: 3rem;
+      .benefitsSection__container__left__card {
+        &__description {
+          > p {
+            opacity: 1;
+            line-height: 30px;
+            font-size: 16px;
+            @media (max-width: $medium-screen) {
+              text-align: center;
+            }
+          }
+        }
+        &__title {
+          > p {
+            @media (max-width: $medium-screen) {
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+    &__left__card {
+      &__title {
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 27px;
+        margin-bottom: 0.5rem;
+      }
+      &__description {
+        line-height: 30px;
+      }
+    }
+    &__rightContainer {
+      flex: 4;
+      width: 100%;
+      iframe {
+        max-height: 45vh;
+        border-radius: 16px;
+      }
+    }
+  }
+}

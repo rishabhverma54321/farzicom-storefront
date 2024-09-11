@@ -3,7 +3,7 @@ import {
   customEventTrigger,
   getMetadataValue,
   parseJson,
-  imageURLReplaceWithCDN,
+  useImageURLReplaceWithCDN,
 } from "@utils/misc";
 import { CachedImage } from "@components/molecules/CachedImage";
 import gtmConfig from "@temp/themes/plixlifefc/lib/gtmConfig";
@@ -20,7 +20,7 @@ const PledgeATree = ({ sectionData }) => {
     getMetadataValue(pleadgeTree.node.metadata, "pledgeTreeData") &&
     parseJson(getMetadataValue(pleadgeTree.node.metadata, "pledgeTreeData"));
 
-  const backgroundImageUrlWithImgix = imageURLReplaceWithCDN(
+  const backgroundImageUrlWithImgix = useImageURLReplaceWithCDN(
     "https://plixlifefc-media.farziengineer.co/hosted/pledge_background_image-bc9fe38c31ef.png"
   );
   return (

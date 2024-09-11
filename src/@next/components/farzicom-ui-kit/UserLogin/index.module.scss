@@ -1,0 +1,139 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+.userLoginWrapper {
+  width: 100%;
+  font-family: "CocoSharp XL" !important;
+}
+.backgroundDiv {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 5;
+  top: 0;
+  left: 0;
+  @media (min-width: $large-screen) {
+    display: none;
+  }
+}
+.loginContentWrapper {
+  @media (max-width: $large-screen) {
+    z-index: 6;
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    left: 0;
+  }
+}
+.form {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @media (min-width: $large-screen) {
+    align-items: flex-start;
+  }
+}
+.onlyLoginScreenForm {
+  @media (min-width: $large-screen) {
+    align-items: center !important;
+  }
+  button {
+    max-width: 300px !important;
+  }
+}
+.numberInput {
+}
+.header {
+  font-weight: 700;
+  margin: 1rem 0rem;
+}
+.otpRecievedText {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  @media (min-width: $large-screen) {
+    flex-direction: row;
+  }
+}
+.mobileNoWithEdit {
+  margin: 0.75rem 0rem;
+  display: inline-block;
+  color: $plix-bright-green;
+  font-size: 14px;
+  font-weight: 700;
+  margin-left: 8px;
+  cursor: pointer;
+  span {
+    margin-right: 0.5rem;
+  }
+}
+.resend {
+  cursor: pointer;
+  span {
+    text-align: center;
+    border-bottom: 1px solid black;
+    padding-bottom: 1px;
+    font-size: 14px;
+  }
+  margin-top: 1rem;
+}
+
+.resendContainer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.submitButton {
+  background-color: $plix-bright-green;
+  border-radius: 8px;
+  color: white;
+  font-weight: 700;
+  min-width: 275px;
+  @media (max-width: $small-screen) {
+    width: 100%;
+  }
+  @media (min-width: $large-screen) {
+    width: 50%;
+  }
+  padding: 0.5rem 1rem;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+.timer {
+  font-weight: 700;
+  color: #5dd37c;
+  border-bottom: none !important;
+}
+.loader {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  opacity: 0.4;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  > div {
+    svg {
+      circle {
+        stroke: $primary-button;
+      }
+    }
+  }
+}
+.errorMsg {
+  text-align: left;
+  color: red;
+  font-size: 12px;
+  margin-top: 2px;
+}

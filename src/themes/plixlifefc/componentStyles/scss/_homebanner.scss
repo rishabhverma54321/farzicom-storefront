@@ -1,0 +1,42 @@
+.homebannerImageContainerDiv {
+  max-width: 100%;
+  max-height: 360px;
+  position: relative;
+  @media (min-width: 1366px) {
+   width: 100vw;
+   img{
+    object-fit: fill !important;
+   }
+  }
+  @media (max-width: $xlarge-screen) {
+      max-height: 328px;
+  }
+  @media (max-width: $large-screen) {
+    max-height: 270px;
+  }
+  @media (max-width: $medium-screen) {
+    max-height: 200px;
+  }
+  @media (max-width: $small-screen) {
+    max-height: 360px;
+  }
+  @media (max-width: 420px) {
+    max-height: 300px;
+  }
+  @media (max-width: 360px) {
+    max-height: 260px;
+  }
+  // @media (max-width: $large-screen) {
+  //   max-height: 280px;
+  // }
+  // img{
+  //   max-width: 1366px;
+  //   max-height: 360px;
+  //   width: 100% !important;
+  //   height: auto !important;
+  // }
+
+  // @media (max-width: $medium-screen) {
+  //   height: 300px;
+  // }
+}

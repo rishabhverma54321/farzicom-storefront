@@ -1,0 +1,39 @@
+.descriptionIconsCardsContainer {
+  //   width: 80%;
+  grid-template-columns: repeat(2, 1fr) !important;
+  row-gap: 0 !important;
+  column-gap: 0 !important;
+  width: 80%;
+  @media (max-width: $medium-screen) {
+    // grid-template-columns: 1fr 1fr;
+    row-gap: 0 !important;
+    width: 100%;
+  }
+}
+
+.descriptionIconsCard {
+  width: 60% !important;
+  flex-direction: row !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  margin: 0 !important;
+  &__image img {
+    // width: 60%;
+    // @media (max-width: $medium-screen) {
+    //   width: 100%;
+    // }
+    width: 50px !important;
+    object-fit: cover !important;
+  }
+  &__title p {
+    width: 180% !important;
+    text-align: left !important;
+    font-weight: 500 !important;
+  }
+}
+
+.stickyHide {
+  @media (max-width: $medium-screen) {
+    bottom: -116px !important;
+  }
+}

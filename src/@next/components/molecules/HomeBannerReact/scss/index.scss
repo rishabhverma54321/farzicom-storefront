@@ -1,0 +1,85 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.carousel-container {
+  li.slide {
+    min-height: 580px;
+  }
+  .carousel .control-next.control-arrow {
+    right: 25px;
+  }
+  .carousel .control-prev.control-arrow {
+    left: 25px;
+  }
+  .carousel .control-next.control-arrow:before &.control-arrow {
+    &:before {
+      margin: 0 5px;
+      display: inline-block;
+      border-top: 8px solid #e95f5f;
+      border-bottom: 8px solid #e95f5f;
+      content: "";
+    }
+  }
+
+  .carousel .control-arrow,
+  .carousel.carousel-slider .control-arrow {
+    opacity: 1;
+  }
+
+  .carousel .control-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .dot {
+      margin: 0 3px;
+      width: 6px;
+      height: 6px;
+      opacity: 0.9;
+      box-shadow: none;
+      background: #fff;
+    }
+
+    .dot.selected,
+    .dot:hover {
+      width: 9px;
+      height: 9px;
+      background: $cerousel-dots-color;
+    }
+  }
+
+  .carousel .control-dots {
+    @media (min-width: $large-screen) {
+      margin-left: $cerousel-dots-left;
+      margin-right: $cerousel-dots-right;
+      bottom: $cerousel-dots-bottom;
+      justify-content: $cerousel-dots-position;
+
+      .dot {
+        margin: 0 6px;
+        width: 8px;
+        height: 8px;
+      }
+
+      .dot.selected,
+      .dot:hover {
+        width: 10px;
+        height: 10px;
+      }
+    }
+  }
+
+  .carousel .control-next.control-arrow:before {
+    content: url("/src/images/right_arrow.png");
+    border-left: none !important;
+  }
+  .carousel .control-prev.control-arrow:before {
+    content: url("/src/images/left_arrow.png");
+    border-right: none !important;
+  }
+
+  .carousel .slider-wrapper.axis-horizontal .slider .slide {
+    span {
+      position: unset !important;
+    }
+  }
+}

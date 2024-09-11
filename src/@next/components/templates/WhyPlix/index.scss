@@ -1,0 +1,605 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.whyPlixbanner {
+  position: relative;
+  img {
+    width: 100%;
+  }
+}
+
+.showon_desktop{
+  @media (min-width: $medium-screen) {
+    display: none !important;
+  }
+}
+.showon_mobile{
+  @media (max-width: $medium-screen) {
+    display: none !important;
+  }
+}
+.whyPlixBannerCard {
+  margin: 0 !important;
+  &__mobile{
+    @media (min-width: $medium-screen) {
+      display: none !important;
+    }
+  }
+  &__desktop{
+
+    @media (max-width: $medium-screen) {
+      display: none !important;
+    }
+  }
+}
+
+.whyPlixbannerCardText {
+  position: absolute;
+  top: 20%;
+  width: 50% !important;
+  left: 26vw;
+  min-width: 700px;
+  @media (min-width: $xxlarge-screen) {
+    top: 25%;
+  }
+  @media (max-width: $large-screen) {
+    top: 10%;
+    width: 60% !important;
+    left: 20vw;
+    min-width: unset;
+  }
+
+  @media (max-width: $medium-screen) {
+    top: 16%;
+    width: 100% !important;
+    left: unset;
+    padding: 0 10px;
+    min-width: unset;
+  }
+
+  &__title {
+    margin-bottom: 2rem !important;
+
+    @media (max-width: $large-screen) {
+      margin-bottom: 1rem !important;
+    }
+
+    @media (max-width: $medium-screen) {
+      margin-bottom: 1rem !important;
+    }
+
+    p {
+      font-weight: 500;
+      font-size: 64px;
+      line-height: 120%;
+      text-align: center;
+      letter-spacing: -0.04em;
+      color: #ffffff;
+
+      @media (max-width: $large-screen) {
+        font-size: 32px;
+      }
+
+      @media (max-width: $medium-screen) {
+        font-size: 42px;
+      }
+    }
+  }
+
+  &__description {
+    p {
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 160%;
+      text-align: center;
+      color: #ffffff;
+
+      @media (max-width: $large-screen) {
+        font-size: 12px;
+      }
+
+      @media (max-width: $medium-screen) {
+        font-size: 14px;
+        line-height: 160%;
+        text-align: center;
+        opacity: 0.8;
+      }
+    }
+  }
+
+  &__button {
+    margin: 42px auto;
+    height: unset !important;
+    padding: 10px 74px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #000000 !important;
+    width: fit-content !important;
+
+    @media (max-width: $large-screen) {
+      margin-top: 24px;
+    }
+
+    @media (max-width: $medium-screen) {
+      margin-top: 1rem;
+    }
+    &__atag {
+      height: unset !important;
+      margin: auto;
+
+      background: radial-gradient(
+        44.03% 132.34% at 39.33% 26.22%,
+        #69ea72 0%,
+        #a9ef82 100%
+      );
+      padding: 10px 74px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #000000 !important;
+      width: fit-content !important;
+
+      span {
+        color: #000000 !important;
+        font-weight: 700 !important;
+        font-size: 16px !important;
+        @media (max-width: $medium-screen) {
+          font-size: 14px !important;
+        }
+      }
+    }
+  }
+}
+
+.relentlesslyCleanContainer {
+  grid-template-columns: repeat(2, 1fr) !important;
+  column-gap: 72px !important;
+  padding: 40px 80px 5px;
+
+  @media (max-width: $medium-screen) {
+    grid-template-columns: 1fr !important;
+    column-gap: 72px !important;
+    padding: 10px;
+  }
+}
+
+.relentlesslyCleanCard {
+  &__title {
+    margin-bottom: 20px !important;
+    @media (max-width: $medium-screen) {
+      margin-bottom: 16px !important;
+    }
+    p {
+      font-size: 48px;
+      line-height: 130%;
+      letter-spacing: -0.02em;
+      text-align: center;
+      font-weight: 500 !important;
+      color: #000000 !important;
+
+      @media (max-width: $medium-screen) {
+        font-size: 32px;
+        line-height: 40px;
+      }
+    }
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    gap: 38px;
+
+    p {
+      font-weight: normal;
+      font-size: 16px;
+
+      line-height: 160%;
+      color: #808080;
+      opacity: 0.8;
+      text-align: justify;
+      @media (max-width: $small-screen) {
+        margin-bottom: 15px !important;
+      }
+      @media (max-width: $medium-screen) {
+        font-size: 14px !important;
+      }
+    }
+    &__text {
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 160%;
+      color: #808080;
+      text-align: justify;
+      @media (max-width: $medium-screen) {
+        font-size: 14px !important;
+      }
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      &__item {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+
+        &__text {
+          font-weight: bold;
+          font-size: 20px;
+          line-height: 160%;
+          color: #1d263a;
+        }
+      }
+    }
+  }
+
+  &__image {
+    @media (max-width: $medium-screen) {
+      margin-bottom: 16px !important;
+    }
+  }
+
+  &__button {
+    margin-top: 32px;
+    &__atag {
+      height: unset !important;
+
+      background: radial-gradient(
+        44.03% 132.34% at 39.33% 26.22%,
+        #69ea72 0%,
+        #a9ef82 100%
+      );
+      padding: 10px 72px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #000000 !important;
+      width: fit-content !important;
+
+      span {
+        color: #000000 !important;
+        font-weight: 700 !important;
+        font-size: 16px !important;
+
+        @media (max-width: $medium-screen) {
+          font-size: 14px !important;
+        }
+      }
+    }
+  }
+}
+
+.commitedInnovationCard {
+  &__title {
+    margin-bottom: 20px !important;
+    @media (max-width: $medium-screen) {
+      margin-bottom: 16px !important;
+    }
+    p {
+      font-size: 48px;
+      line-height: 130%;
+      letter-spacing: -0.02em;
+      text-align: center;
+      font-weight: 500 !important;
+
+      @media (max-width: $medium-screen) {
+        font-weight: normal;
+        font-size: 32px;
+        line-height: 40px;
+      }
+    }
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    gap: 38px;
+
+    p {
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 160%;
+      color: #808080;
+      opacity: 0.8;
+      text-align: justify;
+      @media (max-width: $medium-screen) {
+        font-size: 14px !important;
+      }
+    }
+    &__text {
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 160%;
+      color: #808080;
+      text-align: justify;
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      &__item {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+
+        &__text {
+          font-weight: bold;
+          font-size: 20px;
+          line-height: 160%;
+          color: #1d263a;
+        }
+      }
+    }
+  }
+
+  &__image {
+    @media (max-width: $medium-screen) {
+      margin-bottom: 16px !important;
+    }
+  }
+
+  &__button {
+    margin-top: 32px;
+    &__atag {
+      height: unset !important;
+
+      background: radial-gradient(
+        44.03% 132.34% at 39.33% 26.22%,
+        #69ea72 0%,
+        #a9ef82 100%
+      );
+      padding: 10px 72px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #000000 !important;
+      width: fit-content !important;
+
+      span {
+        color: #000000 !important;
+        font-weight: 700 !important;
+      }
+    }
+  }
+}
+
+.commitedInnovationCard:nth-child(1) {
+  @media (min-width: $medium-screen) {
+    order: 2;
+  }
+}
+
+.nutritionPurposeCard {
+  &__title {
+    margin-bottom: 20px !important;
+    @media (max-width: $medium-screen) {
+      margin-bottom: 16px !important;
+    }
+    p {
+      font-size: 48px;
+      line-height: 130%;
+      letter-spacing: -0.02em;
+      font-weight: 500 !important;
+      text-align: center !important;
+
+      @media (max-width: $medium-screen) {
+        font-weight: normal;
+        font-size: 32px;
+        line-height: 40px;
+        text-align: center !important;
+      }
+    }
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    gap: 38px;
+
+    p {
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 160%;
+      color: #808080;
+      opacity: 0.8;
+      text-align: justify !important;
+      @media (max-width: $medium-screen) {
+        font-size: 14px !important;
+      }
+    }
+    &__text {
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 160%;
+      color: #808080;
+      @media (max-width: $medium-screen) {
+        font-size: 14px !important;
+      }
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      &__item {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+
+        &__text {
+          font-weight: bold;
+          font-size: 20px;
+          line-height: 160%;
+          color: #1d263a;
+        }
+      }
+    }
+  }
+
+  &__image {
+    @media (max-width: $medium-screen) {
+      margin-bottom: 0px !important;
+    }
+  }
+
+  &__button {
+    margin-top: 32px;
+    @media (max-width: $medium-screen) {
+      margin-top: 16px;
+    }
+    &__atag {
+      height: unset !important;
+      background: radial-gradient(
+        44.03% 132.34% at 39.33% 26.22%,
+        #69ea72 0%,
+        #a9ef82 100%
+      );
+      padding: 10px 72px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #000000 !important;
+      width: fit-content !important;
+      @media (max-width: $medium-screen) {
+        margin: auto;
+      }
+      span {
+        color: #000000 !important;
+        font-weight: 700 !important;
+        font-size: 16px !important;
+        @media (max-width: $medium-screen) {
+          font-size: 14px !important;
+        }
+      }
+    }
+  }
+}
+
+.nutritionPurposeCard:nth-child(1) {
+  @media (max-width: $medium-screen) {
+    order: 2;
+  }
+}
+.colorContainer {
+  background-color: #f5f5f5;
+}
+
+.flavouredContainer {
+  grid-template-columns: repeat(2, 1fr) !important;
+  column-gap: 72px !important;
+  padding: 40px 80px 20px;
+
+  @media (max-width: $medium-screen) {
+    grid-template-columns: 1fr !important;
+    column-gap: 72px !important;
+    padding: 10px;
+  }
+}
+
+.flavouredCard:nth-child(1) {
+  @media (min-width: $medium-screen) {
+    order: 2;
+  }
+}
+.flavouredCard {
+  &__title {
+    margin-bottom: 20px !important;
+    @media (max-width: $medium-screen) {
+      margin-bottom: 16px !important;
+    }
+    p {
+      font-size: 48px;
+      line-height: 130%;
+      letter-spacing: -0.02em;
+      text-align: center;
+      font-weight: 500 !important;
+      color: #000000 !important;
+
+      @media (max-width: $medium-screen) {
+        font-size: 32px;
+        line-height: 40px;
+      }
+    }
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    gap: 38px;
+
+    p {
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 160%;
+      color: #808080;
+      opacity: 0.8;
+      text-align: justify;
+      @media (max-width: $small-screen) {
+        margin-bottom: 15px !important;
+      }
+      @media (max-width: $medium-screen) {
+        font-size: 14px !important;
+      }
+    }
+    &__text {
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 160%;
+      color: #808080;
+      text-align: justify;
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      &__item {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+
+        &__text {
+          font-weight: bold;
+          font-size: 20px;
+          line-height: 160%;
+          color: #1d263a;
+        }
+      }
+    }
+  }
+
+  &__image {
+    @media (max-width: $medium-screen) {
+      margin-bottom: 16px !important;
+    }
+  }
+
+  &__button {
+    margin-top: 32px;
+    a {
+      height: unset !important;
+
+      background: radial-gradient(
+        44.03% 132.34% at 39.33% 26.22%,
+        #69ea72 0%,
+        #a9ef82 100%
+      );
+      padding: 10px 72px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #000000 !important;
+      width: fit-content !important;
+
+      div span span {
+        color: #000000 !important;
+        font-weight: 700 !important;
+        font-size: 16px !important;
+
+        @media (max-width: $medium-screen) {
+          font-size: 14px !important;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.orderListPlix {
+  margin-top: 1rem;
+  &__ul {
+    li {
+      @media (max-width: $small-screen) {
+        font-size: 10px !important;
+      }
+      div {
+        padding: 0px 36px;
+        padding-bottom: 0.5rem;
+        @media (max-width: $small-screen) {
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+
+  &__tabsContent {
+    padding: 34px;
+    @media (max-width: $medium-screen) {
+      padding: 10px;
+    }
+  }
+
+  &__card {
+    &__image {
+      width: 48px;
+      height: 48px;
+    }
+  }
+  &__cardContainer {
+    grid-template-columns: repeat(8, 1fr) !important;
+    padding-right: 4rem;
+    @media (min-width:390px) and (max-width: $medium-screen) {
+      grid-template-columns: repeat(4, 1fr) !important;
+      width: 80%;
+      margin-left: 0;
+    }
+
+    @media(max-width:390px){
+      grid-template-columns: repeat(3, 1fr) !important;
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+}
+
+.emptyOrdersCard {
+  &__title {
+    margin-bottom: 40px !important;
+    p {
+      font-size: 16px;
+      line-height: 140%;
+      text-align: center;
+      color: #808080;
+      font-weight: 400;
+      padding-top: 24px !important;
+    }
+  }
+  &__button__atag {
+    background: radial-gradient(
+      65.28% 961.23% at 45.36% 34.72%,
+      #7db13a 0%,
+      #9ec942 100%
+    );
+    border-radius: 2px;
+    padding: 14px 100px;
+    width: fit-content !important;
+    height: unset !important;
+    margin: auto;
+    @media (max-width: $small-screen) {
+      width: 100% !important;
+      padding: 14px 0;
+    }
+    span {
+      color: black !important;
+      font-weight: 700 !important;
+    }
+  }
+}

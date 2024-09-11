@@ -1,0 +1,121 @@
+.containerTable {
+  width: 680px !important;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  color: #282c3f;
+  /* line-height: 1.5; */
+  margin: 0;
+  padding: 0;
+}
+
+.mainTable {
+  width: 100%;
+  border: 1px solid #fff;
+  /* padding: 10px 30px 30px 30px; */
+}
+
+.logo {
+  width: 100px;
+  border: 0px;
+}
+
+.productImage {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  vertical-align: top;
+  outline: none;
+}
+
+.table1 {
+  width: 680px !important;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  color: #282c3f;
+  line-height: 1.5;
+}
+
+.table2 {
+  width: 100%;
+  border: solid 1px #fff;
+  padding: 10px 30px 30px 30px " width=" 680;
+}
+
+.td1 {
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  align-items: center;
+  padding: 10px 0px;
+}
+.tr {
+  width: 100%;
+  float: left;
+  align-items: top;
+  vertical-align: left;
+}
+.td2 {
+  float: left;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.tr2 {
+  width: 100%;
+  float: left;
+  align-items: top;
+  vertical-align: left;
+  padding: 2px 0 0 0;
+}
+
+.td31 {
+  width: 80%;
+  float: left;
+  text-align: right;
+}
+
+.td32 {
+  width: 5%;
+  float: left;
+  min-height: 10px;
+}
+
+.td33 {
+  width: 15%;
+  float: left;
+  text-align: right;
+}
+
+.td4 {
+  padding: 8px 0 3px 0;
+  color: #282c3f;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #dfdcdc;
+  text-align: left;
+  font-weight: bold;
+}
+
+.td5 {
+  padding: 8px 0 3px 0;
+  color: #282c3f;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #dfdcdc;
+  text-align: left;
+  font-weight: bold;
+}
+
+.td6 {
+  padding: 8px 0 3px 0;
+  text-align: right;
+  color: #282c3f;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #ccc;
+  font-weight: bold;
+}
+.demo {
+  padding: 50px;
+  background-color: red;
+}

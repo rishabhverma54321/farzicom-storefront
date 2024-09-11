@@ -1,0 +1,10 @@
+.address_tile_wrapper{
+    & >div{
+        &>div{
+            width: calc(100% - 40px);
+            @media (max-width: $small-screen) {
+                width: 100%;
+              }
+        }
+    }
+}

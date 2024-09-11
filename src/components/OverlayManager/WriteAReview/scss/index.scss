@@ -1,0 +1,81 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.WriteAReviewContainer {
+  background-color: white;
+  width: 400px;
+  margin: auto;
+  margin-top: 10%;
+  box-shadow: $modal-box-shadow;
+  max-width: 80%;
+  border-radius: 6px;
+
+  &__header {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    &__text {
+      flex-grow: 2;
+    }
+
+    &__close {
+      position: absolute;
+      right: 8%;
+      top: 36%;
+      cursor: pointer;
+    }
+  }
+
+  &__body {
+    padding: 0 20px 20px 20px;
+    width: 100%;
+    &__rating {
+      display: flex;
+      justify-content: center;
+      padding: 20px 0 0 15px;
+    }
+  }
+
+  &__afterSubmitMessage {
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+  }
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%;
+  button {
+    background: #5DD37C !important;
+    border-radius: 8px;
+    font-family: 'cocosharp_xlextrabold' !important;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 100%;
+    text-align: center;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #FEFFED !important;
+    width: 100%;
+    padding-top: 15px;
+  }
+}
+.Form_heading{
+  font-family: 'CocoSharp XL' !important;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 160%;
+  letter-spacing: -0.03em;
+  color: #000000;
+}

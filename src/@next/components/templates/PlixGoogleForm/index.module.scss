@@ -1,0 +1,26 @@
+.formEmbed {
+  width: 340px;
+  height: 680px;
+  @media (min-width: 720px) {
+    width: 640px;
+  }
+  @media (max-width: 380px) {
+    width: 320px;
+  }
+}
+.formWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.formBannerMobile {
+  display: none;
+  @media (max-width: 720px) {
+    display: unset !important;
+  }
+}
+.formBanner {
+  @media (max-width: 720px) {
+    display: none !important;
+  }
+}

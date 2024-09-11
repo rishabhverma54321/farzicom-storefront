@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 import { getMetadataValue, parseJson } from "@utils/misc";
 import Marquee from "react-fast-marquee";
 import GreenStarNew from "@components/atoms/SvgIcons/Green_star";
-import { ShopMetaContext } from "@temp/pages/_app.page";
+import { ShopMetaContext } from "@temp/pages/_app";
 
 const Star = dynamic(() => import("@components/atoms/SvgIcons/Star"));
 export const TextStripNew = ({ sectionData }) => {
@@ -30,14 +30,14 @@ export const TextStripNew = ({ sectionData }) => {
             <div className="textStripSection">
               {showAfterJS ? (
                 <Marquee speed={40}>
-                  {textStripSectionData.map((text, index) => (
-                    <div key={`${text}+${index}`} className="textItem">
+                  {textStripSectionData.map(text => (
+                    <div className="textItem">
                       <GreenStarNew />
                       <span>{text}</span>
                     </div>
                   ))}
-                  {textStripSectionData.map((text, index) => (
-                    <div key={`${text}+${index}`} className="textItem">
+                  {textStripSectionData.map(text => (
+                    <div className="textItem">
                       <GreenStarNew />
                       <span>{text}</span>
                     </div>
@@ -45,14 +45,14 @@ export const TextStripNew = ({ sectionData }) => {
                 </Marquee>
               ) : (
                 <>
-                  {textStripSectionData.map((text, index) => (
-                    <div key={`${text}+${index}`} className="textItem">
+                  {textStripSectionData.map(text => (
+                    <div className="textItem">
                       <Star />
                       <span>{text}</span>
                     </div>
                   ))}
-                  {textStripSectionData.map((text, index) => (
-                    <div key={`${text}+${index}`} className="textItem">
+                  {textStripSectionData.map(text => (
+                    <div className="textItem">
                       <Star />
                       <span>{text}</span>
                     </div>

@@ -1,0 +1,59 @@
+.image-nav {
+  &__container {
+    height: 100vh;
+    background-color: white;
+  }
+  &__header {
+    .logo {
+      width: fit-content;
+      margin: auto;
+      margin-top: 1rem;
+    }
+    h3 {
+      margin-top: 1.5rem;
+      width: fit-content;
+      margin: auto;
+      font-weight: 600;
+      padding: 1rem;
+    }
+  }
+
+  &__list {
+    width: fit-content;
+    margin: auto;
+
+    &__item {
+        position: relative;
+        margin-bottom: 1rem;
+
+      .item-image {
+        border-radius: 15px;
+        max-width: 330px;
+        max-height: 180px;
+      }
+      .item-title{
+          position: absolute;
+          top: 20px;
+          color: white;
+          left: 15px;
+        }
+        .item-subtitle{
+            position: absolute;
+            top: 50px;
+            color: white;
+            left: 15px;
+            font-weight: 200;
+            font-size: 12px;
+          }
+    }
+  }
+  &__close {
+    &__icon {
+      width: fit-content;
+      margin: auto;
+      padding: 10px 12px;
+      border-radius: 50%;
+      box-shadow: #8080803b 0px 4px 10px 1px;
+    }
+  }
+}

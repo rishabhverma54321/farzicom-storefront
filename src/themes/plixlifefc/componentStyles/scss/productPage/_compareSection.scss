@@ -1,0 +1,47 @@
+.compareSection{
+    &__heading{
+       &__heading{
+        font-size: 30px;
+        line-height: 38px;
+        text-align: center;
+        color: black !important;
+        @media (min-width: $large-screen) {
+            font-size: 48px;
+            line-height: 60px;
+            width: 75%;
+            margin: auto;
+            margin-bottom: 0.5rem;
+        }
+       }
+    }
+
+    &__subHeading{
+        margin-bottom: 0px !important;
+        &__heading{
+         font-size: 22px;
+         line-height: 30px;
+         text-align: center;
+         color: black !important;
+         @media (min-width: $large-screen) {
+             font-size: 40px;
+             line-height: 40px;
+             margin: auto;
+         }
+        }
+     }
+     &__image{
+        img{
+            width: 100%;
+        }
+        &__desktop{
+            @media (max-width:$medium-screen) {
+                display: none;
+            }
+        }
+        &__mobile{
+            @media (min-width:$medium-screen) {
+                display: none;
+            }
+        }
+     }
+}

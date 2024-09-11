@@ -1,0 +1,88 @@
+.upper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 30px !important;
+
+  @media (max-width: 720px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    div {
+      flex-direction: column;
+
+      span {
+        margin: 10px 0;
+      }
+    }
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+      font-size: 14px;
+      font-weight: bold;
+      margin-left: 10px;
+    }
+  }
+}
+
+.lower {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  div {
+    .heading {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    li {
+      margin-bottom: 5px;
+    }
+  }
+}
+
+// .contactTitle {
+//   font-size: larger;
+//   font-weight: 600;
+// }
+
+.paymentContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: 1120px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.contactusContainer {
+  @media (max-width: 720px) {
+    margin-top: 10px;
+  }
+
+  .contactusHeading {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+
+    @media (max-width: 720px) {
+      font-size: 16px;
+    }
+  }
+  .contactTitle {
+    font-weight: 600;
+  }
+}
+
+.contacUsBlock {
+  margin-bottom: 10px;
+}

@@ -1,0 +1,20 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.hair {
+  &_quizpage {
+    &_productList {
+      &_card {
+        @media (max-width: $medium-screen) {
+          align-items: center !important;
+          > div:nth-child(1) {
+            align-items: center !important;
+          }
+
+          > div:nth-child(2) {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.quizpage_relatedProducts {
+  .product__fasterResult__wrapper {
+    background: transparent;
+    padding: 4.2rem 5vw 2rem !important;
+    @media (max-width: $medium-screen) {
+      padding: 1rem 5vw 2.5rem !important;
+    }
+  }
+
+  .product__fasterResult__right {
+    background: #fff;
+  }
+
+  .product__fasterResult__left {
+    background: #fff;
+  }
+}

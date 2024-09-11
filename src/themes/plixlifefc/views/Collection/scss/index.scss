@@ -1,0 +1,31 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.collection {
+  &__filterBar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: white;
+    border-bottom: 1px solid #e5e5e5;
+    @media (max-width: $small-screen) {
+      position: fixed;
+      bottom: 0;
+      z-index: 3;
+    }
+  }
+}
+
+.description {
+  p {
+    color: #686b78;
+    white-space: break-spaces;
+    text-align: center;
+    padding: 0 178px;
+    @media (max-width: xlarge-screen) {
+      padding: 0 120px;
+    }
+    @media (max-width: $small-screen) {
+      padding: 0 15px;
+    }
+  }
+}

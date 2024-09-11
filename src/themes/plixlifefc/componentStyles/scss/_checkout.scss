@@ -1,0 +1,72 @@
+.checkoutBottomCard {
+  padding: 5px 10px !important;
+  background-color: #fff !important;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  border-radius: 12px !important;
+  @media (max-width: 720px) {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    margin: 0 7px !important;
+  }
+  &__image {
+    margin: 5px 10px !important;
+    height: 80px !important;
+    width: 80px !important;
+    object-fit: contain !important;
+    @media (max-width: 720px) {
+      height: 55px !important;
+      width: 55px !important;
+    }
+  }
+  &__title {
+    @media (max-width: 720px) {
+      font-size: 16px important;
+    }
+  }
+  &__description {
+    color: #8a8a8a !important;
+    @media (max-width: 720px) {
+      font-size: 12px !important;
+    }
+  }
+}
+
+.CheckoutBottomDesign1 {
+  position: absolute !important;
+  top: -20px !important;
+  @media (max-width: 992px) {
+    display: none !important;
+  }
+}
+
+.CheckoutBottomDesign2 {
+  position: absolute !important;
+  left: 60px !important;
+  @media (max-width: 992px) {
+    display: none !important;
+  }
+}
+
+.CheckoutBottomDesign3 {
+  position: absolute !important;
+  right: 10px !important;
+  @media (max-width: 992px) {
+    display: none !important;
+  }
+}
+
+.CheckoutPaymentMethodRadioContainer {
+  width: 100% !important;
+}
+
+.CheckoutPaymentMethodRadioContainer .MuiFormControlLabel-root {
+  width: 100% !important;
+}
+
+.CheckoutPaymentMethodRadioContainer .MuiFormControlLabel-label {
+  font-family: inherit !important;
+}

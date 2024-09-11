@@ -1,0 +1,36 @@
+.usesContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 30px;
+
+  @media (max-width: $medium-screen) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.usesStepsContainer {
+  grid-template-columns: 1fr !important;
+}
+
+.usesStepsCard {
+  @media (max-width: $medium-screen) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  &__title {
+    max-width: 400px;
+    margin: 0;
+
+    p {
+      font-weight: 600;
+      font-size: 17px;
+      text-align: left;
+    }
+  }
+  &__description {
+    p {
+      text-align: left;
+      color: #686b78;
+    }
+  }
+}

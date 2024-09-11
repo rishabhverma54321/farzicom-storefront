@@ -1,0 +1,145 @@
+.testimonialsPdpSection {
+  background-color: #eefdeb;
+  padding: 100px 7vw !important;
+  position: relative;
+  @media (max-width: $medium-screen) {
+    padding: 50px 7vw 62px 7vw !important;
+  }
+  &__svg1 {
+    position: absolute;
+    top: 100px;
+    left: -20px;
+    @media (max-width: $medium-screen) {
+      display: none;
+    }
+  }
+  &__svg2 {
+    position: absolute;
+    right: -20px;
+    top: 78%;
+    @media (max-width: $medium-screen) {
+      display: none;
+    }
+  }
+  &__container {
+    background-color: white;
+    border: 2px solid #9dec9b;
+    background-image: url("/plixlifefc/assets/testimonial-background-with-icons3.png");
+    @media (max-width: $medium-screen) {
+      background-image: url("/plixlifefc/assets/testimonial-background-with-icons3_mobile.png");
+    }
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: contain;
+
+    padding: 1rem;
+    &__div {
+      padding: 2rem 16rem 5rem 16rem;
+      @media (max-width: $large-screen) {
+        padding: 2rem 6rem 5rem 6rem;
+      }
+      @media (max-width: $medium-screen) {
+        padding: 8px 4rem;
+      }
+      @media (max-width: $small-screen) {
+        padding: 8px;
+      }
+      &__card {
+        &__image {
+          position: relative;
+          padding: 0 4rem;
+          @media (max-width: $medium-screen) {
+            padding: 0;
+          }
+          svg {
+            font-size: 74px;
+            position: absolute;
+            top: 37%;
+            right: 34%;
+
+            @media (max-width: $small-screen) {
+              top: 26%;
+              right: 14%;
+            }
+          }
+          img,
+          .testimonial-img {
+            width: 144px !important;
+            height: 144px !important;
+            margin: auto;
+            @media (max-width: $medium-screen) {
+              width: 96px !important;
+              height: 96px !important;
+            }
+          }
+        }
+        &__title {
+          margin-top: 8px;
+          &__container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            &__heading1 {
+              font-weight: 600;
+            }
+            &__heading2 {
+              font-size: 14px;
+              @media (max-width: $medium-screen) {
+                font-size: 12px;
+              }
+            }
+          }
+        }
+        &__description {
+          font-weight: 600;
+          font-size: 20px;
+          line-height: 2rem;
+          @media (max-width: $medium-screen) {
+            font-size: 16px;
+            line-height: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.testimonialHeader {
+  justify-content: center !important;
+
+  &__row1 {
+    justify-content: center !important;
+    text-align: center !important;
+  }
+  /* color: black; */
+  margin-bottom: 2rem !important;
+
+  &__left {
+    h3 {
+      font-size: 56px;
+      line-height: 120%;
+      letter-spacing: -0.02em;
+      color: black;
+      text-transform: none;
+      font-weight: 500;
+      @media (max-width: $medium-screen) {
+        font-size: 2rem !important;
+      }
+    }
+  }
+}
+
+.carousel__control--right {
+  // margin-right: 12rem !important;
+  position: absolute !important;
+  right: 7vw !important;
+  margin-right: 0 !important;
+}
+
+.carousel__control--left {
+  // margin-left: 12rem !important;
+  position: absolute !important;
+  left: 7vw !important;
+}

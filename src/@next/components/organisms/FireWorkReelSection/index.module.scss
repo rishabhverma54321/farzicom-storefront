@@ -1,0 +1,11 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.header{
+    text-align: center;
+}
+.wrapper{
+    margin: 1rem 0rem;
+    @media (max-width: $medium-screen) {
+        margin: 0.5rem 0rem;
+    }
+}

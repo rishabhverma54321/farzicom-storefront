@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-import { TypedQuery } from "@src/core/queries";
+import { TypedQuery } from "@temp/core/queries";
 import { OffersList, OffersListVariables } from "./gqlTypes/OffersList";
 import {
   CheckForDelivery,

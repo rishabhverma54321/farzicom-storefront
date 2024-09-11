@@ -1,0 +1,18 @@
+.consultationCard {
+  max-width: 500px;
+  margin: auto !important;
+  padding: 16px;
+  &__title {
+    margin-bottom: 16px;
+    p {
+      font-size: 24px !important;
+    }
+  }
+
+  &__description {
+    p {
+      font-weight: 400 !important;
+      text-align: left;
+    }
+  }
+}

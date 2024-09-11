@@ -1,0 +1,25 @@
+.faq-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-family: "CocoSharp XL" !important;
+  @media (max-width: $small-screen) {
+    gap: 0;
+    .df{
+      margin-bottom: 0.5rem !important; 
+    }
+  }
+}
+.accordian {
+  p {
+    color: #000000;
+    opacity: 0.6;
+    margin: 0;
+  }
+  button {
+    p {
+      color: #000000 !important;
+      opacity: 1;
+    }
+  }
+}

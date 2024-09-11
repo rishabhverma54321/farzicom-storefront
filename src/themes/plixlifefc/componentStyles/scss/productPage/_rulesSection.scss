@@ -1,0 +1,87 @@
+.rulesSection{
+    &__wrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @media (min-width: $large-screen) {
+            flex-direction: row;
+        }
+        @media (max-width: $small-screen) {
+            padding: 15px 0px !important; 
+        }
+    }
+    &__header{
+        font-size: 30px;
+        line-height: 38px;
+        text-align: center;
+        @media (min-width: $large-screen) {
+            font-size: 48px;
+            line-height: 60px;
+            color: black !important;
+            text-align: left;
+        }
+        @media (min-width:$xlarge-screen) {
+            width: 80%
+        }
+        font-weight: 700;
+        // &__heading{
+       
+        // }
+    }
+    &__image{
+        padding: 1.5rem;
+        width: 100%;
+        margin: auto;
+        flex: 1;
+        @media (max-width: $large-screen) {
+            order: 2;
+            padding: 0rem;
+        }
+    }
+    &__text{
+        padding: 1.5rem;
+        flex: 1;
+        @media (max-width: $large-screen) {
+            padding: 1rem;
+        }
+    }
+    &__point{
+        line-height: 2rem;
+        @media (min-width: $xlarge-screen) {
+            width: 70%;
+        }
+        &__bullet{
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-size:10px;
+            width: 20px !important;
+            height: 20px !important;
+            font-weight: bold;
+            // padding-inline: 4px;
+            border: 2px solid black;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+            margin-bottom: 0.1rem;
+        }
+       &__bold{
+        font-weight: bold;
+        text-transform: uppercase;
+        display: inline-flex;
+        align-items: center;
+       }
+        padding: 1rem 0rem;
+        >div{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+        &__percent{
+            font-weight: 700;
+            // top: 0px;
+            // left: 25%;
+            // position: absolute;
+        }
+    }
+}

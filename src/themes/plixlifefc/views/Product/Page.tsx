@@ -6,7 +6,7 @@ import Media from "react-media";
 // import { useCustomLocation } from "@hooks/useCustomLocation";
 import { useWindowWidth } from "@hooks/useWindowWidth";
 import { ImageComparisonSlider } from "@components/farzicom-ui-kit/ImageComparisonSlider";
-import Grid from "@material-ui/core/Grid";
+import Grid from '@mui/material/Grid';
 import CloseCrossIcon from "@components/atoms/SvgIcons/CloseCrossIcon";
 import {
   ReviewContainer,
@@ -66,16 +66,16 @@ import gtmConfig from "Themes/lib/gtmConfig.js";
 
 import LazyLoad from "react-lazyload";
 
-import CircularProgress from "@material-ui/core/CircularProgress";
+import { CircularProgress } from '@mui/material';
 // import CollectionList from "@components/molecules/CollectionList";
-import { client } from "@temp/clients";
+import { client } from "@temp/client";
 import ContainerSkeleton from "@components/molecules/ContainerSkeleton";
 import Script from "next/script";
 import dynamic from "next/dynamic";
 import { CachedImage } from "@components/molecules/CachedImage";
 import { FireWorkReelSection } from "@components/organisms";
 import { getDBIdFromGraphqlId } from "@utils/core";
-import { ShopMetaContext } from "@temp/pages/_app.page";
+import { ShopMetaContext } from "@temp/pages/_app";
 import { useAuthState, useCart, useCartState } from "@saleor/sdk";
 import { useRouter } from "next/router";
 import MemoConsIcon from "@components/atoms/SvgIcons/consICon";
@@ -109,7 +109,7 @@ import { ENABLE_GA4, META_DEFAULTS } from "../../config";
 // );
 import MemoNewTransformationTick from "@components/atoms/SvgIcons/NewTranfomationTick";
 import MemoNewTransformationClose from "@components/atoms/SvgIcons/NewTransformationClose";
-import { useMessageStateUpdate } from "@temp/pages/MessageContext";
+import { useMessageStateUpdate } from "@temp/MessageContext";
 import { addToCartTrack } from "farzicom-ui/lib/Track/addToCartTrack";
 // import ProductDetailPopup from "@components/farzicom-ui-kit/ProductDetailPopup";
 import ReactVisibilitySensor from "react-visibility-sensor";

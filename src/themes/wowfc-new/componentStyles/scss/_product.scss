@@ -1,0 +1,17 @@
+.product-bottom-viewall {
+  span {
+    font-size: 14px !important;
+  }
+}
+
+.product-list-class {
+  &__header {
+    &__right {
+      &__button {
+        span {
+          font-size: 14px !important;
+        }
+      }
+    }
+  }
+}

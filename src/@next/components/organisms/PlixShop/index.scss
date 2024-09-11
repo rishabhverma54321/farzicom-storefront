@@ -1,0 +1,119 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.breadcrumbs {
+  &__active {
+    a {
+      font-weight: 400 !important;
+    }
+  }
+  li:nth-child(1) {
+    a {
+      color: #43c34c !important;
+    }
+  }
+}
+.plixshop__filter__col {
+  height: fit-content;
+  background: #FFFFFF;
+  border: 1px solid #DDDDDD;
+  border-radius: 8px;
+  @media (min-width:$large-screen) {
+    width: 25%;
+  }
+  @media (max-width: $large-screen) {
+    display: none;
+  }
+}
+.plixshop__bottomFilterMobile{
+  @media (min-width: $large-screen) {
+    display: none;
+  }
+}
+.plixshop__banner__col {
+  width: 100%;
+  @media (min-width: 991px) {
+    width: 75%;
+  }
+  margin-inline: 16px;
+
+  @media (max-width: $medium-screen) {
+    margin-inline: 0;
+  }
+  //   background-color: aqua;
+}
+.plixshop__collection-description {
+  margin: auto !important;
+}
+.plixshop__filterDisplay {
+  margin-top: 8px;
+  @media (max-width: $large-screen) {
+    display: none;
+  }
+}
+.mobile-filter-wrapper {
+  position: sticky;
+  top: 45px;
+  z-index: 2;
+  padding-top: 0.5rem;
+  background-color: #ffffff;
+  @media (min-width: $large-screen) {
+    display: none;
+  }
+}
+.plix-similar-products-container {
+  background-color: #f9f9f9;
+}
+.plixProdCard {
+  @media (max-width: 720px) {
+    padding: 6px !important;
+  }
+}
+.plixshop__section {
+  @media (max-width: 720px) {
+    // margin-top: -60px !important;
+  }
+}
+
+.custom-arrow-next.collection-arrow,
+.custom-arrow-prev.collection-arrow {
+  border: 1px solid #dddddd;
+  border-radius: 50%;
+  padding: 9px 6px 6px 6px;
+}
+
+.plixlife-collection-productlist {
+  justify-content: left !important;
+}
+
+.plix-collection-checkbox ~ div span:before {
+  // content: "\2714";
+  content: "";
+  // background-image: url('/plixlifefc/assets/Notification_tick.svg');
+  color: transparent;
+  background: transparent;
+  font-size: 10px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  margin-right: 13px;
+  opacity: 0.4;
+  border: 1.6px solid #808080;
+  border-radius: 3.2px;
+}
+.plix-collection-checkbox ~ div input:checked ~ span:before {
+  background-image: url('/plixlifefc/assets/Notification_tick.svg');
+  background-color: #5DD37C;
+  color: #fff;
+  opacity: 1;
+  border-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.plix-collection-checkbox ~ div input {
+  display: none;
+}
+.custom-radio-button:checked {
+  background-color: rgb(105, 234, 114) !important;
+  border: 1px solid rgb(105, 234, 114) !important;
+}

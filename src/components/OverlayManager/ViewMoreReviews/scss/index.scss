@@ -1,0 +1,32 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.overlayFarzicomBackground {
+  background-color: white;
+  overflow: scroll;
+}
+
+.ViewMoreReviewContainer {
+  padding: 50px;
+  @media (max-width: $small-screen) {
+    padding: 20px;
+  }
+
+  &__header {
+    position: relative;
+    display: flex;
+
+    @media (max-width: $medium-screen) {
+      flex-direction: column-reverse;
+    }
+
+    &__close {
+      :hover {
+        cursor: pointer;
+      }
+      position: absolute;
+      right: 0%;
+      top: 27%;
+      cursor: pointer;
+    }
+  }
+}

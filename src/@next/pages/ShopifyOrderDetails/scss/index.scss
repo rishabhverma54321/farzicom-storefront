@@ -1,0 +1,17 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.orderDetailsPlix {
+  margin-top: 1rem;
+
+  &__card {
+    width: unset !important;
+    &__image {
+      width: 48px;
+      height: 48px;
+    }
+  }
+  &__cardContainer {
+    grid-template-columns: repeat(8, 1fr) !important;
+    padding: 0 1rem;
+  }
+}

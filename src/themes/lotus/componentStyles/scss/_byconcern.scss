@@ -1,0 +1,64 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+.byconcernContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 10px;
+  column-gap: 20px;
+
+  @media (max-width: "720px") {
+    grid-template-columns: repeat(2, 1fr) !important;
+    column-gap: 10px !important;
+  }
+}
+
+.byconcernCard {
+  &__image {
+    margin: 0;
+  }
+  &__title {
+    a {
+      p {
+        font-weight: 600;
+        font-size: 17px;
+        text-align: left;
+      }
+    }
+  }
+}
+
+.byconcernHeader {
+  &__left {
+    span {
+      color: #686b78;
+    }
+    h3 {
+    }
+  }
+
+  &___right {
+    &__filter {
+      &__child {
+        background-color: transparent;
+        color: $grey;
+      }
+      .active {
+        background-color: #56774d;
+        color: #56774d;
+      }
+    }
+    &__button {
+    }
+  }
+  //New Changes
+  &__heading {
+    @media (max-width: $small-screen) {
+      font-size: $h4-font-size;
+    }
+  }
+  &__row1 {
+    @media (max-width: $small-screen) {
+      display: flex !important;
+      justify-content: center !important;
+    }
+  }
+}

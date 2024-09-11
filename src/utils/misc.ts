@@ -18,7 +18,7 @@ import {
   generatePageUrl,
   generateProductUrl,
   getDBIdFromGraphqlId,
-} from "@src/core/utils";
+} from "@temp/core/utils";
 import parse from "html-react-parser";
 import gtmConfig from "Themes/lib/gtmConfig";
 import queryString from "query-string";
@@ -29,11 +29,11 @@ import {
   IMAGE_CDN_PROVIDERS,
   META_DEFAULTS,
 } from "Themes/config";
-import { clients, pages } from "@globalTypes/customGlobalTypes";
+import { clients, pages } from "gqlTypes/customGlobalTypes";
 import makeClevertap from "Themes/lib/makeClevertap";
 // import makeClevertap from "Themes/lib/makeClevertap.js";
 // import clevertapEvents from "@temp/themes/plixlifefc/lib/clevertapEvents";
-// import { client } from "@temp/clients";
+// import { client } from "@temp/client";
 // import { ORDER_COUNT_BY_PHONE } from "../../pages/order-placed/queries";
 
 export const REFRESH_TOKEN = "refresh_token";

@@ -1,0 +1,38 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 12px 6px;
+}
+.question-wrapper {
+  margin: 16px 24px;
+}
+.button-set-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.input-wrapper {
+  @media (min-width: $small-screen) {
+    width: 100%;
+    margin-inline: 0.5rem;
+  }
+}
+.form-submit-loader {
+  .MuiCircularProgress-circle {
+    stroke: #69df7a !important;
+  }
+  width: 100;
+  display: flex;
+  justify-content: center;
+}
+.success-msg-wrapper {
+  margin-top: 16px;
+}
+.input-wrapper.name-input {
+  @media (min-width: $xlarge-screen) {
+    padding-right: 16px;
+  }
+}

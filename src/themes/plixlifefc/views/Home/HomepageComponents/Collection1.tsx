@@ -2,12 +2,13 @@ import React from "react";
 import { customEventTrigger, getMetadataValue, parseJson, triggerHomepageBannerEvent } from "@utils/misc";
 import { CachedImage } from "@components/molecules/CachedImage";
 import MemoizedProductList from "@components/organisms/ProductList/ProductList";
-import { useWindowWidth } from "@hooks/useWindowWidth";
-import { TypedSectionWithCustomMetadataProducts } from "../queries";
-import { CUSTOM_PRODUCT_METADATA_FIELDS } from "Themes/config";
-import CustomVisibilitySensor from "@components/molecules/CustomVisibilitySensor";
+import { useWindowWidth } from "@hooks";
+import { TypedSectionWithCustomMetadataProducts, TypedSectionWithoutChildrenQuery } from "../queries";
+import { CUSTOM_PRODUCT_METADATA_FIELDS } from "@temp/themes/plixlifefc/config";
+import { CustomVisibilitySensor } from "@components/farzicom-ui-kit/CustomVisibilitySensor";
 import { useAuthState } from "@saleor/sdk";
-// import gtmConfig from "@temp/themes/plixlifefc/lib/gtmConfig";
+import gtmConfig from "@temp/themes/plixlifefc/lib/gtmConfig";
+import MyCustomLink from "@components/next-react/MyCustomLink";
 
 const Collection1New = ({ sectionData, bannerPosition }) => {
   // props.data?.collection1New?
@@ -115,15 +116,15 @@ const Collection1New = ({ sectionData, bannerPosition }) => {
                         />
                         <a
                           onClick={() => {
-                            // if (gtmConfig.shopAllCta.enable) {
-                            //   customEventTrigger(
-                            //     gtmConfig.shopAllCta.value,
-                            //     user,
-                            //     {
-                            //       heading_name: collectionName,
-                            //     }
-                            //   );
-                            // }
+                            if (gtmConfig.shopAllCta.enable) {
+                              customEventTrigger(
+                                gtmConfig.shopAllCta.value,
+                                user,
+                                {
+                                  heading_name: collectionName,
+                                }
+                              );
+                            }
                             triggerHomepageBannerEvent(
                               collection1Section.node?.id,
                               collectionName,
@@ -170,15 +171,15 @@ const Collection1New = ({ sectionData, bannerPosition }) => {
                           <a
                             href={bannerdata?.buttonUrl}
                             onClick={() => {
-                              // if (gtmConfig.shopAllCta.enable) {
-                              //   customEventTrigger(
-                              //     gtmConfig.shopAllCta.value,
-                              //     user,
-                              //     {
-                              //       heading_name: collectionName,
-                              //     }
-                              //   );
-                              // }
+                              if (gtmConfig.shopAllCta.enable) {
+                                customEventTrigger(
+                                  gtmConfig.shopAllCta.value,
+                                  user,
+                                  {
+                                    heading_name: collectionName,
+                                  }
+                                );
+                              }
                               triggerHomepageBannerEvent(
                                 collection1Section.node?.id,
                                 collectionName,

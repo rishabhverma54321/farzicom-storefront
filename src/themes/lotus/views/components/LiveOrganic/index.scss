@@ -1,0 +1,29 @@
+.header {
+  display: flex;
+  justify-content: center;
+  padding: 32px;
+  min-height: 32px;
+  @media (min-width: $large-screen) {
+    min-height: 100px;
+  }
+  img {
+    height: auto;
+  }
+  @media (max-width: 720px) {
+    padding: 5px;
+  }
+}
+.liveOrganicCard {
+  max-width: 180px;
+  @media (max-width: 720px) {
+    margin: 0px !important;
+  }
+}
+.liveOrganicCard__image {
+  img {
+    height: auto !important;
+  }
+  @media (max-width: 720px) {
+    padding: 4px !important;
+  }
+}

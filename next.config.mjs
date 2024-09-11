@@ -19,6 +19,12 @@ const nextConfig = {
         port: "",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "plixlifefcstage-media.farziengineer.co",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };

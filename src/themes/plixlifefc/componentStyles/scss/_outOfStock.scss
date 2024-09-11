@@ -1,0 +1,10 @@
+.NotifyMe {
+  &__header {
+    display: flex !important;
+    justify-content: flex-start !important;
+    &__text {
+      width: 80%;
+      flex-grow: initial !important;
+    }
+  }
+}

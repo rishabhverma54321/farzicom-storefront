@@ -1,0 +1,54 @@
+.howWeUseContainer {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 0;
+  row-gap: 20px;
+}
+
+.howWeUseFlavor {
+  justify-content: center !important;
+  &__left {
+    h3 {
+      font-size: 20px;
+    }
+  }
+}
+.howWeUseCardWrapper {
+}
+.howWeUseButton {
+  margin-top: 15px;
+  padding-bottom: 5px;
+  a {
+    height: auto;
+  }
+  button {
+    line-height: 27px;
+  }
+  &__svgRight {
+    path {
+      stroke: #000000;
+    }
+  }
+}
+.howWeUseCard {
+  &__image {
+    a {
+      img {
+        width: 70%;
+        @media (max-width: 520) {
+          width: 90%;
+        }
+      }
+    }
+  }
+
+  &__title {
+    a {
+      p {
+        font-size: 18px;
+      }
+    }
+  }
+}

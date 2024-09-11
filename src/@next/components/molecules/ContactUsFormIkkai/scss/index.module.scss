@@ -1,0 +1,16 @@
+.contact_selectQuery {
+  fieldset{
+    display: none;
+  }
+  >div:focus{
+    background-color: transparent !important;
+    border-radius: 8px !important;
+  }
+}
+
+.contact_form {
+  label{
+   background-color: #FFF;
+   color: #808080 !important;
+  }
+}
