@@ -1,0 +1,284 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.atc-button-upsell-disabled {
+  background-color: gray !important;
+  color: white !important;
+  font-size: 12px !important;
+  line-height: 18px !important;
+  width: 30% !important;
+  border: none !important;
+  span {
+    display: flex;
+    svg {
+      margin-bottom: 3px !important;
+    }
+    gap: 0.25rem !important;
+    flex-direction: row;
+    align-items: center !important;
+    justify-content: center;
+    font-size: 12px !important;
+    line-height: 18px !important;
+  }
+}
+
+.atc-button-upsell {
+  // background-color: #02262a !important;
+  color: white !important;
+  font-size: 12px !important;
+  line-height: 18px !important;
+  width: 30% !important;
+  border: none !important;
+  span {
+    display: flex;
+    svg {
+      margin-bottom: 3px !important;
+    }
+    gap: 0.25rem !important;
+    flex-direction: row;
+    align-items: center !important;
+    justify-content: center;
+    font-size: 12px !important;
+    line-height: 18px !important;
+  }
+  .price_row{
+    
+   & > span{
+    font-size: 22px !important;
+    line-height: 100% !important;
+   }
+   & > div{
+    & >div{
+      padding-top: 0 !important;
+    }
+   }
+  }
+}
+.toast-success {
+  background-color: #78a442 !important;
+  color: white !important;
+}
+.price-show-wrapper {
+  width: unset !important;
+}
+
+.you-may-like {
+  font-size: 14px;
+  color: black;
+  font-weight: 700;
+  @media (max-width: $small-screen) {
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+}
+.upsell-tag-container {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.cart__loader {
+  position: absolute;
+  left: 46%;
+  top: 30%;
+  color: #000;
+}
+
+.plixlife__QuntityField__div {
+  display: flex;
+  align-items: center;
+}
+
+.upsell-price-container {
+  > div > div {
+    padding: 0px !important;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    > button {
+      margin-left: 0px !important;
+    }
+  }
+}
+.atc-button.gtc{
+  background-color: red !important;
+  display: inline-block;
+  margin-top: 5px;
+  background: #23523e !important;
+  border-radius: 4px !important;
+  padding: 0.5rem 1.5rem;
+  margin-top: 0px !important;
+  border: 1px solid #23523e !important;
+  max-width: 528px;
+  border-radius: 0px;
+  span {
+    /* font-size: 0.8rem; */
+    color: white;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    text-transform: capitalize !important;
+  }
+
+  @media(max-width: $medium-screen){
+    max-width: 356px;
+  }
+}
+// .cart-row{
+//   &__upsell-know-more{
+//     border-bottom: 1px solid #39B54A !important;
+//     height: fit-content;
+//     align-self: flex-end;
+//     margin-bottom: 10px;
+//     font-size: 12px !important;
+//     font-weight: 500 !important;
+//     cursor: pointer;
+//     white-space: nowrap;
+//     margin-left: 8px;
+//     @media(max-width: $medium-screen){
+//       font-size: 10px !important;
+//     }
+//   }
+// }
+
+.monthlypackoffer{
+  display: flex;
+  flex-direction: column;
+  margin: 0px 32px 0px;
+  margin-bottom: 1rem;
+  @media(max-width: $medium-screen){
+    margin: 0px 20px 0px;
+  }
+  p{
+    background: #FFD44F;
+    border-radius: 0px 0px 7px 7px;
+    padding: 4px 10px 6px 0px;
+    font-family: 'CocoSharp XL';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 17px;
+    color: black;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    @media(max-width: $medium-screen){
+      font-size: 11px;
+      line-height: 14px;
+      padding: 8px 11px 6px 11px;
+      padding-left: 0px;
+    }
+    @media(max-width: 380px){
+      font-size: 11px;
+      line-height: 14px;
+      padding: 8px 11px 6px 11px;
+      padding-left: 0px;
+    }
+    & >span{
+      position: relative !important;
+      display: block !important;
+      img{
+        position: relative !important;
+        width: auto !important;
+        height: 12px !important;
+        margin-right: 4px !important;
+        max-width: unset !important;
+        max-height: unset !important;
+        min-width: unset !important;
+        min-height: unset !important;
+        top: -2px !important;
+          @media (max-width:520px){
+
+          }
+      }
+    }
+  }
+  .threemonth_pack{
+    padding: 8px 16px;
+    background: #FFD44F;
+    // border-radius: 7px;
+    .offerlabel{
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-start;
+      label{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        font-family: 'CocoSharp XL';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+        text-align: center;
+        color: #000000;
+        margin-top: 4px;
+        @media(max-width: $medium-screen){
+          font-size: 11px;
+        }
+        div{
+          font-weight: 700;
+          span{
+            color: rgba(16, 119, 29, 1);
+          }
+        }
+      }
+      input{
+        margin: 0px 10px 0px 0px;
+        width: 20px;
+        height: 20px;
+        position: relative;
+      }
+      input[type='radio']:after {
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        position: absolute;
+        left:50%;
+        top:50%;
+        transform: translate(-50%,-50%);
+        background: #ffffff;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid white;
+      }
+      input[type='radio']:checked:after {
+        width: 12px;
+        height: 12px;
+        border-radius: 15px;
+        position: absolute;
+        left:50%;
+        top:50%;
+        transform: translate(-50%,-50%);
+        background: #5DD37C;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid #5DD37C;
+     }
+    }
+  }
+}
+
+.free-gift-products-price{
+  margin-left: unset !important;
+  >div{
+    display: flex;
+    flex-direction: row-reverse !important;
+    gap: 1rem;
+    div:nth-child(2){
+    button{
+      background-color: #D1FFD9 !important;
+      color:#1EAF6D !important ;
+      font-weight: 800;
+      margin-left: unset !important;
+      font-size: 12px !important;
+      border-radius: 8px;
+      padding: 4px 8px 2px 8px;
+      font-family: 'cocosharp_xlextrabold';
+    }
+    }
+  }
+}

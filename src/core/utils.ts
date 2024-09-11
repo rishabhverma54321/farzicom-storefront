@@ -1,14 +1,15 @@
-// import { History, LocationState } from "history";
+import { History, LocationState } from "history";
 import { Base64 } from "js-base64";
-// import each from "lodash/each";
-// import {
-//   parse as parseQs,
-//   stringify as stringifyQs,
-//   ParsedQuery,
-// } from "query-string";
+import each from "lodash/each";
+import {
+  parse as parseQs,
+  stringify as stringifyQs,
+  ParsedQuery,
+} from "query-string";
+import queryString from 'query-string';
 // import { FetchResult } from "react-apollo";
 
-// import Cookies from "js-cookie";
+import Cookies from "js-cookie";
 
 // import { PriceFragment, ProductVariantFragment } from "@saleor/sdk";
 // import { getMetadataValue } from "@utils/misc";
@@ -44,9 +45,9 @@ export const getDBIdFromGraphqlId = (
   return parseInt(arr![2], 10);
 };
 
-// export const getGraphqlIdFromDBId = (id: string, schema: string): string =>
-//   // This is temporary solution, we will use slugs in the future
-//   Base64.encode(`${schema}:${id}`);
+export const getGraphqlIdFromDBId = (id: string, schema: string): string =>
+  // This is temporary solution, we will use slugs in the future
+  Base64.encode(`${schema}:${id}`);
 
 // export const phoneRegExp = /^[0-9]{10}$/;
 // export const nameRegExp =  /^[aA-zZ\s]+$/;
@@ -179,21 +180,21 @@ export const maybe = <T>(exp: () => T, d?: T) => {
   }
 };
 
-// export const parseQueryString = (
-//   location: LocationState
-// ): ParsedQuery<string> => {
-//   let query: ParsedQuery<string> = parseQs(window.location.search.substr(1));
+export const parseQueryString = (
+  location: LocationState
+): ParsedQuery<string> => {
+  let query: ParsedQuery<string> = queryString.parse(window.location.search.substr(1));
 
-//   each(query, (value, key) => {
-//     if (Array.isArray(value)) {
-//       query = {
-//         ...query,
-//         [key]: value[0],
-//       };
-//     }
-//   });
-//   return query;
-// };
+  each(query, (value, key) => {
+    if (Array.isArray(value)) {
+      query = {
+        ...query,
+        [key]: value[0],
+      };
+    }
+  });
+  return query;
+};
 
 // export const updateQueryString = (
 //   location: LocationState,
@@ -225,31 +226,31 @@ export const maybe = <T>(exp: () => T, d?: T) => {
 // };
 
 // export const removeEmptySpaces = (text: string) => text.replace(/\s+/g, "");
-// export const getUtmData = (location: LocationState) => {
-//   const querystring = parseQueryString(location);
+export const getUtmData = (location: LocationState) => {
+  const querystring = parseQueryString(location);
 
-//   if (
-//     querystring.utm_source ||
-//     querystring.utm_medium ||
-//     querystring.utm_campaign
-//   ) {
-//     const utm_data = [
-//       Cookies.get("utm_source"),
-//       Cookies.get("utm_medium"),
-//       Cookies.get("utm_campaign"),
-//     ];
-//     const concat_string = utm_data
-//       .filter(data => data !== "undefined" && data !== "null")
-//       .toString();
-//     return concat_string;
-//   }
-//   return "Direct";
-// };
+  if (
+    querystring.utm_source ||
+    querystring.utm_medium ||
+    querystring.utm_campaign
+  ) {
+    const utm_data = [
+      Cookies.get("utm_source"),
+      Cookies.get("utm_medium"),
+      Cookies.get("utm_campaign"),
+    ];
+    const concat_string = utm_data
+      .filter(data => data !== "undefined" && data !== "null")
+      .toString();
+    return concat_string;
+  }
+  return "Direct";
+};
 
-// export const getGclid = () => {
-//   const gclid = Cookies.get("gclid");
-//   return gclid === "undefined" || gclid === "null" ? "" : gclid;
-// };
+export const getGclid = () => {
+  const gclid = Cookies.get("gclid");
+  return gclid === "undefined" || gclid === "null" ? "" : gclid;
+};
 
 // export const getThisVariantPrices = (
 //   variant_data: ProductVariantFragment

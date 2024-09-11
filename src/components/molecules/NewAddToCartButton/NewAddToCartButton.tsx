@@ -3,12 +3,12 @@ import { FormattedMessage } from "react-intl";
 // import ReactSVG from "react-svg";
 import cx from "classnames";
 import { GTCArrow } from "@components/atoms/SvgIcons";
-// import {
-//   InnerOverlayContextInterface,
-//   OverlayContext,
-//   OverlayTheme,
-//   OverlayType,
-// } from "@temp/components";
+import {
+  InnerOverlayContextInterface,
+  OverlayContext,
+  OverlayTheme,
+  OverlayType,
+} from "@components/templates";
 import {ReactSVG} from "react-svg";
 import { CircularProgress } from '@mui/material';
 import {
@@ -192,7 +192,7 @@ export const NewAddToCartButton: React.FC<INewAddToCartButton> = ({
   //   : productCheckoutMetadata;
 
   let route = router.pathname.split("/")[1];
-  // const { show } = useContext(OverlayContext);
+  const { show } = useContext(OverlayContext);
   const cart_config =
     getMetadataValue(shopmetadata, "cart_config_v2") &&
     parseJson(getMetadataValue(shopmetadata, "cart_config_v2"));
@@ -387,11 +387,11 @@ export const NewAddToCartButton: React.FC<INewAddToCartButton> = ({
         // removing isBuyNowButton because there no functionality to purchase directly.
         if (openCart) {
           // The openCart logic is outdated, so to address the time constraints, we have implemented the same logic used in showCart.
-          // show(OverlayType.plixlifefcCart, OverlayTheme.right);
+          show(OverlayType.plixlifefcCart, OverlayTheme.right);
         } else if (isProductPage && cart_config?.open_cart_pdp === false) {
           // messageUpdate("Added to cart successfully", "success");
         } else {
-          // show(OverlayType.plixlifefcCart, OverlayTheme.right);
+          show(OverlayType.plixlifefcCart, OverlayTheme.right);
         }
       }
 
@@ -705,10 +705,10 @@ export const NewAddToCartButton: React.FC<INewAddToCartButton> = ({
         } catch (e) {}
       } else {
         setLoading(false);
-        // show(OverlayType.message, OverlayTheme.modal, {
-        //   title: `You can only add 1 single per order.`,
-        //   status: "error",
-        // });
+        show(OverlayType.message, OverlayTheme.modal, {
+          title: `You can only add 1 single per order.`,
+          status: "error",
+        });
       }
     }
   };
@@ -722,12 +722,12 @@ export const NewAddToCartButton: React.FC<INewAddToCartButton> = ({
     }
     if (disabled) {
       onSubmit(disabled);
-      // if (productId) {
-      //   const notifyMeContext: InnerOverlayContextInterface = {
-      //     data: productId,
-      //   };
-      //   show(OverlayType.outOfStock, OverlayTheme.modal, notifyMeContext);
-      // }
+      if (productId) {
+        const notifyMeContext: InnerOverlayContextInterface = {
+          data: productId,
+        };
+        show(OverlayType.outOfStock, OverlayTheme.modal, notifyMeContext);
+      }
     } else if (
       // maximum product capping
       findVariantQuantity &&

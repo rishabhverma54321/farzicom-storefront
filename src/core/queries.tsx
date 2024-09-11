@@ -5,7 +5,7 @@
 import ContainerSkeleton, {
   IContainerSkeletonProps,
 } from "@components/molecules/ContainerSkeleton";
-import { ApolloQueryResult, ErrorPolicy, FetchPolicy } from "apollo-client";
+import { ApolloQueryResult, ErrorPolicy, FetchPolicy, SubscribeToMoreOptions, UpdateQueryOptions } from "apollo-client";
 import { DocumentNode } from "graphql";
 import * as React from "react";
 import { Query, QueryResult } from "react-apollo";
@@ -62,7 +62,6 @@ export function TypedQuery<TData, TVariables>(query: DocumentNode) {
 
     // const [width] = useWindowWidth();
     return (
-      //@ts-ignore
       <Query
         query={query}
         variables={variables}
@@ -71,13 +70,10 @@ export function TypedQuery<TData, TVariables>(query: DocumentNode) {
         errorPolicy={errorPolicy}
         onCompleted={onCompleted}
       >
-        @ts-ignore
-        {(
-          queryData: QueryResult<TData, TVariables> &
-            LoadMore<TData, TVariables>
-        ) => {
+        {(queryData: QueryResult<TData, TVariables> & LoadMore<TData, TVariables>) => {
           const { error, loading, data, fetchMore } = queryData;
           const hasData = maybe(() => !!Object.keys(data).length, false);
+
           const loadMore = (
             mergeFunc: (
               previousResults: TData,
@@ -118,7 +114,9 @@ export function TypedQuery<TData, TVariables>(query: DocumentNode) {
           }
 
           if (hasData || (renderOnError && error) || alwaysRender) {
-            return children({ ...queryData, loadMore });
+            return (
+              <>{children({...queryData})}</>
+            );
           }
 
           return null;

@@ -42,7 +42,7 @@ const uploadLink = createUploadLink(linkOptions);
 
 const links = [authLink, uploadLink];
 
-export const client = new ApolloClient({
+export const client:any = new ApolloClient({
   link: ApolloLink.from(links),
   cache: new InMemoryCache({ addTypename: false }),
 });

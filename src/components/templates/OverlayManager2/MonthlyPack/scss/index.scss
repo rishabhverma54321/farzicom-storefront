@@ -1,0 +1,21 @@
+.default_option{
+    position: relative;
+    &:after {
+      width: 12px !important;
+      height: 12px !important;
+      border-radius: 15px;
+      position: absolute;
+      left:50%;
+      top:50%;
+      transform: translate(-50%,-50%);
+      background: #5DD37C !important;
+      content: '';
+      display: inline-block;
+      visibility: visible;
+      border: 2px solid #5DD37C !important;
+      @media(max-width: 510px){
+        width: 8px !important;
+        height: 8px !important;
+      }
+  }
+ }

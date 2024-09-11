@@ -1,0 +1,106 @@
+@import "../../../../globalStyles/scss/variables";
+@import "../../../../globalStyles/scss/animations";
+
+.overlayFarzicom {
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 100%;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  transition: 300ms;
+  width: 100%;
+  z-index: 4;
+
+  &--search,
+  &--main-menu-nav {
+    top: 3.55rem;
+  }
+
+  &--search {
+    .overlayFarzicom__right {
+      background-color: transparent;
+      height: auto;
+    }
+  }
+
+  &--no-background {
+    background-color: transparent;
+  }
+
+  &__left {
+    position: fixed;
+    min-height: 100%;
+    animation: sidenavLeftOpen 0.3s;
+  }
+
+  &__bottom {
+    position: fixed;
+    max-height: 100%;
+    width: 100vw;
+    background-color: transparent;
+    animation: bottomOpen 0.3s;
+    bottom: 0;
+    overflow: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  &__right {
+    position: fixed;
+    background-color: $white;
+    right: 0;
+    top: 0;
+    height: 100%;
+    animation: sidenavRightOpen 0.3s;
+  }
+
+  &__header {
+    align-items: center;
+    border-bottom: 1px solid $gray-light;
+    display: flex;
+    flex: 1;
+    font-weight: $bold-font-weight;
+    height: 3.6rem;
+    justify-content: space-between;
+    text-transform: uppercase;
+
+    &-text {
+      margin: 0 $spacer;
+      text-align: center;
+
+      &-items {
+        color: $gray;
+      }
+    }
+
+    &__close-icon {
+      cursor: pointer;
+      margin: 0 $spacer;
+
+      &:hover,
+      &:focus {
+        svg {
+          * {
+            fill: $green-dark;
+          }
+        }
+      }
+      div {
+        display: flex;
+      }
+    }
+
+    &__cart-icon {
+      margin: 0 $spacer;
+
+      div {
+        display: flex;
+        svg {
+          * {
+            fill: $green-dark;
+          }
+        }
+      }
+    }
+  }
+}

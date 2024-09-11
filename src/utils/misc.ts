@@ -21,7 +21,7 @@ import {
 } from "@src/core/utils";
 import parse from "html-react-parser";
 import gtmConfig from "Themes/lib/gtmConfig";
-// import queryString from "query-string";
+import queryString from "query-string";
 import {
   CLIENT,
   ENABLE_GA4,
@@ -30,17 +30,18 @@ import {
   META_DEFAULTS,
 } from "Themes/config";
 import { clients, pages } from "@globalTypes/customGlobalTypes";
+import makeClevertap from "Themes/lib/makeClevertap";
 // import makeClevertap from "Themes/lib/makeClevertap.js";
 // import clevertapEvents from "@temp/themes/plixlifefc/lib/clevertapEvents";
 // import { client } from "@temp/clients";
 // import { ORDER_COUNT_BY_PHONE } from "../../pages/order-placed/queries";
 
-// export const REFRESH_TOKEN = "refresh_token";
-// export const CSRF_TOKEN = "csrf_token";
-// export const SKIN_QUIZ_STATE = "skin_quiz_state";
-// export const WEIGHT_QUIZ_STATE = "weight_quiz_state";
-// export const HAIR_QUIZ_STATE = "hair_quiz_state"
-// export const RECENTLY_DELETED_PRODUCTS = "recently_deleted_products";
+export const REFRESH_TOKEN = "refresh_token";
+export const CSRF_TOKEN = "csrf_token";
+export const SKIN_QUIZ_STATE = "skin_quiz_state";
+export const WEIGHT_QUIZ_STATE = "weight_quiz_state";
+export const HAIR_QUIZ_STATE = "hair_quiz_state"
+export const RECENTLY_DELETED_PRODUCTS = "recently_deleted_products";
 
 // export function maybe<T>(exp: () => T): T | undefined;
 // export function maybe<T>(exp: () => T, d: T): T;
@@ -75,23 +76,23 @@ export function getMetadataValue<T>(
   return null;
 }
 
-// export const getUrlWithParams = (url: string, params: object = {}) => {
-//   let href = url;
-//   if (typeof window !== "undefined" && !!location?.search) {
-//     let parsedSearch = queryString.parse(location.search);
-//     if (typeof params === "object" && Object.keys(params)?.length) {
-//       let parsedQuery = { ...parsedSearch, ...params };
-//       let stringifiedQuery = queryString.stringify(parsedQuery);
-//       href = `${href}?${stringifiedQuery}`;
-//     } else {
-//       href = `${href}${location?.search}`;
-//     }
-//   } else if (typeof params === "object" && Object.keys(params).length > 0) {
-//     const stringifiedParams = queryString.stringify(params);
-//     href = `${href}?${stringifiedParams}`;
-//   }
-//   return href;
-// };
+export const getUrlWithParams = (url: string, params: object = {}) => {
+  let href = url;
+  if (typeof window !== "undefined" && !!location?.search) {
+    let parsedSearch = queryString.parse(location.search);
+    if (typeof params === "object" && Object.keys(params)?.length) {
+      let parsedQuery = { ...parsedSearch, ...params };
+      let stringifiedQuery = queryString.stringify(parsedQuery);
+      href = `${href}?${stringifiedQuery}`;
+    } else {
+      href = `${href}${location?.search}`;
+    }
+  } else if (typeof params === "object" && Object.keys(params).length > 0) {
+    const stringifiedParams = queryString.stringify(params);
+    href = `${href}?${stringifiedParams}`;
+  }
+  return href;
+};
 
 export const imageURLReplaceWithCDN = (imageURL: string | null) => {
   if (imageURL && IMAGE_CDN_PROVIDERS[IMAGE_CDN].useCDN) {
@@ -163,344 +164,356 @@ export const imageURLReplaceWithCDN = (imageURL: string | null) => {
 //   return url;
 // };
 
-// export const createTaxedPriceFromAmount = (
-//   amount: number | string,
-//   currency: string = "INR"
-// ): PriceFragment => {
-//   const actualAmount = typeof amount === "string" ? parseFloat(amount) : amount;
-//   return {
-//     gross: {
-//       amount: actualAmount || 0,
-//       currency,
-//     },
-//     net: {
-//       amount: actualAmount || 0,
-//       currency,
-//     },
-//   };
-// };
+export const createTaxedPriceFromAmount = (
+  amount: number | string,
+  currency: string = "INR"
+): PriceFragment => {
+  const actualAmount = typeof amount === "string" ? parseFloat(amount) : amount;
+  return {
+    gross: {
+      amount: actualAmount || 0,
+      currency,
+    },
+    net: {
+      amount: actualAmount || 0,
+      currency,
+    },
+  };
+};
 
-// export const filterOnKey = (
-//   array: Array<{ key: string; value: string }>,
-//   key: string
-// ) => {
-//   if (array && array.length) {
-//     const filteredResult = array.filter(item => item.key === key);
+export const useImageURLReplaceWithCDN = (imageURL: string | null) => {
+  if (imageURL && IMAGE_CDN_PROVIDERS[IMAGE_CDN].useCDN) {
+    return imageURL.replace(
+      IMAGE_CDN_PROVIDERS[IMAGE_CDN].mediaBucketURL,
+      IMAGE_CDN_PROVIDERS[IMAGE_CDN].cdnSourceURL
+    );
+  }
+  if (imageURL) return imageURL;
+  return "";
+};
 
-//     return filteredResult && filteredResult.length
-//       ? filteredResult[0].value
-//       : "";
-//   }
+export const filterOnKey = (
+  array: Array<{ key: string; value: string }>,
+  key: string
+) => {
+  if (array && array.length) {
+    const filteredResult = array.filter(item => item.key === key);
 
-//   return "";
-// };
-// export const removeItemFromLinesJourney = v_id => {
-//   try {
-//     const itemsWithJourneyInfo =
-//       localStorage.getItem("lines_journey_info") &&
-//       JSON.parse(localStorage.getItem("lines_journey_info"));
-//     if (Array.isArray(itemsWithJourneyInfo)) {
-//       const updatedItems = itemsWithJourneyInfo?.filter(
-//         item => item?.variant_id !== v_id
-//       );
-//       localStorage.setItem("lines_journey_info", JSON.stringify(updatedItems));
-//     }
-//   } catch (err) {
-//     console.log("Error in updated lines_journey_info", err);
-//   }
-// };
+    return filteredResult && filteredResult.length
+      ? filteredResult[0].value
+      : "";
+  }
 
-// export const membershipDiscountData: any = (metaDataValue: any, key: any) => {
-//   const membership =
-//     metaDataValue && Array.isArray(metaDataValue)
-//       ? metaDataValue?.filter(item => item?.discount_rule === key)
-//       : [];
-//   return membership;
-// };
+  return "";
+};
 
-// export const trackItemsJourney = (
-//   items,
-//   addedItemId: string,
-//   parentProduct: string,
-//   addedFrom: string,
-//   productListId?: string
-// ) => {
-//   try {
-//     if (typeof window !== "undefined" && addedItemId) {
-//       const prevItemsWithJourneyInfo =
-//         localStorage.getItem("lines_journey_info") &&
-//         JSON.parse(localStorage.getItem("lines_journey_info"));
+export const removeItemFromLinesJourney = v_id => {
+  try {
+    const itemsWithJourneyInfo =
+      localStorage.getItem("lines_journey_info") &&
+      JSON.parse(localStorage.getItem("lines_journey_info"));
+    if (Array.isArray(itemsWithJourneyInfo)) {
+      const updatedItems = itemsWithJourneyInfo?.filter(
+        item => item?.variant_id !== v_id
+      );
+      localStorage.setItem("lines_journey_info", JSON.stringify(updatedItems));
+    }
+  } catch (err) {
+    console.log("Error in updated lines_journey_info", err);
+  }
+};
 
-//       const itemJourneyInfo = items?.map(item => {
-//         if (item?.variant?.id === addedItemId) {
-//           const prevparentProducts =
-//             (prevItemsWithJourneyInfo &&
-//               Array.isArray(prevItemsWithJourneyInfo) &&
-//               prevItemsWithJourneyInfo?.find(i => i?.variant_id === addedItemId)
-//                 ?.parentProducts) ||
-//             [];
+export const membershipDiscountData: any = (metaDataValue: any, key: any) => {
+  const membership =
+    metaDataValue && Array.isArray(metaDataValue)
+      ? metaDataValue?.filter(item => item?.discount_rule === key)
+      : [];
+  return membership;
+};
 
-//           const updatedParentProducts = parentProduct
-//             ? [...prevparentProducts, parentProduct]
-//             : prevparentProducts;
+export const trackItemsJourney = (
+  items,
+  addedItemId: string,
+  parentProduct: string,
+  addedFrom: string,
+  productListId?: string
+) => {
+  try {
+    if (typeof window !== "undefined" && addedItemId) {
+      const prevItemsWithJourneyInfo =
+        localStorage.getItem("lines_journey_info") &&
+        JSON.parse(localStorage.getItem("lines_journey_info"));
 
-//           const prevProductListIds =
-//             (prevItemsWithJourneyInfo &&
-//               Array.isArray(prevItemsWithJourneyInfo) &&
-//               prevItemsWithJourneyInfo?.find(i => i?.variant_id === addedItemId)
-//                 ?.productListId) ||
-//             [];
+      const itemJourneyInfo = items?.map(item => {
+        if (item?.variant?.id === addedItemId) {
+          const prevparentProducts =
+            (prevItemsWithJourneyInfo &&
+              Array.isArray(prevItemsWithJourneyInfo) &&
+              prevItemsWithJourneyInfo?.find(i => i?.variant_id === addedItemId)
+                ?.parentProducts) ||
+            [];
 
-//           const updatedProductListIds = productListId
-//             ? [...prevProductListIds, productListId]
-//             : prevProductListIds;
+          const updatedParentProducts = parentProduct
+            ? [...prevparentProducts, parentProduct]
+            : prevparentProducts;
 
-//           const prevAddedFrom =
-//             (prevItemsWithJourneyInfo &&
-//               Array.isArray(prevItemsWithJourneyInfo) &&
-//               prevItemsWithJourneyInfo?.find(i => i?.variant_id === addedItemId)
-//                 ?.addedFrom) ||
-//             [];
+          const prevProductListIds =
+            (prevItemsWithJourneyInfo &&
+              Array.isArray(prevItemsWithJourneyInfo) &&
+              prevItemsWithJourneyInfo?.find(i => i?.variant_id === addedItemId)
+                ?.productListId) ||
+            [];
 
-//           const updatedAddedFrom = addedFrom
-//             ? [...prevAddedFrom, addedFrom]
-//             : addedFrom;
-//           return {
-//             variant_id: item?.variant?.id,
-//             quantity: item?.quantity,
-//             parentProducts: updatedParentProducts,
-//             addedFrom: updatedAddedFrom,
-//             productListId: updatedProductListIds,
-//           };
-//         }
+          const updatedProductListIds = productListId
+            ? [...prevProductListIds, productListId]
+            : prevProductListIds;
 
-//         const isItemAlreadyAdded =
-//           prevItemsWithJourneyInfo &&
-//           Array.isArray(prevItemsWithJourneyInfo) &&
-//           prevItemsWithJourneyInfo?.find(
-//             i => i.variant_id === item?.variant?.id
-//           );
-//         if (isItemAlreadyAdded) {
-//           return {
-//             variant_id: item?.variant?.id,
-//             quantity: item?.quantity,
-//             parentProducts: isItemAlreadyAdded?.parentProducts,
-//             addedFrom: isItemAlreadyAdded?.addedFrom,
-//             productListId: isItemAlreadyAdded?.productListId,
-//           };
-//         }
-//       });
-//       console.log("lines_journey_info", itemJourneyInfo);
-//       localStorage.setItem(
-//         "lines_journey_info",
-//         JSON.stringify(itemJourneyInfo)
-//       );
-//     }
-//   } catch (err) {
-//     console.log("Error in storing items journey info", err);
-//   }
-// };
+          const prevAddedFrom =
+            (prevItemsWithJourneyInfo &&
+              Array.isArray(prevItemsWithJourneyInfo) &&
+              prevItemsWithJourneyInfo?.find(i => i?.variant_id === addedItemId)
+                ?.addedFrom) ||
+            [];
 
-// export const getItemJourneyInfo = variant_id => {
-//   try {
-//     const itemsWithJourneyInfo =
-//       localStorage.getItem("lines_journey_info") &&
-//       parseJson(localStorage.getItem("lines_journey_info"));
-//     if (Array.isArray(itemsWithJourneyInfo)) {
-//       let requiredItem = itemsWithJourneyInfo?.find(
-//         item => item.variant_id == variant_id
-//       );
-//       if (requiredItem) {
-//         requiredItem = {
-//           ...requiredItem,
-//           productListId: requiredItem?.productListId?.slice(0, 1)?.join(","),
-//           addedFrom: requiredItem?.addedFrom
-//             ?.slice(0, 1)
-//             ?.map(addedfrom => getItemListName(addedfrom))
-//             ?.join(","),
-//         };
-//       }
-//       return requiredItem;
-//     }
-//   } catch (err) {
-//     console.log("Error in updated lines_journey_info", err);
-//   }
-// };
+          const updatedAddedFrom = addedFrom
+            ? [...prevAddedFrom, addedFrom]
+            : addedFrom;
+          return {
+            variant_id: item?.variant?.id,
+            quantity: item?.quantity,
+            parentProducts: updatedParentProducts,
+            addedFrom: updatedAddedFrom,
+            productListId: updatedProductListIds,
+          };
+        }
 
-// export const addToCartDataLayer = (
-//   res: CartMethodsReturn,
-//   product: any,
-//   variantId: string,
-//   selectedVariantProvided?: any,
-//   ctTitle?: string | null,
-//   user?: UserFragment,
-//   productListId?: string,
-//   cta_type?: string,
-//   parentProducts?: string,
-//   index?: number,
-//   cta_position?: string
-// ) => {
-//   console.log("indexinmisc", index);
-//   const selectedVariant =
-//     selectedVariantProvided?.variant ||
-//     product?.variants?.filter((variant: any) => variant?.id === variantId)[0];
+        const isItemAlreadyAdded =
+          prevItemsWithJourneyInfo &&
+          Array.isArray(prevItemsWithJourneyInfo) &&
+          prevItemsWithJourneyInfo?.find(
+            i => i.variant_id === item?.variant?.id
+          );
+        if (isItemAlreadyAdded) {
+          return {
+            variant_id: item?.variant?.id,
+            quantity: item?.quantity,
+            parentProducts: isItemAlreadyAdded?.parentProducts,
+            addedFrom: isItemAlreadyAdded?.addedFrom,
+            productListId: isItemAlreadyAdded?.productListId,
+          };
+        }
+      });
+      console.log("lines_journey_info", itemJourneyInfo);
+      localStorage.setItem(
+        "lines_journey_info",
+        JSON.stringify(itemJourneyInfo)
+      );
+    }
+  } catch (err) {
+    console.log("Error in storing items journey info", err);
+  }
+};
 
-//   const productMetadata = product?.metadata;
-//   const productDetails =
-//     getMetadataValue(productMetadata, "product_details") &&
-//     JSON.parse(getMetadataValue(productMetadata, "product_details"));
+export const getItemJourneyInfo = variant_id => {
+  try {
+    const itemsWithJourneyInfo =
+      localStorage.getItem("lines_journey_info") &&
+      parseJson(localStorage.getItem("lines_journey_info"));
+    if (Array.isArray(itemsWithJourneyInfo)) {
+      let requiredItem = itemsWithJourneyInfo?.find(
+        item => item.variant_id == variant_id
+      );
+      if (requiredItem) {
+        requiredItem = {
+          ...requiredItem,
+          productListId: requiredItem?.productListId?.slice(0, 1)?.join(","),
+          addedFrom: requiredItem?.addedFrom
+            ?.slice(0, 1)
+            ?.map(addedfrom => getItemListName(addedfrom))
+            ?.join(","),
+        };
+      }
+      return requiredItem;
+    }
+  } catch (err) {
+    console.log("Error in updated lines_journey_info", err);
+  }
+};
 
-//   const manufacturedBy = filterOnKey(
-//     productDetails?.product_information,
-//     "Manufactured By"
-//   );
+export const addToCartDataLayer = (
+  res: CartMethodsReturn,
+  product: any,
+  variantId: string,
+  selectedVariantProvided?: any,
+  ctTitle?: string | null,
+  user?: UserFragment,
+  productListId?: string,
+  cta_type?: string,
+  parentProducts?: string,
+  index?: number,
+  cta_position?: string
+) => {
+  console.log("indexinmisc", index);
+  const selectedVariant =
+    selectedVariantProvided?.variant ||
+    product?.variants?.filter((variant: any) => variant?.id === variantId)[0];
 
-//   const countryOfOrigin = filterOnKey(
-//     productDetails?.product_information,
-//     "Country of origin"
-//   );
+  const productMetadata = product?.metadata;
+  const productDetails =
+    getMetadataValue(productMetadata, "product_details") &&
+    JSON.parse(getMetadataValue(productMetadata, "product_details"));
 
-//   const checkoutMetadata = res?.data?.metadata;
-//   const variantMetadata = selectedVariant?.metadata;
+  const manufacturedBy = filterOnKey(
+    productDetails?.product_information,
+    "Manufactured By"
+  );
 
-//   const trackingId = getMetadataValue(checkoutMetadata, "tracking_id");
-//   const salePrice = getMetadataValue(variantMetadata, "listPrice");
-//   const attributes = selectedVariant?.attributes?.map((item: any) => {
-//     return {
-//       key: `${item?.attribute?.name}`,
-//       value: `${item?.values[0]?.name}`,
-//     };
-//   });
-//   const product_url = generateProductUrl(
-//     product?.id,
-//     product?.name,
-//     product?.slug
-//   );
-//   if (
-//     selectedVariant?.attributes?.length &&
-//     selectedVariant?.attributes[0]?.values.length &&
-//     selectedVariant?.attributes[0]?.values[0]?.value
-//   ) {
-//     const slug = selectedVariant?.attributes[0].attribute.slug;
-//     const slug_value = selectedVariant?.attributes[0].values[0].value;
-//     var variant_url = queryString.stringifyUrl(
-//       {
-//         query: { [slug]: slug_value },
-//         url: product_url,
-//       },
-//       { skipEmptyString: true }
-//     );
-//   } else {
-//     var variant_url = product_url;
-//   }
-//   let product_id;
-//   try {
-//     product_id = getDBIdFromGraphqlId(product?.id, "Product");
-//   } catch (err) {
-//     product_id = product?.id;
-//   }
-//   if (selectedVariant?.sku) {
-//     skuToUserPropertyClevertap(selectedVariant?.sku, "ADD");
-//   }
+  const countryOfOrigin = filterOnKey(
+    productDetails?.product_information,
+    "Country of origin"
+  );
 
-//   if (window.dataLayer) {
-//     window.dataLayer.push({ ecommerce: null });
-//   }
+  const checkoutMetadata = res?.data?.metadata;
+  const variantMetadata = selectedVariant?.metadata;
 
-//   const eventName = getAtcEventName(ctTitle);
+  const trackingId = getMetadataValue(checkoutMetadata, "tracking_id");
+  const salePrice = getMetadataValue(variantMetadata, "listPrice");
+  const attributes = selectedVariant?.attributes?.map((item: any) => {
+    return {
+      key: `${item?.attribute?.name}`,
+      value: `${item?.values[0]?.name}`,
+    };
+  });
+  const product_url = generateProductUrl(
+    product?.id,
+    product?.name,
+    product?.slug
+  );
+  if (
+    selectedVariant?.attributes?.length &&
+    selectedVariant?.attributes[0]?.values.length &&
+    selectedVariant?.attributes[0]?.values[0]?.value
+  ) {
+    const slug = selectedVariant?.attributes[0].attribute.slug;
+    const slug_value = selectedVariant?.attributes[0].values[0].value;
+    var variant_url = queryString.stringifyUrl(
+      {
+        query: { [slug]: slug_value },
+        url: product_url,
+      },
+      { skipEmptyString: true }
+    );
+  } else {
+    var variant_url = product_url;
+  }
+  let product_id;
+  try {
+    product_id = getDBIdFromGraphqlId(product?.id, "Product");
+  } catch (err) {
+    product_id = product?.id;
+  }
+  if (selectedVariant?.sku) {
+    skuToUserPropertyClevertap(selectedVariant?.sku, "ADD");
+  }
 
-//   // const eventName =
-//   //   ctTitle === "plixlife-faster-results"
-//   //     ? gtmConfig.pdpCrossSellAtc.value
-//   //     : ctTitle === "plixlife-faster-results-cart"
-//   //     ? gtmConfig.cartCrossSellAtc.value
-//   //     : gtmConfig.addedToCart.value;
+  if (window.dataLayer) {
+    window.dataLayer.push({ ecommerce: null });
+  }
 
-//   (window.dataLayer = window.dataLayer || []).push({
-//     event: eventName,
-//     ecommerce: {
-//       currencyCode: "INR",
-//       parentProduct: parentProducts || undefined,
-//       add: {
-//         productName: product?.name,
-//         products: [
-//           {
-//             name: product?.name,
-//             id: product_id,
-//             price: selectedVariant?.pricing?.price?.gross?.amount,
-//             mrp: Number(salePrice),
-//             quantity: 1,
-//             brand: META_DEFAULTS.name,
-//             manufacturedBy,
-//             countryOfOrigin,
-//             sku: selectedVariant?.sku,
-//             attributes,
-//             category: product?.category?.name,
-//             image_url: product.thumbnail2x?.url,
-//             variant_url,
-//             product_url,
-//           },
-//         ],
-//         trackingId,
-//       },
-//     },
-//   });
-//   const productVariantName = getVariantAttributes("Flavors", selectedVariant);
-//   const sizeAttr = getVariantAttributes("Size", selectedVariant);
-//   const { listprice, discountedPrice, discountAmount } = getPrices(
-//     product,
-//     false,
-//     selectedVariant
-//   );
+  const eventName = getAtcEventName(ctTitle);
 
-//   if (ENABLE_GA4) {
-//     const categories = getItemCategoriesFromAttribute(selectedVariant);
-//     const isMonthIncluded = categories?.sizeCategory2
-//       ?.toLowerCase()
-//       ?.includes("month");
-//     if (window.dataLayer) {
-//       window.dataLayer.push({ ecommerce: null });
-//     }
-//     (window.dataLayer = window.dataLayer || []).push({
-//       event: gtmConfig.addToCart.value,
-//       user_ID: user?.id ? getDBIdFromGraphqlId(user?.id, "User") : undefined,
-//       user_type: user ? "logged_in" : "logged_out", // Guest user or Loggedin user
-//       membership_status: isMember(user)
-//         ? "plix_club_member"
-//         : "not_a_plix_club_member",
-//       cta_position: cta_position || "NA",
-//       cta_type,
-//       ecommerce: {
-//         currency: "INR",
-//         value: discountedPrice,
-//         items: [
-//           {
-//             item_name: product?.name,
-//             item_id: product_id,
-//             price: discountedPrice,
-//             item_list_name: getItemListName(ctTitle) || "NA",
-//             item_list_id: productListId || "NA",
-//             currency: "INR",
-//             item_variant: productVariantName,
-//             discount: discountAmount,
-//             quantity: 1,
-//             item_brand:
-//               META_DEFAULTS.name === "plixlifefc"
-//                 ? "plixlife"
-//                 : META_DEFAULTS.name,
-//             item_category: product?.category?.name,
-//             item_category2: isMonthIncluded ? categories?.sizeCategory2 : "NA",
-//             item_category3: categories?.sizeCategory1 || "NA",
-//             item_category4: isMonthIncluded
-//               ? "NA"
-//               : categories?.sizeCategory2 || "NA",
-//             index: typeof index === "number" ? index + 1 : "NA",
-//           },
-//         ],
-//       },
-//     });
-//   }
-// };
+  // const eventName =
+  //   ctTitle === "plixlife-faster-results"
+  //     ? gtmConfig.pdpCrossSellAtc.value
+  //     : ctTitle === "plixlife-faster-results-cart"
+  //     ? gtmConfig.cartCrossSellAtc.value
+  //     : gtmConfig.addedToCart.value;
+
+  (window.dataLayer = window.dataLayer || []).push({
+    event: eventName,
+    ecommerce: {
+      currencyCode: "INR",
+      parentProduct: parentProducts || undefined,
+      add: {
+        productName: product?.name,
+        products: [
+          {
+            name: product?.name,
+            id: product_id,
+            price: selectedVariant?.pricing?.price?.gross?.amount,
+            mrp: Number(salePrice),
+            quantity: 1,
+            brand: META_DEFAULTS.name,
+            manufacturedBy,
+            countryOfOrigin,
+            sku: selectedVariant?.sku,
+            attributes,
+            category: product?.category?.name,
+            image_url: product.thumbnail2x?.url,
+            variant_url,
+            product_url,
+          },
+        ],
+        trackingId,
+      },
+    },
+  });
+  const productVariantName = getVariantAttributes("Flavors", selectedVariant);
+  const sizeAttr = getVariantAttributes("Size", selectedVariant);
+  const { listprice, discountedPrice, discountAmount } = getPrices(
+    product,
+    false,
+    selectedVariant
+  );
+
+  if (ENABLE_GA4) {
+    const categories = getItemCategoriesFromAttribute(selectedVariant);
+    const isMonthIncluded = categories?.sizeCategory2
+      ?.toLowerCase()
+      ?.includes("month");
+    if (window.dataLayer) {
+      window.dataLayer.push({ ecommerce: null });
+    }
+    (window.dataLayer = window.dataLayer || []).push({
+      event: gtmConfig.addToCart.value,
+      user_ID: user?.id ? getDBIdFromGraphqlId(user?.id, "User") : undefined,
+      user_type: user ? "logged_in" : "logged_out", // Guest user or Loggedin user
+      membership_status: isMember(user)
+        ? "plix_club_member"
+        : "not_a_plix_club_member",
+      cta_position: cta_position || "NA",
+      cta_type,
+      ecommerce: {
+        currency: "INR",
+        value: discountedPrice,
+        items: [
+          {
+            item_name: product?.name,
+            item_id: product_id,
+            price: discountedPrice,
+            item_list_name: getItemListName(ctTitle) || "NA",
+            item_list_id: productListId || "NA",
+            currency: "INR",
+            item_variant: productVariantName,
+            discount: discountAmount,
+            quantity: 1,
+            item_brand:
+              META_DEFAULTS.name === "plixlifefc"
+                ? "plixlife"
+                : META_DEFAULTS.name,
+            item_category: product?.category?.name,
+            item_category2: isMonthIncluded ? categories?.sizeCategory2 : "NA",
+            item_category3: categories?.sizeCategory1 || "NA",
+            item_category4: isMonthIncluded
+              ? "NA"
+              : categories?.sizeCategory2 || "NA",
+            index: typeof index === "number" ? index + 1 : "NA",
+          },
+        ],
+      },
+    });
+  }
+};
 
 // export const trackScrollAndTime = () => {
 //   if (ENABLE_GA4 && gtmConfig?.engagedVisit?.enable) {
@@ -511,76 +524,76 @@ export const imageURLReplaceWithCDN = (imageURL: string | null) => {
 //   }
 // };
 
-// export const datalayerEventForByb = (
-//   eventType = "add",
-//   mainProductVaraintLines: any,
-//   user: any,
-//   lines: any,
-//   cta_type = "add"
-// ) => {
-//   if (ENABLE_GA4) {
-//     const product = mainProductVaraintLines?.product;
-//     const pageurl = generatePageUrl(lines?.boxType);
-//     const selectedVariant = product?.variant;
-//     const categories = getItemCategoriesFromAttribute(selectedVariant);
-//     const isMonthIncluded = categories?.sizeCategory2
-//       ?.toLowerCase()
-//       ?.includes("month");
+export const datalayerEventForByb = (
+  eventType = "add",
+  mainProductVaraintLines: any,
+  user: any,
+  lines: any,
+  cta_type = "add"
+) => {
+  if (ENABLE_GA4) {
+    const product = mainProductVaraintLines?.product;
+    const pageurl = generatePageUrl(lines?.boxType);
+    const selectedVariant = product?.variant;
+    const categories = getItemCategoriesFromAttribute(selectedVariant);
+    const isMonthIncluded = categories?.sizeCategory2
+      ?.toLowerCase()
+      ?.includes("month");
 
-//     const giftBoxItemsProducts = isGiftBoxProduct(lines?.boxItemSKU);
-//     const bybItems = lines?.items?.map((item: any) => {
-//       return {
-//         item_name: item?.name,
-//         item_id: item?.variant_id,
-//         price: item?.price,
-//         item_list_name: lines?.boxType,
-//         currency: "INR",
-//         quantity: 1,
-//         item_brand:
-//           META_DEFAULTS.name === "plixlifefc" ? "plixlife" : META_DEFAULTS.name,
-//         item_category: product?.category?.name,
-//         item_category2: isMonthIncluded ? categories?.sizeCategory2 : "NA",
-//         item_category3: categories?.sizeCategory1 || "NA",
-//         item_category4: isMonthIncluded
-//           ? "NA"
-//           : categories?.sizeCategory2 || "NA",
-//         index: "NA",
-//       };
-//     });
-//     if (window.dataLayer) {
-//       window.dataLayer.push({ ecommerce: null });
-//     }
-//     (window.dataLayer = window.dataLayer || []).push({
-//       event:
-//         eventType === "remove"
-//           ? gtmConfig.removeFromCartGa4.value
-//           : gtmConfig.addToCart.value,
-//       user_ID: user?.id ? getDBIdFromGraphqlId(user?.id, "User") : undefined,
-//       user_type: user ? "logged_in" : "logged_out", // Guest user or Loggedin user
-//       membership_status: isMember(user)
-//         ? "plix_club_member"
-//         : "not_a_plix_club_member",
-//       cta_position: "NA",
-//       cta_type,
-//       ecommerce: {
-//         currency: "INR",
-//         name: product?.name,
-//         id: product?.id,
-//         value: mainProductVaraintLines?.pricing?.price?.gross?.amount,
-//         quantity: 1,
-//         brand: META_DEFAULTS.name,
-//         sku: mainProductVaraintLines?.sku,
-//         category: product?.category?.name,
-//         image_url: product.thumbnail2x?.url,
-//         pageurl: giftBoxItemsProducts ? pages.GIFT_BOX : pageurl,
-//         items: bybItems,
-//       },
-//     });
-//     if (mainProductVaraintLines?.sku) {
-//       skuToUserPropertyClevertap(mainProductVaraintLines?.sku, "ADD");
-//     }
-//   }
-// };
+    const giftBoxItemsProducts = isGiftBoxProduct(lines?.boxItemSKU);
+    const bybItems = lines?.items?.map((item: any) => {
+      return {
+        item_name: item?.name,
+        item_id: item?.variant_id,
+        price: item?.price,
+        item_list_name: lines?.boxType,
+        currency: "INR",
+        quantity: 1,
+        item_brand:
+          META_DEFAULTS.name === "plixlifefc" ? "plixlife" : META_DEFAULTS.name,
+        item_category: product?.category?.name,
+        item_category2: isMonthIncluded ? categories?.sizeCategory2 : "NA",
+        item_category3: categories?.sizeCategory1 || "NA",
+        item_category4: isMonthIncluded
+          ? "NA"
+          : categories?.sizeCategory2 || "NA",
+        index: "NA",
+      };
+    });
+    if (window.dataLayer) {
+      window.dataLayer.push({ ecommerce: null });
+    }
+    (window.dataLayer = window.dataLayer || []).push({
+      event:
+        eventType === "remove"
+          ? gtmConfig.removeFromCartGa4.value
+          : gtmConfig.addToCart.value,
+      user_ID: user?.id ? getDBIdFromGraphqlId(user?.id, "User") : undefined,
+      user_type: user ? "logged_in" : "logged_out", // Guest user or Loggedin user
+      membership_status: isMember(user)
+        ? "plix_club_member"
+        : "not_a_plix_club_member",
+      cta_position: "NA",
+      cta_type,
+      ecommerce: {
+        currency: "INR",
+        name: product?.name,
+        id: product?.id,
+        value: mainProductVaraintLines?.pricing?.price?.gross?.amount,
+        quantity: 1,
+        brand: META_DEFAULTS.name,
+        sku: mainProductVaraintLines?.sku,
+        category: product?.category?.name,
+        image_url: product.thumbnail2x?.url,
+        pageurl: giftBoxItemsProducts ? pages.GIFT_BOX : pageurl,
+        items: bybItems,
+      },
+    });
+    if (mainProductVaraintLines?.sku) {
+      skuToUserPropertyClevertap(mainProductVaraintLines?.sku, "ADD");
+    }
+  }
+};
 
 // export const productAddedToCartForByob = (
 //   mainVariantlines: any,
@@ -847,20 +860,20 @@ export const productListImpressionDatalayer = (
   }
 };
 
-// const getAtcEventName = (ctTitle: string) => {
-//   switch (ctTitle) {
-//     case "plixlife-faster-results":
-//       return gtmConfig.pdpCrossSellAtc.value;
-//     case "plixlife-faster-results-cart":
-//       return gtmConfig.cartCrossSellAtc.value;
-//     case "upsell-product-cart":
-//       return "ATC - Cart Upsell";
-//     case "variant-picker-cart":
-//       return "ATC - Cart Variant Picker";
-//     default:
-//       return gtmConfig.addedToCart.value;
-//   }
-// };
+const getAtcEventName = (ctTitle: string) => {
+  switch (ctTitle) {
+    case "plixlife-faster-results":
+      return gtmConfig.pdpCrossSellAtc.value;
+    case "plixlife-faster-results-cart":
+      return gtmConfig.cartCrossSellAtc.value;
+    case "upsell-product-cart":
+      return "ATC - Cart Upsell";
+    case "variant-picker-cart":
+      return "ATC - Cart Variant Picker";
+    default:
+      return gtmConfig.addedToCart.value;
+  }
+};
 
 export const getItemListName = (ctTitle: string) => {
   switch (ctTitle) {
@@ -989,17 +1002,17 @@ export const productClickDatalayer = (
   }
 };
 
-// export const isBoxProduct = (item: any) => {
-//   return item?.variant?.sku?.includes("BOXITEM-");
-// };
+export const isBoxProduct = (item: any) => {
+  return item?.variant?.sku?.includes("BOXITEM-");
+};
 
-// export const isComboProduct = (item: any) => {
-//   return item?.variant?.sku?.includes("BOXITEM-COMBO-");
-// };
+export const isComboProduct = (item: any) => {
+  return item?.variant?.sku?.includes("BOXITEM-COMBO-");
+};
 
-// export const isGiftBoxProduct = (sku: any) => {
-//   return sku?.includes("BOXITEM-GIFT-");
-// };
+export const isGiftBoxProduct = (sku: any) => {
+  return sku?.includes("BOXITEM-GIFT-");
+};
 
 // export const setRefreshToken = (token: string | null): void => {
 //   if (typeof window !== "undefined") {
@@ -1104,26 +1117,26 @@ export const productClickDatalayer = (
 //   }, true);
 // };
 
-// export const skuToUserPropertyClevertap = (
-//   sku: string,
-//   actionType: "ADD" | "REMOVE"
-// ) => {
-//   const clevertap = makeClevertap();
-//   switch (actionType) {
-//     case "ADD":
-//       if (typeof clevertap?.addMultiValuesForKey === "function" && sku) {
-//         clevertap.addMultiValuesForKey("variant_sku", [sku]);
-//       }
-//       break;
-//     case "REMOVE":
-//       if (typeof clevertap?.removeMultiValuesForKey === "function" && sku) {
-//         clevertap.removeMultiValuesForKey("variant_sku", [sku]);
-//       }
-//       break;
-//     default:
-//       break;
-//   }
-// };
+export const skuToUserPropertyClevertap = (
+  sku: string,
+  actionType: "ADD" | "REMOVE"
+) => {
+  const clevertap = makeClevertap();
+  switch (actionType) {
+    case "ADD":
+      if (typeof clevertap?.addMultiValuesForKey === "function" && sku) {
+        clevertap.addMultiValuesForKey("variant_sku", [sku]);
+      }
+      break;
+    case "REMOVE":
+      if (typeof clevertap?.removeMultiValuesForKey === "function" && sku) {
+        clevertap.removeMultiValuesForKey("variant_sku", [sku]);
+      }
+      break;
+    default:
+      break;
+  }
+};
 
 // export const dateformatter = (date: any) => {
 //   let options = { year: "numeric", month: "short", day: "numeric" };
@@ -1261,32 +1274,32 @@ export const customEventTrigger = (
   }
 };
 
-// export const getVariantAttributes = (attr_name, variant) => {
-//   const attribute = variant?.attributes?.find(
-//     item => item?.attribute?.name === attr_name
-//   );
-//   return Array.isArray(attribute?.values) && attribute?.values[0]?.value;
-// };
+export const getVariantAttributes = (attr_name, variant) => {
+  const attribute = variant?.attributes?.find(
+    item => item?.attribute?.name === attr_name
+  );
+  return Array.isArray(attribute?.values) && attribute?.values[0]?.value;
+};
 
-// export const getItemCategoriesFromAttribute = variant => {
-//   if (variant) {
-//     const sizeAttribute = variant?.attributes?.find(
-//       item => item?.attribute?.name === "Size"
-//     )?.values[0]?.value;
+export const getItemCategoriesFromAttribute = variant => {
+  if (variant) {
+    const sizeAttribute = variant?.attributes?.find(
+      item => item?.attribute?.name === "Size"
+    )?.values[0]?.value;
 
-//     const flavourAttribute = variant?.attributes?.find(
-//       item => item?.attribute?.name === "Flavors"
-//     )?.values[0]?.value;
-//     const sizeCategory1 =
-//       typeof sizeAttribute === "string" ? sizeAttribute?.split("__")[0] : "NA";
-//     const sizeCategory2 =
-//       typeof sizeAttribute === "string" ? sizeAttribute?.split("__")[1] : "NA";
-//     const flavourCategory = flavourAttribute;
+    const flavourAttribute = variant?.attributes?.find(
+      item => item?.attribute?.name === "Flavors"
+    )?.values[0]?.value;
+    const sizeCategory1 =
+      typeof sizeAttribute === "string" ? sizeAttribute?.split("__")[0] : "NA";
+    const sizeCategory2 =
+      typeof sizeAttribute === "string" ? sizeAttribute?.split("__")[1] : "NA";
+    const flavourCategory = flavourAttribute;
 
-//     return { sizeCategory1, sizeCategory2, flavourCategory };
-//   }
-//   return {};
-// };
+    return { sizeCategory1, sizeCategory2, flavourCategory };
+  }
+  return {};
+};
 
 export const getPrices = (
   product: any,
@@ -1479,110 +1492,110 @@ export const triggerHomepageBannerEvent = (
 //   return totalDiscount;
 // };
 
-// export const getCheckoutMetaForSubscription = (
-//   variant: ProductVariant,
-//   checkoutMetaData: MetadataInputV2,
-//   actionType: "ADD" | "REMOVE"
-// ) => {
-//   let subscriptionKeyData =
-//     checkoutMetaData &&
-//     getMetadataValue(checkoutMetaData, "subscription_skus") &&
-//     parseJson(getMetadataValue(checkoutMetaData, "subscription_skus"));
+export const getCheckoutMetaForSubscription = (
+  variant: ProductVariant,
+  checkoutMetaData: MetadataInputV2,
+  actionType: "ADD" | "REMOVE"
+) => {
+  let subscriptionKeyData =
+    checkoutMetaData &&
+    getMetadataValue(checkoutMetaData, "subscription_skus") &&
+    parseJson(getMetadataValue(checkoutMetaData, "subscription_skus"));
 
-//   subscriptionKeyData = Array.isArray(subscriptionKeyData)
-//     ? subscriptionKeyData
-//     : [];
-//   if (variant?.sku) {
-//     if (actionType === "ADD") {
-//       if (!subscriptionKeyData?.includes(variant.sku)) {
-//         console.log("subscriptionKeyData", subscriptionKeyData, variant.sku);
-//         subscriptionKeyData = [...subscriptionKeyData, variant.sku];
-//         return subscriptionKeyData;
-//       }
-//     } else if (actionType === "REMOVE") {
-//       if (subscriptionKeyData?.includes(variant.sku)) {
-//         return subscriptionKeyData.filter(
-//           (v_sku: string) => v_sku !== variant.sku
-//         );
-//       }
-//     }
-//   }
+  subscriptionKeyData = Array.isArray(subscriptionKeyData)
+    ? subscriptionKeyData
+    : [];
+  if (variant?.sku) {
+    if (actionType === "ADD") {
+      if (!subscriptionKeyData?.includes(variant.sku)) {
+        console.log("subscriptionKeyData", subscriptionKeyData, variant.sku);
+        subscriptionKeyData = [...subscriptionKeyData, variant.sku];
+        return subscriptionKeyData;
+      }
+    } else if (actionType === "REMOVE") {
+      if (subscriptionKeyData?.includes(variant.sku)) {
+        return subscriptionKeyData.filter(
+          (v_sku: string) => v_sku !== variant.sku
+        );
+      }
+    }
+  }
 
-//   return subscriptionKeyData;
-// };
+  return subscriptionKeyData;
+};
 
-// export const getCheckoutMetaForVariantAttributeWeight = (
-//   variantId: string,
-//   checkoutMetaData: MetadataInputV2,
-//   actionType: "ADD" | "REMOVE" | "UPDATE",
-//   weight?: string,
-//   removeVariantId?: string
-// ) => {
-//   let variantAttributeWeightValue =
-//     (checkoutMetaData &&
-//       getMetadataValue(checkoutMetaData, "variant_attribute_weight") &&
-//       parseJson(
-//         getMetadataValue(checkoutMetaData, "variant_attribute_weight")
-//       )) ||
-//     [];
+export const getCheckoutMetaForVariantAttributeWeight = (
+  variantId: string,
+  checkoutMetaData: MetadataInputV2,
+  actionType: "ADD" | "REMOVE" | "UPDATE",
+  weight?: string,
+  removeVariantId?: string
+) => {
+  let variantAttributeWeightValue =
+    (checkoutMetaData &&
+      getMetadataValue(checkoutMetaData, "variant_attribute_weight") &&
+      parseJson(
+        getMetadataValue(checkoutMetaData, "variant_attribute_weight")
+      )) ||
+    [];
 
-//   const addAttributeWeight = (
-//     getIndexOfAttributeWeight: any,
-//     variantWeightData: any
-//   ) => {
-//     if (
-//       getIndexOfAttributeWeight !== -1 &&
-//       !!variantWeightData[getIndexOfAttributeWeight]?.weight
-//     ) {
-//       variantWeightData[getIndexOfAttributeWeight].weight = weight;
-//     } else {
-//       variantWeightData.push({
-//         variant_id: variantId,
-//         weight: weight,
-//       });
-//     }
-//   };
+  const addAttributeWeight = (
+    getIndexOfAttributeWeight: any,
+    variantWeightData: any
+  ) => {
+    if (
+      getIndexOfAttributeWeight !== -1 &&
+      !!variantWeightData[getIndexOfAttributeWeight]?.weight
+    ) {
+      variantWeightData[getIndexOfAttributeWeight].weight = weight;
+    } else {
+      variantWeightData.push({
+        variant_id: variantId,
+        weight: weight,
+      });
+    }
+  };
 
-//   let variantWeightData =
-//     Array.isArray(variantAttributeWeightValue) &&
-//       variantAttributeWeightValue?.length
-//       ? variantAttributeWeightValue
-//       : [];
+  let variantWeightData =
+    Array.isArray(variantAttributeWeightValue) &&
+      variantAttributeWeightValue?.length
+      ? variantAttributeWeightValue
+      : [];
 
-//   let getIndexOfAttributeWeight: number =
-//     variantWeightData?.length &&
-//     variantWeightData?.findIndex((item: any) => variantId === item?.variant_id);
+  let getIndexOfAttributeWeight: number =
+    variantWeightData?.length &&
+    variantWeightData?.findIndex((item: any) => variantId === item?.variant_id);
 
-//   switch (actionType) {
-//     case "ADD":
-//       addAttributeWeight(getIndexOfAttributeWeight, variantWeightData);
-//       return {
-//         key: "variant_attribute_weight",
-//         value: JSON.stringify(variantWeightData),
-//       };
-//     case "REMOVE":
-//       let deleteVariantWeightData = variantWeightData?.filter(
-//         (item: any) => variantId !== item?.variant_id
-//       );
-//       return {
-//         key: "variant_attribute_weight",
-//         value: JSON.stringify(deleteVariantWeightData),
-//       };
+  switch (actionType) {
+    case "ADD":
+      addAttributeWeight(getIndexOfAttributeWeight, variantWeightData);
+      return {
+        key: "variant_attribute_weight",
+        value: JSON.stringify(variantWeightData),
+      };
+    case "REMOVE":
+      let deleteVariantWeightData = variantWeightData?.filter(
+        (item: any) => variantId !== item?.variant_id
+      );
+      return {
+        key: "variant_attribute_weight",
+        value: JSON.stringify(deleteVariantWeightData),
+      };
 
-//     case "UPDATE":
-//       addAttributeWeight(getIndexOfAttributeWeight, variantWeightData);
-//       let deleteVariantWeightDataNew = variantWeightData?.filter(
-//         (item: any) => removeVariantId !== item?.variant_id
-//       );
-//       return {
-//         key: "variant_attribute_weight",
-//         value: JSON.stringify(deleteVariantWeightDataNew),
-//       };
+    case "UPDATE":
+      addAttributeWeight(getIndexOfAttributeWeight, variantWeightData);
+      let deleteVariantWeightDataNew = variantWeightData?.filter(
+        (item: any) => removeVariantId !== item?.variant_id
+      );
+      return {
+        key: "variant_attribute_weight",
+        value: JSON.stringify(deleteVariantWeightDataNew),
+      };
 
-//     default: {
-//     }
-//   }
-// };
+    default: {
+    }
+  }
+};
 
 // export const convertStepsData = (steps: any) => {
 //   const result: any = {};

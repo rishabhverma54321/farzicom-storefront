@@ -8,7 +8,7 @@
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "bundler", 
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
@@ -20,15 +20,18 @@
       "@globalTypes/*": ["./gqlTypes/*"],
       "@utils/*": ["./src/utils/*"],
       "@styles/*": ["./src/styles/*"],
-      "@hooks/*":["./src/hooks/*"],
+      "@styles": ["./src/styles/index.ts"],
+      "@hooks/*": ["./src/hooks/*"],
       "images/*": ["./src/images/*"],
-      "@types/*": ["./src/types/*"],
-    }
+      "@types/*": ["./src/types/*"]
+    },
+    "plugins": [
+      {
+        "transform": "@formatjs/ts-transformer",
+        "import": "default"
+      }
+    ]
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-  ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
