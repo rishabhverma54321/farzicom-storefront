@@ -38,19 +38,21 @@ export const SearchSortList: React.FC<ISearchSortListProps> = ({ overlay }) => {
                 {sortOptions && Array.isArray(sortOptions) ? (
                   sortOptions.map((option, index) => {
                     return (
-                      <S.SortItem
-                        onClick={() => {
-                          onSortValueChange(option.label);
-                          overlay.hide();
-                        }}
-                        borderBottom={index !== sortOptions.length - 1}
-                        isSelected={
-                          JSON.stringify(selectedSorting) ==
-                          JSON.stringify(option.field)
-                        }
-                      >
-                        {option.label}
-                      </S.SortItem>
+                      <React.Fragment key={option.label + index}>
+                        <S.SortItem
+                          onClick={() => {
+                            onSortValueChange(option.label);
+                            overlay.hide();
+                          }}
+                          borderBottom={index !== sortOptions.length - 1}
+                          isSelected={
+                            JSON.stringify(selectedSorting) ==
+                            JSON.stringify(option.field)
+                          }
+                        >
+                          {option.label}
+                        </S.SortItem>
+                      </React.Fragment>
                     );
                   })
                 ) : (

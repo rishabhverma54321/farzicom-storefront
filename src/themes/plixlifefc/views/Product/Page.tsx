@@ -75,7 +75,7 @@ import dynamic from "next/dynamic";
 import { CachedImage } from "@components/molecules/CachedImage";
 import { FireWorkReelSection } from "@components/organisms";
 import { getDBIdFromGraphqlId } from "@utils/core";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import { useAuthState, useCart, useCartState } from "@saleor/sdk";
 import { useRouter } from "next/router";
 import MemoConsIcon from "@components/atoms/SvgIcons/consICon";

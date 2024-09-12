@@ -8,7 +8,7 @@ import NoPhoto from "images/no-photo.svg";
 import { IImage } from "@types";
 import Imgix from "react-imgix";
 import { IMAGE_CDN_PROVIDERS, IMAGE_CDN } from "Themes/config";
-import { useImageURLReplaceWithCDN } from "@utils/misc";
+import { imageURLReplaceWithCDN } from "@utils/misc";
 import Image from "next/image";
 
 export const CachedImage: React.FC<IImage> = ({
@@ -90,7 +90,7 @@ export const CachedImage: React.FC<IImage> = ({
     );
 
   if (isNextImage && IMAGE_CDN_PROVIDERS[IMAGE_CDN].useCDN) {
-    const replacedUrl = decodeURIComponent(useImageURLReplaceWithCDN(url));
+    const replacedUrl = decodeURIComponent(imageURLReplaceWithCDN(url));
     return (
       <>
         <ConstructImageSchema data={schemaObj} />
@@ -114,7 +114,7 @@ export const CachedImage: React.FC<IImage> = ({
   }
 
   if (IMAGE_CDN_PROVIDERS[IMAGE_CDN].useCDN) {
-    const replacedUrl = decodeURIComponent(useImageURLReplaceWithCDN(url));
+    const replacedUrl = decodeURIComponent(imageURLReplaceWithCDN(url));
     return (
       <>
         <ConstructImageSchema data={schemaObj} />

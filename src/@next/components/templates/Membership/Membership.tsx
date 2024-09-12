@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import Media from "react-media";
 import {
   getMetadataValue,
-  useImageURLReplaceWithCDN,
+  imageURLReplaceWithCDN,
   parseJson,
 } from "@utils/misc";
 import { Card } from "@components/molecules/Card";
@@ -15,7 +15,7 @@ import FaqAccordian from "@components/organisms/FaqAccordian";
 import Grid from '@mui/material/Grid';
 import ContainerSkeleton from "@components/molecules/ContainerSkeleton";
 import { RichTextContent } from "@components/atoms/RichTextContent";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import { NewAddToCartButton } from "@components/molecules/NewAddToCartButton";
 import { TaxedMoney } from "@components/containers/TaxedMoney";
 import MemoPdpAddToCartPlix from "@components/atoms/SvgIcons/PdpAddToCartPlix";
@@ -78,7 +78,7 @@ const Funfact: React.FC<any> = ({ metadata }) => {
         {Funfact?.image && (
           <div className="funfactContainer__image">
             <Image
-              src={useImageURLReplaceWithCDN(Funfact?.image || "")}
+              src={imageURLReplaceWithCDN(Funfact?.image || "")}
               width={100}
               height={100}
             />
@@ -163,7 +163,7 @@ const Benefits: React.FC<any> = ({ metadata }) => {
                             }}
                           >
                             <Image
-                              src={useImageURLReplaceWithCDN(item?.image || "")}
+                              src={imageURLReplaceWithCDN(item?.image || "")}
                               alt={item?.content || ""}
                               width={100}
                               height={100}

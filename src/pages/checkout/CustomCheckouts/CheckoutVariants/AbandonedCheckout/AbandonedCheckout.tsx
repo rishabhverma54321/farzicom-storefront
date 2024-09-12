@@ -3,7 +3,7 @@ import { checkoutDetails } from "@components/templates/AppHeader/queries";
 import { CircularProgress } from '@mui/material';
 import { useAuthState, useCheckout, useCheckoutState } from "@saleor/sdk";
 import { client } from "@temp/client";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import styles from "./index.module.scss";
 import { useRouter } from "next/router";
 import Input from "@components/farzicom-ui-kit/Input";
@@ -76,7 +76,7 @@ const AbandonedCheckout = ({ headerAndFooterData, shopMeta }) => {
 
   useEffect(() => {
     if (!authenticating && router?.query?.token && !userCheckoutLoading) {
-      if (checkout?.id && typeof window !== "undefined") {
+      if (checkout?.id && window && typeof window !== "undefined") {
         localStorage.removeItem("data_checkout");
         localStorage.removeItem("data_checkout_discounts");
       }

@@ -2,6 +2,7 @@ import { defineMessages, IntlShape } from "react-intl";
 
 export const commonMessages = defineMessages({
   search: {
+    id: "search",
     defaultMessage: "search",
   },
   membership: {

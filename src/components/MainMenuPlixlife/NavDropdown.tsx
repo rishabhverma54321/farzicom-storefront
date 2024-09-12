@@ -4,7 +4,7 @@ import MemoTrending from "@components/atoms/SvgIcons/Trending";
 import {
   getMenuUrl,
   getMetadataValue,
-  useImageURLReplaceWithCDN,
+  imageURLReplaceWithCDN,
 } from "@utils/misc";
 import classNames from "classnames";
 import * as React from "react";
@@ -162,11 +162,13 @@ class NavDropdown extends React.PureComponent<
                     .slice(0, 2)
                     .map((child, index) => {
                       return (
-                        <ProductTile
-                          child={child}
-                          index={index}
-                          hideOverlayHandler={this.hideOverlayHandler}
-                        />
+                        <React.Fragment key={'nav-drop' + index}>
+                          <ProductTile
+                            child={child}
+                            index={index}
+                            hideOverlayHandler={this.hideOverlayHandler}
+                          />
+                        </React.Fragment>
                       );
                     })}
               </div>

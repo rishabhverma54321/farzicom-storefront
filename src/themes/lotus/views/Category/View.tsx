@@ -143,18 +143,20 @@ export const View: React.FC<ViewProps> = ({ match }) => {
         >
           {categoryData => {
             if (categoryData.loading) {
-              return [...Array(3)].map(() => (
-                <ContainerSkeleton
-                  render={{
-                    image: true,
-                    title: true,
-                    description: true,
-                    button: true,
-                  }}
-                  cardClass="o"
-                  containerClass="byconcernContainer"
-                  cardCount={window.screen.width < 720 ? 2 : 4}
-                />
+              return [...Array(3)].map((value, index) => (
+                <React.Fragment key={index}>
+                  <ContainerSkeleton
+                    render={{
+                      image: true,
+                      title: true,
+                      description: true,
+                      button: true,
+                    }}
+                    cardClass="o"
+                    containerClass="byconcernContainer"
+                    cardCount={window.screen.width < 720 ? 2 : 4}
+                  />
+                </React.Fragment>
               ));
             }
 
@@ -174,18 +176,20 @@ export const View: React.FC<ViewProps> = ({ match }) => {
               <TypedCategoryProductsQuery variables={variables}>
                 {categoryProducts => {
                   if (!canDisplayFilters && categoryProducts.loading) {
-                    return [...Array(3)].map(() => (
-                      <ContainerSkeleton
-                        render={{
-                          image: true,
-                          title: true,
-                          description: true,
-                          button: true,
-                        }}
-                        cardClass="o"
-                        containerClass="byconcernContainer"
-                        cardCount={window.screen.width < 720 ? 2 : 4}
-                      />
+                    return [...Array(3)].map((value, index) => (
+                      <React.Fragment key={index}>
+                        <ContainerSkeleton
+                          render={{
+                            image: true,
+                            title: true,
+                            description: true,
+                            button: true,
+                          }}
+                          cardClass="o"
+                          containerClass="byconcernContainer"
+                          cardCount={window.screen.width < 720 ? 2 : 4}
+                        />
+                      </React.Fragment>
                     ));
                   }
 

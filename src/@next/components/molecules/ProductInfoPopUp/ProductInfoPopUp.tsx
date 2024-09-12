@@ -16,7 +16,7 @@ import { CircularProgress } from "@mui/material";
 import * as S from "./style";
 import { getThisVariantPrice } from "../ProductCardPlixlife/stockHelpers";
 import { InnerOverlayContextInterface, OverlayContext, OverlayTheme, OverlayType } from "@temp/components";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import { addToCartTrack } from "farzicom-ui/lib/Track/addToCartTrack";
 
 enum MODAL_SIDES {

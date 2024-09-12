@@ -85,9 +85,6 @@ export const CartRow: React.FC<IProps> = ({
   handleShowMore,
   showVariantListPrice,
 }: IProps) => {
-  if (!name) {
-    return <Loader />;
-  }
   const [tempQuantity, setTempQuantity] = useState<string>(quantity.toString());
   const [isTooMuch, setIsTooMuch] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -270,7 +267,9 @@ export const CartRow: React.FC<IProps> = ({
       </S.Container>
     );
   }
-
+  if (!name) {
+    return <Loader />;
+  }
   return (
     <S.Container loading={loading}>
       <S.Wrapper data-test="cartRow" data-test-id={sku}>

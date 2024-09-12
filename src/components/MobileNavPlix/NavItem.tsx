@@ -172,14 +172,16 @@ const NavItem: React.FC<NavItemProps> = ({
             </StyledAccordionSummary>
             <StyledAccordionDetails>
               <S.SubMenu>
-                {item.children.map(child => (
-                  <SubNavItems
-                    type="child_1"
-                    items={child}
-                    displayNavItems={displayNavItems}
-                    navItemsId={navItemsId}
-                    hideOverlay={hideOverlay}
-                  />
+                {item.children.map((child, index) => (
+                  <React.Fragment key={'child_1' + index}>
+                    <SubNavItems
+                      type="child_1"
+                      items={child}
+                      displayNavItems={displayNavItems}
+                      navItemsId={navItemsId}
+                      hideOverlay={hideOverlay}
+                    />
+                  </React.Fragment>
                 ))}
               </S.SubMenu>
             </StyledAccordionDetails>

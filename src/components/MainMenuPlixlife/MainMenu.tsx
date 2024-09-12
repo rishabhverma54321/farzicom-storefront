@@ -33,7 +33,7 @@ import { useCustomLocation } from "@hooks/useCustomLocation";
 import HamburgerNew from "@components/atoms/SvgIcons/HamburgerNew";
 import { getUrlWithParams } from "@utils/misc";
 import HamburgerPlixNew from "@components/atoms/SvgIcons/HamburgerPlixNew";
-import RedirectCountryPopup from "@components/templates/AppHeader/RedirectCountryPopup"
+import RedirectCountryPopup from "@components/templates/AppHeader/RedirectCountryPopup";
 import Image from "next/image";
 import {
   customEventTrigger,
@@ -41,7 +41,7 @@ import {
   getTextWithoutEmoji,
   isMember,
   parseJson,
-  useImageURLReplaceWithCDN,
+  imageURLReplaceWithCDN,
 } from "@utils/misc";
 import { useWindowWidth } from "@hooks";
 import { useRouter } from "next/router";
@@ -62,27 +62,24 @@ import { clients, pages } from "gqlTypes/customGlobalTypes";
 import { DebouncedTextField } from "../Debounce";
 import MemoBackArrow from "@components/atoms/SvgIcons/BackButtonArrow";
 import classNames from "classnames";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 
 const MainMenu: React.FC<{
   headerData?: any;
   checkoutHeaderProps?: { handleCheckoutBack: () => void };
 }> = ({ headerData, checkoutHeaderProps }) => {
-  let mainLogo: string;
+  let mainLogo: string =
+    CLIENT === clients.BODY_FIRST
+      ? MAIN_LOGO ||
+        "https://bodyfirststage-media.farziengineer.co/media/logo.png"
+      : MAIN_LOGO;
 
-  if (CLIENT === clients.BODY_FIRST) {
-    mainLogo =
-      MAIN_LOGO ||
-      "https://bodyfirststage-media.farziengineer.co/media/logo.png";
-  } else {
-    mainLogo = MAIN_LOGO;
-  }
   mainLogo =
     mainLogo &&
     typeof mainLogo === "string" &&
-    useImageURLReplaceWithCDN(mainLogo);
-
-  const router = typeof window !== "undefined" && useRouter();
+    imageURLReplaceWithCDN(mainLogo);
+  const shopMetaDataValue = useContext(ShopMetaContext);
+  const router = useRouter();
   const { signOut, setToken } = useAuth();
   const { user } = useAuthState();
   const { items } = useCartState();
@@ -91,14 +88,39 @@ const MainMenu: React.FC<{
   const { checkout } = useCheckoutState();
   const history = useCustomHistory();
   const location = useCustomLocation();
-  const [isRedirectOpen, setIsRedirectOpen] = useState(false)
-  const [countryCode, setCountrycode] = useState("")
+  const [isRedirectOpen, setIsRedirectOpen] = useState(false);
+  const [countryCode, setCountrycode] = useState("");
   const [searchTerm, setSearchTerm] = useState(router?.query?.searchtext || "");
   const [showSearchInput, setShowSearchInput] = useState(
     !!router?.query?.searchtext
   );
   const [showDropDown, setShowDropDown] = useState(false);
-
+  // For redirection url according to country
+  const countryList =
+    getMetadataValue(shopMetaDataValue, "country_list") &&
+    parseJson(getMetadataValue(shopMetaDataValue, "country_list"));
+  useEffect(() => {
+    // for location
+    const countryVal = router.query
+      ? router.query?.fromRegion
+        ? router.query.fromRegion
+        : ""
+      : "";
+    setCountrycode(countryVal);
+  }, [router?.query]);
+  useEffect(() => {
+    if (countryCode != "") {
+      const isCoutryVal =
+        Array.isArray(countryList) &&
+        countryList.some((item) => item?.country_code === countryCode);
+      setIsRedirectOpen(true);
+      if (isCoutryVal) {
+        setCountrycode(countryCode);
+      } else {
+        router.push("https://plixlife.com/");
+      }
+    }
+  }, [countryCode]);
   useEffect(() => {
     const searchQueryAttributes = queryString.parse(location?.search);
 
@@ -151,14 +173,14 @@ const MainMenu: React.FC<{
     return () => window?.removeEventListener("scroll", scrollStickyabout);
   }, []);
 
-  const handleSignOut = hideMenu => {
-    signOut().then(res => {
+  const handleSignOut = (hideMenu) => {
+    signOut().then((res) => {
       //
       // Remove otpless whatsapp verification id from localstorage when user logs out
       if (typeof window !== "undefined") {
         localStorage.removeItem(OTPLESS_WHATSAPP_ID_KEY);
       }
-      createCheckoutRest().then(res => {
+      createCheckoutRest().then((res) => {
         //
         if (res.errors?.length) {
           createCheckoutRest();
@@ -207,7 +229,7 @@ const MainMenu: React.FC<{
     location?.asPath === `/page/${pages.QUIZ}` ||
     location?.asPath === `/page/${pages.QUIZNEW}`;
 
-  const handleSearch = search_term => {
+  const handleSearch = (search_term) => {
     setSearchTerm(search_term);
     if (typeof window !== "undefined" && router.isReady) {
       router?.prefetch("/search");
@@ -261,16 +283,18 @@ const MainMenu: React.FC<{
   ) {
     return (
       <header
-        className={`headerNav ${CLIENT === "yarnbazar" && "yarnbazar"
-          } headerNavPlix`}
+        className={`headerNav ${
+          CLIENT === "yarnbazar" && "yarnbazar"
+        } headerNavPlix`}
       >
         <nav
           className="plixlife-main-menu plixlife-main-menu__newcheckoutHeaderNav"
           id="header"
         >
           <span
-            className={`plixlife-main-menu__lower ${hideNavbarItems ? "checkoutpage-main-menu" : ""
-              } plixlife-main-menu__newcheckoutHeader`}
+            className={`plixlife-main-menu__lower ${
+              hideNavbarItems ? "checkoutpage-main-menu" : ""
+            } plixlife-main-menu__newcheckoutHeader`}
           >
             <>
               <div onClick={checkoutHeaderProps?.handleCheckoutBack}>
@@ -287,29 +311,10 @@ const MainMenu: React.FC<{
       </header>
     );
   }
-// For redirection url according to country
-const shopMetaDataValue = useContext(ShopMetaContext);
-const countryList = getMetadataValue(shopMetaDataValue, "country_list") && parseJson(getMetadataValue(shopMetaDataValue, "country_list"));
-useEffect(()=>{
-  // for location
-  const countryVal = router.query ? (router.query?.fromRegion ? router.query.fromRegion : "") : ""
-  setCountrycode(countryVal)
-},[router?.query])
-useEffect(()=>{
-  if(countryCode != ""){
-    const isCoutryVal = Array.isArray(countryList) && countryList.some(item => item?.country_code === countryCode)
-    setIsRedirectOpen(true)
-    if(isCoutryVal){
-      setCountrycode(countryCode)
-    }else{
-      router.push("https://plixlife.com/")
-    }
-  }
-},[countryCode])
   return (
     <>
       <OverlayContext.Consumer>
-        {overlayContext => {
+        {(overlayContext) => {
           const items = maybe(() => headerData.data.navbar.items, []);
           const headerText =
             headerData?.data?.headers?.edges?.length > 0
@@ -318,14 +323,21 @@ useEffect(()=>{
 
           const headerTextData =
             headerData?.data.headers?.edges[0]?.node?.text.charAt(0) === "{" &&
-              headerData?.data.headers?.edges[0]?.node?.text.charAt(
-                headerData?.data.headers?.edges[0]?.node?.text.length - 1
-              ) === "}"
+            headerData?.data.headers?.edges[0]?.node?.text.charAt(
+              headerData?.data.headers?.edges[0]?.node?.text.length - 1
+            ) === "}"
               ? JSON.parse(headerText)
               : null;
           return (
             <>
-              {isRedirectOpen && countryCode ? (<RedirectCountryPopup countryCode={countryCode} onClose={setIsRedirectOpen}/>) : <></>}
+              {isRedirectOpen && countryCode ? (
+                <RedirectCountryPopup
+                  countryCode={countryCode}
+                  onClose={setIsRedirectOpen}
+                />
+              ) : (
+                <></>
+              )}
               {!hideNavbarItems && (
                 <div className="plixlife-main-menu__upper">
                   {headerText && headerTextData && (
@@ -344,13 +356,15 @@ useEffect(()=>{
                 </div>
               )}
               <header
-                className={`headerNav ${CLIENT === "yarnbazar" && "yarnbazar"
-                  } headerNavPlix`}
+                className={`headerNav ${
+                  CLIENT === "yarnbazar" && "yarnbazar"
+                } headerNavPlix`}
               >
                 <nav className="plixlife-main-menu" id="header">
                   <div
-                    className={`plixlife-main-menu__lower ${hideNavbarItems ? "checkoutpage-main-menu" : ""
-                      }`}
+                    className={`plixlife-main-menu__lower ${
+                      hideNavbarItems ? "checkoutpage-main-menu" : ""
+                    }`}
                   >
                     <>
                       <div className="plixlife-main-menu__lower__desktop-left">
@@ -411,16 +425,16 @@ useEffect(()=>{
                               style={{ listStyle: "none" }}
                               data-test="menuSearchOverlayLink"
                               className="plixlife-main-menu__searchInput"
-                            // onClick={() =>
-                            //   overlayContext.show(
-                            //     OverlayType.search,
-                            //     OverlayTheme.right
-                            //   )
-                            // }
+                              // onClick={() =>
+                              //   overlayContext.show(
+                              //     OverlayType.search,
+                              //     OverlayTheme.right
+                              //   )
+                              // }
                             >
                               {showSearchInput ? (
                                 <DebouncedTextField
-                                  onChange={evt => {
+                                  onChange={(evt) => {
                                     handleSearch(evt.target.value);
                                   }}
                                   value={searchTerm}
@@ -588,8 +602,9 @@ useEffect(()=>{
                             </li>
                           )}
                           <div
-                            className={`plixlife-main-menu__lower__mobile-center ${hideNavbarItems ? "checkoutpage-logowrapper" : ""
-                              }`}
+                            className={`plixlife-main-menu__lower__mobile-center ${
+                              hideNavbarItems ? "checkoutpage-logowrapper" : ""
+                            }`}
                           >
                             <>
                               {hideNavbarItems ? (
@@ -720,12 +735,13 @@ useEffect(()=>{
                   </div>
                   {!hideNavbarItems && (
                     <div
-                      className={`plixlife-main-menu-sub__lower ${hideNavbarItems ? "checkoutpage-main-menu" : ""
-                        }`}
+                      className={`plixlife-main-menu-sub__lower ${
+                        hideNavbarItems ? "checkoutpage-main-menu" : ""
+                      }`}
                     >
                       {!hideNavbarItems && (
                         <ul className="plixlife-main-menu-sub__lower__desktop__nav-row">
-                          {items.slice(0, 9).map(item => (
+                          {items.slice(0, 9).map((item) => (
                             <li
                               data-test="mainMenuItem"
                               className="plixlife-main-menu__item"
@@ -756,16 +772,16 @@ useEffect(()=>{
                         style={{ listStyle: "none" }}
                         data-test="menuSearchOverlayLink"
                         className="plixlife-main-menu__searchInput searchfocus"
-                      // onClick={() =>
-                      //   overlayContext.show(
-                      //     OverlayType.search,
-                      //     OverlayTheme.right
-                      //   )
-                      // }
+                        // onClick={() =>
+                        //   overlayContext.show(
+                        //     OverlayType.search,
+                        //     OverlayTheme.right
+                        //   )
+                        // }
                       >
                         {showSearchInput ? (
                           <DebouncedTextField
-                            onChange={evt => {
+                            onChange={(evt) => {
                               handleSearch(evt.target.value);
                             }}
                             value={searchTerm}

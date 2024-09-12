@@ -97,8 +97,8 @@ const NavItem: React.FC<NavItemProps> = ({
     if (collectionWithImages.children.length) {
       return (
         <>
-          {collectionWithImages.children.map(child => (
-            <S.Wrapper className="side-nav__menu-item base-nav-item">
+          {collectionWithImages.children.map((child, index) => (
+            <S.Wrapper key={'side-nav__menu' + index} className="side-nav__menu-item base-nav-item">
               <S.SuperMenuItemWrapper>
                 <S.SuperMenuText
                   as={NavLink}

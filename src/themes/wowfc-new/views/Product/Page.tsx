@@ -572,12 +572,14 @@ const Page: React.FC<
           <>
             <div className="newContainer">
               <div className="pdp-videoContainer">
-                {productDescription?.videos?.map(item => {
+                {productDescription?.videos?.map((item,index) => {
                   return (
-                    <VideoCard
-                      cardClass="plixVideo"
-                      content={{ video: item?.url }}
-                    />
+                    <React.Fragment key={item?.url + index}>
+                      <VideoCard
+                        cardClass="plixVideo"
+                        content={{ video: item?.url }}
+                      />
+                    </React.Fragment>
                   );
                 })}
               </div>
@@ -675,14 +677,14 @@ const Page: React.FC<
       )}
 
       {metaDataArranged.length > 0 &&
-        metaDataArranged.map(item => {
+        metaDataArranged.map((item, index) => {
           switch (item?.key) {
             case "ingredients": {
               const parsed = JSON.parse(item.value);
               if (parsed?.length)
                 return (
                   <>
-                    <div className="newContainer keyIngredients_bg">
+                    <div key={item?.key + index} className="newContainer keyIngredients_bg">
                       <ProductHeader
                         heading="Key Ingredients"
                         title="What's On The Inside?"
@@ -701,8 +703,8 @@ const Page: React.FC<
                         }}
                         cellSpacing={10}
                       >
-                        {parsed?.map(item => (
-                          <div className="ingredieantsContent">
+                        {parsed?.map((item, index) => (
+                          <div key={item?.title + index} className="ingredieantsContent">
                             <Card
                               content={{ image: item.image }}
                               cardClass="ingredieantsLeftCard"
@@ -733,7 +735,7 @@ const Page: React.FC<
                 }));
                 return (
                   <>
-                    <div className="newContainer usesContainer">
+                    <div key={item?.key + index} className="newContainer usesContainer">
                       <div className="usesleft">
                         <ProductHeader
                           heading="How to use?"
@@ -943,7 +945,7 @@ const Page: React.FC<
                     data={data}
                   />
                 ) : (
-                  metaDataArranged.map(item => {
+                  metaDataArranged.map((item, index) => {
                     if (item?.key === "faq") {
                       const parsed = JSON.parse(item.value);
 
@@ -952,7 +954,7 @@ const Page: React.FC<
                         title: item.q,
                         description: item.a,
                       }));
-                      return <CareAccordian data={data} />;
+                      return <React.Fragment key={item?.value + index}><CareAccordian data={data} /></React.Fragment>;
                     }
                   })
                 )}

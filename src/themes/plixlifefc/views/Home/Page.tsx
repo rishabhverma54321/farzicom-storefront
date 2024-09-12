@@ -17,7 +17,7 @@ import { META_DEFAULTS } from "Themes/config";
 import LazyLoad from "react-lazyload";
 import {
   getMetadataValue,
-  useImageURLReplaceWithCDN,
+  imageURLReplaceWithCDN,
   parseJson,
   customEventTrigger,
   isMember,
@@ -34,7 +34,7 @@ import { getDBIdFromGraphqlId } from "@utils/core";
 import Image from "next/image";
 import HomeBanner from "@components/molecules/HomeBanner";
 import dynamic from "next/dynamic";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import { useRouter } from "next/router";
 import Script from "next/script";
 // import CollectionList from "../../../../@next/components/molecules/CollectionList/CollectionList";
@@ -458,7 +458,7 @@ const Page: React.FC<IPageProps> = props => {
           >
             {showCarousel
               ? subNavbarItems?.map((item, index) => {
-                  const imageUrlImgixScr = useImageURLReplaceWithCDN(
+                  const imageUrlImgixScr = imageURLReplaceWithCDN(
                     item?.image
                   );
 
@@ -495,7 +495,7 @@ const Page: React.FC<IPageProps> = props => {
                   );
                 })
               : subNavbarItems?.slice(0, 4)?.map(item => {
-                  const imageUrlImgixScr = useImageURLReplaceWithCDN(
+                  const imageUrlImgixScr = imageURLReplaceWithCDN(
                     item?.image
                   );
 
@@ -698,7 +698,7 @@ const Page: React.FC<IPageProps> = props => {
   //                 <Marquee speed={40}>
   //                   {brandLogosSection?.node?.images?.edges.map(
   //                     (edge, index) => {
-  //                       const imageUrlImgixScr = useImageURLReplaceWithCDN(
+  //                       const imageUrlImgixScr = imageURLReplaceWithCDN(
   //                         edge?.node.url
   //                       );
 
@@ -724,7 +724,7 @@ const Page: React.FC<IPageProps> = props => {
   //                 <>
   //                   {brandLogosSection?.node?.images?.edges.map(
   //                     (edge, index) => {
-  //                       const imageUrlImgixScr = useImageURLReplaceWithCDN(
+  //                       const imageUrlImgixScr = imageURLReplaceWithCDN(
   //                         edge?.node.url
   //                       );
 
@@ -1012,7 +1012,7 @@ const Page: React.FC<IPageProps> = props => {
   //     getMetadataValue(moneyBackSection.node.metadata, "money_back") &&
   //     parseJson(getMetadataValue(moneyBackSection.node.metadata, "money_back"));
 
-  //   const imageUrlImgixScr = useImageURLReplaceWithCDN(
+  //   const imageUrlImgixScr = imageURLReplaceWithCDN(
   //     moneyBackSectionData?.image
   //   );
 
@@ -2142,7 +2142,7 @@ const Page: React.FC<IPageProps> = props => {
   //     getMetadataValue(pleadgeTree.node.metadata, "pledgeTreeData") &&
   //     parseJson(getMetadataValue(pleadgeTree.node.metadata, "pledgeTreeData"));
 
-  //   const backgroundImageUrlWithImgix = useImageURLReplaceWithCDN(
+  //   const backgroundImageUrlWithImgix = imageURLReplaceWithCDN(
   //     "https://plixlifefc-media.farziengineer.co/hosted/pledge_background_image-bc9fe38c31ef.png"
   //   );
   //   return (

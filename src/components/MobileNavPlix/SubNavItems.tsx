@@ -62,14 +62,16 @@ const SubNavItems: React.FC<SubNavItemProps> = ({
           </StyledAccordionSummary>
           <StyledAccordionDetails className="side-nav-plix__menu-item__accordionDetails">
             <S.SubMenu>
-              {items.children.map(child => (
-                <SubNavItems
-                  type="child_2"
-                  items={child}
-                  displayNavItems={displayNavItems}
-                  navItemsId={navItemsId}
-                  hideOverlay={hideOverlay}
-                />
+              {items.children.map((child, index) => (
+                <React.Fragment key={'child_2' + index}>
+                  <SubNavItems
+                    type="child_2"
+                    items={child}
+                    displayNavItems={displayNavItems}
+                    navItemsId={navItemsId}
+                    hideOverlay={hideOverlay}
+                  />
+                </React.Fragment>
               ))}
             </S.SubMenu>
           </StyledAccordionDetails>

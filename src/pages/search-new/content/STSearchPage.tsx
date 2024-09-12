@@ -6,7 +6,8 @@ import React, {
   useContext,
 } from "react";
 import SearchClient from "@searchtap/search-client";
-import { CircularProgress, Slider } from "@material-ui/core";
+import { CircularProgress } from "@mui/material";
+import Slider from '@mui/material/Slider';
 import debounce from "lodash/debounce";
 import {
   Breadcrumbs,
@@ -23,7 +24,7 @@ import FilterAccordian from "./Accordion";
 import MemoGreenUpArrowRound from "@components/atoms/SvgIcons/GreenUpArrowRound";
 import MemoFilterIcon from "@components/atoms/SvgIcons/FilterIcon";
 import { useRouter } from "next/router";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import {
   customEventTrigger,
   getMetadataValue,
@@ -340,7 +341,7 @@ const STSearchPage = () => {
                     <FilterAccordian header={filter_name}>
                       {subFilters.map(subFilter => {
                         return (
-                          <div>
+                          <div key={subFilter?.label}>
                             <div>
                               <input
                                 type="checkbox"
@@ -430,7 +431,7 @@ const STSearchPage = () => {
           <div className={styles.productsCol}>
             {canDisplayProducts && actualQuery ? (
               <span>
-                Showing {products.length} results for '{actualQuery}'
+                Showing {products.length} results for &rsquo;{actualQuery}&rsquo;
               </span>
             ) : actualQuery ? (
               <></>
@@ -446,9 +447,10 @@ const STSearchPage = () => {
                         onSortChange(e.target.value);
                       }}
                     >
-                      {SORT_OPTIONS.map(sort_object => {
+                      {SORT_OPTIONS.map((sort_object) => {
                         return (
                           <S.SortOption
+                            key={sort_object.label}
                             value={sort_object.label}
                             selected={
                               JSON.stringify(sort_object.field) ===
@@ -486,7 +488,7 @@ const STSearchPage = () => {
             ) : (
               <div className={styles.noResultWrapper}>
                 {actualQuery ? (
-                  <span>No result found for "{actualQuery}"</span>
+                  <span>No result found for &#34;{actualQuery}&#34;</span>
                 ) : (
                   <span>Start typing to get results.</span>
                 )}

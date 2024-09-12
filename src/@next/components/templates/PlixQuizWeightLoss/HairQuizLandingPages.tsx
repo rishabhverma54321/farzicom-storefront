@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import style from "./scss/index.module.scss";
 import { getMetadataValue, isMember, parseJson } from "@utils/misc";
 import FireWorkReelSection from "@components/organisms/FireWorkReelSection";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import Script from "next/script";
 import { useAuthState } from "@saleor/sdk";
 import PlantATree from "Themes/views/Product/pdpComponents/PlantATree";

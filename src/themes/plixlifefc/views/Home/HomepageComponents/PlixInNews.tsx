@@ -3,7 +3,7 @@ import { CachedImage } from "@components/molecules/CachedImage";
 import {
   getMetadataValue,
   parseJson,
-  useImageURLReplaceWithCDN,
+  imageURLReplaceWithCDN,
 } from "@utils/misc";
 import Marquee from "react-fast-marquee";
 import styles from "../scss/index.module.scss";
@@ -76,7 +76,7 @@ const PlixInNews = ({ sectionData }) => {
               {showAfterJS ? (
                 <Marquee speed={40}>
                   {brandLogosSection?.node?.images?.edges.map((edge, index) => {
-                    const imageUrlImgixScr = useImageURLReplaceWithCDN(
+                    const imageUrlImgixScr = imageURLReplaceWithCDN(
                       edge?.node.url
                     );
 
@@ -100,7 +100,7 @@ const PlixInNews = ({ sectionData }) => {
               ) : (
                 <>
                   {brandLogosSection?.node?.images?.edges.map((edge, index) => {
-                    const imageUrlImgixScr = useImageURLReplaceWithCDN(
+                    const imageUrlImgixScr = imageURLReplaceWithCDN(
                       edge?.node.url
                     );
 

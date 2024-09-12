@@ -161,7 +161,7 @@ const prepareCartFooter = (
   </>
 );
 
-const generateCart = (
+const GenerateCart = (
   items: IItems,
   // removeItem: (data: Omit<myIProps, "quantity">) => any,
   removeItem: (variantId: string, quantity: number) => any,
@@ -713,7 +713,7 @@ funds of Wildlife Trust of India`;
           continueShopping={getShoppingButton(history)}
           cart={
             items &&
-            generateCart(items, removeItem, updateItem, recordCartPageClevertap)
+            GenerateCart(items, removeItem, updateItem, recordCartPageClevertap)
           }
           sanitizeStrip={sanitizeStrip}
           totalDiscount={totalDiscount}

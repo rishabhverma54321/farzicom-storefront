@@ -23,7 +23,7 @@ import {
   parseJson,
   getMetadataValue,
   isBoxProduct,
-  useImageURLReplaceWithCDN,
+  imageURLReplaceWithCDN,
   addToCartDataLayer,
   customEventTrigger,
   isMember as isUserMember,
@@ -41,7 +41,7 @@ import RecentlyDeletedProducts from "./RecentlyDeletedProducts";
 import { ENABLE_GA4, META_DEFAULTS, showCashback } from "Themes/config";
 import { TypedGetWalletAmountWithLogs } from "@components/organisms/Cashbacks/queries";
 import MemoSavingAddToCart from "@components/atoms/SvgIcons/SavingAddToCart";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import MemoTruckIcon from "@components/atoms/SvgIcons/TruckIcon";
 import MemoGiftIcon from "@components/atoms/SvgIcons/GiftIcon";
 import { CachedImage } from "@components/molecules/CachedImage";
@@ -949,11 +949,12 @@ parseJson(getMetadataValue(ShopMetaContextValue, "bx_gy_offer_progress_bar"));
                                 {/* <span className="greentick">
                                     <MemoProgressTick />
                                   </span> */}
-                                {allOfferWithRelativePercentages?.map(offer => {
+                                {allOfferWithRelativePercentages?.map((offer, index) => {
                                   const isUnlocked =
                                     offer?.relativePercentage <= progressPercent;
                                   if (isUnlocked) {
                                     return (
+                                      <React.Fragment key={offer?.relativePercentage + index}>
                                       <S.CouponUnlockIcon
                                         leftPosition={
                                           offer?.relativePercentage - 8
@@ -964,17 +965,20 @@ parseJson(getMetadataValue(ShopMetaContextValue, "bx_gy_offer_progress_bar"));
                                         <span className="complete-icon"><MemoCompletedCouponIcon /></span>
                                         {/* <span>{offer?.subText}</span> */}
                                       </S.CouponUnlockIcon>
+                                      </React.Fragment>
                                     );
                                   } else {
                                     return (
-                                      <S.CouponUnlockIcon
-                                        leftPosition={
-                                          offer?.relativePercentage - 8
-                                        }
-                                      >
-                                        <span className="incomplete-icon"><MemoInCompleteCouponIcon /></span>
-                                        {/* <span>{offer?.subText}</span> */}
-                                      </S.CouponUnlockIcon>
+                                      <React.Fragment key={offer?.relativePercentage + index}>
+                                        <S.CouponUnlockIcon
+                                          leftPosition={
+                                            offer?.relativePercentage - 8
+                                          }
+                                        >
+                                          <span className="incomplete-icon"><MemoInCompleteCouponIcon /></span>
+                                          {/* <span>{offer?.subText}</span> */}
+                                        </S.CouponUnlockIcon>
+                                      </React.Fragment>
                                     );
                                   }
                                 })}
@@ -1258,8 +1262,8 @@ parseJson(getMetadataValue(ShopMetaContextValue, "bx_gy_offer_progress_bar"));
                               <div className="cart-plix__membershipcard__popup__body">
                                 {/* <div className="benifitsList"> */}
                                 {membershipPopupData?.membership_data?.map(
-                                  item => (
-                                    <div className="cart-plix__membershipcard__popup__cards">
+                                  (item, index) => (
+                                    <div key={item?.level + index} className="cart-plix__membershipcard__popup__cards">
                                       <div className="cart-plix__membershipcard__popup__cards__header">
                                         {item?.level_background ? (
                                           <div className="cart-plix__membershipcard__popup__cards__header__background">
@@ -1300,8 +1304,8 @@ parseJson(getMetadataValue(ShopMetaContextValue, "bx_gy_offer_progress_bar"));
                                         {Array.isArray(item?.benefit_icons) &&
                                         !!item?.benefit_icons.length ? (
                                           <div className="cart-plix__membershipcard__popup__cards__body__benefits">
-                                            {item?.benefit_icons?.map(list => (
-                                              <div className="cart-plix__membershipcard__popup__cards__body__benefits__card">
+                                            {item?.benefit_icons?.map((list, index) => (
+                                              <div key={item?.text + index} className="cart-plix__membershipcard__popup__cards__body__benefits__card">
                                                 {list?.icon ? (
                                                   <div className="cart-plix__membershipcard__popup__cards__body__benefits__card__img">
                                                     <CachedImage
@@ -1578,8 +1582,8 @@ parseJson(getMetadataValue(ShopMetaContextValue, "bx_gy_offer_progress_bar"));
                   {offerPolicies && Array.isArray(offerPolicies?.cart) && (
                     <div className="cash_strip">
                       <S.CashbackStrip>
-                        {offerPolicies?.cart?.map(policy => (
-                          <li>{policy}</li>
+                        {offerPolicies?.cart?.map((policy, index) => (
+                          <li key={policy + index}>{policy}</li>
                         ))}
                       </S.CashbackStrip>
                     </div>

@@ -10,7 +10,7 @@ import { mediumScreen } from "@styles/constants";
 import noPhotoImg from "images/no-photo.svg";
 import { ProductDetails_product_images } from "./gqlTypes/ProductDetails";
 import VideoCard from "@components/molecules/VideoCard";
-import { useImageURLReplaceWithCDN } from "@utils/misc";
+import { imageURLReplaceWithCDN } from "@utils/misc";
 
 const GalleryCarousel: React.FC<{
   images: ProductDetails_product_images[];
@@ -108,7 +108,7 @@ const GalleryCarousel: React.FC<{
               renderThumbs={customRenderThumb}
             >
               {images.map(image => {
-                const imageUrlImgixScr = useImageURLReplaceWithCDN(image.url);
+                const imageUrlImgixScr = imageURLReplaceWithCDN(image.url);
                 return (
                   <CachedImage
                     url={imageUrlImgixScr || noPhotoImg}
@@ -154,7 +154,7 @@ const GalleryCarousel: React.FC<{
             showArrows={false}
           >
             {images.map((image, index) => {
-              const imageUrlImgixScr = useImageURLReplaceWithCDN(image.url);
+              const imageUrlImgixScr = imageURLReplaceWithCDN(image.url);
               return (
                 <Image
                   src={imageUrlImgixScr || noPhotoImg}

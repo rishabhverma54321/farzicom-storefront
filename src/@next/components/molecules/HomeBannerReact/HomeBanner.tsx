@@ -7,7 +7,7 @@ import { useAuthState, useCart } from "@saleor/sdk";
 import MyCustomLink from "@components/next-react/MyCustomLink";
 
 import { BannerType } from "@globalTypes";
-import { useImageURLReplaceWithCDN } from "@utils/misc";
+import { imageURLReplaceWithCDN } from "@utils/misc";
 import { getGclid } from "@temp/core/utils";
 import Imgix from "react-imgix";
 import { IMAGE_CDN_PROVIDERS, IMAGE_CDN } from "Themes/config";
@@ -112,9 +112,9 @@ export const HomeBanner: React.FC<IHomeBannerProps> = ({
                 });
               }
             };
-            const imageUrlImgixScr = useImageURLReplaceWithCDN(imageUrl);
+            const imageUrlImgixScr = imageURLReplaceWithCDN(imageUrl);
 
-            const imageMobileUrlImgixScr = useImageURLReplaceWithCDN(
+            const imageMobileUrlImgixScr = imageURLReplaceWithCDN(
               imageMobileUrl
             );
 

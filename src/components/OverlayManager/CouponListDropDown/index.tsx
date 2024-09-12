@@ -5,7 +5,7 @@ import Image from "next/image";
 import * as React from "react";
 
 import { CachedImage } from "@components/molecules/CachedImage";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import { getMetadataValue, parseJson } from "@utils/misc";
 import MyCustomLink from "@components/next-react/MyCustomLink";
 import MemoCopyText from "images/order-dispatch/CopyText";
@@ -66,48 +66,50 @@ const CouponListDropdown: React.FC<ICouponList> = ({
             {listHeader ? <h3>{listHeader}</h3> : <></>}
             {couponListContent && Array.isArray(couponListContent) ? (
               <>
-                {couponListContent.map(couponItem => (
-                  <MyCustomLink
-                    disable={!couponItem.link}
-                    href={couponItem.link}
-                  >
-                    <div
-                      className="couponlist__card"
-                      onClick={couponItem.link ? overlay.hide : null}
+                {couponListContent.map((couponItem, index) => (
+                  <React.Fragment key={couponItem.link + index}>
+                    <MyCustomLink
+                      disable={!couponItem.link}
+                      href={couponItem.link}
                     >
-                      <div className="couponlist__card__image">
-                        <CachedImage url={couponItem.image} />
-                      </div>
-                      <div className="couponlist__card__text">
-                        {couponItem.text}
-                      </div>
-                      {couponItem.coupon ? (
-                        <CopyToClipboard
-                          onCopy={() => {
-                            setCopied(couponItem.coupon);
-                            setTimeout(() => {
-                              setCopied("");
-                            }, 3000);
-                          }}
-                          text={couponItem.coupon}
-                        >
-                          <span
-                            onClick={e => {
-                              e.preventDefault();
+                      <div
+                        className="couponlist__card"
+                        onClick={couponItem.link ? overlay.hide : null}
+                      >
+                        <div className="couponlist__card__image">
+                          <CachedImage url={couponItem.image} />
+                        </div>
+                        <div className="couponlist__card__text">
+                          {couponItem.text}
+                        </div>
+                        {couponItem.coupon ? (
+                          <CopyToClipboard
+                            onCopy={() => {
+                              setCopied(couponItem.coupon);
+                              setTimeout(() => {
+                                setCopied("");
+                              }, 3000);
                             }}
-                            className="couponlist__card__coupon"
+                            text={couponItem.coupon}
                           >
-                            {copied === couponItem.coupon
-                              ? "COPIED"
-                              : couponItem.coupon}{" "}
-                            <MemoCopyText />
-                          </span>
-                        </CopyToClipboard>
-                      ) : (
-                        <></>
-                      )}
-                    </div>
-                  </MyCustomLink>
+                            <span
+                              onClick={e => {
+                                e.preventDefault();
+                              }}
+                              className="couponlist__card__coupon"
+                            >
+                              {copied === couponItem.coupon
+                                ? "COPIED"
+                                : couponItem.coupon}{" "}
+                              <MemoCopyText />
+                            </span>
+                          </CopyToClipboard>
+                        ) : (
+                          <></>
+                        )}
+                      </div>
+                    </MyCustomLink>
+                  </React.Fragment>
                 ))}
               </>
             ) : (

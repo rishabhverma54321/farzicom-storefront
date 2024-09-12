@@ -24,7 +24,7 @@ import { clients } from "../../../../../gqlTypes/customGlobalTypes";
 import {
   customEventTrigger,
   getMembershipTag,
-  useImageURLReplaceWithCDN,
+  imageURLReplaceWithCDN,
 } from "@utils/misc";
 import gtmConfig from "@temp/themes/plixlifefc/lib/gtmConfig";
 
@@ -59,7 +59,7 @@ export const UserMenuList: React.FC<IUserMenuListProps> = ({
     }
   }
 
-  const membershipIcon = useImageURLReplaceWithCDN(
+  const membershipIcon = imageURLReplaceWithCDN(
     "https://plixlifefc-media.farziengineer.co/hosted/Group_34954-04e236130726.svg"
   );
 

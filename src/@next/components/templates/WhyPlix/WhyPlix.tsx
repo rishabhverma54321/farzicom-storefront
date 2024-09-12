@@ -67,8 +67,8 @@ const RelentlesslyClean: React.FC<any> = ({ metadata }) => {
             {relentlesslyCleanData.description}
           </div>
           <div className="relentlesslyCleanCard__description__list">
-            {relentlesslyCleanData.list.map(item => (
-              <div className="relentlesslyCleanCard__description__list__item">
+            {relentlesslyCleanData.list.map((item, index) => (
+              <div key={item + index} className="relentlesslyCleanCard__description__list__item">
                 <MemoCheckCircle />
                 <div className="relentlesslyCleanCard__description__list__item__text">
                   {" "}
@@ -94,8 +94,8 @@ const RelentlesslyClean: React.FC<any> = ({ metadata }) => {
       description: (
         <>
           <div className="relentlesslyCleanCard__description__list">
-            {relentlesslyCleanData.list.map(item => (
-              <div className="relentlesslyCleanCard__description__list__item">
+            {relentlesslyCleanData.list.map((item, index) => (
+              <div key={item + index} className="relentlesslyCleanCard__description__list__item">
                 <MemoCheckCircle />
                 <div className="relentlesslyCleanCard__description__list__item__text">
                   {" "}
@@ -242,8 +242,8 @@ const TestimonialSection: React.FC<any> = ({ metadata }) => {
                   wrapAround: true,
                 }}
               >
-                {testimonialData.map(testimonial => (
-                  <div className="testimonialSection__container__div ">
+                {testimonialData.map((testimonial, index) => (
+                  <div className="testimonialSection__container__div" key={testimonial.title.name + index}>
                     <Card
                       cardClass="testimonialSection__container__div__card"
                       content={{
@@ -299,14 +299,14 @@ const TextStripSection: React.FC<any> = ({ metadata }) => {
       {textStripSectionData && (
         <div className="textStripSection">
           <Marquee speed={40}>
-            {textStripSectionData.map(text => (
-              <div className="textItem">
+            {textStripSectionData.map((text, index) => (
+              <div key={text + index} className="textItem">
                 <Star />
                 <span>{text}</span>
               </div>
             ))}
-            {textStripSectionData.map(text => (
-              <div className="textItem">
+            {textStripSectionData.map((text, index) => (
+              <div key={text + index} className="textItem">
                 <Star />
                 <span>{text}</span>
               </div>

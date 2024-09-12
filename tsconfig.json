@@ -78,13 +78,18 @@
     },
     "plugins": [
       {
-        "transform": "@formatjs/ts-transformer",
-        "import": "default"
-      },
-      {
         "name": "next"
       }
     ]
+    // "plugins": [
+    //   {
+    //     "transform": "@formatjs/ts-transformer",
+    //     "import": "default"
+    //   },
+    //   {
+    //     "name": "next"
+    //   }
+    // ]
   },
   "include": [
     "next-env.d.ts",

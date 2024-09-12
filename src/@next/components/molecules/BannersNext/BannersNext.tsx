@@ -5,7 +5,7 @@ import { IMAGE_CDN, IMAGE_CDN_PROVIDERS } from "Themes/config";
 import MyCustomLink from "@components/next-react/MyCustomLink";
 import Imgix, { SharedImigixAndSourceProps } from "react-imgix";
 import styles from "./index.module.scss";
-import { getMetadataValue, useImageURLReplaceWithCDN } from "@utils/misc";
+import { getMetadataValue, imageURLReplaceWithCDN } from "@utils/misc";
 import * as S from "./styles";
 
 export interface ImageDimensions {
@@ -41,7 +41,7 @@ export const BannersNext: React.FC<IBannersNextProps> = ({
     content &&
     content.image &&
     typeof content.image === "string" &&
-    useImageURLReplaceWithCDN(content?.image);
+    imageURLReplaceWithCDN(content?.image);
 
   if (typeof imageUrl !== "boolean" && imageUrl?.includes(".gif")) {
     imageUrl = imageUrl?.split("?")[0];

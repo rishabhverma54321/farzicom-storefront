@@ -93,7 +93,7 @@ export const getUrlWithParams = (url: string, params: object = {}) => {
   return href;
 };
 
-export const useImageURLReplaceWithCDN = (imageURL: string | null) => {
+export const imageURLReplaceWithCDN = (imageURL: string | null) => {
   if (imageURL && IMAGE_CDN_PROVIDERS[IMAGE_CDN].useCDN) {
     return imageURL.replace(
       IMAGE_CDN_PROVIDERS[IMAGE_CDN].mediaBucketURL,

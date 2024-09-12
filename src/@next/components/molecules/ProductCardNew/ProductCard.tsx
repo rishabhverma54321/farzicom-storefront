@@ -24,7 +24,7 @@ import {
   META_DEFAULTS,
 } from "Themes/config";
 import { clients } from "gqlTypes/customGlobalTypes";
-import { getMetadataValue, useImageURLReplaceWithCDN } from "@utils/misc";
+import { getMetadataValue, imageURLReplaceWithCDN } from "@utils/misc";
 import makeClevertap from "Themes/lib/makeClevertap.js";
 import clevertapEvents from "Themes/lib/clevertapEvents.js";
 import gtmConfig from "Themes/lib/gtmConfig.js";
@@ -98,7 +98,7 @@ export const ProductCardNew: React.FC<IProductCardNewProps> = ({
     defaultVariant?.images && defaultVariant?.images.length
       ? sortImages[0].url
       : thumbnail?.url;
-  const imageUrlImgixScr = useImageURLReplaceWithCDN(image);
+  const imageUrlImgixScr = imageURLReplaceWithCDN(image);
 
   const shortDescriptionArray =
     metadata && metadata.filter((item: any) => item.key === "shortDescription");

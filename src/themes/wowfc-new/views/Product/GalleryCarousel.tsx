@@ -10,7 +10,7 @@ import { mediumScreen } from "@styles/constants";
 import noPhotoImg from "images/no-photo.svg";
 import { ProductDetails_product_images } from "./gqlTypes/ProductDetails";
 import VideoCard from "@components/molecules/VideoCard";
-import { useImageURLReplaceWithCDN } from "@utils/misc";
+import { imageURLReplaceWithCDN } from "@utils/misc";
 
 const GalleryCarousel: React.FC<{
   images: ProductDetails_product_images[];
@@ -38,7 +38,7 @@ const GalleryCarousel: React.FC<{
       }
       const videoId = getVideoId(item?.props?.children?.props?.content?.video);
       return (
-        <div className="video-thumbnail-container">
+        <div key={'gcarousel'+ index} className="video-thumbnail-container">
           <img
             key={index}
             src={
@@ -107,25 +107,27 @@ const GalleryCarousel: React.FC<{
               showArrows={false}
               renderThumbs={customRenderThumb}
             >
-              {images.map(image => {
-                const imageUrlImgixScr = useImageURLReplaceWithCDN(image.url);
+              {images.map((image,index) => {
+                const imageUrlImgixScr = imageURLReplaceWithCDN(image.url);
                 return (
-                  <CachedImage
-                    url={imageUrlImgixScr || noPhotoImg}
-                    key={image.id}
-                    imageDimensions={{
-                      height: 450,
-                      width: 450,
-                    }}
-                  >
-                    <img src={imageUrlImgixScr || noPhotoImg} alt={image.alt} />
-                  </CachedImage>
+                  <React.Fragment key={`${image.id} + ${index}`}>
+                    <CachedImage
+                      url={imageUrlImgixScr || noPhotoImg}
+                      key={image.id}
+                      imageDimensions={{
+                        height: 450,
+                        width: 450,
+                      }}
+                    >
+                      <img src={imageUrlImgixScr || noPhotoImg} alt={image.alt} />
+                    </CachedImage>
+                  </React.Fragment>
                 );
               })}
 
               {videos?.map((video, index) => {
                 return (
-                  <>
+                  <React.Fragment key={video.url + index}>
                     <VideoCard
                       cardClass="productGalleryVideo"
                       content={{
@@ -134,7 +136,7 @@ const GalleryCarousel: React.FC<{
                       }}
                       key={index}
                     />
-                  </>
+                  </React.Fragment>
                 );
               })}
             </Carousel>
@@ -154,15 +156,17 @@ const GalleryCarousel: React.FC<{
             showArrows={false}
           >
             {images.map((image, index) => {
-              const imageUrlImgixScr = useImageURLReplaceWithCDN(image.url);
+              const imageUrlImgixScr = imageURLReplaceWithCDN(image.url);
               return (
-                <Image
-                  src={imageUrlImgixScr || noPhotoImg}
-                  alt={image?.alt || "Product Image"}
-                  width={450}
-                  height={450}
-                  priority={index === 0}
-                />
+                <React.Fragment key={image.alt + index}>
+                  <Image
+                    src={imageUrlImgixScr || noPhotoImg}
+                    alt={image?.alt || "Product Image"}
+                    width={450}
+                    height={450}
+                    priority={index === 0}
+                  />
+                </React.Fragment>
               );
               // return (
               //   <CachedImage

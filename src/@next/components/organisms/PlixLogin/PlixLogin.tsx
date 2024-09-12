@@ -19,7 +19,7 @@ import { useCustomLocation } from "@hooks/useCustomLocation";
 import { useCustomHistory } from "@hooks/useCustomHistory";
 import clevertapEvents from "Themes/lib/clevertapEvents.js";
 import gtmConfig from "Themes/lib/gtmConfig.js";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { CachedImage } from "@components/molecules/CachedImage";

@@ -94,7 +94,7 @@ const YarnSideBar: React.FC<IYarnSideBar> = ({ overlay, testingContext }) => {
               bgColor=""
               svgSrc={<SideNavChatSVG />}
               innerTitle="Chat"
-              rightContainerContent={[<RightArraow />]}
+              rightContainerContent={[<RightArraow key="right-arrow"/>]}
               titleColor=""
               fontSizeTitle={0.7}
               fontSizeSvg={0.8}
@@ -107,7 +107,7 @@ const YarnSideBar: React.FC<IYarnSideBar> = ({ overlay, testingContext }) => {
               bgColor="#F4F8F9"
               svgSrc={<TeamsSideNavSVG />}
               innerTitle="My team"
-              rightContainerContent={[<RightArraow />]}
+              rightContainerContent={[<RightArraow key="right-arrow"/>]}
               titleColor=""
               fontSizeTitle={0.7}
               fontSizeSvg={0.8}
@@ -118,7 +118,7 @@ const YarnSideBar: React.FC<IYarnSideBar> = ({ overlay, testingContext }) => {
               bgColor=""
               svgSrc={<CompanySuitcaseSVG />}
               innerTitle="Company Information"
-              rightContainerContent={[<RightArraow />]}
+              rightContainerContent={[<RightArraow key="right-arrow"/>]}
               titleColor=""
               fontSizeTitle={0.7}
               fontSizeSvg={0.8}
@@ -140,7 +140,7 @@ const YarnSideBar: React.FC<IYarnSideBar> = ({ overlay, testingContext }) => {
                   bgColor=""
                   svgSrc={<NavBarCartOneSVG />}
                   innerTitle="My Orders"
-                  rightContainerContent={[<RightArraow />]}
+                  rightContainerContent={[<RightArraow key="right-arrow"/>]}
                   titleColor=""
                   fontSizeTitle={0.7}
                   fontSizeSvg={0.8}
@@ -152,7 +152,7 @@ const YarnSideBar: React.FC<IYarnSideBar> = ({ overlay, testingContext }) => {
                   bgColor="#F4F8F9"
                   svgSrc={<NavBarTruckOneSVG />}
                   innerTitle="My Dispatches"
-                  rightContainerContent={[<RightArraow />]}
+                  rightContainerContent={[<RightArraow key="right-arrow"/>]}
                   titleColor=""
                   fontSizeTitle={0.7}
                   fontSizeSvg={0.8}
@@ -164,7 +164,7 @@ const YarnSideBar: React.FC<IYarnSideBar> = ({ overlay, testingContext }) => {
                   bgColor=""
                   svgSrc={<NavBarBasketOneSVG />}
                   innerTitle="My Products"
-                  rightContainerContent={[<RightArraow />]}
+                  rightContainerContent={[<RightArraow key="right-arrow"/>]}
                   titleColor=""
                   fontSizeTitle={0.7}
                   fontSizeSvg={0.8}
@@ -179,7 +179,7 @@ const YarnSideBar: React.FC<IYarnSideBar> = ({ overlay, testingContext }) => {
                   bgColor=""
                   svgSrc={<NavBarCartOneSVG />}
                   innerTitle="My Orders"
-                  rightContainerContent={[<RightArraow />]}
+                  rightContainerContent={[<RightArraow key="right-arrow"/>]}
                   titleColor=""
                   fontSizeTitle={0.7}
                   fontSizeSvg={0.8}
@@ -191,7 +191,7 @@ const YarnSideBar: React.FC<IYarnSideBar> = ({ overlay, testingContext }) => {
                   bgColor="#F4F8F9"
                   svgSrc={<NavBarTruckOneSVG />}
                   innerTitle="My Dispatches"
-                  rightContainerContent={[<RightArraow />]}
+                  rightContainerContent={[<RightArraow key="right-arrow"/>]}
                   titleColor=""
                   fontSizeTitle={0.7}
                   fontSizeSvg={0.8}
@@ -203,7 +203,7 @@ const YarnSideBar: React.FC<IYarnSideBar> = ({ overlay, testingContext }) => {
                   bgColor=""
                   svgSrc={<NavBarBasketOneSVG />}
                   innerTitle="My Products"
-                  rightContainerContent={[<RightArraow />]}
+                  rightContainerContent={[<RightArraow key="right-arrow"/>]}
                   titleColor=""
                   fontSizeTitle={0.7}
                   fontSizeSvg={0.8}

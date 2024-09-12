@@ -14,7 +14,7 @@ import MemoBadgePercent from "@components/atoms/SvgIcons/BadgePercent";
 import { useCart, useCartState, useCheckout, useCheckoutState } from "@saleor/sdk";
 import MemoArrowLeftIcon from "@components/atoms/SvgIcons/ArrowLeftIcon";
 import NewMemoOfferShowmore from "@components/atoms/SvgIcons/OfferShowmore";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import { Gap } from "@components/atoms/Gap";
 interface ICouponOffersProps {
   overlay: OverlayContextInterface2;

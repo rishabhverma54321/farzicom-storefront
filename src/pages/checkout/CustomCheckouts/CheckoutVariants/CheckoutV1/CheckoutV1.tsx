@@ -46,7 +46,7 @@ import MemoDownArrow from "@components/atoms/SvgIcons/DownArrow";
 import MemoUpArrow from "@components/atoms/SvgIcons/UpArrow";
 import Image from "next/image";
 import { getThisVariantPrices } from "@temp/core/utils";
-import { useImageURLReplaceWithCDN } from "@utils/misc";
+import { imageURLReplaceWithCDN } from "@utils/misc";
 import { TypedUpdateCheckoutMetadataWhatsapp } from "@components/molecules/GetWhatsappUpdate/queries";
 import MemoWhatsapp from "@components/atoms/SvgIcons/Whatsapp";
 import {
@@ -58,7 +58,7 @@ import { OverlayContext, OverlayTheme, OverlayType } from "@temp/components";
 import MemoUserIconSVG from "@components/atoms/SvgIcons/UserIconSVG";
 import { useCustomHistory } from "@hooks/useCustomHistory";
 import ApplyCouponCode from "../../../ApplyCouponCode";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import AppHeader from "@components/templates/AppHeader";
 
 const CheckoutV1 = ({ headerAndFooterData, shopMeta }) => {
@@ -296,10 +296,10 @@ const PaymentSummary: React.FC<{
         </div>
         {showPaymentSummary ? (
           <div className={styles.paymentSummaryContainer}>
-            {Object.keys(summaryPrices).map(price => {
+            {Object.keys(summaryPrices).map((price, index) => {
               if (summaryPrices[price] && summaryPrices[price].gross.amount) {
                 return (
-                  <div>
+                  <div key={`summary_${index}`}>
                     <div className={styles.paymentSummaryRow}>
                       {price} <TaxedMoney taxedMoney={summaryPrices[price]} />
                     </div>
@@ -342,10 +342,10 @@ const PaymentSummary: React.FC<{
 
   return (
     <div className={styles.paymentSummaryContainer}>
-      {Object.keys(summaryPrices).map(price => {
+      {Object.keys(summaryPrices).map((price, index) => {
         if (summaryPrices[price] && summaryPrices[price].gross.amount) {
           return (
-            <div>
+            <div key={`summary_${index}`}>
               <div className={styles.paymentSummaryRow}>
                 {price} <TaxedMoney taxedMoney={summaryPrices[price]} />
               </div>
@@ -381,8 +381,6 @@ export const OrderSummary = ({
         return total;
       }, 0)
     : 0;
-
-  const paymentSummary = externalPaymentSummary || useCartState();
 
   const itemsToShow = showSummary ? items : items.slice(0, 2);
   return (
@@ -449,7 +447,7 @@ export const OrderSummaryProduct: React.FC<{ line: CheckoutLineFragment }> = ({
       : [line.variant.product.thumbnail];
 
   const imageUrlImgixScr =
-    sortImages.length && useImageURLReplaceWithCDN(sortImages[0].url);
+    sortImages.length && imageURLReplaceWithCDN(sortImages[0].url);
   const altText = line.variant.images.length && line.variant.images[0].alt;
   const [mrp, netPrice, discount] = getThisVariantPrices(line.variant);
 
@@ -552,6 +550,7 @@ const CheckoutForm = () => {
   }, [availablePaymentGateways]);
 
   useEffect(() => {
+  if(typeof window !== 'undefined'){
     const products = paymentSummary.items.map(item => {
       return {
         brand: META_DEFAULTS.name,
@@ -582,6 +581,7 @@ const CheckoutForm = () => {
         },
       },
     });
+  }
   }, []);
 
   const { isFormValid, email, ...formStateWithoutEmail } = formState;
@@ -839,21 +839,22 @@ const CheckoutForm = () => {
       }
 
       // console.log("form-state", formStateWithoutEmailWithValues, email);
-
-      (window.dataLayer || []).push({ ecommerce: null });
-      window.dataLayer.push({
-        event: "Checkout Value Updated",
-        ecommerce: {
-          purchase: {
-            actionField: {
-              "First Name": formStateWithoutEmailWithValues?.firstName,
-              "Last Name": formStateWithoutEmailWithValues?.lastName,
-              Email: email?.value,
-              Phone: formStateWithoutEmailWithValues?.phone,
+      if(typeof window !== 'undefined'){
+        (window && window.dataLayer || []).push({ ecommerce: null });
+        window && window.dataLayer.push({
+          event: "Checkout Value Updated",
+          ecommerce: {
+            purchase: {
+              actionField: {
+                "First Name": formStateWithoutEmailWithValues?.firstName,
+                "Last Name": formStateWithoutEmailWithValues?.lastName,
+                Email: email?.value,
+                Phone: formStateWithoutEmailWithValues?.phone,
+              },
             },
           },
-        },
-      });
+        });
+      }
 
       setLoading(false);
     }, 800)

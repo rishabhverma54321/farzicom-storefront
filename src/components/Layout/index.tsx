@@ -1,6 +1,6 @@
 import AppFooter from "@components/templates/AppFooter";
 import AppHeader from "@components/templates/AppHeader";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 
 export default function Layout({ headerAndFooterData, shopMeta, extraFooterData, children }) {
   return (
@@ -8,12 +8,12 @@ export default function Layout({ headerAndFooterData, shopMeta, extraFooterData,
       <ShopMetaContext.Provider
         value={shopMeta?.data.shopmeta.edges[0].node.metadata}
       >
-        <AppHeader headerData={headerAndFooterData} />
+        {/* <AppHeader headerData={headerAndFooterData} /> */}
         <main style={{ minHeight: "550px" }}>
           <>{children}</>
         </main>
 
-        <AppFooter extraFooterData={extraFooterData} footerData={headerAndFooterData} />
+        {/* <AppFooter extraFooterData={extraFooterData} footerData={headerAndFooterData} /> */}
       </ShopMetaContext.Provider>
     </>
   );

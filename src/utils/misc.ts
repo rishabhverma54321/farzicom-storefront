@@ -181,17 +181,6 @@ export const createTaxedPriceFromAmount = (
   };
 };
 
-export const useImageURLReplaceWithCDN = (imageURL: string | null) => {
-  if (imageURL && IMAGE_CDN_PROVIDERS[IMAGE_CDN].useCDN) {
-    return imageURL.replace(
-      IMAGE_CDN_PROVIDERS[IMAGE_CDN].mediaBucketURL,
-      IMAGE_CDN_PROVIDERS[IMAGE_CDN].cdnSourceURL
-    );
-  }
-  if (imageURL) return imageURL;
-  return "";
-};
-
 export const filterOnKey = (
   array: Array<{ key: string; value: string }>,
   key: string

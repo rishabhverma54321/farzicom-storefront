@@ -13,7 +13,7 @@ import { META_DEFAULTS } from "Themes/config";
 import { mediumScreen, smallScreen } from "@styles/constants";
 import { IsJsonString } from "@utils/IsJSON";
 
-import { getMetadataValue, useImageURLReplaceWithCDN } from "@utils/misc";
+import { getMetadataValue, imageURLReplaceWithCDN } from "@utils/misc";
 
 import {
   generateCollectionUrl,
@@ -172,11 +172,11 @@ const Page: React.FC<{
               renderBottomCenterControls: () => null,
             }}
           >
-            {subNavbarData.map(item => {
-              const imageUrlImgixScr = useImageURLReplaceWithCDN(item?.image);
+            {subNavbarData.map((item,index) => {
+              const imageUrlImgixScr = imageURLReplaceWithCDN(item?.image);
 
               return (
-                <div className={styles.subNavbarContainer}>
+                <div key={`${item?.title}+${index}`} className={styles.subNavbarContainer}>
                   <MyCustomLink href={item?.navigation}>
                     <div>
                       {imageUrlImgixScr && (

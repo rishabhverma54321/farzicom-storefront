@@ -14,3 +14,7 @@ export const GET_POSTAL_PIN = gql`
     }
   }
 `;
+
+const queries = () => {}
+
+export default queries

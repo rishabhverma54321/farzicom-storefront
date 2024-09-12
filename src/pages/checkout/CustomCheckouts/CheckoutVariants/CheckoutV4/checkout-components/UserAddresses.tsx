@@ -157,8 +157,8 @@ export const UserAddresses: React.FC<{
                   <>
                     {addressFieldsToDisplay.map((rows, index) => {
                       return (
-                        <div>
-                          <div className={styles.row} key={index}>
+                        <div key={index}>
+                          <div className={styles.row}>
                             {rows.map(row => {
                               if (row.type === "select") {
                                 return (
@@ -292,10 +292,10 @@ export const UserAddresses: React.FC<{
                               );
                             })}
                           </div>
-                          {rows.map(row => {
+                          {rows.map((row, index) => {
                             if (row.subText) {
                               return (
-                                <div className={styles.inputSubtext}>
+                                <div key={row.subText + index} className={styles.inputSubtext}>
                                   {row.subText}
                                 </div>
                               );
@@ -311,9 +311,9 @@ export const UserAddresses: React.FC<{
                 <div className={styles.badgeList}>
                   {Array.isArray(badgeSectionData?.badges) && (
                     <>
-                      {badgeSectionData?.badges?.map(badge => {
+                      {badgeSectionData?.badges?.map((badge, index) => {
                         return (
-                          <div className={styles.badge}>
+                          <div key={badge.text + index} className={styles.badge}>
                             <CachedImage url={badge?.image} />
                             <span>{badge?.text}</span>
                           </div>
@@ -435,8 +435,8 @@ export const UserAddresses: React.FC<{
                         <>
                           {addressFieldsToDisplay.map((rows, index) => {
                             return (
-                              <div>
-                                <div className={styles.row} key={index}>
+                              <div key={index}>
+                                <div className={styles.row}>
                                   {rows.map(row => {
                                     if (row.type === "select") {
                                       return (
@@ -580,7 +580,7 @@ export const UserAddresses: React.FC<{
                                 {rows.map(row => {
                                   if (row.subText) {
                                     return (
-                                      <div className={styles.inputSubtext}>
+                                      <div key={row.subText} className={styles.inputSubtext}>
                                         {row.subText}
                                       </div>
                                     );
@@ -645,6 +645,7 @@ export const UserAddresses: React.FC<{
                       ${address?.countryArea}, ${address?.postalCode}`;
                         return (
                           <div
+                            key={address?.id}
                             className={styles.savedAddressUnit}
                             onClick={() => handleAddressChange(address?.id)}
                           >
@@ -752,3 +753,5 @@ export const UserAddresses: React.FC<{
     </>
   );
 };
+
+export default UserAddresses;

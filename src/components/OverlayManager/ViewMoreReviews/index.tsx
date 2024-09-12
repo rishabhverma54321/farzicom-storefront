@@ -4,7 +4,7 @@ import React from "react";
 // FIXME:NextJs Make it a CSS module
 // import "./scss/index.scss";
 import { ClientCollectionHeading } from "@components/atoms/ClientCollectionHeading";
-import {  IconButton } from "@components/atoms/IconButton";
+import { IconButton } from "@components/atoms/IconButton";
 
 import { TypedGetProductReviews } from "@components/organisms/ReviewContainer/queries";
 import { Review } from "@components/molecules/Review";
@@ -80,9 +80,13 @@ const ViewMoreReview: React.FC<IViewMoreReview> = ({
                   });
                 return (
                   <>
-                    {actualReviews.map(item => {
+                    {actualReviews.map((item, index) => {
                       if (item && item.node) {
-                        return <Review productReview={item.node} />;
+                        return (
+                          <React.Fragment key={index}>
+                            <Review productReview={item.node} />
+                          </React.Fragment>
+                        );
                       }
                     })}
                   </>

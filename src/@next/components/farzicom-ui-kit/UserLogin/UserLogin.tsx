@@ -15,7 +15,7 @@ import { OTPLESS_WHATSAPP_ID_KEY } from "@temp/themes/plixlifefc/config";
 import styles from "./index.module.scss";
 import * as S from "./styles";
 import { TruecallerLogin } from "../TruecallerLogin";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import { getMetadataValue, isMember, parseJson } from "@utils/misc";
 import { getDBIdFromGraphqlId } from "@utils/core";
 

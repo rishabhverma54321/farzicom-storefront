@@ -4,10 +4,11 @@ import "slick-carousel/slick/slick-theme.css";
 import { ProductDetails_product_images } from "./gqlTypes/ProductDetails";
 import Carousel from "@temp/components/ProductCarousel";
 import Image from "next/image";
-import { useImageURLReplaceWithCDN } from "@utils/misc";
+import { imageURLReplaceWithCDN } from "@utils/misc";
 import Media from "react-media";
 import { largeScreen } from "@styles/constants";
 import { useWindowWidth } from "@hooks";
+import React from "react";
 
 const NewGalleryCarousel: React.FC<{
   images: ProductDetails_product_images[];
@@ -28,7 +29,7 @@ const NewGalleryCarousel: React.FC<{
             if (width > 720) {
               return (
                 <Image
-                  src={useImageURLReplaceWithCDN(images[i]?.url)}
+                  src={imageURLReplaceWithCDN(images[i]?.url)}
                   alt={images[i]?.alt || "Product Image"}
                   width={60}
                   height={60}
@@ -43,17 +44,19 @@ const NewGalleryCarousel: React.FC<{
         }}
       >
         {images.map((image, index) => {
-          const imageUrlImgixScr = useImageURLReplaceWithCDN(image.url);
+          const imageUrlImgixScr = imageURLReplaceWithCDN(image.url);
 
           return (
-            <Image
-              src={imageUrlImgixScr}
-              alt={image?.alt || "Product Image"}
-              width={450}
-              height={450}
-              priority={index === 0}
-              className="product-gallery-image"
-            />
+            <React.Fragment key={image?.alt + index}>
+              <Image
+                src={imageUrlImgixScr}
+                alt={image?.alt || "Product Image"}
+                width={450}
+                height={450}
+                priority={index === 0}
+                className="product-gallery-image"
+              />
+            </React.Fragment>
           );
         })}
       </Carousel>

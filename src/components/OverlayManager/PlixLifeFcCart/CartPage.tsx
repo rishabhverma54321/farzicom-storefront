@@ -58,7 +58,7 @@ import { ApolloQueryResult } from "apollo-client";
 import { useCustomLocation } from "@hooks/useCustomLocation";
 import { clients, pages } from "gqlTypes/customGlobalTypes";
 import { generatePageUrl, getDBIdFromGraphqlId } from "@utils/core";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import {
   createTaxedPriceFromAmount,
   datalayerEventForByb,
@@ -283,7 +283,7 @@ export type setCouponPrepaidDiscountsType = React.Dispatch<
   }>
 >;
 
-const prepareCartFooter = (
+const PrepareCartFooter = (
   subtotalPrice?: ITaxedMoney | null,
   shippingTaxedPrice?: ITaxedMoney | null,
   couponDiscountTaxedPrice?: ITaxedMoney | null,
@@ -619,7 +619,7 @@ export const CartPage: React.FC<{
 
   const [openCart, setOpenCart] = useState(false);
 
-  const generateCart = (
+  const GenerateCart = (
     checkoutLoading: boolean,
     items: CheckoutLineFragment[],
     // removeItem: (data: Omit<myIProps, "quantity">) => any,
@@ -1994,7 +1994,6 @@ export const CartPage: React.FC<{
     utm_data,
   };
 
-  if (!loaded) return <Loader />;
   const isEmpty =
     loaded && items?.length && items[0].quantity > 0 && items[0].totalPrice;
 
@@ -2027,7 +2026,7 @@ export const CartPage: React.FC<{
       description: "Cart-Plixlifefc",
     };
   }
-
+  if (!loaded) return <Loader />;
   return (
     <Cart
       emptyCart={isEmpty}
@@ -2037,7 +2036,7 @@ export const CartPage: React.FC<{
       button={getCheckoutButton(history, user)}
       cartHeader={cartHeader}
       cashbackDiscountTaxedPrice={cashbackDiscount}
-      cartFooter={prepareCartFooter(
+      cartFooter={PrepareCartFooter(
         subtotalPrice,
         shippingPrice,
         couponDiscount,
@@ -2049,7 +2048,7 @@ export const CartPage: React.FC<{
         mrp
       )}
       continueShopping={getShoppingButton(history)}
-      cart={generateCart(
+      cart={GenerateCart(
         checkoutLoading,
         items,
         removeItemRest,

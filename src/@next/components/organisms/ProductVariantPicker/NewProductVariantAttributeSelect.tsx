@@ -13,7 +13,7 @@ import { TaxedMoney } from "@components/containers/TaxedMoney";
 import {
   getMetadataValue,
   parseJson,
-  useImageURLReplaceWithCDN,
+  imageURLReplaceWithCDN,
 } from "@utils/misc";
 import { CachedImage } from "@components/molecules/CachedImage";
 import * as S from "./newStyles";
@@ -641,7 +641,7 @@ export const NewProductVariantAttributeSelect: React.FC<{
                                 <S.VariantImg
                                   src={
                                     typeof url[item.name] === "string" &&
-                                    useImageURLReplaceWithCDN(url[item.name])
+                                    imageURLReplaceWithCDN(url[item.name])
                                   }
                                   width="90px"
                                   height="90px"
@@ -793,7 +793,7 @@ export const NewProductVariantAttributeSelect: React.FC<{
                                 <S.VariantImg
                                   src={
                                     typeof url[item.name] === "string" &&
-                                    useImageURLReplaceWithCDN(url[item.name])
+                                    imageURLReplaceWithCDN(url[item.name])
                                   }
                                   width="90px"
                                   height="90px"
@@ -832,7 +832,7 @@ export const NewProductVariantAttributeSelect: React.FC<{
                                             url={
                                               typeof variantBigImage?.url ===
                                                 "string" &&
-                                              useImageURLReplaceWithCDN(
+                                              imageURLReplaceWithCDN(
                                                 variantBigImage?.url
                                               )
                                             }
@@ -1074,7 +1074,7 @@ export const NewProductVariantAttributeSelect: React.FC<{
                                   <S.VariantImg
                                     src={
                                       typeof url[item.name] === "string" &&
-                                      useImageURLReplaceWithCDN(url[item.name])
+                                      imageURLReplaceWithCDN(url[item.name])
                                     }
                                     width="90px"
                                     height="90px"
@@ -1128,7 +1128,7 @@ export const NewProductVariantAttributeSelect: React.FC<{
                                                   url={
                                                     typeof variantBigImage?.url ===
                                                       "string" &&
-                                                    useImageURLReplaceWithCDN(
+                                                    imageURLReplaceWithCDN(
                                                       variantBigImage?.url
                                                     )
                                                   }
@@ -1260,7 +1260,7 @@ export const NewProductVariantAttributeSelect: React.FC<{
                                                 url={
                                                   typeof variantBigImage?.url ===
                                                     "string" &&
-                                                  useImageURLReplaceWithCDN(
+                                                  imageURLReplaceWithCDN(
                                                     variantBigImage?.url
                                                   )
                                                 }
@@ -1406,7 +1406,7 @@ export const NewProductVariantAttributeSelect: React.FC<{
                                 {/* <S.VariantImg
                                   src={
                                     typeof url[item.name] === "string" &&
-                                    `${useImageURLReplaceWithCDN(
+                                    `${imageURLReplaceWithCDN(
                                       url[item.name]
                                     )}?auto=format&fit=max&w=80`
                                   }
@@ -1670,7 +1670,7 @@ export const NewProductVariantAttributeSelect: React.FC<{
                                   <S.VariantImg
                                     src={
                                       typeof url[item.name] === "string" &&
-                                      useImageURLReplaceWithCDN(url[item.name])
+                                      imageURLReplaceWithCDN(url[item.name])
                                     }
                                   />
                                   {/* <S.VariantLabel>{item.name}</S.VariantLabel> */}
@@ -1762,7 +1762,7 @@ export const NewProductVariantAttributeSelect: React.FC<{
                             <S.VariantImg
                               src={
                                 typeof url[item.name] === "string" &&
-                                useImageURLReplaceWithCDN(url[item.name])
+                                imageURLReplaceWithCDN(url[item.name])
                               }
                               width="90px"
                               height="90px"
@@ -1876,7 +1876,7 @@ export const NewProductVariantAttributeSelect: React.FC<{
                                 <S.VariantImg
                                   src={
                                     typeof url[item.name] === "string" &&
-                                    useImageURLReplaceWithCDN(url[item.name])
+                                    imageURLReplaceWithCDN(url[item.name])
                                   }
                                 />
                                 {/* <S.VariantLabel>{item.name}</S.VariantLabel> */}
@@ -1967,7 +1967,7 @@ export const NewProductVariantAttributeSelect: React.FC<{
                                 <S.VariantImg
                                   src={
                                     typeof url[item.name] === "string" &&
-                                    useImageURLReplaceWithCDN(url[item.name])
+                                    imageURLReplaceWithCDN(url[item.name])
                                   }
                                   width="90px"
                                   height="90px"
@@ -2071,7 +2071,7 @@ export const NewProductVariantAttributeSelect: React.FC<{
                         <S.VariantImg
                           src={
                             typeof url[item.name] === "string" &&
-                            useImageURLReplaceWithCDN(url[item.name])
+                            imageURLReplaceWithCDN(url[item.name])
                           }
                         />
                         <S.VariantLabel>{item.name}</S.VariantLabel>

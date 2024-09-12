@@ -113,3 +113,7 @@ export const SortOption = styled.option`
 export const Header = styled.h3`
   padding: 5px;
 `;
+
+const styles = () => {}
+
+export default styles

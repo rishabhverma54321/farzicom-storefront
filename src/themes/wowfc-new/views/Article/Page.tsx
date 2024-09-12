@@ -26,7 +26,6 @@ import MacedemiaNut from "images/macedemia-nut.jpg";
 import ArgonOil from "images/argon-oil.jpg";
 import Cranberry from "images/cranberry.jpg";
 import Fragipani from "images/frangipani.jpg";
-import Acai from "images/acai-berrys.jpg";
 import FranchClay from "images/french-clay.jpg";
 import SheaButter from "images/shea-butter.jpg";
 import WhitePeony from "images/white-peony.jpg";

@@ -83,7 +83,7 @@ import MemoSavingAddToCart from "@components/atoms/SvgIcons/SavingAddToCart";
 import { useCustomLocation } from "@hooks/useCustomLocation";
 import { generateCollectionUrl, getDBIdFromGraphqlId } from "@utils/core";
 import { ProductDetailsPlix } from "@temp/themes/plixlifefc/views/Product/gqlTypes/ProductDetailsPlix";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import MemoEasyReturn from "@components/atoms/SvgIcons/EasyReturn";
 import MemoTruckIconPdp from "@components/atoms/SvgIcons/TruckIconPdp";
 import MemoCodIcon from "@components/atoms/SvgIcons/CodIcon";

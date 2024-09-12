@@ -28,7 +28,7 @@ const PageExitWarning: React.FunctionComponent<IPageExitWarningProps> = ({
       <div className={styles.wrapper}>
         <div className={`${styles.content}`}>
           <div className={styles.header}>
-            <p>Wait, don't go!</p>
+            <p>Wait, don&#39;t go!</p>
             <div onClick={hide}>
             <MemoSideNavCloseIcon/>
             </div>

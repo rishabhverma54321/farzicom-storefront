@@ -37,8 +37,8 @@ const Empty: React.FC<{ offersDataList: any,overlay:any }> = ({ offersDataList,o
           </div>
         </div>
         <div className="cart-plix__empty_coupons_body">
-          {offersDataList?.map(item => (
-            <div className="cart-plix__empty_coupons_body_card">
+          {offersDataList?.map((item, index) => (
+            <div key={item?.title + index} className="cart-plix__empty_coupons_body_card">
               <div className="cart-plix__empty_coupons_body_card_head">
                 <div>
                   <div className="cart-plix__empty_coupons_body_card_head_heading">

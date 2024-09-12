@@ -9,7 +9,7 @@ import { generateProductUrl, getGraphqlIdFromDBId } from "@temp/core/utils";
 import NoPhoto from "images/no-photo.svg";
 import Stroller from "@components/atoms/SvgIcons/Stroller";
 import {
-  useImageURLReplaceWithCDN,
+  imageURLReplaceWithCDN,
   getMetadataValue,
   parseJson,
   productClickDatalayer,
@@ -146,7 +146,7 @@ export const ProductCardWizzy: React.FC<IProductCardPlixlifeProps> = ({
     productCardAttributes && productCardAttributes?.image
       ? productCardAttributes?.image
       : product?.mainImage;
-  const imageUrlImgixScr = useImageURLReplaceWithCDN(image);
+  const imageUrlImgixScr = imageURLReplaceWithCDN(image);
 
   const variantId =
     defaultVariant &&

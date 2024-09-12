@@ -83,9 +83,6 @@ export const CartRow: React.FC<IProps> = ({
   showMore = 0,
   handleShowMore,
 }: IProps) => {
-  if (!name) {
-    return <Loader />;
-  }
   const [tempQuantity, setTempQuantity] = useState<string>(quantity.toString());
   const [isTooMuch, setIsTooMuch] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -225,7 +222,9 @@ export const CartRow: React.FC<IProps> = ({
     variantPricing,
     percentDiscount
   );
-
+  if (!name) {
+    return <Loader />;
+  }
   if (categorySlug === "free-gift-products") {
     return (
       <S.Container loading={false}>

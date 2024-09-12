@@ -1,11 +1,11 @@
 import SearchPage from "Themes/views/Search/View";
 import React from "react";
 import Layout from "@temp/components/Layout";
-import { clientSSR } from "@temp/clients";
+import { clientSSR } from "@temp/client";
 import winston from "winston";
-import { headerAndFooterQuery, ShopMetaQuery } from "../queries";
 import STSearchPage from "./content/STSearchPage";
 import Head from "next/head";
+import headerAndFooterQuery, { ShopMetaQuery } from "@temp/gloablQueries/queries";
 
 const ExtractMetaSSR = React.FC<{
   shopMeta
@@ -18,19 +18,19 @@ const ExtractMetaSSR = React.FC<{
 };
 
 export async function getStaticProps(context) {
-  const logger = winston.createLogger({
-    level: "info",
-    format: winston.format.json(),
-    defaultMeta: { service: "user-service" },
-    transports: [
-      //
-      // - Write all logs with importance level of `error` or less to `error.log`
-      // - Write all logs with importance level of `info` or less to `combined.log`
-      //
-      new winston.transports.File({ filename: "error.log", level: "error" }),
-      new winston.transports.File({ filename: "combined.log" }),
-    ],
-  });
+  // const logger = winston.createLogger({
+  //   level: "info",
+  //   format: winston.format.json(),
+  //   defaultMeta: { service: "user-service" },
+  //   transports: [
+  //     //
+  //     // - Write all logs with importance level of `error` or less to `error.log`
+  //     // - Write all logs with importance level of `info` or less to `combined.log`
+  //     //
+  //     new winston.transports.File({ filename: "error.log", level: "error" }),
+  //     new winston.transports.File({ filename: "combined.log" }),
+  //   ],
+  // });
 
   try {
     const headerAndFooterData = await clientSSR.query({
@@ -42,13 +42,13 @@ export async function getStaticProps(context) {
       fetchPolicy: "no-cache",
     });
 
-    logger.log(
-      "search page",
-      JSON.stringify({
-        headerAndFooterData,
-        shopMeta,
-      })
-    );
+    // logger.log(
+    //   "search page",
+    //   JSON.stringify({
+    //     headerAndFooterData,
+    //     shopMeta,
+    //   })
+    // );
 
     return {
       props: {
@@ -67,8 +67,8 @@ export default function Search({ headerAndFooterData, shopMeta }) {
   return (
     <>
       <Layout headerAndFooterData={headerAndFooterData} shopMeta={shopMeta}>
-        <ExtractMetaSSR shopMeta={shopMeta} />
-        <STSearchPage />
+        {/* <ExtractMetaSSR shopMeta={shopMeta} /> */}
+        {/* <STSearchPage /> */}
       </Layout>
     </>
   );

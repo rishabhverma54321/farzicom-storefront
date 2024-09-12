@@ -20,7 +20,7 @@ import {
   useCartState,
   useCheckoutState,
 } from "@saleor/sdk";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import styles from "./scss/index.module.scss";
 import { CachedImage } from "@components/molecules/CachedImage";
 import { CircularProgress } from "@mui/material";
@@ -289,6 +289,7 @@ const MonthlyPack: React.FunctionComponent<ICouponOffersProps> = ({
                                 <label
                                   className={styles.monthlypack_options}
                                   htmlFor={`monthlypack_${index}`}
+                                  key={`monthlypack_${index}`}
                                 >
                                   <div className={styles.monthlypack_details}>
                                     <div className={styles.ratio_button}>

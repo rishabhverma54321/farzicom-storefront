@@ -244,3 +244,6 @@ export const UpiButton = styled.button<{
   background-color: ${props =>
     props.phonepe ? props.theme.colors.newPlixGreen : "#EFFBF2"};
 `;
+const styles = () => {}
+
+export default styles

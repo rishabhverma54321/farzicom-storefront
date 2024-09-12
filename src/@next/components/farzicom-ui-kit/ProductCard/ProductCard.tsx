@@ -5,7 +5,7 @@ import MyRating from "@components/atoms/MyRating";
 import styles from "./index.module.scss";
 import MyCustomLink from "@components/next-react/MyCustomLink";
 import AddToCartButtonNext from "@components/farzicom-ui-kit/AddToCartButtonNext";
-import { getMetadataValue, useImageURLReplaceWithCDN } from "@utils/misc";
+import { getMetadataValue, imageURLReplaceWithCDN } from "@utils/misc";
 import { ProductVariantFragment, PriceFragment } from "@saleor/sdk";
 import MoneyNext from "@components/farzicom-ui-kit/MoneyNext";
 import { OverlayType } from "@temp/components";
@@ -31,7 +31,7 @@ export const ProductCardNext: React.FC<IProductCardNextProps> = ({
           ? sortImages[0].url
           : product?.thumbnail2x?.url;
 
-      const imageUrlImgixScr = useImageURLReplaceWithCDN(image);
+      const imageUrlImgixScr = imageURLReplaceWithCDN(image);
 
       return [imageUrlImgixScr, "Product Image"];
     },

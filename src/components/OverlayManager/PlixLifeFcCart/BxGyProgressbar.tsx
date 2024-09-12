@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./s";
 import { customEventTrigger, getMetadataValue, parseJson } from "@utils/misc";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import { useAuthState, useCartState, useCheckoutState } from "@saleor/sdk";
 import MemoArtboard from "@components/atoms/SvgIcons/MemoArtboard";
 import { Markup } from "interweave";

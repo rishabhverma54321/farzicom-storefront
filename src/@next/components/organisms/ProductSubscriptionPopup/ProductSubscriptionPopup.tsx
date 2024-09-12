@@ -36,7 +36,7 @@ import MemoInfoIcon from "@components/atoms/SvgIcons/InfoIcon";
 import MemoSideArrowTriangle from "@components/atoms/SvgIcons/SideArrowTriangle";
 import { Markup } from "interweave";
 import MemoizedImage from "./MemoizedImage";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import { getDBIdFromGraphqlId } from "@utils/core";
 
 export interface IProductSubscriptionPopupProps {

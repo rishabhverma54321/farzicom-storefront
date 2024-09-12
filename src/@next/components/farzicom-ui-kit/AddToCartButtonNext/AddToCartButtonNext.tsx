@@ -10,7 +10,7 @@ import {
 import { addToCartDataLayer, getMetadataValue, isAvailableForPurchase, parseJson } from "@utils/misc";
 import styles from "./index.module.scss";
 import { addToCartTrack } from "farzicom-ui/lib/Track/addToCartTrack";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 
 function mmatchPropsAreEqual(prevMatch: any, nextMatch: any) {
   return prevMatch?.text === nextMatch?.text;

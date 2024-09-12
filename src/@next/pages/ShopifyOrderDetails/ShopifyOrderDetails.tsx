@@ -156,7 +156,7 @@ export const ShopifyOrderDetails: React.FC<IProps> = ({ history }: IProps) => {
                                     <S.Th>Total</S.Th>
                                   </S.Thead>
                                   <S.Tbody>
-                                    {order?.lines?.map(line => {
+                                    {order?.lines?.map((line,index) => {
                                       const sortImages =
                                         line?.variant?.images &&
                                         line?.variant.images.sort(
@@ -166,7 +166,7 @@ export const ShopifyOrderDetails: React.FC<IProps> = ({ history }: IProps) => {
                                               : -1
                                         );
                                       return (
-                                        <S.Tr>
+                                        <S.Tr key={line?.productName + index}>
                                           <S.Td textAlign="left">
                                             <S.ImageAndName>
                                               <Card

@@ -6,7 +6,7 @@ import {
   parseJson,
 } from "@utils/misc";
 import FireWorkReelSection from "@components/organisms/FireWorkReelSection";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import Script from "next/script";
 import { useAuthState } from "@saleor/sdk";
 import PlantATree from "Themes/views/Product/pdpComponents/PlantATree";

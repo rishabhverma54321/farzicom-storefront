@@ -54,7 +54,7 @@ import {
   membershipDiscountData,
   isMember,
   parseJson,
-  useImageURLReplaceWithCDN,
+  imageURLReplaceWithCDN,
 } from "@utils/misc";
 import { TypedUpdateCheckoutMetadataWhatsapp } from "@components/molecules/GetWhatsappUpdate/queries";
 import MemoWhatsapp from "@components/atoms/SvgIcons/Whatsapp";
@@ -73,12 +73,12 @@ import {
 } from "@temp/components";
 import MemoUserIconSVG from "@components/atoms/SvgIcons/UserIconSVG";
 import { useCustomHistory } from "@hooks/useCustomHistory";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import AppHeader from "@components/templates/AppHeader";
 import MemoBackButtonSVG from "@components/atoms/SvgIcons/BackButtonSVG";
 import ImageCard from "@components/atoms/ImageCard";
 import ContinueShoppingNext from "@components/farzicom-ui-kit/ContinueShoppingNext";
-import Snackbar from "@material-ui/core/Snackbar";
+import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import Link from "next/link";
 import clevertapEvents from "Themes/lib/clevertapEvents.js";
@@ -760,7 +760,7 @@ export const PaymentSummary: React.FC<{
                   summaryPrices[price].gross.amount)
               ) {
                 return (
-                  <div className={`${styles.row}`}>
+                  <div key={`summary_${i}`} className={`${styles.row}`}>
                     <div
                       className={`${styles.paymentSummaryRow} ${
                         price === "Membership Discount (10%)"
@@ -875,10 +875,10 @@ export const PaymentSummary: React.FC<{
 
   return (
     <div className={styles.paymentSummaryContainer}>
-      {Object.keys(summaryPrices).map(price => {
+      {Object.keys(summaryPrices).map((price, index) => {
         if (summaryPrices[price] && summaryPrices[price].gross.amount) {
           return (
-            <div>
+            <div key={`summary_${index}`}>
               <div className={styles.paymentSummaryRow}>
                 {price} <TaxedMoney taxedMoney={summaryPrices[price]} />
               </div>
@@ -968,7 +968,7 @@ export const OrderSummary = ({
     totalQuantity++;
   }
 
-  const paymentSummary = externalPaymentSummary || useCartState();
+  // const paymentSummary = externalPaymentSummary || useCartState();
 
   const itemsToShow = showSummary ? items : items.slice(0, 1);
   const itemsToShowMobile = showSummary ? items : [];
@@ -1091,14 +1091,13 @@ export const OrderSummaryProduct: React.FC<{
   boxItem?: any;
 }> = ({ line, boxItem }) => {
   const { checkout, recentOrder } = useCheckoutState();
+  const ShopMetaContextValue = useContext(ShopMetaContext);
   if (boxItem) {
     let specificboxItem: any = {};
     const isOrderPlacedPage =
       typeof window !== "undefined" &&
       window.location.pathname === "/order-placed";
     const updatedBoxItem = boxItem;
-    const { checkout, recentOrder } = useCheckoutState();
-    const ShopMetaContextValue = useContext(ShopMetaContext);
     const [netPrice] = getThisVariantPrices(updatedBoxItem.variant);
     const giftBoxItemsProducts = isGiftBoxProduct(boxItem?.variant?.sku);
     const boxItems: any = isOrderPlacedPage
@@ -1136,7 +1135,7 @@ export const OrderSummaryProduct: React.FC<{
         : [boxItem.variant.product.thumbnail];
 
     const boxThumbnailWithImgix =
-      sortImages.length && useImageURLReplaceWithCDN(sortImages[0]?.url);
+      sortImages.length && imageURLReplaceWithCDN(sortImages[0]?.url);
 
     const boxItemUndiscountedPriceValue =
       specificboxItem?.items &&
@@ -1187,9 +1186,9 @@ export const OrderSummaryProduct: React.FC<{
             {specificboxItem?.items &&
               Array.isArray(specificboxItem?.items) && (
                 <>
-                  {specificboxItem?.items?.map(box => {
+                  {specificboxItem?.items?.map((box, index) => {
                     return (
-                      <div className={styles.boxItem}>
+                      <div key={box.stepNumber} className={styles.boxItem}>
                         <span>Item {box.stepNumber}:</span>
                         <span>
                           {box?.name?.slice(0, 30)}
@@ -1243,7 +1242,7 @@ export const OrderSummaryProduct: React.FC<{
       : [line.variant.product.thumbnail];
 
   const imageUrlImgixScr =
-    sortImages.length && useImageURLReplaceWithCDN(sortImages[0]?.url);
+    sortImages.length && imageURLReplaceWithCDN(sortImages[0]?.url);
   const altText = line.variant.images.length && line.variant.images[0]?.alt;
   const [mrp, netPrice, discount] = getThisVariantPrices(line.variant);
 
@@ -1852,153 +1851,155 @@ const CheckoutForm = () => {
   }, [cashbackRecieve?.amount, paymentMethodChangeLoading]);
 
   useEffect(() => {
-    const routerQuery = Router?.query?.redirect_from;
-    const products = paymentSummary.items.map(item => {
-      return {
-        brand: META_DEFAULTS.name,
-        id: item?.variant.sku,
-        name: item?.variant.product.name,
-        price: item?.variant.pricing.price.gross.amount,
-        quantity: item.quantity,
-      };
-    });
-    const quantity = paymentSummary.items.reduce(
-      (partialSum, a) => partialSum + a?.quantity,
-      0
-    );
-    if (window.dataLayer) {
-      window.dataLayer.push({ ecommerce: null });
-      //pushState needs to be called on component mount
-      window.history.pushState(null, null, window.location.href);
-    }
-    (window.dataLayer = window.dataLayer || []).push({
-      event: "Checkout",
-      ecommerce: {
-        checkout: {
-          actionField: {
-            step: 1,
-            option:
-              routerQuery === "proceed-to-pay"
-                ? "Proceed To Pay"
-                : routerQuery === "buy-now"
-                ? "Buy Now"
-                : "checkout",
+    if(typeof window !== 'undefined'){
+      const routerQuery = Router?.query?.redirect_from;
+      const products = paymentSummary.items.map(item => {
+        return {
+          brand: META_DEFAULTS.name,
+          id: item?.variant.sku,
+          name: item?.variant.product.name,
+          price: item?.variant.pricing.price.gross.amount,
+          quantity: item.quantity,
+        };
+      });
+      const quantity = paymentSummary.items.reduce(
+        (partialSum, a) => partialSum + a?.quantity,
+        0
+      );
+      if (window.dataLayer) {
+        window.dataLayer.push({ ecommerce: null });
+        //pushState needs to be called on component mount
+        window.history.pushState(null, null, window.location.href);
+      }
+      (window.dataLayer = window.dataLayer || []).push({
+        event: "Checkout",
+        ecommerce: {
+          checkout: {
+            actionField: {
+              step: 1,
+              option:
+                routerQuery === "proceed-to-pay"
+                  ? "Proceed To Pay"
+                  : routerQuery === "buy-now"
+                  ? "Buy Now"
+                  : "checkout",
+            },
+            products,
+            totalQuantity: quantity,
+            couponCode: promoCodeDiscount?.voucherCode,
+            "coupon discount": paymentSummary.couponDiscount?.gross?.amount,
+            "offer discount": paymentSummary.offerDiscount?.gross?.amount,
+            "order total": paymentSummary.totalPrice?.gross?.amount,
+            "delivery charges": paymentSummary.shippingPrice?.gross?.amount,
+            "prepaid discount": paymentSummary.prepaidDiscount?.gross?.amount,
+            "total discount": paymentSummary.discount?.amount,
+            "total cart value": paymentSummary.totalPrice?.gross?.amount,
           },
-          products,
-          totalQuantity: quantity,
-          couponCode: promoCodeDiscount?.voucherCode,
-          "coupon discount": paymentSummary.couponDiscount?.gross?.amount,
-          "offer discount": paymentSummary.offerDiscount?.gross?.amount,
-          "order total": paymentSummary.totalPrice?.gross?.amount,
-          "delivery charges": paymentSummary.shippingPrice?.gross?.amount,
-          "prepaid discount": paymentSummary.prepaidDiscount?.gross?.amount,
-          "total discount": paymentSummary.discount?.amount,
-          "total cart value": paymentSummary.totalPrice?.gross?.amount,
         },
-      },
-    });
-
-    const checkoutDataLayerItems = paymentSummary?.items?.map(item => {
-      return {
-        item_name: item?.variant?.product?.name,
-        item_id: item?.variant?.sku,
-        price: item?.variant?.pricing?.price?.gross?.amount,
-        item_brand: META_DEFAULTS?.name,
-        quantity: item?.quantity,
-      };
-    });
-
-    window.dataLayer = window.dataLayer || [];
-    if (window.dataLayer) {
-      window.dataLayer.push({ ecommerce: null });
-    }
-    window.dataLayer?.push({
-      event: "checkoutBegin",
-      UserID: user?.id,
-      user_type: user ? "logged_in" : "logged_out",
-      ecommerce: {
-        checkout_option: {
-          actionField: { step: 1, option: "Checkout Begin" },
-
-          products: items?.map(item => ({
-            name: item?.variant?.product?.name,
-            id: item?.variant?.product?.id,
-            price: item?.variant?.pricing?.price?.gross?.amount,
-            brand: "Plixlife",
-            category: item?.variant?.product?.category,
-            quantity: item?.quantity,
-            variant: item?.variant?.name,
-          })),
-        },
-      },
-    });
-
-    // if (ENABLE_GA4) {
-    //   if (
-    //     typeof window !== "undefined" &&
-    //     window.dataLayer &&
-    //     gtmConfig.beginCheckout.enable
-    //   ) {
-    //     window.dataLayer.push({ ecommerce: null });
-    //     (window.dataLayer = window.dataLayer || []).push({
-    //       event: gtmConfig.beginCheckout.value,
-    //       user_ID: user?.id ? getDBIdFromGraphqlId(user?.id, "User") : undefined,
-    //       user_type: user ? "logged_in" : "logged_out", // Guest user or Loggedin user
-    //       membership_status: isMember(user)
-    //         ? "plix_club_member"
-    //         : "not_a_plix_club_member",
-    //       ecommerce: {
-    //         currency: "INR",
-    //         coupon: checkout?.voucherCode || "NA",
-    //         value: paymentSummary?.totalPrice?.gross?.amount,
-    //         items: items?.map(item => {
-    //           const itemJourneyInfo = getItemJourneyInfo(item?.variant?.id);
-    //           const productVariantName = getVariantAttributes("Flavors", item?.variant)
-    //           const {discountAmount} = getPrices(item?.variant?.product, false, item?.variant);
-    //           const categories = getItemCategoriesFromAttribute(item?.variant);
-    //           const isMonthIncluded = categories?.sizeCategory2?.toLowerCase()?.includes("month");
-    //           return {
-    //             item_id: item.variant?.product?.id ? getDBIdFromGraphqlId(item.variant?.product?.id, "Product") : null,
-    //             item_name: item?.variant?.product?.name,
-    //             item_brand: "plixlife",
-    //             currency: "INR",
-    //             discount:discountAmount,
-    //             coupon: checkout?.voucherCode || "NA",
-    //             quantity: item?.quantity,
-    //             item_category: item?.variant?.product?.category?.name,
-    //             item_category2: isMonthIncluded ? categories?.sizeCategory2 : "NA",
-    //             item_category3: categories?.sizeCategory1 || "NA",
-    //             item_category4: isMonthIncluded ? "NA" : (categories?.sizeCategory2 || "NA"),
-    //             price: item?.variant?.pricing?.price?.gross?.amount,
-    //             item_variant: productVariantName,
-    //             item_list_name: itemJourneyInfo?.addedFrom || "NA",
-    //             item_list_id: itemJourneyInfo?.productListId || "NA",
-    //             index: "NA"
-    //           };
-    //         })
-    //       },
-    //     });
-    //   }
-    // }
-    try {
-      const cartItems = paymentSummary.items.map(item => {
+      });
+  
+      const checkoutDataLayerItems = paymentSummary?.items?.map(item => {
         return {
           item_name: item?.variant?.product?.name,
-          item_id: item?.variant?.product?.id,
+          item_id: item?.variant?.sku,
           price: item?.variant?.pricing?.price?.gross?.amount,
-          currency: item?.variant?.pricing?.price?.gross?.currency,
-          variant: item?.variant?.name,
+          item_brand: META_DEFAULTS?.name,
           quantity: item?.quantity,
         };
       });
-
-      beginCheckout(ShopMetaContextValue, {
-        cart_amount: paymentSummary.totalPrice?.gross?.amount,
-        currency: paymentSummary.totalPrice?.gross?.currency,
-        items: cartItems,
+  
+      window.dataLayer = window.dataLayer || [];
+      if (window.dataLayer) {
+        window.dataLayer.push({ ecommerce: null });
+      }
+      window.dataLayer?.push({
+        event: "checkoutBegin",
+        UserID: user?.id,
+        user_type: user ? "logged_in" : "logged_out",
+        ecommerce: {
+          checkout_option: {
+            actionField: { step: 1, option: "Checkout Begin" },
+  
+            products: items?.map(item => ({
+              name: item?.variant?.product?.name,
+              id: item?.variant?.product?.id,
+              price: item?.variant?.pricing?.price?.gross?.amount,
+              brand: "Plixlife",
+              category: item?.variant?.product?.category,
+              quantity: item?.quantity,
+              variant: item?.variant?.name,
+            })),
+          },
+        },
       });
-    } catch (err) {
-      console.log("fc-collect begin checkout error", err);
+  
+      // if (ENABLE_GA4) {
+      //   if (
+      //     typeof window !== "undefined" &&
+      //     window.dataLayer &&
+      //     gtmConfig.beginCheckout.enable
+      //   ) {
+      //     window.dataLayer.push({ ecommerce: null });
+      //     (window.dataLayer = window.dataLayer || []).push({
+      //       event: gtmConfig.beginCheckout.value,
+      //       user_ID: user?.id ? getDBIdFromGraphqlId(user?.id, "User") : undefined,
+      //       user_type: user ? "logged_in" : "logged_out", // Guest user or Loggedin user
+      //       membership_status: isMember(user)
+      //         ? "plix_club_member"
+      //         : "not_a_plix_club_member",
+      //       ecommerce: {
+      //         currency: "INR",
+      //         coupon: checkout?.voucherCode || "NA",
+      //         value: paymentSummary?.totalPrice?.gross?.amount,
+      //         items: items?.map(item => {
+      //           const itemJourneyInfo = getItemJourneyInfo(item?.variant?.id);
+      //           const productVariantName = getVariantAttributes("Flavors", item?.variant)
+      //           const {discountAmount} = getPrices(item?.variant?.product, false, item?.variant);
+      //           const categories = getItemCategoriesFromAttribute(item?.variant);
+      //           const isMonthIncluded = categories?.sizeCategory2?.toLowerCase()?.includes("month");
+      //           return {
+      //             item_id: item.variant?.product?.id ? getDBIdFromGraphqlId(item.variant?.product?.id, "Product") : null,
+      //             item_name: item?.variant?.product?.name,
+      //             item_brand: "plixlife",
+      //             currency: "INR",
+      //             discount:discountAmount,
+      //             coupon: checkout?.voucherCode || "NA",
+      //             quantity: item?.quantity,
+      //             item_category: item?.variant?.product?.category?.name,
+      //             item_category2: isMonthIncluded ? categories?.sizeCategory2 : "NA",
+      //             item_category3: categories?.sizeCategory1 || "NA",
+      //             item_category4: isMonthIncluded ? "NA" : (categories?.sizeCategory2 || "NA"),
+      //             price: item?.variant?.pricing?.price?.gross?.amount,
+      //             item_variant: productVariantName,
+      //             item_list_name: itemJourneyInfo?.addedFrom || "NA",
+      //             item_list_id: itemJourneyInfo?.productListId || "NA",
+      //             index: "NA"
+      //           };
+      //         })
+      //       },
+      //     });
+      //   }
+      // }
+      try {
+        const cartItems = paymentSummary.items.map(item => {
+          return {
+            item_name: item?.variant?.product?.name,
+            item_id: item?.variant?.product?.id,
+            price: item?.variant?.pricing?.price?.gross?.amount,
+            currency: item?.variant?.pricing?.price?.gross?.currency,
+            variant: item?.variant?.name,
+            quantity: item?.quantity,
+          };
+        });
+  
+        beginCheckout(ShopMetaContextValue, {
+          cart_amount: paymentSummary.totalPrice?.gross?.amount,
+          currency: paymentSummary.totalPrice?.gross?.currency,
+          items: cartItems,
+        });
+      } catch (err) {
+        console.log("fc-collect begin checkout error", err);
+      }
     }
   }, []);
 
@@ -3307,29 +3308,31 @@ const CheckoutForm = () => {
         //     setCheckoutError(setShippingMethodRes?.errors[0]?.message);
         //   }
         // }
-        (window.dataLayer || []).push({ ecommerce: null });
-        window.dataLayer.push({
-          event: "checkoutFormComplete",
-          UserID: user?.id,
-          user_type: user ? "logged_in" : "logged_out",
-          ecommerce: {
-            checkout_option: {
-              actionField: { step: 2, option: "Checkout Form Completed" },
-
-              products: items?.map(item => ({
-                name: item?.variant?.product?.name,
-                id: item?.variant?.product?.id
-                  ? getDBIdFromGraphqlId(item?.variant?.product?.id, "Product")
-                  : null,
-                price: item?.variant?.pricing?.price?.gross?.amount,
-                brand: "Plixlife",
-                category: item?.variant?.product?.category?.name,
-                quantity: item?.quantity,
-                variant: item?.variant?.name,
-              })),
+        if(typeof window !== 'undefined'){
+          (window.dataLayer || []).push({ ecommerce: null });
+          window.dataLayer.push({
+            event: "checkoutFormComplete",
+            UserID: user?.id,
+            user_type: user ? "logged_in" : "logged_out",
+            ecommerce: {
+              checkout_option: {
+                actionField: { step: 2, option: "Checkout Form Completed" },
+  
+                products: items?.map(item => ({
+                  name: item?.variant?.product?.name,
+                  id: item?.variant?.product?.id
+                    ? getDBIdFromGraphqlId(item?.variant?.product?.id, "Product")
+                    : null,
+                  price: item?.variant?.pricing?.price?.gross?.amount,
+                  brand: "Plixlife",
+                  category: item?.variant?.product?.category?.name,
+                  quantity: item?.quantity,
+                  variant: item?.variant?.name,
+                })),
+              },
             },
-          },
-        });
+          });
+        }
         if (!addressFieldOnce) {
           setAddressFilledOnce(true);
         }
@@ -3817,7 +3820,7 @@ const CheckoutForm = () => {
             <p>{row.label} </p>
             <CachedImage
               isStaticImage
-              url={useImageURLReplaceWithCDN(
+              url={imageURLReplaceWithCDN(
                 "https://plixlifefc-media.farziengineer.co/hosted/Group_34324-24a8b1c90798.png"
               )}
             />
@@ -4138,9 +4141,9 @@ const CheckoutForm = () => {
           <div className={styles.badgeList}>
             {Array.isArray(badgeSectionData?.badges) && (
               <>
-                {badgeSectionData?.badges?.map(badge => {
+                {badgeSectionData?.badges?.map((badge, index) => {
                   return (
-                    <div className={styles.badge}>
+                    <div key={badge?.text + index} className={styles.badge}>
                       <CachedImage url={badge?.image} />
                       <span>{badge?.text}</span>
                     </div>
@@ -4367,8 +4370,8 @@ const CheckoutForm = () => {
                 <>
                   {addressFileds2.slice(0, 1).map((rows, index) => {
                     return (
-                      <div>
-                        <div className={styles.row} key={index}>
+                      <div key={index}>
+                        <div className={styles.row}>
                           {rows.map(row => {
                             if (row.type === "select") {
                               return (
@@ -4500,10 +4503,10 @@ const CheckoutForm = () => {
                             );
                           })}
                         </div>
-                        {rows.map(row => {
+                        {rows.map((row, index) => {
                           if (row.subText) {
                             return (
-                              <div className={styles.inputSubtext}>
+                              <div key={row.subText + index} className={styles.inputSubtext}>
                                 {row.subText}
                               </div>
                             );
@@ -4524,8 +4527,8 @@ const CheckoutForm = () => {
 
                   {addressFileds2Copy.map((rows, index) => {
                     return (
-                      <div className={styles.rowWrapper}>
-                        <div className={styles.row} key={index}>
+                      <div key={index} className={styles.rowWrapper}>
+                        <div className={styles.row}>
                           {rows.map(row => {
                             if (row.type === "select") {
                               return (
@@ -4628,10 +4631,10 @@ const CheckoutForm = () => {
                             );
                           })}
                         </div>
-                        {rows.map(row => {
+                        {rows.map((row, index) => {
                           if (row.subText) {
                             return (
-                              <div className={styles.inputSubtext}>
+                              <div key={row.subText + index} className={styles.inputSubtext}>
                                 {row.subText}
                               </div>
                             );
@@ -4704,8 +4707,8 @@ const CheckoutForm = () => {
               </div>
               {offerPolicies && Array.isArray(offerPolicies?.checkout) && (
                 <S.OfferPolicyStrip>
-                  {offerPolicies?.checkout?.map(policy => (
-                    <li>{policy}</li>
+                  {offerPolicies?.checkout?.map((policy, index) => (
+                    <li key={policy + index}>{policy}</li>
                   ))}
                 </S.OfferPolicyStrip>
               )}
@@ -4776,7 +4779,7 @@ const CheckoutForm = () => {
                     <div className={styles.svgAndTextWrapper}>
                       <div className="cart-plix__cashback-no-login__svg">
                         <img
-                          src={useImageURLReplaceWithCDN(
+                          src={imageURLReplaceWithCDN(
                             "https://plixlifefc-media.farziengineer.co/hosted/wallet-f7713882deaa.png"
                           )}
                           width="70"

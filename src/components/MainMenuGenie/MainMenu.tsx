@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { FormattedMessage } from "react-intl";
-import { useAuth, useAuthState, useCart, useCheckout } from "@saleor/sdk";
+import { useAuth, useAuthState, useCart, useCheckout, useCheckoutState } from "@saleor/sdk";
 import queryString from "query-string";
 
 import Media from "react-media";
@@ -42,7 +42,8 @@ const MainMenuGenie: React.FC = () => {
 const {user} = useAuthState()
   const { items } = useCart();
   const { createCheckout, addPromoCode } = useCheckout();
-  const {checkout} = useCheckoutState()  const history = useCustomHistory();
+  const {checkout} = useCheckoutState() 
+  const history = useCustomHistory();
   const location = useCustomLocation();
 
   useEffect(() => {

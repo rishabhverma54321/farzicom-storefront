@@ -1,7 +1,7 @@
 import {
   getMetadataValue,
   parseJson,
-  useImageURLReplaceWithCDN,
+  imageURLReplaceWithCDN,
 } from "@utils/misc";
 import React from "react";
 import styles from "../scss/index.module.scss";
@@ -35,7 +35,7 @@ export const NutritionistSection: React.FC<INutritionistData> = ({
     Array.isArray(specificProductCard) &&
     specificProductCard?.length;
 
-  const ratingImageUrlWithImgix = useImageURLReplaceWithCDN(
+  const ratingImageUrlWithImgix = imageURLReplaceWithCDN(
     "https://plixlifefc-media.farziengineer.co/hosted/rating_star-148dc021bba0.svg"
   );
 

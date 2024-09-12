@@ -90,3 +90,7 @@ export const SavedAddressBar = styled.div<{ isSelected?: boolean }>`
     padding: 1rem;
 `}
 `;
+
+const styles = () => {}
+
+export default styles;

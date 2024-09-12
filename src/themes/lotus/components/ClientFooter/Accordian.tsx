@@ -70,8 +70,8 @@ export const CareAccordian: React.FC<ICareAccordianProps> = ({ menu }) => {
 
           {show === item.id && (
             <S.List>
-              {item.children.map(i => (
-                <li>
+              {item.children.map((i, index) => (
+                <li key={index}>
                   <NavLink item={i} />
                 </li>
               ))}

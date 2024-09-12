@@ -30,7 +30,7 @@ import {
   trackItemsJourney,
   getCheckoutMetaForVariantAttributeWeight,
 } from "@utils/misc";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import { useMessageStateUpdate } from "@temp/MessageContext";
 import { useRouter } from "next/router";
 import MemoCartPlusIcon from "@components/atoms/SvgIcons/CartPlusIcon";

@@ -37,7 +37,7 @@ import debounce from "lodash/debounce";
 import { CreatePaymentInput } from "@saleor/sdk/dist/apollo/types/checkout";
 import { IMAGE_CDN, IMAGE_CDN_PROVIDERS, META_DEFAULTS } from "Themes/config";
 import { theme } from "Themes/globalStyles/constants";
-import { CircularProgress } from '@mui/material';
+import { CircularProgress } from "@mui/material";
 import * as S from "../../../styles";
 import MyCustomLink from "@components/next-react/MyCustomLink";
 import MemoPaySVG from "@components/atoms/SvgIcons/PaySVG";
@@ -46,7 +46,7 @@ import MemoDownArrow from "@components/atoms/SvgIcons/DownArrow";
 import MemoUpArrow from "@components/atoms/SvgIcons/UpArrow";
 import Image from "next/image";
 import { getThisVariantPrices } from "@temp/core/utils";
-import { useImageURLReplaceWithCDN } from "@utils/misc";
+import { imageURLReplaceWithCDN } from "@utils/misc";
 import { TypedUpdateCheckoutMetadataWhatsapp } from "@components/molecules/GetWhatsappUpdate/queries";
 import MemoWhatsapp from "@components/atoms/SvgIcons/Whatsapp";
 import {
@@ -58,7 +58,7 @@ import { OverlayContext, OverlayTheme, OverlayType } from "@temp/components";
 import MemoUserIconSVG from "@components/atoms/SvgIcons/UserIconSVG";
 import { useCustomHistory } from "@hooks/useCustomHistory";
 import ApplyCouponCode from "../../../ApplyCouponCode";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import AppHeader from "@components/templates/AppHeader";
 
 const CheckoutV2 = ({ headerAndFooterData, shopMeta }) => {
@@ -192,7 +192,7 @@ const CheckoutLoginSection = ({ dispatch }) => {
             placeholder="userAddresses"
             value={selectedAddress}
             selectOptions={addressOptions || []}
-            onChange={e => {
+            onChange={(e) => {
               const { value } = e.target;
 
               setSelectedAddress(parseInt(value));
@@ -276,7 +276,7 @@ const PaymentSummary: React.FC<{
       <div className={styles.paymentSummaryContainer}>
         <div
           className={styles.paymentSummaryHeader}
-          onClick={() => setShowPaymentSummary(prev => !prev)}
+          onClick={() => setShowPaymentSummary((prev) => !prev)}
         >
           <div className={styles.paymentSummaryHeaderText}>Price Summary </div>
 
@@ -296,10 +296,10 @@ const PaymentSummary: React.FC<{
         </div>
         {showPaymentSummary ? (
           <div className={styles.paymentSummaryContainer}>
-            {Object.keys(summaryPrices).map(price => {
+            {Object.keys(summaryPrices).map((price, index) => {
               if (summaryPrices[price] && summaryPrices[price].gross.amount) {
                 return (
-                  <div>
+                  <div key={`summary_${index}`}>
                     <div className={styles.paymentSummaryRow}>
                       {price} <TaxedMoney taxedMoney={summaryPrices[price]} />
                     </div>
@@ -342,10 +342,10 @@ const PaymentSummary: React.FC<{
 
   return (
     <div className={styles.paymentSummaryContainer}>
-      {Object.keys(summaryPrices).map(price => {
+      {Object.keys(summaryPrices).map((price, index) => {
         if (summaryPrices[price] && summaryPrices[price].gross.amount) {
           return (
-            <div>
+            <div key={`summary_${index}`}>
               <div className={styles.paymentSummaryRow}>
                 {price} <TaxedMoney taxedMoney={summaryPrices[price]} />
               </div>
@@ -382,14 +382,12 @@ export const OrderSummary = ({
       }, 0)
     : 0;
 
-  const paymentSummary = externalPaymentSummary || useCartState();
-
   const itemsToShow = showSummary ? items : items.slice(0, 2);
   return (
     <div className={styles.orderSummaryContainer}>
       <div
         className={styles.orderSummaryHeader}
-        onClick={() => setShowSummary(prev => !prev)}
+        onClick={() => setShowSummary((prev) => !prev)}
       >
         <div>Order Summary ({totalQuantity} items) </div>
         {!defaultShowSummary && (
@@ -449,7 +447,7 @@ export const OrderSummaryProduct: React.FC<{ line: CheckoutLineFragment }> = ({
       : [line.variant.product.thumbnail];
 
   const imageUrlImgixScr =
-    sortImages.length && useImageURLReplaceWithCDN(sortImages[0].url);
+    sortImages.length && imageURLReplaceWithCDN(sortImages[0].url);
   const altText = line.variant.images.length && line.variant.images[0].alt;
   const [mrp, netPrice, discount] = getThisVariantPrices(line.variant);
 
@@ -552,36 +550,38 @@ const CheckoutForm = () => {
   }, [availablePaymentGateways]);
 
   useEffect(() => {
-    const products = paymentSummary.items.map(item => {
-      return {
-        brand: META_DEFAULTS.name,
-        id: item?.variant.sku,
-        name: item?.variant.product.name,
-        price: item?.variant.pricing.price.gross.amount,
-        quantity: item.quantity,
-      };
-    });
-    const quantity = paymentSummary.items.reduce(
-      (partialSum, a) => partialSum + a?.quantity,
-      0
-    );
-    (window.dataLayer = window.dataLayer || []).push({
-      event: "Checkout",
-      ecommerce: {
-        checkout: {
-          actionField: { step: 1, option: "checkout" },
-          products: products,
-          totalQuantity: quantity,
-          "coupon discount": paymentSummary.couponDiscount?.gross?.amount,
-          "offer discount": paymentSummary.offerDiscount?.gross?.amount,
-          "order total": paymentSummary.totalPrice?.gross?.amount,
-          "delivery charges": paymentSummary.shippingPrice?.gross?.amount,
-          "prepaid discount": paymentSummary.prepaidDiscount?.gross?.amount,
-          "total discount": paymentSummary.discount?.amount,
-          "total cart value": paymentSummary.totalPrice?.gross?.amount,
+    if (typeof window !== "undefined") {
+      const products = paymentSummary.items.map((item) => {
+        return {
+          brand: META_DEFAULTS.name,
+          id: item?.variant.sku,
+          name: item?.variant.product.name,
+          price: item?.variant.pricing.price.gross.amount,
+          quantity: item.quantity,
+        };
+      });
+      const quantity = paymentSummary.items.reduce(
+        (partialSum, a) => partialSum + a?.quantity,
+        0
+      );
+      (window.dataLayer = window.dataLayer || []).push({
+        event: "Checkout",
+        ecommerce: {
+          checkout: {
+            actionField: { step: 1, option: "checkout" },
+            products: products,
+            totalQuantity: quantity,
+            "coupon discount": paymentSummary.couponDiscount?.gross?.amount,
+            "offer discount": paymentSummary.offerDiscount?.gross?.amount,
+            "order total": paymentSummary.totalPrice?.gross?.amount,
+            "delivery charges": paymentSummary.shippingPrice?.gross?.amount,
+            "prepaid discount": paymentSummary.prepaidDiscount?.gross?.amount,
+            "total discount": paymentSummary.discount?.amount,
+            "total cart value": paymentSummary.totalPrice?.gross?.amount,
+          },
         },
-      },
-    });
+      });
+    }
   }, []);
 
   const { isFormValid, email, ...formStateWithoutEmail } = formState;
@@ -615,7 +615,7 @@ const CheckoutForm = () => {
   const { authenticated } = useAuthState();
 
   function loadScript(src: string) {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       const script = document.createElement("script");
       script.src = src;
       script.onload = () => {
@@ -628,7 +628,7 @@ const CheckoutForm = () => {
     });
   }
 
-  const formSubmitHandler = async e => {
+  const formSubmitHandler = async (e) => {
     setLoading(true);
 
     e.preventDefault(); //prevents the form from submitting
@@ -736,9 +736,10 @@ const CheckoutForm = () => {
           if (!(createPaymentRes.errors && createPaymentRes.errors.length)) {
             const _window = window as any;
             const paymentObject = new _window.Razorpay(options);
-            paymentObject.on("payment.failed", function failed(
-              response: any
-            ) {});
+            paymentObject.on(
+              "payment.failed",
+              function failed(response: any) {}
+            );
             paymentObject.open();
           }
         }
@@ -839,21 +840,22 @@ const CheckoutForm = () => {
       }
 
       // console.log("form-state", formStateWithoutEmailWithValues, email);
-
-      (window.dataLayer || []).push({ ecommerce: null });
-      window.dataLayer.push({
-        event: "Checkout Value Updated",
-        ecommerce: {
-          purchase: {
-            actionField: {
-              "First Name": formStateWithoutEmailWithValues?.firstName,
-              "Last Name": formStateWithoutEmailWithValues?.lastName,
-              Email: email?.value,
-              Phone: formStateWithoutEmailWithValues?.phone,
+      if(typeof window !== 'undefined'){
+        (window.dataLayer || []).push({ ecommerce: null });
+        window.dataLayer.push({
+          event: "Checkout Value Updated",
+          ecommerce: {
+            purchase: {
+              actionField: {
+                "First Name": formStateWithoutEmailWithValues?.firstName,
+                "Last Name": formStateWithoutEmailWithValues?.lastName,
+                Email: email?.value,
+                Phone: formStateWithoutEmailWithValues?.phone,
+              },
             },
           },
-        },
-      });
+        });
+      }
 
       setLoading(false);
     }, 800)
@@ -972,7 +974,7 @@ const CheckoutForm = () => {
         {formData.map((rows, index) => {
           return (
             <div className={styles.row} key={index}>
-              {rows.map(row => {
+              {rows.map((row) => {
                 if (row.type === "select") {
                   return (
                     <div className={styles.inputErroDiv} key={row.name}>
@@ -987,7 +989,7 @@ const CheckoutForm = () => {
                         autoComplete={row.autoComplete}
                         inputMode={row.inputMode}
                         selectOptions={row?.selectOptions || []}
-                        onChange={e => {
+                        onChange={(e) => {
                           onInputChange(
                             row.name,
                             e.target.value,
@@ -996,7 +998,7 @@ const CheckoutForm = () => {
                             useCheckoutRes
                           );
                         }}
-                        onBlur={e => {
+                        onBlur={(e) => {
                           onFocusOut(
                             row.name,
                             e.target.value,
@@ -1028,7 +1030,7 @@ const CheckoutForm = () => {
                       value={formState[row.name].value}
                       autoComplete={row.autoComplete}
                       inputMode={row.inputMode}
-                      onChange={e => {
+                      onChange={(e) => {
                         onInputChange(
                           row.name,
                           e.target.value,
@@ -1037,7 +1039,7 @@ const CheckoutForm = () => {
                           useCheckoutRes
                         );
                       }}
-                      onBlur={e => {
+                      onBlur={(e) => {
                         if (row.name !== IIAddressFieldNames.POSTAL_CODE) {
                           onFocusOut(
                             row.name,
@@ -1079,7 +1081,7 @@ const CheckoutForm = () => {
         {formData.map((rows, index) => {
           return (
             <div className={styles.row} key={index}>
-              {rows.map(row => {
+              {rows.map((row) => {
                 return (
                   <div
                     className={styles.inputErroDiv}
@@ -1142,7 +1144,7 @@ const CheckoutForm = () => {
           {formData.map((rows, index) => {
             return (
               <div className={styles.row} key={index}>
-                {rows.map(row => {
+                {rows.map((row) => {
                   return (
                     <div
                       className={styles.inputErroDiv}
@@ -1190,7 +1192,7 @@ const CheckoutForm = () => {
     const [updatesOnWhatsapp, setUpdatesOnWhatsapp] = useState(false);
 
     const handleCheckboxWhatsapp = async () => {
-      setUpdatesOnWhatsapp(prev => {
+      setUpdatesOnWhatsapp((prev) => {
         const input = {
           key: "sendInvoiceToWhatsApp",
           value: !prev ? "true" : "false",
@@ -1211,7 +1213,7 @@ const CheckoutForm = () => {
         {formData.map((rows, index) => {
           return (
             <div className={styles.row} key={index}>
-              {rows.map(row => {
+              {rows.map((row) => {
                 return (
                   <div
                     className={styles.inputErroDiv}
@@ -1263,7 +1265,7 @@ const CheckoutForm = () => {
             <form
               id="checkoutAddressForm"
               className={styles.form}
-              onSubmit={e => formSubmitHandler(e)}
+              onSubmit={(e) => formSubmitHandler(e)}
               ref={formRef}
             >
               <div className={styles.formFieldsContainer}>
@@ -1271,7 +1273,7 @@ const CheckoutForm = () => {
                   {addressFileds.map((rows, index) => {
                     return (
                       <div className={styles.row} key={index}>
-                        {rows.map(row => {
+                        {rows.map((row) => {
                           if (row.type === "select") {
                             return (
                               <div
@@ -1289,7 +1291,7 @@ const CheckoutForm = () => {
                                   autoComplete={row.autoComplete}
                                   inputMode={row.inputMode}
                                   selectOptions={row?.selectOptions || []}
-                                  onChange={e => {
+                                  onChange={(e) => {
                                     onInputChange(
                                       row.name,
                                       e.target.value,
@@ -1298,7 +1300,7 @@ const CheckoutForm = () => {
                                       useCheckoutRes
                                     );
                                   }}
-                                  onBlur={e => {
+                                  onBlur={(e) => {
                                     onFocusOut(
                                       row.name,
                                       e.target.value,
@@ -1330,7 +1332,7 @@ const CheckoutForm = () => {
                                 value={formState[row.name].value}
                                 autoComplete={row.autoComplete}
                                 inputMode={row.inputMode}
-                                onChange={e => {
+                                onChange={(e) => {
                                   onInputChange(
                                     row.name,
                                     e.target.value,
@@ -1339,7 +1341,7 @@ const CheckoutForm = () => {
                                     useCheckoutRes
                                   );
                                 }}
-                                onBlur={e => {
+                                onBlur={(e) => {
                                   if (
                                     row.name !== IIAddressFieldNames.POSTAL_CODE
                                   ) {
@@ -1381,7 +1383,7 @@ const CheckoutForm = () => {
               <RadioButtonCotainer formData={paymentRadioFields} />
 
               <TypedUpdateCheckoutMetadataWhatsapp>
-                {mutation => (
+                {(mutation) => (
                   <WhatsappCheckbox
                     formData={whatsappCheckboxFields}
                     mutation={mutation}

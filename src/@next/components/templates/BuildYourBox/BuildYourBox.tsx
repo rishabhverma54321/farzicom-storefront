@@ -32,7 +32,7 @@ import {
   OverlayTheme,
   OverlayType,
 } from "@temp/components";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import { CircularProgress } from "@mui/material";
 import Snackbar from '@mui/material/Snackbar';
 import MemoBigRightArrow from "@components/atoms/SvgIcons/BigRightArrow";

@@ -5,13 +5,13 @@ import {
   getMetadataValue,
   parseJson,
   RECENTLY_DELETED_PRODUCTS,
-  useImageURLReplaceWithCDN,
+  imageURLReplaceWithCDN,
 } from "@utils/misc";
 import { CachedImage } from "@components/molecules/CachedImage";
 import { getThisVariantPrice } from "@components/molecules/ProductCardPlixlife/stockHelpers";
 import { useCart, useCartState } from "@saleor/sdk";
 import { getDBIdFromGraphqlId } from "@utils/core";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import makeClevertap from "@temp/themes/plixlifefc/lib/makeClevertap";
 import { addToCartTrack } from "farzicom-ui/lib/Track/addToCartTrack";
 import { OverlayTheme, OverlayType } from "@temp/components";
@@ -31,7 +31,7 @@ const RecentlyDeletedProducts = () => {
     getMetadataValue(shopmetadata, "atc_recalculation") &&
     parseJson(getMetadataValue(shopmetadata, "atc_recalculation"));
 
-  const ratingImageUrlWithImgix = useImageURLReplaceWithCDN(
+  const ratingImageUrlWithImgix = imageURLReplaceWithCDN(
     "https://plixlifefc-media.farziengineer.co/hosted/rating_star-148dc021bba0.svg"
   );
 
@@ -164,8 +164,8 @@ const RecentlyDeletedProducts = () => {
             dots
             infinite
           >
-            {deletedProducts?.map((item: any) => (
-              <div className="cart-plix__recentlyDeleted_box">
+            {deletedProducts?.map((item: any, index: number) => (
+              <div key={item?.tag + index} className="cart-plix__recentlyDeleted_box">
                 <div className="cart-plix__recentlyDeleted_product">
                   <div className="cart-plix__recentlyDeleted_product_header">
                     {item?.tag ? (

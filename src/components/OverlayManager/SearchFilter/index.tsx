@@ -112,9 +112,9 @@ export const SearchFilter: React.FC<ISearchFilterProps> = ({ overlay }) => {
                           <FilterAccordian
                             header={filter_name?.split("_")?.join(" ")}
                           >
-                            {subFilters.map(subFilter => {
+                            {subFilters.map((subFilter, index) => {
                               return (
-                                <div>
+                                <div key={subFilter?.label + index}>
                                   <div>
                                     <input
                                       type="checkbox"

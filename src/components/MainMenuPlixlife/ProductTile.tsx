@@ -3,7 +3,7 @@ import CustomLink from "@components/atoms/CustomLink";
 import {
   getMenuUrl,
   getMetadataValue,
-  useImageURLReplaceWithCDN,
+  imageURLReplaceWithCDN,
 } from "@utils/misc";
 import Image from "next/image";
 import { IMAGE_CDN_PROVIDERS, IMAGE_CDN } from "Themes/config";
@@ -20,13 +20,13 @@ export default function ProductTile({ child, index, hideOverlayHandler }) {
     getMetadataValue(childMetadata, "subNavbarCard") &&
     JSON.parse(getMetadataValue(childMetadata, "subNavbarCard"));
   const numberOfProducts = child.collection.products.totalCount;
+  const imageUrlImgixScr = imageURLReplaceWithCDN(backgroundImage?.image);
+  
+  const [width] = useWindowWidth();
+  
   if (!(backgroundImage && backgroundImage.image)) {
     return <></>;
   }
-  const imageUrlImgixScr = useImageURLReplaceWithCDN(backgroundImage?.image);
-
-  const [width] = useWindowWidth();
-
   return (
     <div
       className="productTile"
@@ -43,7 +43,7 @@ export default function ProductTile({ child, index, hideOverlayHandler }) {
                 imageUrlImgixScr !== "" &&
                 IMAGE_CDN_PROVIDERS[IMAGE_CDN].useCDN ? (
                   <Image
-                    src={useImageURLReplaceWithCDN(backgroundImage.image)}
+                    src={imageURLReplaceWithCDN(backgroundImage.image)}
                     alt={backgroundImage.title}
                     width="280px"
                     height="240px"

@@ -64,7 +64,7 @@ import {
   isMember,
   parseJson,
   truncateString,
-  useImageURLReplaceWithCDN,
+  imageURLReplaceWithCDN,
 } from "@utils/misc";
 import { TypedUpdateCheckoutMetadataWhatsapp } from "@components/molecules/GetWhatsappUpdate/queries";
 import MemoWhatsapp from "@components/atoms/SvgIcons/Whatsapp";
@@ -83,12 +83,12 @@ import {
 } from "@temp/components";
 import MemoUserIconSVG from "@components/atoms/SvgIcons/UserIconSVG";
 import { useCustomHistory } from "@hooks/useCustomHistory";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import AppHeader from "@components/templates/AppHeader";
 import MemoBackButtonSVG from "@components/atoms/SvgIcons/BackButtonSVG";
 import ImageCard from "@components/atoms/ImageCard";
 import ContinueShoppingNext from "@components/farzicom-ui-kit/ContinueShoppingNext";
-import Snackbar from "@material-ui/core/Snackbar";
+import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import Link from "next/link";
 import clevertapEvents from "Themes/lib/clevertapEvents.js";
@@ -515,10 +515,10 @@ export const PaymentSummary: React.FC<{
         </div>
         {showPaymentSummary ? (
           <div className={styles.paymentSummaryContainer}>
-            {Object.keys(summaryPrices).map(price => {
+            {Object.keys(summaryPrices).map((price, index) => {
               if (summaryPrices[price] && summaryPrices[price].gross.amount) {
                 return (
-                  <div>
+                  <div key={index}>
                     <div className={styles.paymentSummaryRow}>
                       {price}
                       <span>
@@ -573,10 +573,10 @@ export const PaymentSummary: React.FC<{
 
   return (
     <div className={styles.paymentSummaryContainer}>
-      {Object.keys(summaryPrices).map(price => {
+      {Object.keys(summaryPrices).map((price, index) => {
         if (summaryPrices[price] && (price == "Coupon Discount" && !summaryPrices["Wallet Credit"].gross.amount || summaryPrices[price].gross.amount)) {
           return (
-            <div>
+            <div key={index}>
               <div className={styles.paymentSummaryRow}>
                 {price} <TaxedMoney taxedMoney={summaryPrices[price]} />
               </div>
@@ -742,14 +742,11 @@ export const OrderSummaryProduct: React.FC<{
 }> = ({ line, boxItem }) => {
   const { checkout, recentOrder } = useCheckoutState();
   if (boxItem) {
-    const { items: cartItems } = useCartState();
     let specificboxItem: any = {};
     const isOrderPlacedPage =
       typeof window !== "undefined" &&
       window.location.pathname === "/order-placed";
     const updatedBoxItem = boxItem;
-    const { checkout, recentOrder } = useCheckoutState();
-    const ShopMetaContextValue = useContext(ShopMetaContext)
     const giftBoxItemsProducts = isGiftBoxProduct(boxItem?.variant?.sku);
 
     const boxItemsFromMeta = isOrderPlacedPage
@@ -787,7 +784,7 @@ export const OrderSummaryProduct: React.FC<{
     
     const boxThumbnailWithImgix =
       sortImages.length &&
-      useImageURLReplaceWithCDN(sortImages[0]?.url);
+      imageURLReplaceWithCDN(sortImages[0]?.url);
     
     const boxItemUndiscountedPriceValue = 
       specificboxItem?.items &&
@@ -831,9 +828,9 @@ export const OrderSummaryProduct: React.FC<{
           <div>
             {specificboxItem?.items && Array.isArray(specificboxItem?.items) && (
               <>
-                {specificboxItem?.items?.map(box => {
+                {specificboxItem?.items?.map((box, index) => {
                   return (
-                    <div className={styles.boxItem}>
+                    <div key={box.stepNumber} className={styles.boxItem}>
                       <span>Item {box.stepNumber}:</span>
                       <span>
                         {box?.name?.slice(0, 30)}
@@ -884,7 +881,7 @@ export const OrderSummaryProduct: React.FC<{
       : [line.variant.product.thumbnail];
 
   const imageUrlImgixScr =
-    sortImages.length && useImageURLReplaceWithCDN(sortImages[0].url);
+    sortImages.length && imageURLReplaceWithCDN(sortImages[0].url);
   const altText = line.variant.images.length && line.variant.images[0].alt;
   const [mrp, netPrice, discount] = getThisVariantPrices(line.variant);
 
@@ -1554,6 +1551,7 @@ const CheckoutForm = ({
   // }, [Router?.isReady]);
 
   useEffect(() => {
+  if(typeof window !== 'undefined'){
     const routerQuery = Router?.query?.redirect_from;
     const products = paymentSummary.items.map(item => {
       return {
@@ -1633,6 +1631,7 @@ const CheckoutForm = ({
         },
       },
     });
+  }
   }, []);
 
   const validateItems = (items: CheckoutLineFragment[]) => {
@@ -3299,30 +3298,31 @@ const CheckoutForm = ({
         //     return;
         //   }
         // }
-
-        (window.dataLayer || []).push({ ecommerce: null });
-        window.dataLayer.push({
-          event: "checkoutFormComplete",
-          UserID: user?.id,
-          user_type: user ? "logged_in" : "logged_out",
-          ecommerce: {
-            checkout_option: {
-              actionField: { step: 2, option: "Checkout Form Completed" },
-
-              products: items?.map(item => ({
-                name: item?.variant?.product?.name,
-                id: item?.variant?.product?.id
-                  ? getDBIdFromGraphqlId(item?.variant?.product?.id, "Product")
-                  : null,
-                price: item?.variant?.pricing?.price?.gross?.amount,
-                brand: "Plixlife",
-                category: item?.variant?.product?.category?.name,
-                quantity: item?.quantity,
-                variant: item?.variant?.name,
-              })),
+        if(typeof window !== 'undefined'){
+          (window.dataLayer || []).push({ ecommerce: null });
+          window.dataLayer.push({
+            event: "checkoutFormComplete",
+            UserID: user?.id,
+            user_type: user ? "logged_in" : "logged_out",
+            ecommerce: {
+              checkout_option: {
+                actionField: { step: 2, option: "Checkout Form Completed" },
+  
+                products: items?.map(item => ({
+                  name: item?.variant?.product?.name,
+                  id: item?.variant?.product?.id
+                    ? getDBIdFromGraphqlId(item?.variant?.product?.id, "Product")
+                    : null,
+                  price: item?.variant?.pricing?.price?.gross?.amount,
+                  brand: "Plixlife",
+                  category: item?.variant?.product?.category?.name,
+                  quantity: item?.quantity,
+                  variant: item?.variant?.name,
+                })),
+              },
             },
-          },
-        });
+          });
+        }
 
         setLoading(false);
       },
@@ -4136,7 +4136,6 @@ const CheckoutForm = ({
   ).current;
 
   const [modalOpen, setModalOpen] = useState<boolean>(false);
-  const [width] = useWindowWidth();
 
   const [formExpanded, setFormExpanded] = useState<boolean>(true);
   const formWrapperRef = useRef(null);
@@ -4480,14 +4479,15 @@ const CheckoutForm = ({
       setLoading(false);
       return;
     }
-
-    (window.dataLayer = window.dataLayer || []).push({
-      event: "save_address_click",
-      eventCategory: "save_address",
-      eventAction: "save_address_click",
-      user_ID: user?.id ? getDBIdFromGraphqlId(user?.id, "User") : "NA",
-      user_type: user ? "logged_in" : "logged_out",
-    });
+    if(typeof window !== 'undefined'){
+      (window.dataLayer = window.dataLayer || []).push({
+        event: "save_address_click",
+        eventCategory: "save_address",
+        eventAction: "save_address_click",
+        user_ID: user?.id ? getDBIdFromGraphqlId(user?.id, "User") : "NA",
+        user_type: user ? "logged_in" : "logged_out",
+      });
+    }
 
     const addressData = {
       ...formStateWithoutEmailWithValues,
@@ -4713,8 +4713,8 @@ const CheckoutForm = ({
           />
           {cartOfferPolicies && Array.isArray(cartOfferPolicies) ? (
             <div className={styles.offerPolicyWrapper}>
-              {cartOfferPolicies.map(policy => (
-                <li>{policy}</li>
+              {cartOfferPolicies.map((policy, index) => (
+                <li key={policy + index}>{policy}</li>
               ))}
             </div>
           ) : (
@@ -5024,9 +5024,9 @@ const CheckoutForm = ({
               <div className={styles.badgeList}>
                 {Array.isArray(badgeSectionData?.badges) && (
                   <>
-                    {badgeSectionData?.badges?.map(badge => {
+                    {badgeSectionData?.badges?.map((badge, index) => {
                       return (
-                        <div className={styles.badge}>
+                        <div key={badge?.text + index} className={styles.badge}>
                           <CachedImage url={badge?.image} />
                           <span>{badge?.text}</span>
                         </div>

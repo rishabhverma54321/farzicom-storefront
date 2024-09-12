@@ -216,9 +216,10 @@ const MemberTab: React.FC<{ membershipData: any }> = ({ membershipData }) => {
           Array.isArray(data?.benefit_icons) &&
           !!data?.benefit_icons ? (
             <div className={style.levelUpContainer__cards_body_benefits}>
-              {data?.benefit_icons?.map((item: any) => (
+              {data?.benefit_icons?.map((item: any, index: number) => (
                 <div
                   className={style.levelUpContainer__cards_body_benefits_data}
+                  key={item?.text + index}
                 >
                   <CachedImage
                     isNextImage
@@ -245,8 +246,8 @@ const MemberTab: React.FC<{ membershipData: any }> = ({ membershipData }) => {
               </div>
               {shopMore && Array.isArray(shopMore) && !!shopMore.length ? (
                 <div className={style.levelUpContainer__cards_footer_list}>
-                  {shopMore?.map(list => (
-                    <li>{list}</li>
+                  {shopMore?.map((list, index) => (
+                    <li key={list + index}>{list}</li>
                   ))}
                 </div>
               ) : (

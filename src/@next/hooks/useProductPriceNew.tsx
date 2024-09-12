@@ -18,8 +18,8 @@ import { useGetItemDiscount } from "./useGetItemDiscount";
 
 const UndiscountedPrice = styled.span`
   text-decoration: line-through;
-  /* color: ${props => props.theme.colors.textCut}; */
-  color:#686B78;
+  /* color: ${(props) => props.theme.colors.textCut}; */
+  color: #686b78;
   font-size: 15px;
 `;
 
@@ -36,7 +36,7 @@ const DiscountedSection = styled.div`
 `;
 
 const DiscountedPrice = styled(TaxedMoney)`
-  font-weight: ${props => props.theme.typography.boldFontWeight};
+  font-weight: ${(props) => props.theme.typography.boldFontWeight};
   font-size: 17px;
   padding: 5px 0;
 `;
@@ -56,9 +56,11 @@ export const useProductPriceNew = (
   variantPricing?: ProductDetails_product_variants_pricing | null,
   percentDiscount: boolean = true
 ): JSX.Element => {
-  const itemDiscount =
-    percentDiscount &&
-    useGetItemDiscount(productPricingRange, listPrice, variantPricing);
+  const itemDiscount = useGetItemDiscount(
+    productPricingRange,
+    listPrice,
+    variantPricing
+  );
 
   if (variantPricing) {
     if (listPrice) {

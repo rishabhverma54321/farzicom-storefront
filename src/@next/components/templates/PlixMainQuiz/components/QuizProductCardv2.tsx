@@ -10,7 +10,7 @@ import { useMessageStateUpdate } from "@temp/MessageContext";
 import makeClevertap from "Themes/lib/makeClevertap";
 import { addToCartTrack } from "farzicom-ui/lib/Track/addToCartTrack";
 import { getDBIdFromGraphqlId } from "@utils/core";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import { CircularProgress } from "@mui/material";
 import { getGraphqlIdFromDBId } from "@temp/core/utils";
 import RightChevron from "@components/atoms/SvgIcons/RightChevron";

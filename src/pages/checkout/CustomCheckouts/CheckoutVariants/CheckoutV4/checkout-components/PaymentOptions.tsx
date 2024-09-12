@@ -35,7 +35,7 @@ import MemoCheckoutUpiIcons from "@components/atoms/SvgIcons/CheckoutUpiIcons";
 import MemoCheckoutCardsIcon from "@components/atoms/SvgIcons/CheckoutCardsIcon";
 import { CachedImage } from "@components/molecules/CachedImage";
 import MemoPaymentCardIcon from "@components/atoms/SvgIcons/PaymentCartIcon";
-import { getMetadataValue, parseJson, sleep, useImageURLReplaceWithCDN } from "@utils/misc";
+import { getMetadataValue, parseJson, sleep, imageURLReplaceWithCDN } from "@utils/misc";
 import { useRouter } from "next/router";
 import MemoRupeeWithArrow from "@components/atoms/SvgIcons/RupeeWithArrowIcon";
 import { CreatePaymentInput } from "@saleor/sdk/dist/apollo/types/checkout";
@@ -45,7 +45,7 @@ import styles from "../index.module.scss";
 import styles2 from "../index-2.module.scss";
 import * as S from "../../../../styles";
 import newStyles from "./index.module.scss";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 
 // export const PaymentOptionIcon: React.FC<{ paymentMode: PaymentModeType }> = ({
 //   paymentMode,
@@ -697,9 +697,10 @@ export const PaymentOptions: React.FC<{
                       ) : (
                         <></>
                       )}
-                      {UPI_APP_BUTTONS.map(appButton => {
+                      {UPI_APP_BUTTONS.map((appButton, index) => {
                         return (
                           <S.UpiButton
+                            key={appButton.name + index}
                             type="button"
                             phonepe={appButton.name === UPI_APP_NAMES.PHONEPE}
                             disabled={
@@ -724,7 +725,7 @@ export const PaymentOptions: React.FC<{
                               }
                             }}
                           >
-                            <img src={useImageURLReplaceWithCDN(appButton.img)} />
+                            <img src={imageURLReplaceWithCDN(appButton.img)} />
                             <span>{appButton.name}</span>
                           </S.UpiButton>
                         );
@@ -926,10 +927,11 @@ export const PaymentOptions: React.FC<{
               {paymentMode === "NB" && (
                 <div className={newStyles.netbankingFormWrapper}>
                   <div className={newStyles.nbBanks}>
-                    {DEFAULT_BANKS.map(bank => {
+                    {DEFAULT_BANKS.map((bank, index) => {
                       const isSelected = bank.value === selectedNB;
                       return (
                         <button
+                          key={index}
                           style={{
                             border: isSelected
                               ? "1px solid lightgray"
@@ -944,7 +946,7 @@ export const PaymentOptions: React.FC<{
                             // }
                           }}
                         >
-                          <img src={useImageURLReplaceWithCDN(bank.imgUrl)} />
+                          <img src={imageURLReplaceWithCDN(bank.imgUrl)} />
                           <span>{bank.label}</span>
                           {isSelected && (
                             <MemoGreenTickSvg width={16} height={16} />
@@ -957,12 +959,13 @@ export const PaymentOptions: React.FC<{
                     className={`payment_method ${newStyles.netbankingSelectInput}`}
                     onChange={e => setSelectedNB(e.target.value)}
                   >
-                    {NETBANKING_OPTIONS?.map(bankItem => {
+                    {NETBANKING_OPTIONS?.map((bankItem, index) => {
                       return (
                         <option
                           value={bankItem?.value}
                           label={bankItem?.label}
                           selected={selectedNB === bankItem.value}
+                          key={bankItem?.label + index}
                         >
                           {bankItem?.label}
                         </option>
@@ -975,10 +978,10 @@ export const PaymentOptions: React.FC<{
               {paymentMode === "WALLET" && (
                 <>
                   <div className={newStyles.walletList}>
-                    {DEFAULT_WALLETS.map(wallet => {
+                    {DEFAULT_WALLETS.map((wallet, index) => {
                       const isSelected = selectedWallet === wallet.value;
                       return (
-                        <div className={newStyles.walletItem}>
+                        <div key={index} className={newStyles.walletItem}>
                           <button
                             type="button"
                             onClick={() => {
@@ -1030,11 +1033,12 @@ export const PaymentOptions: React.FC<{
                   <select
                     className={`payment_method ${newStyles.walletSelect}`}
                   >
-                    {DEFAULT_WALLETS.map(wallet => (
+                    {DEFAULT_WALLETS.map((wallet, index) => (
                       <option
                         value={wallet?.value}
                         selected={selectedWallet === wallet.value}
                         label={wallet?.label}
+                        key={wallet?.label}
                       >
                         {wallet?.label}
                       </option>
@@ -1050,3 +1054,5 @@ export const PaymentOptions: React.FC<{
     </S.RadioContainer>
   );
 };
+
+export default PaymentOptions;

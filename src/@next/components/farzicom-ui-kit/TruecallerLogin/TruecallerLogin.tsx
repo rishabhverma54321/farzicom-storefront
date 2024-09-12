@@ -12,7 +12,7 @@ import { UserFragment, useAuth } from "@saleor/sdk";
 import { useMessageStateUpdate } from "@temp/MessageContext";
 import styles from "./index.module.scss";
 import { CircularProgress } from '@mui/material';
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 
 export interface ITruecallerLoginProps {
   onLogin?: (user?: UserFragment) => void;

@@ -14,7 +14,7 @@ export const AddNewTile: React.FC<IProps> = ({ type, ...props }: IProps) => {
           <Icon size={24} name="plus" />
         </p>
         <p>
-          <FormattedMessage defaultMessage="Add new {type}" values={{ type }} />
+          <FormattedMessage id="Add-new" defaultMessage="Add new {type}" values={{ type }} />
         </p>
       </S.Content>
     </Tile>

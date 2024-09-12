@@ -37,7 +37,7 @@ import MemoMobilePlixLogo from "@components/atoms/SvgIcons/MemoMobilePlixLogo";
 import MemoNavArrow from "@components/atoms/SvgIcons/MemoNavArrow";
 import RightChevron from "@components/atoms/SvgIcons/RightChevron";
 import { Gap } from "@components/atoms/Gap";
-import { customEventTrigger, useImageURLReplaceWithCDN } from "@utils/misc";
+import { customEventTrigger, imageURLReplaceWithCDN } from "@utils/misc";
 import { useAuth } from "@saleor/sdk";
 
 const HeaderContent = ({ user, authenticated, hideOverlay }) => {
@@ -48,7 +48,7 @@ const HeaderContent = ({ user, authenticated, hideOverlay }) => {
         <div className="side-nav-plix__main-ul-icon_mobile ">
           <Header.Container as={MyCustomLink} href="/">
             <img
-              src={useImageURLReplaceWithCDN(MOBILE_SLIDER_LOGO)}
+              src={imageURLReplaceWithCDN(MOBILE_SLIDER_LOGO)}
               width="100"
               alt="logo"
             />
@@ -56,7 +56,7 @@ const HeaderContent = ({ user, authenticated, hideOverlay }) => {
         </div>
         <div className="side-nav-plix__main-ul-icon_desktop">
           <img
-            src={useImageURLReplaceWithCDN(MOBILE_SLIDER_LOGO)}
+            src={imageURLReplaceWithCDN(MOBILE_SLIDER_LOGO)}
             width="40"
             alt="logo"
           />
@@ -243,7 +243,7 @@ class NavList extends React.PureComponent<NavListProps, NavListState> {
                 const hasSubNavigation = item.children && !!item.children.length;
                 if(hasSubNavigation){
                   return(
-                    <React.Fragment>
+                    <React.Fragment key={item.id + index}>
                     <NavItem
                       key={item.id}
                       type="parent"
@@ -259,7 +259,7 @@ class NavList extends React.PureComponent<NavListProps, NavListState> {
                   )
                 }
                 return(
-                <SNavItem.MainWrapper>
+                <SNavItem.MainWrapper key={item.id + index}>
                   <NavItem
                     key={item.id}
                     type="parent"

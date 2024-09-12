@@ -11,7 +11,7 @@ import {
   bannerClickDatalayer,
   bannerImpressionDatalayer,
   isMember,
-  useImageURLReplaceWithCDN,
+  imageURLReplaceWithCDN,
 } from "@utils/misc";
 import { getDBIdFromGraphqlId, getGclid } from "@temp/core/utils";
 import Imgix from "react-imgix";
@@ -214,11 +214,11 @@ export const HomeBanner: React.FC<IHomeBannerProps> = ({
               };
               const imageUrlImgixScr = imageUrl?.includes(".gif")
                 ? imageUrl
-                : useImageURLReplaceWithCDN(imageUrl);
+                : imageURLReplaceWithCDN(imageUrl);
 
               const imageMobileUrlImgixScr = imageMobileUrl?.includes(".gif")
                 ? imageMobileUrl
-                : useImageURLReplaceWithCDN(imageMobileUrl);
+                : imageURLReplaceWithCDN(imageMobileUrl);
 
               if (imageUrlImgixScr && imageMobileUrlImgixScr && index === 0) {
                 return (
@@ -344,8 +344,8 @@ export const HomeBanner: React.FC<IHomeBannerProps> = ({
   }
 
   const { imageUrl, imageMobileUrl, text, link } = bannersToShow[0]?.node;
-  const imageUrlImgixScr = useImageURLReplaceWithCDN(imageUrl);
-  const imageMobileUrlImgixScr = useImageURLReplaceWithCDN(imageMobileUrl);
+  const imageUrlImgixScr = imageURLReplaceWithCDN(imageUrl);
+  const imageMobileUrlImgixScr = imageURLReplaceWithCDN(imageMobileUrl);
   // "http://localhost:3000/plixlifefc/assets/banner.avif"
   return (
     <>

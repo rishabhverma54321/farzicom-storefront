@@ -15,7 +15,7 @@ import {
 import makeClevertap from "Themes/lib/makeClevertap.js";
 import { Header } from "../WriteAReview/styles";
 import { TypedRequestOTPMutation } from "../MobileNumberInput/queries";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import { getMetadataValue, isMember, parseJson } from "@utils/misc";
 import gtmConfig from "@temp/themes/plixlifefc/lib/gtmConfig";
 import { getDBIdFromGraphqlId } from "@utils/core";

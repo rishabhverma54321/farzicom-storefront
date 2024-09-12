@@ -7,7 +7,7 @@ import { CachedImage } from "@components/molecules/CachedImage";
 import { getQuizDiscountPercent } from "@components/templates/PlixMainQuiz/components/miniComponents";
 import { getDBIdFromGraphqlId } from "@utils/core";
 import { useCart, useCartState } from "@saleor/sdk";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import { OverlayContext, OverlayTheme, OverlayType } from "@temp/components";
 import { getGraphqlIdFromDBId } from "@temp/core/utils";
 import { addToCartTrack } from "farzicom-ui/lib/Track/addToCartTrack";

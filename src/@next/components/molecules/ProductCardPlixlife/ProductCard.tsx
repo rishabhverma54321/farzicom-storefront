@@ -11,7 +11,7 @@ import NoPhoto from "images/no-photo.svg";
 import Stroller from "@components/atoms/SvgIcons/Stroller";
 import MemoLearnMoreIcon from "@components/atoms/SvgIcons/MemoLearnMoreIcon";
 import {
-  useImageURLReplaceWithCDN,
+  imageURLReplaceWithCDN,
   getMetadataValue,
   parseJson,
   getItemListName,
@@ -172,7 +172,7 @@ export const ProductCardPlixlife: React.FC<IProductCardPlixlifeProps> = ({
       : defaultVariant?.images && defaultVariant?.images.length
       ? sortImages[0].url
       : thumbnail2x?.url || thumbnail?.url;
-  const imageUrlImgixScr = useImageURLReplaceWithCDN(image);
+  const imageUrlImgixScr = imageURLReplaceWithCDN(image);
 
   const schemaObj = {
     url: imageUrlImgixScr,
@@ -300,7 +300,7 @@ export const ProductCardPlixlife: React.FC<IProductCardPlixlifeProps> = ({
     ctTitle == "plixlife-faster-results" ||
     ctTitle == "plixlife-faster-results-cart";
 
-  const ratingImageUrlWithImgix = useImageURLReplaceWithCDN(
+  const ratingImageUrlWithImgix = imageURLReplaceWithCDN(
     "https://plixlifefc-media.farziengineer.co/hosted/rating_star-148dc021bba0.svg"
   );
 

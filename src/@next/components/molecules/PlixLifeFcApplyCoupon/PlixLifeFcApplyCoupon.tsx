@@ -26,7 +26,7 @@ import { TypedSectionQuery } from "@temp/themes/plixlifefc/views/Home/queries";
 import { getMetadataValue, isMember, parseJson } from "@utils/misc";
 import MemoMoneyBill from "@components/atoms/SvgIcons/MoneyBill";
 import MemoChevronRight from "@components/atoms/SvgIcons/ChevronRight";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import {
   CouponPrepaidDiscount,
   CouponPrepaidDiscountVariables,

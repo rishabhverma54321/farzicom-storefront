@@ -1,5 +1,5 @@
 import Star from "@components/atoms/SvgIcons/Star";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import { customEventTrigger, getMetadataValue, parseJson } from "@utils/misc";
 import React, { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";

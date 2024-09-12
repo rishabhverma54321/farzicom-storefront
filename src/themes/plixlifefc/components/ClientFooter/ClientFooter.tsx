@@ -29,7 +29,7 @@ import { customEventTrigger, getMetadataValue, parseJson } from "@utils/misc";
 import { getGraphqlIdFromDBId } from "@temp/core/utils";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import MemoHaveFunSvg1 from "@components/atoms/SvgIcons/HavefunSvg1";
 import MemoHaveFunSvg2 from "@components/atoms/SvgIcons/HavefunSvg2";
 import MemoHaveFunSvg3 from "@components/atoms/SvgIcons/HavefunSvg3";

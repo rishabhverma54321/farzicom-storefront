@@ -20,7 +20,7 @@ import { generateProductUrl } from "@temp/core/utils";
 import { InnerOverlayContextInterface } from "@temp/components/Overlay";
 import NoPhoto from "images/no-photo.svg";
 // import { defaultTheme } from "../../../globalStyles/themes";
-import { useImageURLReplaceWithCDN } from "@utils/misc";
+import { imageURLReplaceWithCDN } from "@utils/misc";
 import Imgix from "react-imgix";
 import { IMAGE_CDN_PROVIDERS, IMAGE_CDN, META_DEFAULTS } from "Themes/config";
 import { Wishlist } from "@components/molecules/Wishlist";
@@ -70,11 +70,11 @@ export const ProductCard: React.FC<IProductCardProps> = ({
   // images?.[0]?.url
   let image = "";
   if (images && images?.[0]?.url) {
-    image = useImageURLReplaceWithCDN(images?.[0]?.url?.toString());
+    image = imageURLReplaceWithCDN(images?.[0]?.url?.toString());
   } else if (thumbnail2x && thumbnail2x?.url) {
-    image = useImageURLReplaceWithCDN(thumbnail2x?.url);
+    image = imageURLReplaceWithCDN(thumbnail2x?.url);
   } else if (thumbnail && thumbnail?.url) {
-    image = useImageURLReplaceWithCDN(thumbnail?.url);
+    image = imageURLReplaceWithCDN(thumbnail?.url);
   }
 
   const imageSrc = `${image}`;

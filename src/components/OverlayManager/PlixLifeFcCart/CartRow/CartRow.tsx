@@ -39,7 +39,7 @@ import {
 } from "@saleor/sdk";
 import gtmConfig from "Themes/lib/gtmConfig.js";
 import { getDBIdFromGraphqlId } from "@utils/core";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import ProductInfoPopUp from "@components/molecules/ProductInfoPopUp";
 import * as S from "./styles";
 import { IProps } from "./types";
@@ -987,7 +987,7 @@ const CartRow: React.FC<IProps> = ({
                   <>
                     {specificboxItem?.items?.map(box => {
                       return (
-                        <S.BoxItem>
+                        <S.BoxItem key={box?.stepNumber}>
                           <span>Item {box.stepNumber}</span>
                           <S.BoxItemName>
                             {box?.name?.slice(0, 50)}

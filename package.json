@@ -21,6 +21,7 @@
     "apollo-client": "^2.6.10",
     "apollo-upload-client": "^18.0.1",
     "farzicom-ui": "github:deathping1994/farzicom-ui",
+    "file-loader": "^6.2.0",
     "file-saver": "^2.0.5",
     "formik": "^2.4.6",
     "graphql": "^15.9.0",
@@ -61,6 +62,7 @@
     "slick-carousel": "^1.8.1",
     "styled-components": "^6.1.13",
     "swiper": "^11.1.12",
+    "ts-loader": "^9.5.1",
     "use-query-params": "^2.2.1",
     "winston": "^3.14.2",
     "yup": "^1.4.0"

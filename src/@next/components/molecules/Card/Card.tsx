@@ -1,7 +1,7 @@
 import { CustomizeButton } from "@components/atoms/CustomizeButton";
 import { CustomLink } from "@components/atoms/CustomLink";
 import { IMAGE_CDN, IMAGE_CDN_PROVIDERS } from "Themes/config";
-import { useImageURLReplaceWithCDN } from "@utils/misc";
+import { imageURLReplaceWithCDN } from "@utils/misc";
 import React, { useState } from "react";
 import MyCustomLink from "@components/next-react/MyCustomLink";
 
@@ -46,7 +46,7 @@ export const Card: React.FC<ICardProps> = ({ content, cardClass, disableLazyload
     content &&
     content.image &&
     typeof content.image === "string" &&
-    useImageURLReplaceWithCDN(content?.image);
+    imageURLReplaceWithCDN(content?.image);
 
   if (typeof imageUrl !== "boolean" && imageUrl?.includes(".gif")) {
     imageUrl = imageUrl?.split("?")[0];

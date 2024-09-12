@@ -91,9 +91,9 @@ const CouponOffers: React.FunctionComponent<ICouponOffersProps> = ({
                   <h5>Available Coupons</h5>
                 </div>
                 <div className="co__available__body">
-                  {offersDataList.map(offer => {
+                  {offersDataList.map((offer, index) => {
                     return (
-                      <div>
+                      <div key={offer?.title + index}>
                         <div className="offer__description">
                           <div className="offer__description__title">
                             {offer.title}

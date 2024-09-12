@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import styles from "./index.module.scss";
 import MemoNewCartcloseIcon from "@components/atoms/SvgIcons/NewCartcloseIcon";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import { getMetadataValue, parseJson } from "@utils/misc";
 import MemoDropDownSvg from "@components/atoms/SvgIcons/MemoDropDownSvg";
 import ButtonNext from "../ButtonNext";

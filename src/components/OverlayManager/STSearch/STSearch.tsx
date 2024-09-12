@@ -23,7 +23,7 @@ import MyCustomLink from "@components/next-react/MyCustomLink";
 import SearchClient from "@searchtap/search-client";
 import { SEARCHTAP_CONFIG as config } from "Themes/config";
 import MemoX from "images/X";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import { getMetadataValue, parseJson } from "@utils/misc";
 import {
   OfflinePlaceholder,

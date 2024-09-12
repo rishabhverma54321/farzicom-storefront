@@ -6,7 +6,6 @@ import "slick-carousel/slick/slick-theme.css";
 import * as React from "react";
 import Media from "react-media";
 // import ReactSVG from "react-svg";
-import RedArrowRightGenie from "images/RedArrowRightGenie.png";
 
 import { CLIENT } from "Themes/config";
 import { clients } from "gqlTypes/customGlobalTypes";
@@ -51,8 +50,6 @@ const ProductCarousel: React.FC<CarouselType> = ({
         return <MemoRightArrowPlix fontSize={32} />;
       case clients.PLIXLIFEFC:
         return <MemoRightArrowPlix width="32px" height="32px" />;
-      case clients.GENIEFC:
-        return <img src={RedArrowRightGenie} alt="right arrow" width="14px" />;
       default:
         return <MemoRightArrowSVG4 fontSize={32} />;
     }

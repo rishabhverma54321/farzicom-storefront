@@ -49,7 +49,7 @@ import Link from "next/link";
 import { CachedImage } from "@components/molecules/CachedImage";
 import UserInfo from "./UserInfo";
 import OrderCancelSection from "./OrderCancelSection";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import MemberTab from "@app/pages/MemberTab/MemberTab";
 
 export interface IAccountSectionNextProps {

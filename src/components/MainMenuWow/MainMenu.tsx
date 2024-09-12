@@ -26,7 +26,7 @@ import styles from "./scss/index.module.scss";
 import { stringify } from "query-string";
 import HeaderOffer from "@components/molecules/HeaderOffer";
 import { TypedSectionWithoutChildrenQuery } from "./queries";
-import { getMetadataValue, useImageURLReplaceWithCDN } from "@utils/misc";
+import { getMetadataValue, imageURLReplaceWithCDN } from "@utils/misc";
 import { mediumScreen } from "@styles/constants";
 import { useCustomLocation } from "@hooks/useCustomLocation";
 import UserSection from "@components/molecules/User";
@@ -59,7 +59,7 @@ const MainMenu: React.FC<{ headerData?: any }> = ({ headerData }) => {
   const [timeLeft, setTimeLeft] = useState("0");
   const [endDate, setEndDate] = useState("");
 
-  const imageUrlImgixScr = useImageURLReplaceWithCDN(MAIN_LOGO);
+  const imageUrlImgixScr = imageURLReplaceWithCDN(MAIN_LOGO);
   // console.log("MAIN_LOGO", MAIN_LOGO, imageUrlImgixScr);
 
   useEffect(() => {

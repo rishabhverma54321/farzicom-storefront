@@ -30,3 +30,7 @@ export const NEW_CHECKOUT_STEPS: Array<ICheckoutSteps> = [
     isVisible: true,
   },
 ];
+
+const formUiUtils = () => {}
+
+export default formUiUtils

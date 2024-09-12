@@ -7,7 +7,7 @@ import { Carousel } from "react-responsive-carousel";
 import { mediumScreen } from "@styles/constants";
 import * as S from "./style";
 
-import { useImageURLReplaceWithCDN } from "@utils/misc";
+import { imageURLReplaceWithCDN } from "@utils/misc";
 import { HomePageEntireQuery_section_edges_node_children_edges_node_images_edges_node } from "../Home/gqlTypes/HomePageEntireQuery";
 import { ProductDetails_product_images } from "./gqlTypes/ProductDetails";
 import { NO_PHOTO_PLACEHOLDER } from "../../config";
@@ -53,7 +53,7 @@ const GalleryCarousel: React.FC<{
   const moreThanOne = images.length > 1;
   const discountImageUrlImgixScr =
     discountBanner && discountBanner?.image
-      ? useImageURLReplaceWithCDN(discountBanner?.image) ||
+      ? imageURLReplaceWithCDN(discountBanner?.image) ||
         discountBanner?.image
       : "";
 
@@ -98,7 +98,7 @@ const GalleryCarousel: React.FC<{
           }}
         >
           {images.map((image, index) => {
-            const imageUrlImgixScr = useImageURLReplaceWithCDN(image.url);
+            const imageUrlImgixScr = imageURLReplaceWithCDN(image.url);
             return (
               <CachedImage
                 url={imageUrlImgixScr || NO_PHOTO_PLACEHOLDER}

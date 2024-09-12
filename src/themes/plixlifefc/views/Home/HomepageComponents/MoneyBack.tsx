@@ -2,7 +2,7 @@ import React from "react";
 import {
   getMetadataValue,
   parseJson,
-  useImageURLReplaceWithCDN,
+  imageURLReplaceWithCDN,
 } from "@utils/misc";
 import Image from "next/image";
 
@@ -14,7 +14,7 @@ const MoneyBackNew = ({ sectionData }) => {
     getMetadataValue(moneyBackSection.node.metadata, "money_back") &&
     parseJson(getMetadataValue(moneyBackSection.node.metadata, "money_back"));
 
-  const imageUrlImgixScr = useImageURLReplaceWithCDN(
+  const imageUrlImgixScr = imageURLReplaceWithCDN(
     moneyBackSectionData?.image
   );
 

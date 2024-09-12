@@ -26,8 +26,8 @@ export const SubscriptionsPage: React.FC<IMyOrderProps> = () => {
           if (data?.subscriptions?.edges.length)
             return (
               <>
-                {data?.subscriptions?.edges.map(item => (
-                  <S.SubscriptionCard>
+                {data?.subscriptions?.edges.map((item,index) => (
+                  <S.SubscriptionCard key={item?.node?.product?.name + index}>
                     <div>
                       <img
                         src={item?.node?.product.thumbnail?.url}

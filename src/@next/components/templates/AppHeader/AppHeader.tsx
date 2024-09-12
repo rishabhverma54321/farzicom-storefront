@@ -12,18 +12,12 @@ import { useCheckout, useCheckoutState } from "@saleor/sdk";
 import queryString from "query-string";
 import Cookies from "js-cookie";
 import { getMetadataValue, parseJson } from "@utils/misc";
-import { ShopMetaContext } from "@temp/pages/_app";
+import { ShopMetaContext } from "@temp/pages/_app.page";
 import { updateMetadata } from "./queries";
-import {
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
-  makeStyles,
-} from "@material-ui/core";
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/material";
 import InfoIcon from "@components/atoms/SvgIcons/InfoIcon";
 import { useCustomLocation } from "@hooks/useCustomLocation";
+import makeStyles from "@mui/styles/makeStyles";
 
 export interface IAppHeaderProps {
   headerData?: any;
