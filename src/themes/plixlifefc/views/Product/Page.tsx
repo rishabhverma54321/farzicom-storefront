@@ -481,7 +481,7 @@ const Page: React.FC<
         ? filterVariant[0]
         : product.variants[0];
       if (variant.images.length > 0) {
-        const sortImages = variant.images.sort((prev, next) =>
+        const sortImages = variant?.images?.slice()?.sort((prev, next) =>
           prev?.sortOrder > next?.sortOrder ? 1 : -1
         );
 
@@ -2317,15 +2317,9 @@ const Page: React.FC<
                 <QuizBannerSection isPerfumeBanner product={product} />
               </div>
             </div>
-
-            <Media
-              query={{ maxWidth: mediumScreen }}
-              render={() => (
-                <>
-                  <S.Hr />
-                </>
-              )}
-            />
+            <div className="pdpMediumScreen">
+            <S.Hr />
+            </div>
             <div className="desktop_only_pdp">
               {width > 992 || serverside ? (
                 <>
@@ -2386,8 +2380,8 @@ const Page: React.FC<
         {/* quiz banner section  */}
         <div className="pdp_quiz_mob">
           <QuizBannerSection product={product} />
-        </div>
-        {/* quiz banner section  */}
+      </div>
+       {/* quiz banner section  */}
 
         {/* % know your perfume  */}
         <LazyLoad height={200} offset={50}>
@@ -2725,7 +2719,7 @@ const Page: React.FC<
             <div className="product_info">
               <div className="information container product_info_inner_container">
                 <ProductHeader headerClass="df" heading="What's in it?" />
-                {/* <S.Description className="short_description">
+                                {/* <S.Description className="short_description">
                   {typeof window !== "undefined" &&
                     window.innerWidth < 720
                         ? showDescription
@@ -2811,7 +2805,7 @@ const Page: React.FC<
                   >
                     <>
                       <div className="containers-container-product-information">
-                        {productInformation && (
+                        {productInformation && !serverside && (
                           <table className="containers-container-product-information__table">
                             {productInformation.map((info, index) => (
                               <tr
@@ -2838,8 +2832,8 @@ const Page: React.FC<
             <></>
           )}
         </>
-        {/* How and when to use */}
-        {newProductVariant?.enable && productCombos ? (
+      {/* How and when to use */}
+      {newProductVariant?.enable && productCombos ? (
           <div className="productCombo_howtouse">
             <h3 className="productCombo_howtouse_title">
               {productCombos?.heading || ""}
@@ -3656,7 +3650,7 @@ const Page: React.FC<
           <LazyLoad height={100} offset={350}>
             {awardSectionData && <AwardSection awardsData={awardSectionData} />}
           </LazyLoad> */}
-      </div>
+      </div> 
     </>
   );
 };

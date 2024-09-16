@@ -6,6 +6,7 @@ import { CachedImage } from "@components/molecules/CachedImage";
 import { Carousel } from "react-responsive-carousel";
 import { mediumScreen } from "@styles/constants";
 import * as S from "./style";
+import style from "./scss/index.module.scss";
 
 import { imageURLReplaceWithCDN } from "@utils/misc";
 import { HomePageEntireQuery_section_edges_node_children_edges_node_images_edges_node } from "../Home/gqlTypes/HomePageEntireQuery";
@@ -35,14 +36,14 @@ const GalleryCarousel: React.FC<{
   };
   variantId: string;
   discountBanner: any;
-  onChange?:()=> void;
+  onChange?: () => void;
 }> = ({
   images,
   desktopCarouselProps,
   mobileCarouselProps,
   variantId,
   discountBanner,
-  onChange
+  onChange,
 }) => {
   const [selectedProductImage, setSelectedProductImage] = React.useState(0);
   // const [showCarousel, setShowCarousel] = React.useState(false);
@@ -53,8 +54,7 @@ const GalleryCarousel: React.FC<{
   const moreThanOne = images.length > 1;
   const discountImageUrlImgixScr =
     discountBanner && discountBanner?.image
-      ? imageURLReplaceWithCDN(discountBanner?.image) ||
-        discountBanner?.image
+      ? imageURLReplaceWithCDN(discountBanner?.image) || discountBanner?.image
       : "";
 
   const carousel = (carouselProps: any) => (
@@ -92,7 +92,7 @@ const GalleryCarousel: React.FC<{
               : false
           }
           selectedItem={selectedProductImage}
-          onChange={e => {
+          onChange={(e) => {
             setSelectedProductImage(e);
             onChange();
           }}
@@ -126,17 +126,12 @@ const GalleryCarousel: React.FC<{
   return (
     <>
       <S.GalleryCarousel backgroundImage={discountImageUrlImgixScr}>
-        <Media query={{ maxWidth: mediumScreen }}>
-          {matches =>
-            matches ? (
-              carousel(mobileCarouselProps)
-            ) : (
-              <Media query={{ minWidth: mediumScreen }}>
-                {matches => matches && carousel(desktopCarouselProps)}
-              </Media>
-            )
-          }
-        </Media>
+        <div className={style.galleryCarousel_desk}>
+          {carousel(mobileCarouselProps)}
+        </div>
+        <div className={style.galleryCarousel_mob}>
+          {carousel(desktopCarouselProps)}
+        </div>
       </S.GalleryCarousel>
     </>
   );

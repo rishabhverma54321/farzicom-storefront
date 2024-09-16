@@ -8,7 +8,7 @@ export default function Layout({ headerAndFooterData, shopMeta, extraFooterData,
       <ShopMetaContext.Provider
         value={shopMeta?.data.shopmeta.edges[0].node.metadata}
       >
-        {/* <AppHeader headerData={headerAndFooterData} /> */}
+        <AppHeader headerData={headerAndFooterData} />
         <main style={{ minHeight: "550px" }}>
           <>{children}</>
         </main>

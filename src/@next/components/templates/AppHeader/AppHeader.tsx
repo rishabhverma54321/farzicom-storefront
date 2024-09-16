@@ -210,21 +210,6 @@ export const AppHeader: React.FC<IAppHeaderProps> = ({
 
   const renderSwitch = () => {
     switch (CLIENT) {
-      // case clients.DRINKSWA2:
-      //   return <MainMenuDrinkswa />;
-      // case clients.DRINKWA_STAGE:
-      //   return <MainMenuDrinkswa />;
-      // case clients.IKKAI:
-      //   return <MainMenuIkkai />;
-      // case clients.LOTUS:
-      //   return <MainMenu />;
-      // case clients.LOTUS_NEW:
-      // case clients.LOTUS_STAGE:
-      //   return <MainMenuNewLotus />;
-      // case clients.MPIL:
-      //   return <MainMenuMpil />;
-      // case clients.PLIXLIFE:
-      //   return <MainMenuPlixlife />;
       case clients.BODY_FIRST:
       case clients.PLIXLIFEFC:
         return (

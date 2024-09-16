@@ -38,7 +38,8 @@ const Tabs: React.FC<ITabs> = ({
   };
 
   const handleTabItems = (children: any[]) => {
-    return children.map((tab, key) => {
+    console.log("children", children)
+    return children && children?.map((tab, key) => {
       if (tab.props.isHidden) {
         return null;
       }

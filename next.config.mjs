@@ -34,6 +34,18 @@ const nextConfig = {
         port: "",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "plixlife-fc.imgix.net",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn4.fireworktv.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
     webpack: config => {

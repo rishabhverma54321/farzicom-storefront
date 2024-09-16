@@ -16,7 +16,7 @@ export const SearchSuggestionBar: React.FC<ISearchSuggestionBarProps> = ({
         <div className={styles.wrapper}>
           <MemoSearchIconPlixNew2 />
           <p>
-            Search for{" "}
+            Search for
             <Typewriter
               words={searchterms}
               loop={false}

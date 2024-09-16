@@ -14,6 +14,7 @@ import {
 import winston from "winston";
 import Homepage from "../themes/View";
 import { CustomShopMetaQuery, headerAndFooterQuery } from "../gloablQueries/queries";
+import AppHeader from "@components/templates/AppHeader";
 
 export async function getStaticProps(context) {
   const logger = winston.createLogger({
@@ -139,7 +140,7 @@ export default function Home({
           "homepage"
         )}
       </Head>
-      {/* <AppHeader headerData={headerAndFooterData} /> */}
+      <AppHeader headerData={headerAndFooterData} />
       <Homepage data={homePageData} shopMeta={shopMeta} />
       {/* <AppFooter footerData={headerAndFooterData} /> */}
     </>

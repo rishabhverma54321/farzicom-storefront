@@ -247,3 +247,16 @@
     }
   }
 }
+
+.galleryCarousel{
+  &_desk{
+    @media(max-width: $medium-screen){
+     display: none;
+    }
+  }
+  &_mob{
+    @media(min-width: $medium-screen){
+      display: none;
+    }
+  }
+}

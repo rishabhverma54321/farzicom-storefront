@@ -17,6 +17,7 @@ import NavItemIcon from "./NavItemIcon";
 import Link from "next/link";
 import { customEventTrigger, getTextWithoutEmoji } from "@utils/misc";
 import { UserFragment } from "@saleor/sdk";
+import { IndexNumber } from "@components/molecules/OrderTabel/styles";
 
 export const StyledAccordion = withStyles({
   root: {
@@ -173,7 +174,7 @@ const NavItem: React.FC<NavItemProps> = ({
             <StyledAccordionDetails>
               <S.SubMenu>
                 {item.children.map((child, index) => (
-                  <React.Fragment key={'child_1' + index}>
+                  <React.Fragment key={'child_1' + IndexNumber}>
                     <SubNavItems
                       type="child_1"
                       items={child}

@@ -1,5 +1,11 @@
 @import "Themes/globalStyles-scss/scss/variables.module.scss";
 
+.pdpMediumScreen{
+  @media(min-width: $medium-screen){
+    display: none;
+  }
+}
+
 .container__padding {
   @media (max-width: $large-screen) {
     padding: 15px 40px;
@@ -2595,10 +2601,6 @@
         min-width: unset;
         height: auto;
       }
-      & > span {
-        position: relative !important;
-        display: block !important;
-        height: 100% !important;
         img {
           position: relative !important;
           width: 100% !important;
@@ -2610,7 +2612,6 @@
           object-fit: cover !important;
           object-position: bottom;
         }
-      }
     }
     .review-rating {
       div {

@@ -88,6 +88,7 @@ const MainMenu: React.FC<{
   const { checkout } = useCheckoutState();
   const history = useCustomHistory();
   const location = useCustomLocation();
+  const [isClient, setIsClient] = useState(false);
   const [isRedirectOpen, setIsRedirectOpen] = useState(false);
   const [countryCode, setCountrycode] = useState("");
   const [searchTerm, setSearchTerm] = useState(router?.query?.searchtext || "");
@@ -169,6 +170,7 @@ const MainMenu: React.FC<{
           ?.classList?.remove("disappear_searchbar");
       }
     };
+    setIsClient(true)
     window.addEventListener("scroll", scrollStickyabout);
     return () => window?.removeEventListener("scroll", scrollStickyabout);
   }, []);
@@ -209,7 +211,7 @@ const MainMenu: React.FC<{
   useEffect(() => {
     setSearchTerm(router?.query?.searchtext);
   }, [router?.query?.searchtext]);
-
+  const isServer = typeof window === "undefined";
   const cartItemsQuantity =
     (items &&
       items.reduce((prevVal, currVal) => prevVal + currVal.quantity, 0)) ||
@@ -366,203 +368,152 @@ const MainMenu: React.FC<{
                       hideNavbarItems ? "checkoutpage-main-menu" : ""
                     }`}
                   >
-                    <>
-                      <div className="plixlife-main-menu__lower__desktop-left">
-                        {!hideNavbarItems ? (
-                          <div
-                            style={{ listStyle: "none" }}
-                            data-test="toggleSideMenuLink"
-                            className="plixlife-main-menu__hamburger"
+                    <div className="plixlife-main-menu__lower__desktop-left">
+                      {!hideNavbarItems ? (
+                        <div
+                          style={{ listStyle: "none" }}
+                          data-test="toggleSideMenuLink"
+                          className="plixlife-main-menu__hamburger"
+                          onClick={() => {
+                            customEventTrigger("hamburger_icon_click", user);
+                            overlayContext.show(
+                              OverlayType.sideNav,
+                              OverlayTheme.left,
+                              { data: items }
+                            );
+                          }}
+                        >
+                          <HamburgerPlixNew />
+                        </div>
+                      ) : (
+                        <></>
+                      )}
+                      {showDeskBackArrow ? (
+                        <div className="plixlife-main-menu__lower__desktop-left_box">
+                          <MemoBackArrow width={14} height={14} />
+                          <MyCustomLink
+                            href={hideNavbarItems ? "" : appPaths.baseUrl}
                             onClick={() => {
-                              customEventTrigger("hamburger_icon_click", user);
-                              overlayContext.show(
-                                OverlayType.sideNav,
-                                OverlayTheme.left,
-                                { data: items }
+                              customEventTrigger(
+                                "top_navigation_cta_click",
+                                user,
+                                { cta_name: "brand_logo" }
                               );
                             }}
                           >
-                            <HamburgerPlixNew />
-                          </div>
-                        ) : (
-                          <></>
-                        )}
-                        {showDeskBackArrow ? (
-                          <div className="plixlife-main-menu__lower__desktop-left_box">
-                            <MemoBackArrow width={14} height={14} />
-                            <MyCustomLink
-                              href={hideNavbarItems ? "" : appPaths.baseUrl}
-                              onClick={() => {
-                                customEventTrigger(
-                                  "top_navigation_cta_click",
-                                  user,
-                                  { cta_name: "brand_logo" }
-                                );
-                              }}
-                            >
-                              <MemoNewplixlogo />
-                            </MyCustomLink>
-                          </div>
-                        ) : (
-                          <>
-                            <MyCustomLink
-                              href={hideNavbarItems ? "" : appPaths.baseUrl}
-                              onClick={() => {
-                                customEventTrigger(
-                                  "top_navigation_cta_click",
-                                  user,
-                                  { cta_name: "brand_logo" }
-                                );
-                              }}
-                            >
-                              <MemoNewplixlogo />
-                            </MyCustomLink>
-                          </>
-                        )}
-                        {!hideNavbarItems && (
-                          <ul className="plixlife-main-menu__lower__desktop-left__nav-row">
-                            <li
-                              style={{ listStyle: "none" }}
-                              data-test="menuSearchOverlayLink"
-                              className="plixlife-main-menu__searchInput"
-                              // onClick={() =>
-                              //   overlayContext.show(
-                              //     OverlayType.search,
-                              //     OverlayTheme.right
-                              //   )
-                              // }
-                            >
-                              {showSearchInput ? (
-                                <DebouncedTextField
-                                  onChange={(evt) => {
-                                    handleSearch(evt.target.value);
-                                  }}
-                                  value={searchTerm}
-                                  // placeholder="Search for a product..."
-                                  autoFocus
-                                  iconLeft={
-                                    <MemoSearchIconPlixNew fontSize="16px" />
-                                  }
-                                />
-                              ) : (
-                                <div onClick={() => setShowSearchInput(true)}>
-                                  <SearchSuggestionBar
-                                    searchterms={searchTerms}
-                                  />
-                                </div>
-                              )}
-                              {/* <MemoSearchIconPlix fontSize="19px" /> */}
-                            </li>
-                          </ul>
-                        )}
-                        {/* {!hideNavbarItems && (
-                          <ul className="plixlife-main-menu__lower__desktop-left__nav-row">
-                            {items.slice(0, 5).map(item => (
-                              <li
-                                data-test="mainMenuItem"
-                                className="plixlife-main-menu__item"
-                                key={item.id}
-                                style={{ listStyle: "none" }}
-                                onClick={() => {
-                                  customEventTrigger(
-                                    "top_navigation_cta_click",
-                                    user,
-                                    { cta_name: getTextWithoutEmoji(item?.name) }
-                                  );
-                                }}
-                              >
-                                <NavDropdown
-                                  width={width}
-                                  overlay={overlayContext}
-                                  {...item}
-                                />
-                              </li>
-                            ))}
-                          </ul>
-                        )} */}
-                      </div>
-                      {!hideNavbarItems && (
-                        <span className="plixlife-main-menu__lower__desktop-right">
-                          <ul className="plixlife-main-menu__lower__desktop-right__ul">
-                            <>
-                              <li
-                                onClick={() => {
-                                  customEventTrigger(
-                                    "top_navigation_cta_click",
-                                    user,
-                                    { cta_name: "Tracking Link" }
-                                  );
-                                }}
-                              >
-                                <MyCustomLink
-                                  href={CLICKPOST_TRACKING_PAGE_URL}
-                                >
-                                  <MemoTrackTruck width={28} height={28} />
-                                </MyCustomLink>
-                              </li>
-                              <li
-                                data-test="menuCartOverlayLink"
-                                className="plixlife-main-menu__icon main-menu__cart"
-                                style={{ listStyle: "none" }}
-                                onClick={() => {
-                                  overlayContext.show(
-                                    OverlayType.plixlifefcCart,
-                                    OverlayTheme.right
-                                  );
-                                  cartClickDatalayer();
-                                }}
-                              >
-                                <NewMemoCartIcon />
-                                {cartItemsQuantity > 0 ? (
-                                  <span className="plixlife-main-menu__cart__quantity">
-                                    {cartItemsQuantity}
-                                  </span>
-                                ) : null}
-                              </li>
-                              <li>
-                                <UserSection
-                                  user={user}
-                                  handleSignOut={handleSignOut}
-                                  userIcon={<NewProfileIconPlix />}
-                                />
-                              </li>
-                              <li
-                                data-test="shopAllButton"
-                                onClick={() => {
-                                  if (gtmConfig.shopAllCta.enable) {
-                                    customEventTrigger(
-                                      gtmConfig.shopAllCta.value,
-                                      user,
-                                      {
-                                        heading_name: "Shop All - Navbar",
-                                      }
-                                    );
-                                  }
-                                }}
-                              >
-                                <CustomLink to="/page/shop">
-                                  <div className="shopAllButton">Shop All</div>
-                                </CustomLink>
-                              </li>
-                            </>
-
-                            {/* <>
-                        <li className="plixlife-main-menu__offline">
-                          <Media
-                            query={{ minWidth: mediumScreen }}
-                            render={() => (
-                              <span>
-                                <FormattedMessage defaultMessage="Offline" />
-                              </span>
-                            )}
-                          />
-                          <span>Account</span>
-                        </li>
-                      </> */}
-                          </ul>
-                        </span>
+                            <MemoNewplixlogo />
+                          </MyCustomLink>
+                        </div>
+                      ) : (
+                        <>
+                          <MyCustomLink
+                            href={hideNavbarItems ? "" : appPaths.baseUrl}
+                            onClick={() => {
+                              customEventTrigger(
+                                "top_navigation_cta_click",
+                                user,
+                                { cta_name: "brand_logo" }
+                              );
+                            }}
+                          >
+                            <MemoNewplixlogo />
+                          </MyCustomLink>
+                        </>
                       )}
-                    </>
+                      {!hideNavbarItems && (
+                        <ul className="plixlife-main-menu__lower__desktop-left__nav-row">
+                          <li
+                            style={{ listStyle: "none" }}
+                            data-test="menuSearchOverlayLink"
+                            className="plixlife-main-menu__searchInput"
+                          >
+                            {showSearchInput ? (
+                              <DebouncedTextField
+                                onChange={(evt) => {
+                                  handleSearch(evt.target.value);
+                                }}
+                                value={searchTerm}
+                                autoFocus
+                                iconLeft={
+                                  <MemoSearchIconPlixNew fontSize="16px" />
+                                }
+                              />
+                            ) : (
+                              <div onClick={() => setShowSearchInput(true)}>
+                                <SearchSuggestionBar
+                                  searchterms={searchTerms}
+                                />
+                              </div>
+                            )}
+                          </li>
+                        </ul>
+                      )}
+                    </div>
+                    {!hideNavbarItems ?(
+                      <div className="plixlife-main-menu__lower__desktop-right">
+                        <ul className="plixlife-main-menu__lower__desktop-right__ul">
+                            <li
+                              onClick={() => {
+                                customEventTrigger(
+                                  "top_navigation_cta_click",
+                                  user,
+                                  { cta_name: "Tracking Link" }
+                                );
+                              }}
+                            >
+                              <MyCustomLink href={CLICKPOST_TRACKING_PAGE_URL}>
+                                <MemoTrackTruck width={28} height={28} />
+                              </MyCustomLink>
+                            </li>
+                            <li
+                              data-test="menuCartOverlayLink"
+                              className="plixlife-main-menu__icon main-menu__cart"
+                              style={{ listStyle: "none" }}
+                              onClick={() => {
+                                overlayContext.show(
+                                  OverlayType.plixlifefcCart,
+                                  OverlayTheme.right
+                                );
+                                cartClickDatalayer();
+                              }}
+                            >
+                              <NewMemoCartIcon />
+                              {isClient && cartItemsQuantity > 0 ? (
+                                <span className="plixlife-main-menu__cart__quantity">
+                                  {cartItemsQuantity}
+                                </span>
+                              ) : <span></span>}
+                            </li>
+                            <li>
+                              <UserSection
+                                user={user}
+                                handleSignOut={handleSignOut}
+                                userIcon={<NewProfileIconPlix />}
+                              />
+                            </li>
+                            <li
+                              data-test="shopAllButton"
+                              onClick={() => {
+                                if (gtmConfig.shopAllCta.enable) {
+                                  customEventTrigger(
+                                    gtmConfig.shopAllCta.value,
+                                    user,
+                                    {
+                                      heading_name: "Shop All - Navbar",
+                                    }
+                                  );
+                                }
+                              }}
+                            >
+                              <CustomLink to="/page/shop">
+                                <div className="shopAllButton">Shop All</div>
+                              </CustomLink>
+                            </li>
+                        </ul>
+                      </div>
+                    ):(
+                      <></>
+                    )}
 
                     <>
                       <div className="plixlife-main-menu__lower__mobile-left">
@@ -585,20 +536,6 @@ const MainMenu: React.FC<{
                               }}
                             >
                               <HamburgerPlixNew />
-                              {/* <ReactSVG
-                                path="/src/images/hamburger-hover.svg"
-                                className="plixlife-main-menu__hamburger--hover"
-                              /> */}
-                              <MyCustomLink href={appPaths.baseUrl}>
-                                {/* <MemoNewplixlogo /> */}
-                                {/* <Image
-                      priority
-                      src={mainLogo}
-                      alt="logo"
-                      width="80"
-                      height="48"
-                    /> */}
-                              </MyCustomLink>
                             </li>
                           )}
                           <div
@@ -643,36 +580,10 @@ const MainMenu: React.FC<{
                           </div>
                         </ul>
                       </div>
-                      {/* <div className="plixlife-main-menu__lower__mobile-center">
-                  <MyCustomLink href={appPaths.baseUrl}>
-                  <MemoNewplixlogo />
-                  </MyCustomLink>
-
-                </div> */}
                       {!hideNavbarItems && (
                         <div className="plixlife-main-menu__lower__mobile-right">
                           <ul className="plixlife-main-menu__lower__mobile-right__ul">
                             <>
-                              {/* <li
-                            style={{ listStyle: "none" }}
-                            data-test="menuSearchOverlayLink"
-                            className="plixlife-main-menu__search"
-                          >
-                            <div className="plixlife-main-menu__searchInputMobile">
-                              <DebouncedTextField
-                                onChange={evt => {
-                                  handleSearch(evt.target.value);
-                                }}
-                                value={searchTerm}
-                                // placeholder="Search for a product..."
-                                autoFocus={!!searchTerm}
-                                iconLeft={
-                                  <MemoSearchIconPlixNew fontSize="15px" />
-                                }
-                              />
-                            </div>
-                            <MemoSearchIconPlix fontSize="19px" />
-                          </li> */}
                               <li
                                 style={{ listStyle: "none" }}
                                 data-test="menuCartOverlayLink"
@@ -686,11 +597,11 @@ const MainMenu: React.FC<{
                                 }}
                               >
                                 <NewMemoCartIcon />
-                                {cartItemsQuantity >= 0 ? (
+                                {isClient && cartItemsQuantity >= 0 ? (
                                   <span className="plixlife-main-menu__cart__quantity">
                                     {cartItemsQuantity}
                                   </span>
-                                ) : null}
+                                ) : <></>}
                               </li>
                               <li>
                                 <UserSection
@@ -715,19 +626,6 @@ const MainMenu: React.FC<{
                                 </MyCustomLink>
                               </li>
                             </>
-
-                            {/* <>
-                        <li className="plixlife-main-menu__offline">
-                          <Media
-                            query={{ minWidth: mediumScreen }}
-                            render={() => (
-                              <span>
-                                <FormattedMessage defaultMessage="Offline" />
-                              </span>
-                            )}
-                          />
-                        </li>
-                      </> */}
                           </ul>
                         </div>
                       )}
@@ -772,12 +670,6 @@ const MainMenu: React.FC<{
                         style={{ listStyle: "none" }}
                         data-test="menuSearchOverlayLink"
                         className="plixlife-main-menu__searchInput searchfocus"
-                        // onClick={() =>
-                        //   overlayContext.show(
-                        //     OverlayType.search,
-                        //     OverlayTheme.right
-                        //   )
-                        // }
                       >
                         {showSearchInput ? (
                           <DebouncedTextField
@@ -796,7 +688,6 @@ const MainMenu: React.FC<{
                             <SearchSuggestionBar searchterms={searchTerms} />
                           </div>
                         )}
-                        {/* <MemoSearchIconPlix fontSize="19px" /> */}
                       </li>
                     </div>
                   )}

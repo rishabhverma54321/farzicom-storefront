@@ -1,4 +1,3 @@
-import gql from "graphql-tag";
 import { TypedQuery } from "@temp/core/queries";
 import { OffersList, OffersListVariables } from "./gqlTypes/OffersList";
 import {
@@ -32,6 +31,7 @@ import {
   CreateProductReviewImage,
   CreateProductReviewImageVariables,
 } from "./gqlTypes/CreateProductReviewImage";
+import gql from "graphql-tag";
 
 export const priceFragment = gql`
   fragment Price on TaxedMoney {
@@ -239,6 +239,273 @@ export const productDetailsQuery = gql`
       availableForPurchase
       defaultVariant {
         ...ProductVariantFields
+        metadata: customMetaData {
+          key
+          value
+        }
+      }
+    }
+
+    productReviews(
+      product: $id
+      first: 20
+      isPublished: true
+      sort: MOST_HELPFUL
+    ) {
+      totalCount
+      edges {
+        node {
+          id
+          review
+          rating
+          created
+          adminReply
+          title
+          rated
+          verified
+          helpfulRatings
+          isPublished
+          publishedDate
+          unhelpfulRatings
+          userName
+          user {
+            id
+            firstName
+            lastName
+          }
+          images(first: 2) {
+            edges {
+              node {
+                id
+                url
+                alt
+              }
+            }
+          }
+        }
+      }
+      pageInfo {
+        hasNextPage
+        hasPreviousPage
+        startCursor
+        endCursor
+      }
+      totalCount
+    }
+  }
+`;
+
+export const productDetailsQueryNew = gql`
+
+  query ProductDetailsPlixNew($id: ID!, $metaFields: [String]) {
+    product(id: $id, metaFields: $metaFields) {
+      id
+      name
+      slug
+      thumbnail {
+        url
+        alt
+      }
+      thumbnail2x: thumbnail(size: 510) {
+        url
+      }
+      isAvailableForPurchase
+      pricing {
+        onSale
+        priceRangeUndiscounted {
+          start {
+            gross {
+              amount
+              currency
+            }
+            net {
+              amount
+              currency
+            }
+          }
+          stop {
+            gross {
+              amount
+              currency
+            }
+            net {
+              amount
+              currency
+            }
+          }
+        }
+        priceRange {
+          start {
+            gross {
+              amount
+              currency
+            }
+            net {
+              amount
+              currency
+            }
+          }
+          stop {
+            gross {
+              amount
+              currency
+            }
+            net {
+              amount
+              currency
+            }
+          }
+        }
+      }
+      descriptionJson
+      weight {
+        unit
+        value
+      }
+      metadata {
+        key
+        value
+      }
+      category {
+        id
+        name
+        slug
+      }
+      images {
+        id
+        alt
+        url
+      }
+      attributes {
+        attribute {
+          id
+          name
+        }
+        values {
+          id
+          name
+        }
+      }
+      variants {
+        id
+        sku
+        name
+        isAvailable
+        quantityAvailable(countryCode: IN)
+        images {
+          id
+          url
+          alt
+          sortOrder
+        }
+        weight {
+          unit
+          value
+        }
+        pricing {
+          onSale
+          priceUndiscounted {
+            gross {
+              amount
+              currency
+            }
+            net {
+              amount
+              currency
+            }
+          }
+          price {
+            gross {
+              amount
+              currency
+            }
+            net {
+              amount
+              currency
+            }
+          }
+        }
+        attributes {
+          attribute {
+            id
+            name
+            slug
+            metadata {
+              key
+              value
+            }
+          }
+          values {
+            id
+            name
+            value: name
+          }
+        }
+        metadata: customMetaData {
+          key
+          value
+        }
+      }
+      seoDescription
+      seoTitle
+      isAvailable
+      isAvailableForPurchase
+      availableForPurchase
+      defaultVariant {
+        id
+        sku
+        name
+        isAvailable
+        quantityAvailable(countryCode: IN)
+        images {
+          id
+          url
+          alt
+          sortOrder
+        }
+        weight {
+          unit
+          value
+        }
+        pricing {
+          onSale
+          priceUndiscounted {
+            gross {
+              amount
+              currency
+            }
+            net {
+              amount
+              currency
+            }
+          }
+          price {
+            gross {
+              amount
+              currency
+            }
+            net {
+              amount
+              currency
+            }
+          }
+        }
+        attributes {
+          attribute {
+            id
+            name
+            slug
+            metadata {
+              key
+              value
+            }
+          }
+          values {
+            id
+            name
+            value: name
+          }
+        }
         metadata: customMetaData {
           key
           value

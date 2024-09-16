@@ -6,12 +6,12 @@ import {
   ProductVariant,
   MetadataInputV2,
 } from "@saleor/sdk";
-// import {
-//   SecondaryMenu_shop_navigation_secondary_items,
-//   SecondaryMenu_shop_navigation_secondary_items_children,
-// } from "@temp/components/FooterIkkai/gqlTypes/SecondaryMenu";
-// import { MainMenu_shop_navigation_main_items } from "@temp/components/MainMenuIkkai/gqlTypes/MainMenu";
-// import { MainMenuSubItem } from "@temp/components/MainMenuIkkai/gqlTypes/MainMenuSubItem";
+import {
+  SecondaryMenu_shop_navigation_secondary_items,
+  SecondaryMenu_shop_navigation_secondary_items_children,
+} from "@temp/components/FooterIkkai/gqlTypes/SecondaryMenu";
+import { MainMenu_shop_navigation_main_items } from "@temp/components/MainMenuIkkai/gqlTypes/MainMenu";
+import { MainMenuSubItem } from "@temp/components/MainMenuIkkai/gqlTypes/MainMenuSubItem";
 import {
   generateCategoryUrl,
   generateCollectionUrl,
@@ -105,43 +105,43 @@ export const imageURLReplaceWithCDN = (imageURL: string | null) => {
   return "";
 };
 
-// export const getMenuUrl = (
-//   item:
-//     | MainMenu_shop_navigation_main_items
-//     | MainMenuSubItem
-//     | SecondaryMenu_shop_navigation_secondary_items
-//     | SecondaryMenu_shop_navigation_secondary_items_children
-// ) => {
-//   const { url, category, collection, page } = item;
-//   if (url) {
-//     return url;
-//   }
-//   if (category) {
-//     return generateCategoryUrl(category.id, category.name);
-//   }
-//   if (collection) {
-//     return generateCollectionUrl(collection.id, collection.name);
-//   }
-//   if (page) {
-//     return generatePageUrl(page.slug);
-//   }
-// };
+export const getMenuUrl = (
+  item:
+    | MainMenu_shop_navigation_main_items
+    | MainMenuSubItem
+    | SecondaryMenu_shop_navigation_secondary_items
+    | SecondaryMenu_shop_navigation_secondary_items_children
+) => {
+  const { url, category, collection, page } = item;
+  if (url) {
+    return url;
+  }
+  if (category) {
+    return generateCategoryUrl(category.id, category.name);
+  }
+  if (collection) {
+    return generateCollectionUrl(collection.id, collection.name);
+  }
+  if (page) {
+    return generatePageUrl(page.slug);
+  }
+};
 
-// export const preserveTimestamp = (product_item: any, variant_id: string) => {
-//   const variants: [] = product_item?.variants;
-//   const currentVariant = variants
-//     ? variants.find((v: any) => v.id === variant_id)
-//     : product_item?.defaultVariant;
-//   const upsell_product =
-//     currentVariant?.metadata &&
-//     getMetadataValue(currentVariant?.metadata, "upsell_product") &&
-//     parseJson(getMetadataValue(currentVariant?.metadata, "upsell_product"))
-//       .length &&
-//     parseJson(getMetadataValue(currentVariant?.metadata, "upsell_product"))[0];
-//   if (upsell_product) {
-//     localStorage.setItem(`${upsell_product.id}`, `${Date.now()}`);
-//   }
-// };
+export const preserveTimestamp = (product_item: any, variant_id: string) => {
+  const variants: [] = product_item?.variants;
+  const currentVariant = variants
+    ? variants.find((v: any) => v.id === variant_id)
+    : product_item?.defaultVariant;
+  const upsell_product =
+    currentVariant?.metadata &&
+    getMetadataValue(currentVariant?.metadata, "upsell_product") &&
+    parseJson(getMetadataValue(currentVariant?.metadata, "upsell_product"))
+      .length &&
+    parseJson(getMetadataValue(currentVariant?.metadata, "upsell_product"))[0];
+  if (upsell_product) {
+    localStorage.setItem(`${upsell_product.id}`, `${Date.now()}`);
+  }
+};
 
 // export const isUrl = (string: string) => {
 //   try {
@@ -151,18 +151,18 @@ export const imageURLReplaceWithCDN = (imageURL: string | null) => {
 //   }
 // };
 
-// export const trimUrl = (url: string) => {
-//   if (
-//     typeof window !== "undefined" &&
-//     typeof url === "string" &&
-//     url &&
-//     url?.includes(window.location?.origin)
-//   ) {
-//     let newUrl = url?.replace(window?.location?.origin, "");
-//     return newUrl;
-//   }
-//   return url;
-// };
+export const trimUrl = (url: string) => {
+  if (
+    typeof window !== "undefined" &&
+    typeof url === "string" &&
+    url &&
+    url?.includes(window.location?.origin)
+  ) {
+    let newUrl = url?.replace(window?.location?.origin, "");
+    return newUrl;
+  }
+  return url;
+};
 
 export const createTaxedPriceFromAmount = (
   amount: number | string,
@@ -1045,66 +1045,66 @@ export const isGiftBoxProduct = (sku: any) => {
 //   return null;
 // };
 // // Firework Helper Functions
-// export const createFWProduct = (remoteVariant: any) => {
-//   // const {  } = remoteVariant;
-//   return window?._fwn?.shopping?.productFactory((productbuilder: any) => {
-//     // 1. Update the product title.
-//     productbuilder
-//       .extId(getDBIdFromGraphqlId(remoteVariant?.id, "ProductVariant"))
-//       .name(remoteVariant?.product?.name)
-//       .currency("INR");
-//     // 2. Update product variant price and availability.
-//     Array(1).map((remoteVariant: any) => {
-//       const {
-//         id: v_id,
-//         isAvailable,
-//         quantityAvailable,
-//         pricing,
-//       } = remoteVariant;
-//       productbuilder.variant((variantBuilder: any) => {
-//         variantBuilder
-//           .extId(getDBIdFromGraphqlId(v_id, "ProductVariant"))
-//           .isAvailable(isAvailable && quantityAvailable)
-//           .price(pricing?.price?.gross?.amount);
-//       });
-//     });
-//   });
-// };
+export const createFWProduct = (remoteVariant: any) => {
+  // const {  } = remoteVariant;
+  return window?._fwn?.shopping?.productFactory((productbuilder: any) => {
+    // 1. Update the product title.
+    productbuilder
+      .extId(getDBIdFromGraphqlId(remoteVariant?.id, "ProductVariant"))
+      .name(remoteVariant?.product?.name)
+      .currency("INR");
+    // 2. Update product variant price and availability.
+    Array(1).map((remoteVariant: any) => {
+      const {
+        id: v_id,
+        isAvailable,
+        quantityAvailable,
+        pricing,
+      } = remoteVariant;
+      productbuilder.variant((variantBuilder: any) => {
+        variantBuilder
+          .extId(getDBIdFromGraphqlId(v_id, "ProductVariant"))
+          .isAvailable(isAvailable && quantityAvailable)
+          .price(pricing?.price?.gross?.amount);
+      });
+    });
+  });
+};
 
-// export const parseFwProduct = (remoteProduct: any, v_id: any) => {
-//   return window?._fwn?.shopping.productFactory((builder: any) => {
-//     builder
-//       // .description(remoteProduct.description)
-//       .extId(getDBIdFromGraphqlId(v_id, "ProductVariant"))
-//       .name(remoteProduct?.name)
-//       .currency("INR");
-//     remoteProduct.variants
-//       ?.filter((v: any) => v?.id === v_id)
-//       ?.forEach((remoteVariant: any) => {
-//         builder.variant((variantBuilder: any) => {
-//           const sortedImages = remoteVariant?.images.sort((prev, next) =>
-//             prev?.sortOrder > next?.sortOrder ? 1 : -1
-//           );
-//           variantBuilder
-//             .extId(getDBIdFromGraphqlId(remoteVariant?.id, "ProductVariant"))
-//             .isAvailable(remoteVariant?.isAvailable)
-//             .name(remoteVariant?.name)
-//             .price(remoteVariant?.pricing?.price?.gross?.amount)
-//             .sku(remoteVariant?.sku)
-//             // .url("https://www.example.com")
-//             .image((imageBuilder: any) => {
-//               imageBuilder
-//                 .extId(
-//                   getDBIdFromGraphqlId(sortedImages[0]?.id, "ProductImage")
-//                 )
-//                 .position(sortedImages[0]?.sortOrder)
-//                 .title(sortedImages[0]?.alt)
-//                 .url(sortedImages[0]?.url);
-//             });
-//         });
-//       });
-//   }, true);
-// };
+export const parseFwProduct = (remoteProduct: any, v_id: any) => {
+  return window?._fwn?.shopping.productFactory((builder: any) => {
+    builder
+      // .description(remoteProduct.description)
+      .extId(getDBIdFromGraphqlId(v_id, "ProductVariant"))
+      .name(remoteProduct?.name)
+      .currency("INR");
+    remoteProduct.variants
+      ?.filter((v: any) => v?.id === v_id)
+      ?.forEach((remoteVariant: any) => {
+        builder.variant((variantBuilder: any) => {
+          const sortedImages = remoteVariant?.images.sort((prev, next) =>
+            prev?.sortOrder > next?.sortOrder ? 1 : -1
+          );
+          variantBuilder
+            .extId(getDBIdFromGraphqlId(remoteVariant?.id, "ProductVariant"))
+            .isAvailable(remoteVariant?.isAvailable)
+            .name(remoteVariant?.name)
+            .price(remoteVariant?.pricing?.price?.gross?.amount)
+            .sku(remoteVariant?.sku)
+            // .url("https://www.example.com")
+            .image((imageBuilder: any) => {
+              imageBuilder
+                .extId(
+                  getDBIdFromGraphqlId(sortedImages[0]?.id, "ProductImage")
+                )
+                .position(sortedImages[0]?.sortOrder)
+                .title(sortedImages[0]?.alt)
+                .url(sortedImages[0]?.url);
+            });
+        });
+      });
+  }, true);
+};
 
 export const skuToUserPropertyClevertap = (
   sku: string,
@@ -1399,36 +1399,36 @@ export const triggerHomepageBannerEvent = (
   }
 };
 
-// export const getRoundedRating = (rating_value: number | string) => {
-//   if (!(rating_value === null || rating_value === undefined)) {
-//     const rating = Number(rating_value);
-//     if (rating < 0.3) {
-//       return 0;
-//     } else if (rating >= 0.3 && rating < 0.7) {
-//       return 0.5;
-//     } else if (rating >= 0.7 && rating < 1.3) {
-//       return 1;
-//     } else if (rating >= 1.3 && rating < 1.7) {
-//       return 1.5;
-//     } else if (rating >= 1.7 && rating < 2.3) {
-//       return 2;
-//     } else if (rating >= 2.3 && rating < 2.7) {
-//       return 2.5;
-//     } else if (rating >= 2.7 && rating < 3.3) {
-//       return 3;
-//     } else if (rating >= 3.3 && rating < 3.7) {
-//       return 3.5;
-//     } else if (rating >= 3.7 && rating < 4.3) {
-//       return 4;
-//     } else if (rating >= 4.3 && rating < 4.7) {
-//       return 4.5;
-//     } else if (rating >= 4.7) {
-//       return 5;
-//     }
-//   } else {
-//     throw new Error("Rating not provided");
-//   }
-// };
+export const getRoundedRating = (rating_value: number | string) => {
+  if (!(rating_value === null || rating_value === undefined)) {
+    const rating = Number(rating_value);
+    if (rating < 0.3) {
+      return 0;
+    } else if (rating >= 0.3 && rating < 0.7) {
+      return 0.5;
+    } else if (rating >= 0.7 && rating < 1.3) {
+      return 1;
+    } else if (rating >= 1.3 && rating < 1.7) {
+      return 1.5;
+    } else if (rating >= 1.7 && rating < 2.3) {
+      return 2;
+    } else if (rating >= 2.3 && rating < 2.7) {
+      return 2.5;
+    } else if (rating >= 2.7 && rating < 3.3) {
+      return 3;
+    } else if (rating >= 3.3 && rating < 3.7) {
+      return 3.5;
+    } else if (rating >= 3.7 && rating < 4.3) {
+      return 4;
+    } else if (rating >= 4.3 && rating < 4.7) {
+      return 4.5;
+    } else if (rating >= 4.7) {
+      return 5;
+    }
+  } else {
+    throw new Error("Rating not provided");
+  }
+};
 
 // export const getMembershipTag = (user: UserFragment) => {
 //   const tagNames = user?.tags?.map(tag => tag.name);

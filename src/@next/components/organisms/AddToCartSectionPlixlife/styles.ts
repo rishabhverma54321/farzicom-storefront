@@ -1,11 +1,12 @@
 import { media, minMedia } from "@styles/media";
 import { styled } from "@styles/themes";
 
-export const Container = styled.div`
-`;
+export const Container = styled.div``;
 
-export const Scroller = styled.div<{newproductvariant:boolean}>`
-${props=> props?.newproductvariant ?`
+export const Scroller = styled.div<{ newproductvariant: boolean }>`
+  ${(props) =>
+    props?.newproductvariant
+      ? `
   @media(min-width: 920px){
     max-height:480px;
     overflow-x:hidden;
@@ -25,9 +26,9 @@ ${props=> props?.newproductvariant ?`
       background: #5DD37C;
     }
   }
-`:
-``
-}`
+`
+      : ``}
+`;
 
 export const DescriptionIcons = styled.div`
   display: flex;
@@ -47,7 +48,7 @@ export const StickyButtonsStyle = styled.div`
     bottom: 0;
     left: 0;
     position: fixed;
-    z-index: ${props => (props?.zindex ? "12" : "4")};
+    z-index: ${(props) => (props?.zindex ? "12" : "4")};
 `}
 `;
 
@@ -63,7 +64,7 @@ export const StickyButtons = styled.div`
   `};
 
   ${media.mediumScreen`
-   border-radius:${props => (props?.border ? "5px" : 0)}
+   border-radius:${(props) => (props?.border ? "5px" : 0)}
     background-color: #fff;
     padding: 10px;
    width: 100vw;
@@ -154,13 +155,13 @@ export const TextIconsRowText = styled.div`
 `;
 
 export const ProductNameHeader = styled.h1`
-  font-weight: ${props => props.theme.typography.boldFontWeight};
+  font-weight: ${(props) => props.theme.typography.boldFontWeight};
   color: #282c3f;
   font-size: 25px;
   /* margin-bottom: 10px; */
-  font-family: ${props => props.theme.typography.baseFontFamily}, -apple-system,
-    BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
-    "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: ${(props) => props.theme.typography.baseFontFamily},
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 
   ${media.largeScreen`
        display:none;
@@ -168,13 +169,13 @@ export const ProductNameHeader = styled.h1`
 `;
 
 export const ProductNameHeaderSsr = styled.div`
-  font-weight: ${props => props.theme.typography.boldFontWeight};
+  font-weight: ${(props) => props.theme.typography.boldFontWeight};
   color: #282c3f;
   font-size: 25px;
   /* margin-bottom: 10px; */
-  font-family: ${props => props.theme.typography.baseFontFamily}, -apple-system,
-    BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
-    "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: ${(props) => props.theme.typography.baseFontFamily},
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 
   ${media.largeScreen`
      display:none;
@@ -201,8 +202,8 @@ margin-left : 0px;
 `}
 `;
 
-export const ProductBox = styled.div`
-  background: ${props => props.color};
+export const ProductBox = styled.section`
+  background: ${(props) => props.color};
   font-size: 14px;
   border-radius: 5px;
   font-weight: 450;
@@ -224,8 +225,8 @@ export const Description = styled.div`
 `;
 
 export const ProductPricing = styled.h4`
-  font-weight: ${props => props.theme.typography.boldFontWeight};
-  margin-bottom: ${props => props.theme.spacing.spacer};
+  font-weight: ${(props) => props.theme.typography.boldFontWeight};
+  margin-bottom: ${(props) => props.theme.spacing.spacer};
 `;
 
 export const StockContainer = styled.p`
@@ -233,10 +234,9 @@ export const StockContainer = styled.p`
 `;
 
 export const OfferBox = styled.div`
-  /* border: dashed 3px ${props => props.theme.colors.primaryDark}; */
-  display:flex;
+  display: flex;
   align-items: center;
-  background-color:#F4F8F3 ;
+  background-color: #f4f8f3;
   border-radius: 4px;
   padding: 5px 10px;
   width: 70%;
@@ -250,9 +250,10 @@ export const OfferBox = styled.div`
 `;
 
 export const OfferBoxHeading = styled.div`
-  font-weight: ${props => props.theme.typography.boldFontWeight};
+  font-weight: ${(props) => props.theme.typography.boldFontWeight};
   font-size: 1.1rem;
-  color: ${props => props.theme.colors.primaryDark} span {
+  color: ${(props) => props.theme.colors.primaryDark};
+  span {
     margin: 0 5px;
   }
   display: flex;
@@ -277,16 +278,16 @@ export const Offer = styled.p`
   font-size: 14px;
 `;
 export const DescriptionHeading = styled.h4`
-  font-size: ${props => props.theme.typography.h4FontSize};
+  font-size: ${(props) => props.theme.typography.h4FontSize};
   margin: 5px 0px;
-  font-weight: ${props => props.theme.typography.boldFontWeight};
-  color: ${props => props.theme.colors.primaryDark};
+  font-weight: ${(props) => props.theme.typography.boldFontWeight};
+  color: ${(props) => props.theme.colors.primaryDark};
 `;
 export const DescriptionContent = styled.p<{
   show: boolean;
 }>`
   display: -webkit-box;
-  -webkit-line-clamp: ${props => props.show === false && 3};
+  -webkit-line-clamp: ${(props) => props.show === false && 3};
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -301,7 +302,7 @@ export const ReadMore = styled.span`
   cursor: "pointer";
   font-size: "14px";
   height: "15px";
-  color: ${props => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.primary};
   cursor: pointer;
 `;
 // export const KeyBenefits = styled.div`
@@ -359,9 +360,9 @@ export const MetaDataSection = styled.div`
 
 export const VariantPicker = styled.div`
   display: grid;
-  margin-bottom:${props => props?.marginBottom || "8px"};
-  margin-top:${props => props?.marginTop || "4px"};
-  min-height:${props=>props?.minHeight || "unset"};
+  margin-bottom: ${(props) => props?.marginBottom || "8px"};
+  margin-top: ${(props) => props?.marginTop || "4px"};
+  min-height: ${(props) => props?.minHeight || "unset"};
   .react-select-wrapper,
   .input {
     width: 50%;
@@ -375,7 +376,7 @@ export const QuantityInput = styled.div`
 `;
 
 export const ErrorMessage = styled.p`
-  color: ${props => props.theme.colors.error};
+  color: ${(props) => props.theme.colors.error};
   // margin: 0.5rem 0rem;
   font-weight: 500;
   font-size: 12px;
@@ -409,7 +410,7 @@ export const DiscountedPrice = styled.div<{ fontSize?: string }>`
   span {
     font-style: normal;
     font-weight: 700;
-    font-size: ${props => props.fontSize || "16px"} !important;
+    font-size: ${(props) => props.fontSize || "16px"} !important;
     // line-height: 160%;
     ${media.smallScreen`
     font-size: 19px !important;
@@ -490,14 +491,13 @@ export const Rating = styled.div`
   `}
 `;
 
-export const VariantUndiscount = styled.div`
-`
+export const VariantUndiscount = styled.div``;
 
 export const VariantDiscount = styled.span`
-  color: #FFF !important;
+  color: #fff !important;
   text-align: center;
   padding: 0.2rem 0.4rem;
-  font-family: 'CocoSharp XL';
+  font-family: "CocoSharp XL";
   font-style: normal;
   font-weight: 800;
   line-height: 120%;
@@ -505,36 +505,35 @@ export const VariantDiscount = styled.span`
   letter-spacing: 0.619px;
   text-transform: uppercase;
   border-radius: 7.429px;
-  background: #06543D;
-  margin-left:0.4rem !important;
+  background: #06543d;
+  margin-left: 0.4rem !important;
 
-  @media(min-width: 980px){
+  @media (min-width: 980px) {
     font-size: 10px !important;
   }
-`
+`;
 
 export const VariantLabel = styled.div`
-  span{
+  span {
     text-align: center;
     font-family: CocoSharp XL;
     font-size: 10px;
     font-weight: 400;
-    color:#808080;
+    color: #808080;
   }
-  @media(max-width: 980px){
-    span{
+  @media (max-width: 980px) {
+    span {
       font-size: 10px;
     }
   }
-  @media(max-width: 980px){
-      font-size: 10px
-      } 
-
-`
+  @media (max-width: 980px) {
+    font-size: 10px;
+  }
+`;
 
 export const VaraintPriceContainer = styled.div`
- margin-bottom: 0.5rem;
-`
+  margin-bottom: 0.5rem;
+`;
 
 export const VaraintPriceNew = styled.div`
   // display: none;
@@ -546,9 +545,9 @@ export const VaraintPriceNew = styled.div`
   font-style: normal;
   margin-top: 1rem;
   font-weight: 700;
-  span{
+  span {
     text-align: center;
-    font-family: 'CocoSharp XL';
+    font-family: "CocoSharp XL";
     color: #808080;
     font-size: 14.29px;
     font-weight: 700;
@@ -557,28 +556,29 @@ export const VaraintPriceNew = styled.div`
     letter-spacing: 0.05rem;
   }
 
-  span:nth-child(2){
-    text-decoration:line-through;
+  span:nth-child(2) {
+    text-decoration: line-through;
     // font-size: 22px;
     margin: 0 0.5rem 0 0.25rem;
   }
-  @media(max-width: 540px){
-      font-size: 26px;
+  @media (max-width: 540px) {
+    font-size: 26px;
   }
-  @media(max-width: 580px){
+  @media (max-width: 580px) {
     margin-top: 3.4rem;
   }
-  @media(min-width: 980px){
-    font-size:26px;
+  @media (min-width: 980px) {
+    font-size: 26px;
     margin-top: 0.6rem;
-    span{
+    span {
       font-size: 14.29px;
     }
-  }`
+  }
+`;
 
 export const VaraintPrice = styled.div`
   // display: none;
-  display:block;
+  display: block;
   color: #222;
   font-family: CocoSharp XL;
   font-size: 20px;
@@ -586,7 +586,7 @@ export const VaraintPrice = styled.div`
   margin-top: 1rem;
   font-weight: 700;
   line-height: 150%;
-  span{
+  span {
     text-align: center;
     font-family: CocoSharp XL;
     font-size: 12px;
@@ -595,22 +595,22 @@ export const VaraintPrice = styled.div`
     margin-left: 0.2rem;
     line-height: 150%;
   }
-  @media(min-width:400px) and (max-width: 580px){
-   margin-top: 2.4rem;
+  @media (min-width: 400px) and (max-width: 580px) {
+    margin-top: 2.4rem;
   }
 
-  @media(min-width: 980px){
-    font-size:28px;
+  @media (min-width: 980px) {
+    font-size: 28px;
     margin-top: 0.6rem;
-    span{
+    span {
       font-size: 16px;
     }
   }
- `;
+`;
 
 export const LowStock = styled.div`
- display:none;
-${media.largeScreen`
+  display: none;
+  ${media.largeScreen`
   display:block;
   background: #FFE8CC;
   position:absolute;
@@ -629,8 +629,8 @@ ${media.largeScreen`
     top: -1.85rem !important;
   }
 
-  @media(max-width: 580px){
-    top:-2.8rem !important;
+  @media (max-width: 580px) {
+    top: -2.8rem !important;
   }
 
   @media (min-width: 540px) and (max-width: 1024px) {
@@ -803,7 +803,7 @@ export const ATCDesktop = styled.div<{ margintop: string }>`
   ${minMedia.mediumScreen`
     display:block !important;
   `}
-  margin-top: ${props => props.margintop || ""}
+  margin-top: ${(props) => props.margintop || ""};
 `;
 export const ATCMobileSticky = styled.div`
   width: 100%;

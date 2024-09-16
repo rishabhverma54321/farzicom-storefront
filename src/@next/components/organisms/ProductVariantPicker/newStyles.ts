@@ -7,8 +7,8 @@ export interface fontVariantAttribute {
 }
 
 export const Wrapper = styled.div<{ marginBottom?: string }>`
-  margin-bottom: ${props =>
-  props.marginBottom ? props.marginBottom : "1rem !important"};
+  margin-bottom: ${(props) =>
+    props.marginBottom ? props.marginBottom : "1rem !important"};
 `;
 export const Hr = styled.hr`
   width: 100%;
@@ -24,12 +24,12 @@ export const Hr = styled.hr`
 `;
 
 export const NewAttribute = styled.h3`
-  margin-bottom:4px;
+  margin-bottom: 4px;
   font-style: normal;
-  color: #06543D;
+  color: #06543d;
   font-weight: 700;
   font-size: 17px;
-  line-height:160%;
+  line-height: 160%;
   margin: 0.8rem 0 0.4rem 0;
 
   ${media.smallScreen`
@@ -40,7 +40,7 @@ export const NewAttribute = styled.h3`
 
 export const VariantWeightDescription = styled.div`
   margin-top: 1rem;
-  color: #06543D;
+  color: #06543d;
   font-family: CocoSharp XL;
   font-size: 16.198px;
   font-style: normal;
@@ -48,7 +48,7 @@ export const VariantWeightDescription = styled.div`
   line-height: 160%;
   letter-spacing: 0.324px;
   padding: 0.4rem 1rem;
-  background: #FFF7C3;
+  background: #fff7c3;
   border-radius: 9px;
 
   ${media.smallScreen`
@@ -56,7 +56,6 @@ export const VariantWeightDescription = styled.div`
     padding: 0.5rem 0.7rem;
     margin-bottom: 0.2rem;
   `};
-
 `;
 
 export const Attribute = styled.h3<{
@@ -66,28 +65,28 @@ export const Attribute = styled.h3<{
   marginBottom?: string;
 }>`
   text-transform: capitalize;
-  margin-bottom: ${props => props.marginBottom || "4px"};
+  margin-bottom: ${(props) => props.marginBottom || "4px"};
 
   font-style: normal;
-  font-weight: ${props => props.font?.weight || "bold"};
-  font-size: ${props => props.font?.size || "14px"};
-  color: ${props => props.color};
-  line-height: ${props => props.lineHeight || "160%"};
+  font-weight: ${(props) => props.font?.weight || "bold"};
+  font-size: ${(props) => props.font?.size || "14px"};
+  color: ${(props) => props.color};
+  line-height: ${(props) => props.lineHeight || "160%"};
 
-  display: ${props => props.display || "flex"};
+  display: ${(props) => props.display || "flex"};
   gap: 8px;
 `;
 
 export const VaraintOverlay = styled.div`
- height:100vh;
- width:100%;
- background-color: #000000;
- opacity: 0.7;
-`
+  height: 100vh;
+  width: 100%;
+  background-color: #000000;
+  opacity: 0.7;
+`;
 
 export const SmallVaraintCrossIcon = styled.div`
   padding: 0 0.4rem;
-`
+`;
 
 export const SmallVariantAttribute = styled.h3<{
   font?: fontVariantAttribute;
@@ -99,14 +98,14 @@ export const SmallVariantAttribute = styled.h3<{
   top:-10px;
   right:10px
   text-transform: capitalize;
-  margin-bottom: ${props => props.marginBottom || "4px"} !important;
+  margin-bottom: ${(props) => props.marginBottom || "4px"} !important;
   width:calc(100% + 20px);
   margin: auto;
   font-style: normal;
-  font-weight: ${props => props.font?.weight || "bold"};
-  font-size: ${props => props.font?.size || "14px"};
-  color: ${props => props.color};
-  line-height: ${props => props.lineHeight || "160%"}; 
+  font-weight: ${(props) => props.font?.weight || "bold"};
+  font-size: ${(props) => props.font?.size || "14px"};
+  color: ${(props) => props.color};
+  line-height: ${(props) => props.lineHeight || "160%"}; 
   display: flex;
   padding:0.6rem 1rem;
   background: #5DD37C;
@@ -120,8 +119,8 @@ export const NewVariants = styled.ul<{
   gap: string;
 }>`
   display: flex;
-  justify-content: ${props=> props?.justifyContent || 'start'};
-  margin-top: ${props=> props?.marginTop || 0};
+  justify-content: ${(props) => props?.justifyContent || "start"};
+  margin-top: ${(props) => props?.marginTop || 0};
   flex-wrap: wrap;
   gap: 10px;
 `;
@@ -134,7 +133,7 @@ export const Variants = styled.ul<{ justifyContent?: string }>`
   ${media.smallScreen`
       gap: 0px;
   `}
-  justify-content: ${props => props.justifyContent || "space-evenly"};
+  justify-content: ${(props) => props.justifyContent || "space-evenly"};
   flex-wrap: wrap;
   width: 100%;
 
@@ -162,7 +161,7 @@ export const SmallVariants = styled.ul<{ justifyContent?: string }>`
         width:96%;
       }
   `}
-  justify-content: ${props => props.justifyContent || "space-evenly"};
+  justify-content: ${(props) => props.justifyContent || "space-evenly"};
   flex-wrap: wrap;
   width: 100%;
 
@@ -175,12 +174,12 @@ export const SmallVariants = styled.ul<{ justifyContent?: string }>`
 `;
 
 export const VariantButtonContainer = styled.ul`
-  display:flex;
-  width:100%;
+  display: flex;
+  width: 100%;
   justify-content: start;
-  gap:8px;
-  cursor:pointer;
-  ${media.smallScreen `
+  gap: 8px;
+  cursor: pointer;
+  ${media.smallScreen`
   justify-content: space-between;
 
   @media(max-width: 370px){
@@ -189,24 +188,27 @@ export const VariantButtonContainer = styled.ul`
   `}
 `;
 
-export const VariantButtonNew = styled.li<{padding?: string, borderRadius?:string}>`
+export const VariantButtonNew = styled.li<{
+  padding?: string;
+  borderRadius?: string;
+}>`
   position: relative;
   letter-spacing: normal;
   text-align: center;
-  border-radius: ${props => props?.borderRadius || '8px'};
-  border: 3px solid #5DD37C;
-  padding:${props=> props?.padding || '4px 12px'} ;
+  border-radius: ${(props) => props?.borderRadius || "8px"};
+  border: 3px solid #5dd37c;
+  padding: ${(props) => props?.padding || "4px 12px"};
   cursor: pointer;
   font-weight: 700;
   font-size: 21px;
   display: flex;
   gap: 4px;
-  span{
+  span {
     font-size: 19px;
   }
 
   ${media.mediumScreen`
-    padding: ${props=> props?.padding || '2px 10px'};
+    padding: ${(props) => props?.padding || "2px 10px"};
     border: 2px solid #5DD37C;
     border-radius: 8px;
     span{
@@ -214,7 +216,6 @@ export const VariantButtonNew = styled.li<{padding?: string, borderRadius?:strin
       font-weight: 700;
     }
   `};
-
 `;
 
 export const VariantConcernCard = styled.div`
@@ -225,8 +226,8 @@ export const VariantConcernCard = styled.div`
   font-weight: 700;
   line-height: 120%;
   border-radius: 8.818px;
-  border: 1.98px solid #BEBEBE;
-  background: #FFF;
+  border: 1.98px solid #bebebe;
+  background: #fff;
   max-width: 110px;
   min-height: 154px;
   display: flex;
@@ -236,10 +237,10 @@ export const VariantConcernCard = styled.div`
   padding: 0.3rem;
   cursor: pointer;
 
-  @media(max-width: 390px){
+  @media (max-width: 390px) {
     max-width: 105px;
 
-    @media(max-width: 370px){
+    @media (max-width: 370px) {
       max-width: 100px;
       min-height: 160px;
     }
@@ -259,14 +260,14 @@ export const VariantConcernCardImage = styled.div`
   width: 95px;
   height: 86px;
   margin: 0 auto;
-  img{
+  img {
     border-radius: 4px;
   }
 
-  @media(max-width: 390px){
+  @media (max-width: 390px) {
     width: 90px;
 
-    @media(max-width: 370px){
+    @media (max-width: 370px) {
       width: 86px;
     }
   }
@@ -308,12 +309,12 @@ export const VariantConcernText = styled.p`
 `;
 
 export const VariantButton = styled.li`
-position: relative;
+  position: relative;
   letter-spacing: normal;
-  position:relative;
+  position: relative;
   text-align: center;
   border-radius: 8px;
-  border: 1px solid #E7E7E7;
+  border: 1px solid #e7e7e7;
   padding: 4px 8px;
   cursor: pointer;
   display: flex;
@@ -334,13 +335,12 @@ position: relative;
 `;
 
 export const SmallVariantInput = styled.div`
- display:flex;
- gap:1rem;
- align-items:center
- @media(max-width:375px){
-  gap:0.5rem;
- }
-`
+  display: flex;
+  gap: 1rem;
+  align-items:center @media(max-width:375px) {
+    gap: 0.5rem;
+  }
+`;
 
 export const SmallVariantButton = styled.li`
   letter-spacing: normal;
@@ -355,7 +355,7 @@ export const SmallVariantButton = styled.li`
   box-shadow: 2px 1px 8px 2px rgba(0, 0, 0, 0.1);
   border-radius: 7px;
   border-radius:0.5rem;
-  background-color: ${props => (props?.active ? "#EEFDEB" : "")}
+  background-color: ${(props) => (props?.active ? "#EEFDEB" : "")}
 `;
 
 export const RadioInput = styled.input`
@@ -364,8 +364,8 @@ export const RadioInput = styled.input`
   height: 20px;
 `;
 
-export const RadioInputDefault = styled.input` 
- position:unset !important;
+export const RadioInputDefault = styled.input`
+  position: unset !important;
   -webkit-appearance: none;
   /* margin: 16px 4px; */
   /* margin-bottom: 20px; */
@@ -379,7 +379,7 @@ export const RadioInputDefault = styled.input`
   background-clip: content-box;
   border: 1px solid #bbbbbb;
   background-color: transparent;
-  pointer-events:none;
+  pointer-events: none;
   border-radius: 50%;
 
   :checked {
@@ -390,9 +390,9 @@ export const RadioInputDefault = styled.input`
 export const Variant = styled.li<{ height?: string; background?: string }>`
   max-width: 80px !important;
   width: 15%;
-  height: ${props => props.height || "100%"};
+  height: ${(props) => props.height || "100%"};
   letter-spacing: normal;
-  background: ${props => props.background || "unset"};
+  background: ${(props) => props.background || "unset"};
   ${minMedia.largeScreen`
     width: 50px;
     height: 50px
@@ -450,8 +450,8 @@ export const MonthRow = styled.div`
   color: #000000;
   font-style: normal;
   font-weight: 600;
-  font-size: ${props=> props?.fontSize || '16px'};
-  line-height: ${props => props?.lineHeight ||'150%'};
+  font-size: ${(props) => props?.fontSize || "16px"};
+  line-height: ${(props) => props?.lineHeight || "150%"};
   margin-bottom: 2px;
 `;
 
@@ -476,18 +476,18 @@ export const UnitRow = styled.div`
 `;
 
 export const LableRow1New = styled.div`
-  color: #FFF;
-  font-family: 'CocoSharp XL';
+  color: #fff;
+  font-family: "CocoSharp XL";
   font-style: normal;
   font-weight: 700;
   line-height: 160%;
-  min-width:120px;
-  width:100%;
+  min-width: 120px;
+  width: 100%;
   font-size: 19px;
   padding: 0.1rem 0;
-  text-align:center;
+  text-align: center;
   border-radius: 0 0 8px 8px;
-  background: #5DD37C;
+  background: #5dd37c;
   ${media.smallScreen`
   padding: 0.2rem 0;
   font-size: 15px;
@@ -512,7 +512,7 @@ export const LableRow1 = styled.div`
   `}
 `;
 export const LableRow2 = styled.div<{ marginBottom?: string }>`
-  margin-bottom: ${props => props.marginBottom || "0"};
+  margin-bottom: ${(props) => props.marginBottom || "0"};
   text-transform: capitalize;
   font-weight: 400;
   font-size: 14.71px;
@@ -540,7 +540,7 @@ export const PriceRowSmall = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  >div{
+  > div {
     > div {
       margin-top: 2px;
       display: flex;
@@ -594,26 +594,25 @@ export const Taxes = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: 160%;
-  
 
   ${media.smallScreen`
   font-size:5.88px;
   margin-left:0;
   `}
-`
+`;
 export const SachetPrice = styled.div`
   color: #808080;
   font-family: CocoSharp XL;
   font-size: 11.77px;
   font-style: normal;
   font-weight: 400;
-  span{
-  font-weight: 700;
+  span {
+    font-weight: 700;
   }
   ${media.smallScreen`
       font-size:8px;
   `}
-`
+`;
 
 export const LabelRow4 = styled.div`
   margin-top: 6px;
@@ -645,27 +644,26 @@ export const LabelRow4 = styled.div`
 `;
 
 export const LabelRow5 = styled.div`
-         > div {
-           > div {
-             flex-direction: row-reverse;
-             align-items: flex-end;
-             > div:nth-child(1) {
-               margin-right: 4px;
-             }
-             > div:nth-child(2) {
-               span {
-                 font-size: ${props =>props?.font
-                   ? props?.font
-                   : "14px"} !important;
-               }
-             }
-           }
-         }
-       `;
+  > div {
+    > div {
+      flex-direction: row-reverse;
+      align-items: flex-end;
+      > div:nth-child(1) {
+        margin-right: 4px;
+      }
+      > div:nth-child(2) {
+        span {
+          font-size: ${(props) =>
+            props?.font ? props?.font : "14px"} !important;
+        }
+      }
+    }
+  }
+`;
 
 export const LabelRowNew5 = styled.div`
-  display:flex;
-  flex-direction:column-reverse;
+  display: flex;
+  flex-direction: column-reverse;
   > div {
     > div {
       flex-direction: column-reverse;
@@ -675,17 +673,15 @@ export const LabelRowNew5 = styled.div`
       }
       > div:nth-child(2) {
         span {
-          font-size: ${props =>props?.font
-            ? props?.font
-            : "14px"} !important;
+          font-size: ${(props) =>
+            props?.font ? props?.font : "14px"} !important;
         }
       }
     }
   }
-`;       
+`;
 
-export const PriceContainerNew = styled.div`
-`
+export const PriceContainerNew = styled.div``;
 
 export const PriceContainer = styled.div`
   display: flex;
@@ -712,9 +708,9 @@ export const PriceContainer = styled.div`
 export const DiscountedNew = styled.div`
   button {
     border-radius: 6px;
-    background: #5DD37C;
+    background: #5dd37c;
     padding: 4px 6px;
-    color: #FFF;
+    color: #fff;
     text-align: center;
     font-family: CocoSharp XL;
     font-size: 10px;
@@ -772,11 +768,11 @@ export const PriceWithDiscountContainerNew = styled.div`
   flex-direction: column;
   align-items: start;
   padding: 0.3rem 1rem 0.3rem 0.4rem;
-  @media(max-width:370px){
+  @media (max-width: 370px) {
     padding: 0.5rem;
-   @media(max-width: 350px){
-    padding: 0.3rem;
-   }
+    @media (max-width: 350px) {
+      padding: 0.3rem;
+    }
   }
   ${minMedia.mediumScreen`
    padding: 0.5rem 1rem 0.5rem 0.6rem;
@@ -790,13 +786,12 @@ export const PriceWithDiscountContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  margin-top: 6px
-  ${media.largeScreen`
+  margin-top: 6px ${media.largeScreen`
   flex-direction:row;
   // align-items: flex-end;
   // justify-content: flex-end; 
   margin-top: 2px;
-  `}
+  `};
 `;
 
 export const DiscountedPriceNew = styled.div`
@@ -902,31 +897,30 @@ export const CustomVariantText = styled.div`
 `;
 
 export const AddToCart = styled.div`
-font-family: 'CocoSharp XL';
-font-style: normal;
-padding:0.5rem 1rem;
-font-weight: 800;
-font-size: 15px;
-line-height: 120%;
-letter-spacing: 0.05em;
-cursor:pointer;
-text-transform: uppercase;
-color: #5DD37C;
-`
+  font-family: "CocoSharp XL";
+  font-style: normal;
+  padding: 0.5rem 1rem;
+  font-weight: 800;
+  font-size: 15px;
+  line-height: 120%;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: #5dd37c;
+`;
 
 export const VariantDiscount = styled.div`
   color: #000;
-  text-align:center;
-  font-family: 'CocoSharp XL';
-  font-size:19px;
+  text-align: center;
+  font-family: "CocoSharp XL";
+  font-size: 19px;
   font-style: normal;
-  width:100%;
+  width: 100%;
   font-weight: 700;
-  line-height: 160%
-  ${media.smallScreen`
+  line-height: 160% ${media.smallScreen`
   // margin:0.2rem 0;
   font-size: 15.859px;
-  `}
+  `};
 `;
 
 export const SmallVariantDiscount = styled.div`
@@ -979,7 +973,7 @@ export const VariantBigImage = styled.div`
   img {
     width:100%;
     height:auto;
-    max-width:${props=> props?.width || '100%'}
+    max-width:${(props) => props?.width || "100%"}
   }
   `}
 `;

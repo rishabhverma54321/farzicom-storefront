@@ -9,6 +9,7 @@ import Image from "next/image";
 import { IMAGE_CDN_PROVIDERS, IMAGE_CDN } from "Themes/config";
 import ReactSVG from "react-svg";
 import Arrow from "images/arrow-next.svg";
+import IsClientSide from "@hooks/IsClientSide";
 import MemoNavArrow from "@components/atoms/SvgIcons/MemoNavArrow";
 import { useWindowWidth } from "@hooks";
 
@@ -23,7 +24,7 @@ export default function ProductTile({ child, index, hideOverlayHandler }) {
   const imageUrlImgixScr = imageURLReplaceWithCDN(backgroundImage?.image);
   
   const [width] = useWindowWidth();
-  
+  const isClient = IsClientSide();
   if (!(backgroundImage && backgroundImage.image)) {
     return <></>;
   }
@@ -33,9 +34,8 @@ export default function ProductTile({ child, index, hideOverlayHandler }) {
       onClick={() => hideOverlayHandler()}
       key={index}
     >
-      {width > 992 ? (
+      { isClient && width > 992 ? (
         <>
-          {" "}
           {backgroundImage && backgroundImage.image && (
             <div className="plixlife-main-menu__nav-dropdown__body__withImagesContainer__imageDiv">
               <CustomLink to={url}>
@@ -45,15 +45,15 @@ export default function ProductTile({ child, index, hideOverlayHandler }) {
                   <Image
                     src={imageURLReplaceWithCDN(backgroundImage.image)}
                     alt={backgroundImage.title}
-                    width="280px"
-                    height="240px"
+                    width={280}
+                    height={240}
                   />
                 ) : (
                   <Image
                     src={backgroundImage.image}
                     alt={backgroundImage.title}
-                    width="280px"
-                    height="240px"
+                    width={280}
+                    height={240}
                   />
                 )}
               </CustomLink>
