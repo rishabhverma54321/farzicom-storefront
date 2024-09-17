@@ -16,8 +16,8 @@ import Cookies from "js-cookie";
 import { PRODUCT_URL_VARAINT } from "Themes/config";
 // import isEqual from "lodash/isEqual";
 // import sortBy from "lodash/sortBy";
-// import { OrderDirection, ProductOrderField } from "../../gqlTypes/globalTypes";
-// import { IFilterAttributes } from "../@next/types";
+import { OrderDirection, ProductOrderField } from "../../gqlTypes/globalTypes";
+import { IFilterAttributes } from "../@next/types";
 // import { FormError } from "./types";
 
 export const slugify = (text: string | number): string =>
@@ -115,21 +115,21 @@ export const generateCollectionUrl = (id: string, name: string) =>
 
 export const generatePageUrl = (slug: string) => `/page/${slug}/`;
 
-// interface AttributeDict {
-//   [attributeSlug: string]: string[];
-// }
-// export const convertToAttributeScalar = (
-//   attributes: AttributeDict | IFilterAttributes
-// ) =>
-//   Object.entries(attributes)
-//     .map(([key, value]) =>
-//       value.map((attribute: any) => ({ slug: key, value: attribute }))
-//     )
-//     .reduce((prev, curr) => [...prev, ...curr], []);
+interface AttributeDict {
+  [attributeSlug: string]: string[];
+}
+export const convertToAttributeScalar = (
+  attributes: AttributeDict | IFilterAttributes
+) =>
+  Object.entries(attributes)
+    .map(([key, value]) =>
+      value.map((attribute: any) => ({ slug: key, value: attribute }))
+    )
+    .reduce((prev, curr) => [...prev, ...curr], []);
 
-// interface QueryString {
-//   [key: string]: string[] | string | null | undefined;
-// }
+interface QueryString {
+  [key: string]: string[] | string | null | undefined;
+}
 // export const getAttributesFromQs = (qs: QueryString) =>
 //   Object.keys(qs)
 //     .filter(
@@ -143,33 +143,33 @@ export const generatePageUrl = (slug: string) => `/page/${slug}/`;
 // export const getValueOrEmpty = <T>(value: T): T | string =>
 //   value === undefined || value === null ? "" : value;
 
-// export const convertSortByFromString = (sortBy: string) => {
-//   if (!sortBy) {
-//     return null;
-//   }
-//   const direction = sortBy.startsWith("-")
-//     ? OrderDirection.DESC
-//     : OrderDirection.ASC;
+export const convertSortByFromString = (sortBy: string) => {
+  if (!sortBy) {
+    return null;
+  }
+  const direction = sortBy.startsWith("-")
+    ? OrderDirection.DESC
+    : OrderDirection.ASC;
 
-//   let field;
-//   switch (sortBy.replace(/^-/, "")) {
-//     case "name":
-//       field = ProductOrderField.NAME;
-//       break;
+  let field;
+  switch (sortBy.replace(/^-/, "")) {
+    case "name":
+      field = ProductOrderField.NAME;
+      break;
 
-//     case "price":
-//       field = ProductOrderField.DEFAULT_VARIANT_PRICE;
-//       break;
+    case "price":
+      field = ProductOrderField.DEFAULT_VARIANT_PRICE;
+      break;
 
-//     case "updated_at":
-//       field = ProductOrderField.DATE;
-//       break;
+    case "updated_at":
+      field = ProductOrderField.DATE;
+      break;
 
-//     default:
-//       return null;
-//   }
-//   return { field, direction };
-// };
+    default:
+      return null;
+  }
+  return { field, direction };
+};
 
 export const maybe = <T>(exp: () => T, d?: T) => {
   try {

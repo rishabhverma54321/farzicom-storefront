@@ -1,6 +1,7 @@
 import "@temp/styles/index.scss";
 import { SaleorProvider } from "@saleor/sdk";
-import NextQueryParamProvider from "next-query-params";
+import NextAdapterPages from 'next-query-params/pages';
+import {QueryParamProvider} from 'use-query-params';
 import type { AppProps } from "next/app";
 import { client, saleorClient } from "@temp/client";
 import { ApolloProvider } from "react-apollo";
@@ -27,9 +28,9 @@ export default function App({ Component, pageProps }: AppProps) {
                 <OverlayProvider2>
                   <OverlayProvider>
                     <GlobalStyle/>
-                    {/* <NextQueryParamProvider> */}
+                    <QueryParamProvider adapter={NextAdapterPages}>
                     <Component {...pageProps} />
-                    {/* </NextQueryParamProvider> */}
+                    </QueryParamProvider>
                     <OverlayManager />
                     <OverlayManager2 />
                   </OverlayProvider>
