@@ -1611,3 +1611,43 @@ export const getOrderCountByPhone = async phone => {
   }
   return null;
 };
+
+// for kwikpass event
+export const kwikpassEvent = (type:any, data:any) =>{
+  if(type != "" && data){
+    // console.log({kwikpassType:type, kwikpassdata:data})
+    if(type == 'product'){
+      const event = new CustomEvent('page_view_kp', {
+        detail: {
+          type: type,
+          data: data
+        },
+      });
+      window.dispatchEvent(event);
+    }else if(type == 'cart'){
+      const event = new CustomEvent('page_view_kp', {
+        detail: {
+          type: type,
+          data: data
+        },
+      });
+      window.dispatchEvent(event);
+    }else if(type == 'collection'){
+      const event = new CustomEvent('page_view_kp', {
+        detail: {
+          type: type,
+          data: data
+        },
+      });
+      window.dispatchEvent(event);
+    }else{
+      const event = new CustomEvent('page_view_kp', {
+        detail: {
+          type: type,
+          data: data
+        },
+      });
+      window.dispatchEvent(event);
+    }
+  }
+}

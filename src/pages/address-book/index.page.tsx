@@ -1,20 +1,13 @@
-import { ShopMetaQuery } from "@components/organisms/AddToCartSectionWow/queries";
-import { useCustomHistory } from "@hooks/useCustomHistory";
+import React, { useEffect } from "react";
 import { useAuthState } from "@saleor/sdk";
+import { useCustomHistory } from "@hooks/useCustomHistory";
 import { clientSSR } from "@temp/client";
 import Layout from "@temp/components/Layout";
-import { getMetadataValue, parseJson } from "@utils/misc";
-import React, { useEffect, useState } from "react";
+import AccountSectionNext from "@components/farzicom-ui-kit/AccountSectionNext";
 import winston from "winston";
-import MainLogin from "./CustomLogin/MainLogin";
-import Head from "next/head";
-import headerAndFooterQuery from "@temp/gloablQueries/queries";
-
-const ExtractMetaSSR = () => {
-  return <Head>
-    <title>Login Page</title>
-  </Head>
-};
+import { getMetadataValue, parseJson } from "@utils/misc";
+import { ShopMetaContext } from "../_app.page";
+import headerAndFooterQuery, { ShopMetaQuery } from "@temp/gloablQueries/queries";
 
 export async function getStaticProps(context) {
   const logger = winston.createLogger({
@@ -30,7 +23,6 @@ export async function getStaticProps(context) {
       new winston.transports.File({ filename: "combined.log" }),
     ],
   });
-
   try {
     const headerAndFooterData = await clientSSR.query({
       query: headerAndFooterQuery,
@@ -42,7 +34,7 @@ export async function getStaticProps(context) {
     });
 
     logger.log(
-      "login page",
+      "address page",
       JSON.stringify({
         headerAndFooterData,
         shopMeta,
@@ -62,35 +54,40 @@ export async function getStaticProps(context) {
   }
 }
 
-const NextLoginPage = ({ headerAndFooterData, shopMeta }) => {
+export default function OrderHistoryPage({ headerAndFooterData, shopMeta }) {
   const { authenticated, authenticating } = useAuthState();
-  const [guestUser, setGuestUser] = useState(false)
   const history = useCustomHistory();
 
+  const shopmetadata = React.useContext(ShopMetaContext);
+  const kwikpass_config = shopmetadata && getMetadataValue(shopmetadata, "kwikpass_config") && parseJson(getMetadataValue(shopmetadata, "kwikpass_config"))
+  
   useEffect(() => {
-    if (authenticated && !authenticating && !guestUser) {
-      history.push("/");
-    }else{
-      setGuestUser(true)
+    if (!authenticated && !authenticating) {
+
+      if (kwikpass_config?.enable) {
+        if (typeof handleCustomLogin === "function") {
+          handleCustomLogin(true);
+        }
+      } else {
+        history.push("/page/login");
+      }
     }
-  }, [authenticated]);
+  }, []);
 
-  const shopMetadata = shopMeta?.data.shopmeta.edges[0].node.metadata;
-  const otplessShopMeta =
-    shopMetadata &&
-    getMetadataValue(shopMetadata, "otpless") &&
-    parseJson(getMetadataValue(shopMetadata, "otpless"));
+  if (authenticated) {
+    return (
+      <Layout headerAndFooterData={headerAndFooterData} shopMeta={shopMeta}>
+        <>
+          <AccountSectionNext />
+        </>
+      </Layout>
+    );
+  }
   return (
-    <Layout headerAndFooterData={headerAndFooterData} shopMeta={shopMeta}>
-      <Head>
-        {otplessShopMeta?.enable && (
-          <script type="text/javascript" src="https://otpless.com/auth.js" />
-        )}
-      </Head>
-      <ExtractMetaSSR shopMeta={shopMeta} />
-      <MainLogin />
-    </Layout>
+    <>
+      <Layout headerAndFooterData={headerAndFooterData} shopMeta={shopMeta}>
+        <div style={{ minHeight: "700px" }} />
+      </Layout>
+    </>
   );
-};
-
-export default React.memo(NextLoginPage);
+}

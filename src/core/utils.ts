@@ -14,8 +14,8 @@ import Cookies from "js-cookie";
 import { PriceFragment, ProductVariantFragment } from "@saleor/sdk";
 import { getMetadataValue } from "@utils/misc";
 import { PRODUCT_URL_VARAINT } from "Themes/config";
-// import isEqual from "lodash/isEqual";
-// import sortBy from "lodash/sortBy";
+import isEqual from "lodash/isEqual";
+import sortBy from "lodash/sortBy";
 import { OrderDirection, ProductOrderField } from "../../gqlTypes/globalTypes";
 import { IFilterAttributes } from "../@next/types";
 // import { FormError } from "./types";
@@ -360,14 +360,14 @@ export function loadScriptWithContent(
   return script;
 }
 
-// export const getDateInHumanFormat = (dateString: string) => {
-//   if (!dateString) {
-//     return "";
-//   }
-//   const date = new Date(dateString);
-//   return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
-// };
+export const getDateInHumanFormat = (dateString: string) => {
+  if (!dateString) {
+    return "";
+  }
+  const date = new Date(dateString);
+  return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+};
 
-// export const isSameArray = (arr1, arr2) => {
-//   return isEqual(sortBy(arr1), sortBy(arr2));
-// };
+export const isSameArray = (arr1, arr2) => {
+  return isEqual(sortBy(arr1), sortBy(arr2));
+};

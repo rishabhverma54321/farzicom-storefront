@@ -1,0 +1,117 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.address_book_container {
+  width: 100%;
+  padding: 0px 0px 42px 0px;
+  border: 1px solid #E7E7E7;
+  border-radius: 8px;
+}
+.addresswrapper{
+  display: block;
+  padding: 22px 24px;
+  border-bottom: 1px solid #E7E7E7;
+  margin-bottom: 20px;
+
+  span{
+    font-family: "CocoSharp XL" !important;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 140%;
+    color: #000000;
+  }
+}
+.Noaddress_content{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 22px 24px 0px 24px;
+  p{
+    padding: 23px 0px 0px 0px;
+    font-family: "CocoSharp XL" !important;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 140%;
+    text-align: center;
+    color: #808080;
+  }
+}
+.Noaddress_icon{
+  display: block;
+  width: 205px;
+  height: 204px;
+  @media (max-width:520px){
+    width: 124px;
+    height: 124px;
+  }
+  img{
+    width: 100%;
+    height: 100%;
+  }
+  & >span{
+    position: relative !important;
+    display: block !important;
+    img{
+        position: relative !important;
+        width: 100% !important;
+        height: 100% !important;
+        max-width: unset !important;
+        max-height: unset !important;
+        min-width: unset !important;
+        min-height: unset !important;
+        @media (max-width:520px){
+            height: 100% !important;
+            max-width: 100% !important;
+        }
+    }
+  }
+}
+.Overlay{
+  display: flex;
+  position: unset !important;
+  width: unset !important;
+  height: unset !important;
+}
+.modal_root2{
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
+.Add_adres_wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.Add_adress{
+    background-color: #5DD37C;
+    border: 1px transparent solid;
+    overflow: auto;
+    padding: 16px 48px;
+    -webkit-transition: all 0.3s,color 0s,fill 0s;
+    transition: all 0.3s,color 0s,fill 0s;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-family: "cocosharp_xlextrabold";
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 100%;
+    text-align: center;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #FEFFED;
+    border-radius: 8px;
+    margin-top: 43px;
+}

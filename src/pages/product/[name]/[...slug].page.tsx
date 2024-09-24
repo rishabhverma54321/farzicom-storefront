@@ -105,7 +105,6 @@ export async function getStaticPaths() {
       paths = [...paths, ...currentPaths];
     } while (pageInfo.hasNextPage);
 
-    console.log("pathss, getStaticPaths", paths, paths.length);
 
     return {
       paths,
@@ -123,7 +122,6 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
   let count = 0;
   const { params } = context;
-  console.log('params in productPages', params)
   const productId = params.slug && Array.isArray(params.slug) && params.slug[0];
   const variantId = params.slug && Array.isArray(params.slug) && params.slug[1] || "";
   const encodedProductId = Base64.encode(`Product:${productId}`);
@@ -134,7 +132,6 @@ export async function getStaticProps(context) {
   ) {
     try {
       console.time()
-      console.log("productDetailsQuery", JSON.stringify(productDetailsQuery));
       const { data, errors } = await clientSSR.query({
         query: productDetailsQuery,
         variables: {
@@ -159,7 +156,6 @@ export async function getStaticProps(context) {
 
       console.log(`${variantId ? "Variant Page Timing" : "Product Page (Default Variant) Timing"}`);
       console.timeEnd()
-      console.log("productDetailsQuery",data)
 
       return {
         props: {

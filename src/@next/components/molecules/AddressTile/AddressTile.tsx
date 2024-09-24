@@ -19,12 +19,18 @@ import { useAuthState } from "@saleor/sdk";
 
 const defaultShippingAddress = (
   <S.MenuItem>
-    <FormattedMessage defaultMessage="Set as default shipping address" />
+    <FormattedMessage
+      id="shipping-address-default"
+      defaultMessage="Set as default shipping address"
+    />
   </S.MenuItem>
 );
 const defaultBillingAddress = (
   <S.MenuItem>
-    <FormattedMessage defaultMessage="Set as default billing address" />
+    <FormattedMessage
+      id="billing-address-default"
+      defaultMessage="Set as default billing address"
+    />
   </S.MenuItem>
 );
 
@@ -33,10 +39,10 @@ export const AddressTile: React.FC<IProps> = ({
   onRemove,
   setDefault,
   address,
-  index
+  index,
 }: IProps) => {
   const intl = useIntl();
-  const {user} = useAuthState();
+  const { user } = useAuthState();
   const header = (
     <S.HeaderContent>
       <S.HeaderContentWrapper>
@@ -49,14 +55,16 @@ export const AddressTile: React.FC<IProps> = ({
               size={22}
             />
           </div> */}
-          <div onClick={()=> {
-            onEdit();
-            if(gtmConfig.updateAddressClick.enable){
-              customEventTrigger(gtmConfig.updateAddressClick.value, user, {
-                cta_name: "edit_icon_click"
-              });
-            }
-          }}>
+          <div
+            onClick={() => {
+              onEdit();
+              if (gtmConfig.updateAddressClick.enable) {
+                customEventTrigger(gtmConfig.updateAddressClick.value, user, {
+                  cta_name: "edit_icon_click",
+                });
+              }
+            }}
+          >
             <MemoEditNewIcon />
           </div>
           {/* <div>
@@ -67,14 +75,16 @@ export const AddressTile: React.FC<IProps> = ({
               size={19}
             />
           </div> */}
-          <div onClick={()=> {
-            onRemove();
-            if(gtmConfig.updateAddressClick.enable){
-              customEventTrigger(gtmConfig.updateAddressClick.value, user, {
-                cta_name: "delete_icon_click"
-              });
-            }
-          }}>
+          <div
+            onClick={() => {
+              onRemove();
+              if (gtmConfig.updateAddressClick.enable) {
+                customEventTrigger(gtmConfig.updateAddressClick.value, user, {
+                  cta_name: "delete_icon_click",
+                });
+              }
+            }}
+          >
             <MemoTrashNewIcon />
           </div>
         </S.FooterContent>
@@ -100,9 +110,8 @@ export const AddressTile: React.FC<IProps> = ({
             },
           ]}
         />
-
       </S.HeaderContentWrapper>
-      <S.Addressnum>Address {index+1}</S.Addressnum>
+      <S.Addressnum>Address {index + 1}</S.Addressnum>
 
       {/* {address.isDefaultBillingAddress && address.isDefaultShippingAddress
         ? intl.formatMessage({ defaultMessage: "Default Address" })
@@ -135,28 +144,44 @@ export const AddressTile: React.FC<IProps> = ({
   // );
 
   const footer = (
-      <>
-      {(address.isDefaultBillingAddress || address.isDefaultShippingAddress) && 
-      <S.DefaultAddress>
-        <MemoAddressTickIcon />
-        <p>
-          {address.isDefaultBillingAddress && address.isDefaultShippingAddress
-            ? intl.formatMessage({ defaultMessage: "Default Address" })
-            : address.isDefaultShippingAddress
-            ? intl.formatMessage({ defaultMessage: "Default Shipping Address" })
-            : address.isDefaultBillingAddress
-            ? intl.formatMessage({ defaultMessage: "Default Billing Address" })
-            : null}
-        </p>
-      </S.DefaultAddress>
-      }
-      </>
-    );
+    <>
+      {(address.isDefaultBillingAddress ||
+        address.isDefaultShippingAddress) && (
+        <S.DefaultAddress>
+          <MemoAddressTickIcon />
+          <p>
+            {address.isDefaultBillingAddress && address.isDefaultShippingAddress
+              ? intl.formatMessage({
+                  id: "default-address",
+                  defaultMessage: "Default Address",
+                })
+              : address.isDefaultShippingAddress
+              ? intl.formatMessage({
+                  id: "default-shipping-address",
+                  defaultMessage: "Default Shipping Address",
+                })
+              : address.isDefaultBillingAddress
+              ? intl.formatMessage({
+                  id: "default-billing-address",
+                  defaultMessage: "Default Billing Address",
+                })
+              : null}
+          </p>
+        </S.DefaultAddress>
+      )}
+    </>
+  );
 
   const address_type =
-  getMetadataValue(address?.metadata, "address_type") &&
-  parseJson(getMetadataValue(address?.metadata, "address_type"));
-  const content = <Address {...address} updateAddressstyle={true} address_type={address_type}/>;
+    getMetadataValue(address?.metadata, "address_type") &&
+    parseJson(getMetadataValue(address?.metadata, "address_type"));
+  const content = (
+    <Address
+      {...address}
+      updateAddressstyle={true}
+      address_type={address_type}
+    />
+  );
   return (
     <S.Wrapper
       data-test-billing-default={address.isDefaultBillingAddress}

@@ -105,7 +105,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "src/pages/404.js"  ],
   "exclude": [
     "node_modules"
   ]

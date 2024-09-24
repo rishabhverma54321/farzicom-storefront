@@ -43,6 +43,7 @@
     "react-fast-marquee": "^1.6.5",
     "react-helmet": "^6.1.0",
     "react-imgix": "^9.8.1",
+    "react-infinite-scroll-component": "^6.1.0",
     "react-intl": "^6.6.8",
     "react-lazyload": "^3.2.1",
     "react-media": "^1.10.0",

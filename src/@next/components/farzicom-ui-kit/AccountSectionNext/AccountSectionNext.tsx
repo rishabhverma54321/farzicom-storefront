@@ -176,7 +176,7 @@ const SingleOrder = ({
               data={order?.lines?.map(line => {
                 const sortImages =
                   line?.variant?.images && !!line?.variant?.images.length
-                    ? line?.variant.images.sort((prev, next) =>
+                    ? [...line?.variant.images].sort((prev, next) =>
                         prev.sortOrder > next.sortOrder ? 1 : -1
                       )
                     : line?.thumbnail?.url || line?.thumbnail2x?.url;
