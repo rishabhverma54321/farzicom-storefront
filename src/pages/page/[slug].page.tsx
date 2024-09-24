@@ -1,6 +1,6 @@
 import ArticlePage from "Themes/views/Article/View";
 import React from "react";
-import { clientSSR } from "@temp/clients";
+import { clientSSR } from "@temp/client";
 import parse from "html-react-parser";
 import Layout from "@temp/components/Layout";
 import { getDBIdFromGraphqlId, slugify } from "@utils/core";
@@ -19,7 +19,6 @@ import { pagesDetails, pagesDetailsVariables } from "./gqlTypes/pagesDetails";
 import { PagesList, PagesListVariables } from "./gqlTypes/PagesList";
 import { ProductNameAndIdForPaths_products_pageInfo } from "../product/[name]/gqlTypes/ProductNameAndIdForPaths";
 import { pagesDetailsQuery, pagesListQuery } from "./queries";
-import { CustomShopMetaQuery, headerAndFooterQuery } from "../queries";
 import uniq from "lodash/uniq";
 import { collectionProductsQuery } from "@components/templates/BuildYourBox/queries";
 import {
@@ -28,6 +27,7 @@ import {
 } from "@components/templates/BuildYourBox/gqlTypes/CollectionProducts";
 import { CUSTOM_SHOPMETA_FIELDS } from "@temp/themes/plixlifefc/config";
 import { byobPages, pages } from "gqlTypes/customGlobalTypes";
+import headerAndFooterQuery, { CustomShopMetaQuery } from "@temp/gloablQueries/queries";
 
 export default function Search({ headerAndFooterData, shopMeta, data }) {
   const page = data?.pageData?.page;
@@ -88,7 +88,7 @@ export async function getStaticPaths() {
       >({
         query: pagesListQuery,
         variables: {
-          first: 100,
+          first: 1,
           after: pageInfo?.endCursor || "",
         },
         fetchPolicy: "no-cache",
@@ -112,7 +112,7 @@ export async function getStaticPaths() {
       console.count("currentPaths getStaticPaths");
 
       paths = [...paths, ...currentPaths];
-    } while (pageInfo?.hasNextPage);
+    } while (false);
 
     return {
       paths,

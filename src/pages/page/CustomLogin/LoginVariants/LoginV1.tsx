@@ -1,11 +1,11 @@
 import Input from "@components/farzicom-ui-kit/Input";
 import { useCustomHistory } from "@hooks/useCustomHistory";
-import CircularProgress from "@material-ui/core/CircularProgress";
 import { useAuth, useAuthState } from "@saleor/sdk";
 import MemoLeftArrowSVG from "../../../../images/profileSvg/LeftArrowSVG";
 import React, { useState } from "react";
 import styles from "../../index.module.scss";
 import * as S from "../../styles";
+import { CircularProgress } from "@mui/material";
 
 const LoginV1 = () => {
   const initialState = {

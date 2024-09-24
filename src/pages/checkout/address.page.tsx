@@ -4,18 +4,16 @@ import winston from "winston";
 import Head from "next/head";
 import { getMetadataValue, parseJson } from "@utils/misc";
 import MainEntryCheckout from "./CustomCheckouts/MainEntryCheckout";
-import headerAndFooterQuery, { ShopMetaQuery } from "@temp/gloablQueries/queries";
+import headerAndFooterQuery, {
+  ShopMetaQuery,
+} from "@temp/gloablQueries/queries";
 
-
-
-const ExtractMetaSSR = React.FC<{
-  shopMeta
-}> = ({
-  shopMeta
-}) => {
-  return <Head>
-    <title>Checkout Page</title>
-  </Head>
+const ExtractMetaSSR = () => {
+  return (
+    <Head>
+      <title>Checkout Page</title>
+    </Head>
+  );
 };
 
 export async function getStaticProps(context) {
@@ -74,16 +72,19 @@ const NextCheckoutPage = ({ headerAndFooterData, shopMeta }) => {
     <>
       <Head>
         {otplessShopMeta?.enable && (
-          <script type="text/javascript" src="https://otpless.com/auth.js" defer/>
+          <script
+            type="text/javascript"
+            src="https://otpless.com/auth.js"
+            defer
+          />
         )}
       </Head>
       <ExtractMetaSSR shopMeta={shopMeta} />
       <MainEntryCheckout
-      headerAndFooterData={headerAndFooterData}
-      shopMeta={shopMeta}
-    />
+        headerAndFooterData={headerAndFooterData}
+        shopMeta={shopMeta}
+      />
     </>
-    
   );
 };
 

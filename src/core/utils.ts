@@ -11,8 +11,8 @@ import queryString from 'query-string';
 
 import Cookies from "js-cookie";
 
-// import { PriceFragment, ProductVariantFragment } from "@saleor/sdk";
-// import { getMetadataValue } from "@utils/misc";
+import { PriceFragment, ProductVariantFragment } from "@saleor/sdk";
+import { getMetadataValue } from "@utils/misc";
 import { PRODUCT_URL_VARAINT } from "Themes/config";
 // import isEqual from "lodash/isEqual";
 // import sortBy from "lodash/sortBy";
@@ -22,20 +22,20 @@ import { IFilterAttributes } from "../@next/types";
 
 export const slugify = (text: string | number): string =>
   text
-    .toString()
-    .toLowerCase()
-    .trim()
-    .replace(/\s+/g, "-") // Replace spaces with -
-    .replace(/&/g, "-and-") // Replace & with 'and'
-    .replace(/[^\w\-]+/g, "") // Remove all non-word chars
-    .replace(/\-\-+/g, "-"); // Replace multiple - with single -
+    ?.toString()
+    ?.toLowerCase()
+    ?.trim()
+    ?.replace(/\s+/g, "-") // Replace spaces with -
+    ?.replace(/&/g, "-and-") // Replace & with 'and'
+    ?.replace(/[^\w\-]+/g, "") // Remove all non-word chars
+    ?.replace(/\-\-+/g, "-"); // Replace multiple - with single -
 
 export const getDBIdFromGraphqlId = (
   graphqlId: string,
   schema?: string
 ): number => {
   // This is temporary solution, we will use slugs in the future
-  const rawId = Base64.decode(graphqlId);
+  const rawId = Base64?.decode(graphqlId);
   const regexp = /(\w+):(\d+)/;
   const arr = regexp.exec(rawId);
 
@@ -252,113 +252,113 @@ export const getGclid = () => {
   return gclid === "undefined" || gclid === "null" ? "" : gclid;
 };
 
-// export const getThisVariantPrices = (
-//   variant_data: ProductVariantFragment
-// ): Array<PriceFragment> => {
-//   const variant = {
-//     ...variant_data,
-//     pricing: {
-//       ...variant_data.pricing,
-//       price: {
-//         ...variant_data.pricing.price,
-//         gross: {
-//           ...variant_data.pricing.price.gross,
-//           amount: Number(variant_data.pricing.price.gross.amount),
-//         },
-//         net: {
-//           ...variant_data.pricing.price.net,
-//           amount: Number(variant_data.pricing.price.net.amount),
-//         },
-//       },
-//       priceUndiscounted: {
-//         ...variant_data.pricing.priceUndiscounted,
-//         gross: {
-//           ...variant_data.pricing.priceUndiscounted.gross,
-//           amount: Number(variant_data.pricing.priceUndiscounted.gross.amount),
-//         },
-//         net: {
-//           ...variant_data.pricing.priceUndiscounted.net,
-//           amount: Number(variant_data.pricing.priceUndiscounted.net.amount),
-//         },
-//       },
-//     }
-//   };
+export const getThisVariantPrices = (
+  variant_data: ProductVariantFragment
+): Array<PriceFragment> => {
+  const variant = {
+    ...variant_data,
+    pricing: {
+      ...variant_data.pricing,
+      price: {
+        ...variant_data.pricing.price,
+        gross: {
+          ...variant_data.pricing.price.gross,
+          amount: Number(variant_data.pricing.price.gross.amount),
+        },
+        net: {
+          ...variant_data.pricing.price.net,
+          amount: Number(variant_data.pricing.price.net.amount),
+        },
+      },
+      priceUndiscounted: {
+        ...variant_data.pricing.priceUndiscounted,
+        gross: {
+          ...variant_data.pricing.priceUndiscounted.gross,
+          amount: Number(variant_data.pricing.priceUndiscounted.gross.amount),
+        },
+        net: {
+          ...variant_data.pricing.priceUndiscounted.net,
+          amount: Number(variant_data.pricing.priceUndiscounted.net.amount),
+        },
+      },
+    }
+  };
 
-//   const variantMetadata =
-//     variant && variant?.metadata ? variant?.metadata : null;
+  const variantMetadata =
+    variant && variant?.metadata ? variant?.metadata : null;
 
-//   const discountedPrice =
-//     variant && variant?.pricing?.price ? variant?.pricing?.price : null;
+  const discountedPrice =
+    variant && variant?.pricing?.price ? variant?.pricing?.price : null;
 
-//   const unDiscountedListPrice =
-//     variantMetadata &&
-//     variantMetadata.length &&
-//     getMetadataValue(variantMetadata, "listPrice");
+  const unDiscountedListPrice =
+    variantMetadata &&
+    variantMetadata.length &&
+    getMetadataValue(variantMetadata, "listPrice");
 
-//   const undiscountedPrice = unDiscountedListPrice
-//     ? {
-//         gross: { amount: parseFloat(unDiscountedListPrice), currency: "INR" },
-//         net: { amount: parseFloat(unDiscountedListPrice), currency: "INR" },
-//       }
-//     : variant?.pricing?.priceUndiscounted;
+  const undiscountedPrice = unDiscountedListPrice
+    ? {
+        gross: { amount: parseFloat(unDiscountedListPrice), currency: "INR" },
+        net: { amount: parseFloat(unDiscountedListPrice), currency: "INR" },
+      }
+    : variant?.pricing?.priceUndiscounted;
 
-//   const discount =
-//     undiscountedPrice?.gross?.amount - discountedPrice?.gross?.amount;
+  const discount =
+    undiscountedPrice?.gross?.amount - discountedPrice?.gross?.amount;
 
-//   const discountPrice = {
-//     gross: { amount: discount, currency: "INR" },
-//     net: { amount: discount, currency: "INR" },
-//   };
+  const discountPrice = {
+    gross: { amount: discount, currency: "INR" },
+    net: { amount: discount, currency: "INR" },
+  };
 
-//   return [undiscountedPrice, discountedPrice, discountPrice];
-// };
+  return [undiscountedPrice, discountedPrice, discountPrice];
+};
 
-// export function loadScript(src: string, withCrossOrigin: boolean = true) {
-//   const script = document.createElement("script");
-//   script.src = src;
-//   script.async = true;
-//   script.defer = true;
-//   if (withCrossOrigin) {
-//     script.crossOrigin = "anonymous";
-//   }
+export function loadScript(src: string, withCrossOrigin: boolean = true) {
+  const script = document.createElement("script");
+  script.src = src;
+  script.async = true;
+  script.defer = true;
+  if (withCrossOrigin) {
+    script.crossOrigin = "anonymous";
+  }
 
-//   document.body.appendChild(script);
+  document.body.appendChild(script);
 
-//   return script;
-// }
+  return script;
+}
 
-// export function loadScriptWithContent(
-//   src: string = "",
-//   content: any = "",
-//   withCrossOrigin: boolean = true,
-//   addToHead: boolean = false
-// ) {
-//   if (src === "" && content === "") {
-//     return;
-//   }
-//   const script = document.createElement("script");
+export function loadScriptWithContent(
+  src: string = "",
+  content: any = "",
+  withCrossOrigin: boolean = true,
+  addToHead: boolean = false
+) {
+  if (src === "" && content === "") {
+    return;
+  }
+  const script = document.createElement("script");
 
-//   if (src === "") {
-//     script.text = content;
-//   } else {
-//     script.src = src;
-//   }
+  if (src === "") {
+    script.text = content;
+  } else {
+    script.src = src;
+  }
 
-//   script.async = true;
-//   script.defer = true;
+  script.async = true;
+  script.defer = true;
 
-//   if (withCrossOrigin) {
-//     script.crossOrigin = "anonymous";
-//   }
+  if (withCrossOrigin) {
+    script.crossOrigin = "anonymous";
+  }
 
-//   if (addToHead) {
-//     document.head.appendChild(script);
-//   } else {
-//     document.body.appendChild(script);
-//   }
+  if (addToHead) {
+    document.head.appendChild(script);
+  } else {
+    document.body.appendChild(script);
+  }
 
-//   return script;
-// }
+  return script;
+}
 
 // export const getDateInHumanFormat = (dateString: string) => {
 //   if (!dateString) {

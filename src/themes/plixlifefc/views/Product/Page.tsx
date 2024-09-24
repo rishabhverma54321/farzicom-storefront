@@ -92,6 +92,8 @@ import {
   productListQuery,
   productVariantsQuery,
   getProductReviewById,
+  productDetailsQueryNew,
+  productDetailsQuery,
 } from "./queries";
 import { TypedSectionWithoutChildrenQuery } from "../Home/queries";
 

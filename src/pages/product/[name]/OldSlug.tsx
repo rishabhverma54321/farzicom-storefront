@@ -5,7 +5,7 @@
 import { Base64 } from "js-base64";
 import { productDetailsQuery } from "Themes/views/Product/queries";
 import React from "react";
-import { clientSSR } from "@temp/clients";
+import { clientSSR } from "@temp/client";
 import { CustomShopMetaQuery, headerAndFooterQuery } from "@temp/pages/queries";
 import Layout from "@temp/components/Layout";
 import Head from "next/head";

@@ -134,8 +134,9 @@ export async function getStaticProps(context) {
   ) {
     try {
       console.time()
+      console.log("productDetailsQuery", JSON.stringify(productDetailsQuery));
       const { data, errors } = await clientSSR.query({
-        query: productDetailsQueryNew,
+        query: productDetailsQuery,
         variables: {
           id: encodedProductId,
           metaFields: CUSTOM_PDP_METADATA_FIELDS,

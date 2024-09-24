@@ -1,15 +1,14 @@
 import { ShopMetaQuery } from "@components/organisms/AddToCartSectionWow/queries";
 import { useCustomHistory } from "@hooks/useCustomHistory";
 import { useAuthState } from "@saleor/sdk";
-import { clientSSR } from "@temp/clients";
+import { clientSSR } from "@temp/client";
 import Layout from "@temp/components/Layout";
 import { getMetadataValue, parseJson } from "@utils/misc";
-import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import winston from "winston";
-import { headerAndFooterQuery } from "../queries";
 import MainLogin from "./CustomLogin/MainLogin";
 import Head from "next/head";
+import headerAndFooterQuery from "@temp/gloablQueries/queries";
 
 const ExtractMetaSSR = React.FC<{
   shopMeta

@@ -1003,48 +1003,48 @@ export const isGiftBoxProduct = (sku: any) => {
   return sku?.includes("BOXITEM-GIFT-");
 };
 
-// export const setRefreshToken = (token: string | null): void => {
-//   if (typeof window !== "undefined") {
-//     if (token) {
-//       localStorage.setItem(REFRESH_TOKEN, token);
-//     } else {
-//       localStorage.removeItem(REFRESH_TOKEN);
-//     }
-//   }
-// };
+export const setRefreshToken = (token: string | null): void => {
+  if (typeof window !== "undefined") {
+    if (token) {
+      localStorage.setItem(REFRESH_TOKEN, token);
+    } else {
+      localStorage.removeItem(REFRESH_TOKEN);
+    }
+  }
+};
 
-// export const setCSRFToken = (token: string | null): void => {
-//   if (typeof window !== "undefined") {
-//     if (token) {
-//       localStorage.setItem(CSRF_TOKEN, token);
-//     } else {
-//       localStorage.removeItem(CSRF_TOKEN);
-//     }
-//   }
-// };
+export const setCSRFToken = (token: string | null): void => {
+  if (typeof window !== "undefined") {
+    if (token) {
+      localStorage.setItem(CSRF_TOKEN, token);
+    } else {
+      localStorage.removeItem(CSRF_TOKEN);
+    }
+  }
+};
 
-// export const getCSRFToken =
-//   typeof window !== "undefined"
-//     ? parseJson(localStorage.getItem(CSRF_TOKEN))
-//     : null;
+export const getCSRFToken =
+  typeof window !== "undefined"
+    ? parseJson(localStorage.getItem(CSRF_TOKEN))
+    : null;
 
-// export const getRefreshToken =
-//   typeof window !== "undefined"
-//     ? parseJson(localStorage.getItem(REFRESH_TOKEN))
-//     : null;
+export const getRefreshToken =
+  typeof window !== "undefined"
+    ? parseJson(localStorage.getItem(REFRESH_TOKEN))
+    : null;
 
-// export const getPhoneNoWithoutPrefix = (number: string) => {
-//   if (number && typeof number === "string") {
-//     if (number.length === 10 && number.charAt(0) !== "+") {
-//       return number;
-//     }
-//     if (number.length === 13 && number.substring(0, 3) === "+91") {
-//       return number.substring(3);
-//     }
-//   }
-//   return null;
-// };
-// // Firework Helper Functions
+export const getPhoneNoWithoutPrefix = (number: string) => {
+  if (number && typeof number === "string") {
+    if (number.length === 10 && number.charAt(0) !== "+") {
+      return number;
+    }
+    if (number.length === 13 && number.substring(0, 3) === "+91") {
+      return number.substring(3);
+    }
+  }
+  return null;
+};
+// Firework Helper Functions
 export const createFWProduct = (remoteVariant: any) => {
   // const {  } = remoteVariant;
   return window?._fwn?.shopping?.productFactory((productbuilder: any) => {

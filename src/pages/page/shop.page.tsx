@@ -1,10 +1,9 @@
 import { ShopMetaQuery } from "@components/organisms/AddToCartSectionWow/queries";
-import { clientSSR } from "@temp/clients";
+import { clientSSR } from "@temp/client";
 import Layout from "@temp/components/Layout";
 import { getMetadataValue } from "@utils/misc";
 import React from "react";
 import winston from "winston";
-import { headerAndFooterQuery } from "../queries";
 import MainLogin from "./CustomLogin/MainLogin";
 import MainShop from "./CustomShop/MainShop";
 import {
@@ -13,6 +12,7 @@ import {
 } from "./gqlTypes/ShopNextProducts";
 import { ShopPage } from "./gqlTypes/ShopPage";
 import { ShopNextProductsQuery, shopPageQuery } from "./queries";
+import headerAndFooterQuery from "@temp/gloablQueries/queries";
 
 export interface IShopNextProductsWithID {
   id: string;
@@ -115,8 +115,7 @@ const NextLoginPage = ({
         collectionDataArray={collectionDataArray}
         shopPageData={shopPageData}
         shopMeta={shopMeta}
-      />
-      ;
+      />;
     </Layout>
   );
 };

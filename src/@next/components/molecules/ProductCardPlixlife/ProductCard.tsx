@@ -162,7 +162,7 @@ export const ProductCardPlixlife: React.FC<IProductCardPlixlifeProps> = ({
 
   const sortImages =
     defaultVariant?.images &&
-    defaultVariant?.images.sort((prev, next) =>
+    [...defaultVariant?.images].sort((prev, next) =>
       prev.sortOrder > next.sortOrder ? 1 : -1
     );
 

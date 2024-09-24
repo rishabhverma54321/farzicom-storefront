@@ -49,5 +49,5 @@ export const client:any = new ApolloClient({
 
 export const clientSSR = new ApolloClient({
   link: authLink.concat(httpLinkSSR),
-  cache: new InMemoryCache({ addTypename: false }),
+  cache: new InMemoryCache({ addTypename: true }),
 });

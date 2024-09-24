@@ -42,6 +42,7 @@ import {
   OverlayType,
   OverlayType2,
 } from "../../../../components";
+import IsClientSide from "@hooks/IsClientSide";
 
 type refetchType = () => {};
 
@@ -107,13 +108,14 @@ export const PlixLifeFcApplyCoupon: React.FC<IProps> = ({
   const { checkout, promoCodeDiscount, useCashback } = useCheckoutState();
   const { user, authenticated } = useAuthState();
   const { cashbackDiscount, items, totalPrice } = useCartState();
+  const isClient = IsClientSide();
 
   const { token } = checkout || { token: "" };
 
   const [promoCodeErrors, setPromoCodeErrors] = useState<IFormError[]>([]);
 
   const [promoCode, setpromoCode] = useState<string | undefined>(
-    document.querySelector(".style__FormContainer-n2dxum-1 input")?.value || ""
+    isClient && document.querySelector(".style__FormContainer-n2dxum-1 input")?.value || ""
   );
 
   const [loading, setLoading] = useState(false);
@@ -340,7 +342,7 @@ export const PlixLifeFcApplyCoupon: React.FC<IProps> = ({
           onSubmit={(values, { setSubmitting }) => {
             if (handleAddPromoCode) {
               const p_code =
-                document.querySelector(".style__FormContainer-n2dxum-1 input")
+                isClient && document.querySelector(".style__FormContainer-n2dxum-1 input")
                   ?.value || values.inputCode;
               handleAddPromoCode(p_code, refetch);
             }
@@ -377,7 +379,7 @@ export const PlixLifeFcApplyCoupon: React.FC<IProps> = ({
                     id="applyCoupon_inputcode"
                     placeholder="Enter Coupon Code"
                     value={
-                      document.querySelector(
+                      isClient && document.querySelector(
                         ".style__FormContainer-n2dxum-1 input"
                       )?.value ||
                       promoCode ||

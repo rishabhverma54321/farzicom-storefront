@@ -132,6 +132,7 @@ import {
   deleteMetadata,
   removeTags,
 } from "@components/organisms/ProductSubscriptionPopup/queries";
+import IsClientSide from "@hooks/IsClientSide";
 
 // import "./checkout.module.scss";
 // import MemoNewplixlogo from "@temp/themes/plixlifefc/components/ClientFooter/assets/NewPlixLogoSVG";
@@ -242,40 +243,40 @@ const CheckoutV3 = ({ headerAndFooterData, shopMeta }) => {
     }
   };
 
-  if (!(checkout && checkout?.id && checkout?.lines?.length)) {
-    return (
-      <ShopMetaContext.Provider
-        value={shopMeta?.data.shopmeta.edges[0].node.metadata}
-      >
-        <AppHeader headerData={headerAndFooterData} />
-        <span
-          key="no-checkout"
-          style={{ textAlign: "center", display: "block" }}
-        >
-          {initialLoading ? (
-            <CircularProgress
-              color="inherit"
-              style={{
-                margin: "auto",
-                marginTop: "8px",
-                width: `44px`,
-              }}
-            />
-          ) : (
-            <ContinueShoppingNext>
-              <Input
-                variant={2}
-                type="button"
-                value="Continue Shopping"
-                customStyles={styles}
-                customStylesName="continueShopping"
-              />
-            </ContinueShoppingNext>
-          )}
-        </span>
-      </ShopMetaContext.Provider>
-    );
-  }
+  // if (!(checkout && checkout?.id && checkout?.lines?.length)) {
+  //   return (
+  //     <ShopMetaContext.Provider
+  //       value={shopMeta?.data.shopmeta.edges[0].node.metadata}
+  //     >
+  //       <AppHeader headerData={headerAndFooterData} />
+  //       <span
+  //         key="no-checkout"
+  //         style={{ textAlign: "center", display: "block" }}
+  //       >
+  //         {initialLoading ? (
+  //           <CircularProgress
+  //             color="inherit"
+  //             style={{
+  //               margin: "auto",
+  //               marginTop: "8px",
+  //               width: `44px`,
+  //             }}
+  //           />
+  //         ) : (
+  //           <ContinueShoppingNext>
+  //             <Input
+  //               variant={2}
+  //               type="button"
+  //               value="Continue Shopping"
+  //               customStyles={styles}
+  //               customStylesName="continueShopping"
+  //             />
+  //           </ContinueShoppingNext>
+  //         )}
+  //       </span>
+  //     </ShopMetaContext.Provider>
+  //   );
+  // }
   return (
     <ShopMetaContext.Provider
       value={shopMeta?.data.shopmeta.edges[0].node.metadata}
@@ -533,6 +534,7 @@ export const PaymentSummary: React.FC<{
   const isThankyou = Router?.pathname == "/order-placed";
   const { checkout, recentOrder } = useCheckoutState();
   const metaData = isThankyou ? recentOrder?.metadata : checkout?.metadata;
+  const isClient = IsClientSide();
   // Byb discount logic
   const ShopMetaContextValue = useContext(ShopMetaContext);
   // const personalisedBoxConfig =
@@ -722,6 +724,9 @@ export const PaymentSummary: React.FC<{
   const [showPaymentSummary, setShowPaymentSummary] = useState(false);
 
   const cashbackRecieveValue = cashbackValue || cashbackRecieve?.amount;
+  if(!isClient){
+    return <></>
+  }
 
   if (toggle) {
     return (
@@ -739,13 +744,11 @@ export const PaymentSummary: React.FC<{
               <div className={styles.showMoreContainer}>
                 <span className={styles.showMoreContainerText}>Show Less</span>
                 <MemoGreenMinusNewIcon />
-                {/* <MemoUpArrow /> */}
               </div>
             ) : (
               <div className={styles.showMoreContainer}>
                 <span className={styles.showMoreContainerText}>Show More</span>
                 <MemoGreenPlusNewIcon />
-                {/* <MemoDownArrow /> */}
               </div>
             )}
           </div>
@@ -800,22 +803,6 @@ export const PaymentSummary: React.FC<{
             </div>
           </>
         )}
-        {/* {cashbackRecieve?.amount && parseFloat(cashbackRecieve?.amount) > 0 ? (
-          <div className={styles.cashBackStripContainer}>
-            <div className={styles.cashBackStrip}>
-              &#8377;{parseInt(cashbackRecieve?.amount)} cashback will get
-              credited to your Plix Wallet after delivery
-            </div>
-          </div>
-        ) : (
-          <></>
-        )} */}
-        {/* <Media
-          query={{ maxWidth: largeScreen }}
-          render={() => (
-            
-          )}
-        /> */}
         <div className={isThankyoupage ? "" : "cashBackStripContainer_mobile"}>
           <div className={styles.cashbackWrapper}>
             {cashbackRecieveValue && parseInt(cashbackRecieveValue) > 0 ? (
@@ -833,7 +820,6 @@ export const PaymentSummary: React.FC<{
                     ) : (
                       <></>
                     )}
-                    {/* <p>Get ₹ {parseInt(cashbackRecieve?.amount)} Cashback </p> */}
                     You will get &#8377; {parseInt(cashbackRecieveValue)}{" "}
                     Cashback with this order.
                   </div>
@@ -986,13 +972,11 @@ export const OrderSummary = ({
               <div className={styles.showMoreContainer}>
                 <span className={styles.showMoreContainerText}>Show Less</span>
                 <MemoGreenMinusNewIcon />
-                {/* <MemoUpArrow /> */}
               </div>
             ) : (
               <div className={styles.showMoreContainer}>
                 <span className={styles.showMoreContainerText}>Show More</span>
                 <MemoGreenPlusNewIcon />
-                {/* <MemoDownArrow /> */}
               </div>
             )}
           </div>
@@ -1035,6 +1019,7 @@ export const OrderSummaryProductList = ({
   const { checkout, recentOrder } = useCheckoutState();
   const items = externalItems || cartItems;
   const itemsToshow = items.filter(item => !isBoxProduct(item));
+  const isClient = IsClientSide();
 
   // const allItemsUpdated = allItems || cartItems;
   // const ShopMetaContextValue = useContext(ShopMetaContext);
@@ -1074,14 +1059,13 @@ export const OrderSummaryProductList = ({
       ) : (
         <> </>
       )}
-      {itemsToshow.map((line, index) => {
-        return (
-          <>
+      {isClient && itemsToshow?.length ? itemsToshow.map((line, index) => (
+          <React.Fragment key={index}>
             <OrderSummaryProduct line={line} />
             {itemsToshow.length - 1 !== index ? <ShowHR name="show" /> : <> </>}
-          </>
-        );
-      })}
+          </React.Fragment>
+      )):
+      null}
     </div>
   );
 };
@@ -2286,7 +2270,7 @@ const CheckoutForm = () => {
       }
       syncRadioStateWithSelectedPaymentGateway(availablePaymentGateways[0]?.id);
     }
-  }, [availablePaymentGateways[0]?.id]);
+  }, [availablePaymentGateways && availablePaymentGateways[0]?.id]);
 
   const formSubmitHandler = async (
     e: React.FormEvent<HTMLFormElement> | undefined = undefined
@@ -4330,14 +4314,7 @@ const CheckoutForm = () => {
   const locallyUpdatedPaymentSummary = updateCheckoutAmountsBeforeResponse();
   return (
     <div>
-      {/* {
-        placeOrderClicked ? <div className={styles.fullScreenLoader}>
-        <div className={styles.loader}>
-          <CircularProgress color="inherit" />
-        </div>
-      </div> : <></>
-      } */}
-      <Link href="/order-placed">
+      <Link legacyBehavior href="/order-placed">
         <a
           style={{
             color: "transparent",
@@ -4646,30 +4623,8 @@ const CheckoutForm = () => {
 
                   {/* <ShowHR name="show" /> */}
 
-                  <Media
-                    query={{ minWidth: largeScreen }}
-                    render={() => (
-                      <div className="cashBackStripContainer_mobile">
-                        {/* {cashbackRecieve?.amount && parseFloat(cashbackRecieve?.amount) > 0 ? (
-                        <div className="custom_cash">
-                        <div className={styles.cashBackStripContainer}>
-                          <div className={styles.cashBackStrip}>
-                            <p>Get ₹ {parseInt(cashbackRecieve?.amount)} Cashback </p>
-                            You will get &#8377; {parseInt(cashbackRecieve?.amount)} Cashback
-                            with this order.
-                          </div>
-                        </div>
-                      </div>
-                      ) : (
-                        <></>
-                      )} */}
-                        {/* <S.CashbackStripNew>
-                        <span>Place Prepaid order to get extra </span>
-                        5% Cashback
-                      </S.CashbackStripNew> */}
-                      </div>
-                    )}
-                  />
+                  <div className={`cashBackStripContainer_mobile ${styles.minWidthLargeScreen}`}>
+                  </div>
                 </>
               </div>
             </form>
@@ -4691,9 +4646,6 @@ const CheckoutForm = () => {
                       ? "*Coupon codes are not applicable with build-your-own-box products*"
                       : ""
                   }
-                  // onCouponApplyOrRemove={()=> {
-                  //   handleCheckoutRecalculation()
-                  // }}
                   disableCouponApply={
                     items?.some(
                       item => isBoxProduct(item) && !isComboProduct(item)
@@ -4820,18 +4772,13 @@ const CheckoutForm = () => {
                 )}
               </div>
 
-              <Media
-                query={{ minWidth: largeScreen }}
-                render={() => (
-                  <>
-                    <ShowHR name="show" />
-                    <S.CashbackStripNew>
-                      <span>Place Prepaid order to get extra </span>
-                      5% Cashback
-                    </S.CashbackStripNew>
-                  </>
-                )}
-              />
+              <div className={styles.minWidthLargeScreen}>
+                <ShowHR name="show" />
+                <S.CashbackStripNew>
+                  <span>Place Prepaid order to get extra </span>
+                  5% Cashback
+                </S.CashbackStripNew>
+              </div>
             </div>
 
             <div className={styles.form}>
@@ -4860,7 +4807,6 @@ const CheckoutForm = () => {
                   />
                 </div>
               </S.OrderSummary>
-              {/* <WalletCheckbox formData={checkboxFields} /> */}
               <RadioButtonCotainer formData={paymentRadioFields2} />
 
               <div
@@ -4902,14 +4848,12 @@ const CheckoutForm = () => {
                 )}
               </div>
               <NotificationCheckbox formData={notificationCheckboxFields} />
-              <Media
-                query={{ maxWidth: largeScreen }}
-                render={() => <CheckoutReviewCard />}
-              />
+              <div className={styles.checkoutReviewUnderLargeScreen}>
+              <CheckoutReviewCard />
+              </div>
             </div>
           </S.FormContainer>
         </div>
-
         <div className={styles.desktopSummaryWrapper}>
           <S.OrderSummary
             className={styles.desktopOrderSummary}
