@@ -67,7 +67,7 @@ const ProductList: React.FC<IProps> = ({
 }: IProps) => {
   const [showCarousel, setShowCarousel] = useState(false);
   const { user } = useAuthState();
-
+  
   useEffect(() => {
     if (isCarousel) {
       setShowCarousel(true);

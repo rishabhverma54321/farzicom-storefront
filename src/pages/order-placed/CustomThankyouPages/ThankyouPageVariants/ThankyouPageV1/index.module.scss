@@ -1,0 +1,62 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.mainContainer {
+  padding: 1rem;
+
+  @media (min-width: $large-screen) {
+    padding: 3rem 24rem;
+  }
+}
+.firstContainer {
+  display: flex;
+  flex-direction: column;
+  height: 20vh;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #cecece;
+}
+
+.thankYouText {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.orderSummaryContainer {
+  padding: 2rem 1.5rem;
+}
+.orderNumberText {
+}
+
+.grandTotal {
+  text-align: right;
+  text-align: left;
+  text-align: center;
+  padding: 1rem;
+  border: 1px solid #f6f6f6;
+  background-color: white;
+  box-shadow: 2px 2px 4px rgb(0 0 0 / 20%);
+}
+
+.loginButton {
+  &__input {
+    background-color: #56774d;
+    height: 100%;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+  }
+}
+
+.continueShopping {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+  min-height: 200px;
+
+  @media (min-width: $medium-screen) {
+    width: 20%;
+  }
+}

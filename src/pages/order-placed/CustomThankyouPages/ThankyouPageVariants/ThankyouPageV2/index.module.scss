@@ -1,0 +1,391 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.custom_Checkout_header{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  height: 64px;
+  background: #5DD37C;
+  padding: 0px 104px;
+  position: sticky;
+  top: 0px;
+  z-index: 4;
+  svg{
+    width: 86px;
+    height: 26px;
+  }
+  @media (max-width: $medium-screen) {
+    justify-content: center;
+    padding: 0px;
+  }
+  img{
+    display: none;
+    position: absolute;
+    left: 20px;
+    width: 21px;
+    height: 24px;
+    @media (max-width: $medium-screen) {
+      display: block;
+    }
+  }
+}
+.showlowerStrip{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: #FFF09B;
+  text-align: center;
+  height: 32px;
+  a{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 150%;    
+    text-align: center;
+    letter-spacing: -0.02em;    
+    color: #700070;
+  }
+}
+
+.mainContainer {
+  padding: 1rem;
+  padding-bottom: 2rem;
+  font-family: "CocoSharp XL" !important;
+  @media (min-width: $medium-screen) {
+    max-width: 100vw;
+    padding: 15px 7vw;
+  }
+  @media (max-width: $medium-screen) {
+    padding-bottom: 0px;
+    padding-top: 0px;
+    padding: 0px 20px;
+  }
+}
+.cashBackStripContainer{
+  @media (max-width: $medium-screen) {
+    display: none;
+  }
+}
+// div[class^="styles__CashbackStripNew"]{
+//   @media (max-width: $medium-screen) {
+//     display: none;
+//   }
+// }
+.firstContainer {
+  display: flex;
+  flex-direction: column;
+  height: 20vh;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #cecece;
+}
+.secondContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .swop_store{
+    max-width: 600px;
+
+    @media(max-width: $medium-screen){
+      a{
+        >div{
+          padding: 10px 15px !important;
+        }
+      }
+    }
+  }
+
+  @media (min-width: $medium-screen) {
+    flex-direction: row-reverse;
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+}
+
+.thankYouText {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.orderSummaryContainer {
+  font-family: "CocoSharp XL" !important;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f8f8;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  width: 100%;
+  height: fit-content;
+  width: 600px;
+
+  @media (max-width: $medium-screen) {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+  }
+}
+.orderNumberText {
+}
+
+.grandTotal {
+  text-align: right;
+  text-align: left;
+  text-align: center;
+  padding: 1rem;
+  border: 1px solid #f6f6f6;
+  background-color: white;
+  box-shadow: 2px 2px 4px rgb(0 0 0 / 20%);
+}
+
+.loginButton {
+  &__input {
+    background-color: #56774d;
+    height: 100%;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+  }
+}
+
+.continueShopping {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+  min-height: 200px;
+
+  @media (min-width: $medium-screen) {
+    width: 20%;
+  }
+}
+
+.customerInfoContainerWrapper {
+  width: 504px;
+  @media (max-width: $medium-screen) {
+    width: 338px;
+    margin-top: 20px;
+  }
+}
+.customerInfoContainer {
+  border-radius: 7px;
+  margin: 48px 0 24px 0;
+  width: 100%;
+
+  @media (min-width: $medium-screen) {
+    margin: 0;
+  }
+  @media (max-width: $medium-screen) {
+    margin: 0px 0px 20px 0px;
+  }
+  .detailBlock{
+    padding-bottom: 22px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #DDDDDD;
+  }
+}
+.detailBlock{
+  padding-bottom: 22px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #DDDDDD;
+}
+
+.customerInfoContainerHeader {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 160%;  
+  color: #000000;
+  margin-bottom: 31px;
+  @media (max-width: $medium-screen) {
+    display: flex;
+    justify-content: space-between;
+  }
+  img{
+    display: none;
+    @media (max-width: $medium-screen) {
+      display: block;
+    }
+    width: 18px;
+    height: 12px; 
+  }
+  .chevron_down_arrow{
+    display: none;
+    @media (max-width: $medium-screen) {
+      display: block;
+    }
+    svg{
+      width: 14px;
+      height: 16px;
+    }
+  }
+}
+
+.customerInfoInnerContainer {
+}
+
+.lightText {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 160%;  
+  color: #000000;
+  margin-bottom: 8px;
+}
+
+.boldText {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+  color: #808080;
+}
+
+.bigBoldText {
+}
+
+.hr {
+  width: 100%;
+  border: 1px solid rgb(217, 217, 217);
+  margin: 0;
+  margin-bottom: 5px;
+  display: none;
+}
+.qrCode {
+  display: flex;
+  margin-top: 20px;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  @media (max-width:940px){
+    display: none;
+  }
+  .qrImage {
+    width: 233px;
+    height: 233px;
+    margin-left: -9px;
+  }
+  .scan {
+    font-size: 14px;
+    font-weight: 700;
+    color: #808080; 
+    margin-top: 10px;
+  }
+}
+.paymentSummaryContainerWrapper {
+  padding: 1rem;
+  padding-top: 0;
+  background-color: #f8f8f8;
+  border-radius: inherit;
+  @media (max-width: $medium-screen) {
+    background-color: transparent;
+    padding: 0px 0px 15px 0px;
+  }
+}
+.pledge_tree{
+  display: inline-block;
+  width: 100%;
+  background: #FEFFED;
+  background-image: url('/plixlifefc/assets/pledge_background_image.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "CocoSharp XL" !important;
+  .inner_pledge_tree{
+    padding: 48px 48px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    @media (max-width: $medium-screen) {
+      padding: 37px 25px 33px;
+      flex-direction: column;
+    }
+    .pledge_icon{
+      margin-right: 36px;
+      @media (max-width: $medium-screen) {
+       margin: 0px 0px 18px 0px;
+      }
+      img{
+        position: relative !important;
+        display: block;
+        width: 158px !important;
+        height: 156px !important;
+        max-width: unset;
+        max-height: unset;
+        min-width: unset;
+        min-height: unset;
+        @media (max-width: $medium-screen) {
+          width: 85px !important;
+          height: 84px !important;
+        }
+      }
+    }
+    .content{
+      max-width: 710px;
+      h3{
+        font-family: 'cocosharp_xlextrabold' !important;
+        font-style: italic;
+        font-weight: 800;
+        font-size: 42px;
+        line-height: 50px;
+        letter-spacing: -0.02em;
+        text-transform: capitalize;
+        color: #06543D;
+        margin-bottom: 16px;
+        @media (max-width: $medium-screen) {
+          font-size: 32px;
+          line-height: 130%;
+        }
+      }
+      p{
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 160%;        
+        letter-spacing: -0.02em;
+        color: #06543D;
+        margin-bottom: 21px;
+        @media (max-width: $medium-screen) {
+          font-size: 14px;
+        }
+      }
+      a{
+        font-family: 'cocosharp_xlextrabold' !important;
+        font-weight: 800;
+        font-size: 14px;
+        line-height: 150%;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: #5DD37C;
+      }
+    }
+  }
+}
+
+.order_number_skeleton{
+  background-color: #a5a5a5;
+  width: 100px;
+  height: 20px;
+  animation: skeleton-animation 1s infinite linear;
+
+  @media(max-width: $medium-screen){
+    height: 15px;
+  }
+}
+
+@keyframes skeleton-animation {
+  0% {
+    opacity: 0.2;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0.2;
+  }
+}

@@ -31,10 +31,9 @@ import {
 } from "Themes/config";
 import { clients, pages } from "gqlTypes/customGlobalTypes";
 import makeClevertap from "Themes/lib/makeClevertap";
-// import makeClevertap from "Themes/lib/makeClevertap.js";
-// import clevertapEvents from "@temp/themes/plixlifefc/lib/clevertapEvents";
-// import { client } from "@temp/client";
-// import { ORDER_COUNT_BY_PHONE } from "../../pages/order-placed/queries";
+import clevertapEvents from "@temp/themes/plixlifefc/lib/clevertapEvents";
+import { client } from "@temp/client";
+import { ORDER_COUNT_BY_PHONE } from "@temp/pages/order-placed/queries";
 
 export const REFRESH_TOKEN = "refresh_token";
 export const CSRF_TOKEN = "csrf_token";
@@ -42,23 +41,24 @@ export const SKIN_QUIZ_STATE = "skin_quiz_state";
 export const WEIGHT_QUIZ_STATE = "weight_quiz_state";
 export const HAIR_QUIZ_STATE = "hair_quiz_state"
 export const RECENTLY_DELETED_PRODUCTS = "recently_deleted_products";
+export const BANNER_JOURNEY_INFO = "banner_journey_info";
 
-// export function maybe<T>(exp: () => T): T | undefined;
-// export function maybe<T>(exp: () => T, d: T): T;
-// export function maybe(exp: any, d?: any) {
-//   try {
-//     const result = exp();
-//     return result === undefined ? d : result;
-//   } catch {
-//     return d;
-//   }
-// }
+export function maybe<T>(exp: () => T): T | undefined;
+export function maybe<T>(exp: () => T, d: T): T;
+export function maybe(exp: any, d?: any) {
+  try {
+    const result = exp();
+    return result === undefined ? d : result;
+  } catch {
+    return d;
+  }
+}
 
-// export function filterNotEmptyArrayItems<TValue>(
-//   value: TValue | null | undefined
-// ): value is TValue {
-//   return value !== null && value !== undefined;
-// }
+export function filterNotEmptyArrayItems<TValue>(
+  value: TValue | null | undefined
+): value is TValue {
+  return value !== null && value !== undefined;
+}
 
 export function getMetadataValue<T>(
   metadata: any,
@@ -143,13 +143,13 @@ export const preserveTimestamp = (product_item: any, variant_id: string) => {
   }
 };
 
-// export const isUrl = (string: string) => {
-//   try {
-//     return Boolean(new URL(string));
-//   } catch (e) {
-//     return false;
-//   }
-// };
+export const isUrl = (string: string) => {
+  try {
+    return Boolean(new URL(string));
+  } catch (e) {
+    return false;
+  }
+};
 
 export const trimUrl = (url: string) => {
   if (
@@ -504,14 +504,14 @@ export const addToCartDataLayer = (
   }
 };
 
-// export const trackScrollAndTime = () => {
-//   if (ENABLE_GA4 && gtmConfig?.engagedVisit?.enable) {
-//     (window.dataLayer = window.dataLayer || []).push({
-//       event: gtmConfig.engagedVisit.value,
-//       page: window?.location?.href,
-//     });
-//   }
-// };
+export const trackScrollAndTime = () => {
+  if (ENABLE_GA4 && gtmConfig?.engagedVisit?.enable) {
+    (window.dataLayer = window.dataLayer || []).push({
+      event: gtmConfig.engagedVisit.value,
+      page: window?.location?.href,
+    });
+  }
+};
 
 export const datalayerEventForByb = (
   eventType = "add",
@@ -584,53 +584,53 @@ export const datalayerEventForByb = (
   }
 };
 
-// export const productAddedToCartForByob = (
-//   mainVariantlines: any,
-//   lines: any
-// ) => {
-//   const product = mainVariantlines?.product;
-//   const pageurl = generatePageUrl(lines?.boxType);
-//   let newLines = [...lines?.items];
-//   const updatedLines = newLines.reduce((acc, curr) => {
-//     let updatedAcc = [...acc];
-//     let index = acc?.findIndex(item => item?.name === curr?.name);
-//     if (acc.length && index !== -1) {
-//       updatedAcc[index].quantity = acc[index].quantity + 1;
-//     } else {
-//       curr["quantity"] = 1;
-//       updatedAcc.push(curr);
-//     }
-//     return updatedAcc;
-//   }, []);
-//   const ctp = {
-//     "Product name": product?.name,
-//     value: mainVariantlines?.pricing?.price?.gross?.amount,
-//     Quantity: 1,
-//     url: pageurl,
-//     sku: mainVariantlines?.sku,
-//     "items name": updatedLines?.map(item => item?.name).join(","),
-//     "items mrp": updatedLines?.map(item => item?.price).join(","),
-//     "items Quantity": updatedLines?.map(item => item?.quantity).join(","),
-//     "items sku": updatedLines?.map(item => item?.sku).join(","),
-//     "items variantID": updatedLines?.map(item => item?.variant_id).join(","),
-//   };
-//   const clevertap = makeClevertap();
-//   clevertap.event.push(clevertapEvents.addedByobToCart.value, ctp);
-// };
+export const productAddedToCartForByob = (
+  mainVariantlines: any,
+  lines: any
+) => {
+  const product = mainVariantlines?.product;
+  const pageurl = generatePageUrl(lines?.boxType);
+  let newLines = [...lines?.items];
+  const updatedLines = newLines.reduce((acc, curr) => {
+    let updatedAcc = [...acc];
+    let index = acc?.findIndex(item => item?.name === curr?.name);
+    if (acc.length && index !== -1) {
+      updatedAcc[index].quantity = acc[index].quantity + 1;
+    } else {
+      curr["quantity"] = 1;
+      updatedAcc.push(curr);
+    }
+    return updatedAcc;
+  }, []);
+  const ctp = {
+    "Product name": product?.name,
+    value: mainVariantlines?.pricing?.price?.gross?.amount,
+    Quantity: 1,
+    url: pageurl,
+    sku: mainVariantlines?.sku,
+    "items name": updatedLines?.map(item => item?.name).join(","),
+    "items mrp": updatedLines?.map(item => item?.price).join(","),
+    "items Quantity": updatedLines?.map(item => item?.quantity).join(","),
+    "items sku": updatedLines?.map(item => item?.sku).join(","),
+    "items variantID": updatedLines?.map(item => item?.variant_id).join(","),
+  };
+  const clevertap = makeClevertap();
+  clevertap.event.push(clevertapEvents.addedByobToCart.value, ctp);
+};
 
-// export const isAvailableForPurchase = (product: any, variantId: string) => {
-//   const selectedVariant = product?.variants?.filter(
-//     (variant: any) => variant?.id === variantId
-//   )[0];
+export const isAvailableForPurchase = (product: any, variantId: string) => {
+  const selectedVariant = product?.variants?.filter(
+    (variant: any) => variant?.id === variantId
+  )[0];
 
-//   const isAvailable =
-//     product?.isAvailableForPurchase &&
-//     product?.isAvailable &&
-//     selectedVariant?.isAvailable &&
-//     selectedVariant?.quantityAvailable > 0;
+  const isAvailable =
+    product?.isAvailableForPurchase &&
+    product?.isAvailable &&
+    selectedVariant?.isAvailable &&
+    selectedVariant?.quantityAvailable > 0;
 
-//   return isAvailable;
-// };
+  return isAvailable;
+};
 
 export const parseJson = (value: any) => {
   try {
@@ -640,31 +640,31 @@ export const parseJson = (value: any) => {
   }
 };
 
-// export const getIntervalToDuration = ({
-//   start,
-//   end,
-// }: {
-//   start: number | Date;
-//   end: number | Date;
-// }) => {
-//   const durations = {
-//     days: 0,
-//     hours: 0,
-//     minutes: 0,
-//     seconds: 0,
-//   };
-//   if (end && start && end > start) {
-//     let gapInSecs = (end - start) / 1000;
-//     durations.days = Math.floor(gapInSecs / 86400);
-//     gapInSecs -= durations.days * 86400;
-//     durations.hours = Math.floor(gapInSecs / 3600);
-//     gapInSecs -= durations.hours * 3600;
-//     durations.minutes = Math.floor(gapInSecs / 60);
-//     gapInSecs -= durations.minutes * 60;
-//     durations.seconds = Math.floor(gapInSecs);
-//   }
-//   return durations;
-// };
+export const getIntervalToDuration = ({
+  start,
+  end,
+}: {
+  start: number | Date;
+  end: number | Date;
+}) => {
+  const durations = {
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  };
+  if (end && start && end > start) {
+    let gapInSecs = (end - start) / 1000;
+    durations.days = Math.floor(gapInSecs / 86400);
+    gapInSecs -= durations.days * 86400;
+    durations.hours = Math.floor(gapInSecs / 3600);
+    gapInSecs -= durations.hours * 3600;
+    durations.minutes = Math.floor(gapInSecs / 60);
+    gapInSecs -= durations.minutes * 60;
+    durations.seconds = Math.floor(gapInSecs);
+  }
+  return durations;
+};
 
 export const getScriptMeta = (shopMetaData: any, Datatype: string) => {
   const scripts =
@@ -1127,109 +1127,109 @@ export const skuToUserPropertyClevertap = (
   }
 };
 
-// export const dateformatter = (date: any) => {
-//   let options = { year: "numeric", month: "short", day: "numeric" };
-//   let scheduleDate = new Date(date.split(" ")[0]).toLocaleDateString(
-//     "en-US",
-//     options
-//   );
-//   let temptime = date.split(" ")[1];
-//   let time = temptime.split(":");
-//   let delivertime =
-//     parseInt(time[0]) > 12
-//       ? `${parseInt(time[0]) % 12}:${time[1]}:${time[2]} PM`
-//       : `${temptime} AM`;
-//   return `${scheduleDate}, ${delivertime}`;
-// };
+export const dateformatter = (date: any) => {
+  let options = { year: "numeric", month: "short", day: "numeric" };
+  let scheduleDate = new Date(date.split(" ")[0]).toLocaleDateString(
+    "en-US",
+    options
+  );
+  let temptime = date.split(" ")[1];
+  let time = temptime.split(":");
+  let delivertime =
+    parseInt(time[0]) > 12
+      ? `${parseInt(time[0]) % 12}:${time[1]}:${time[2]} PM`
+      : `${temptime} AM`;
+  return `${scheduleDate}, ${delivertime}`;
+};
 
-// export const getdate = (date: any) => {
-//   let options = { weekday: "short", month: "short", day: "numeric" };
-//   let scheduleDate = new Date(date.split(" ")[0]).toLocaleDateString(
-//     "en-US",
-//     options
-//   );
-//   return scheduleDate;
-// };
+export const getdate = (date: any) => {
+  let options = { weekday: "short", month: "short", day: "numeric" };
+  let scheduleDate = new Date(date.split(" ")[0]).toLocaleDateString(
+    "en-US",
+    options
+  );
+  return scheduleDate;
+};
 
-// let mS = [
-//   "Jan",
-//   "Feb",
-//   "Mar",
-//   "Apr",
-//   "May",
-//   "June",
-//   "July",
-//   "Aug",
-//   "Sept",
-//   "Oct",
-//   "Nov",
-//   "Dec",
-// ];
-// export const getformatteddate = (date: string) => {
-//   let arrayDate = date?.split("/");
-//   const newFormatDate = `${arrayDate[1]}/${arrayDate[0]}/${arrayDate[2]}`;
-//   if (typeof date == "string") {
-//     let newDate = new Date(newFormatDate);
-//     let resultdate =
-//       `${newDate.getDate()}` +
-//       " " +
-//       mS[newDate.getMonth() + 1 - 1] +
-//       ", " +
-//       newDate.getFullYear();
-//     return resultdate;
-//   }
-//   return date;
-// };
+let mS = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "June",
+  "July",
+  "Aug",
+  "Sept",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+export const getformatteddate = (date: string) => {
+  let arrayDate = date?.split("/");
+  const newFormatDate = `${arrayDate[1]}/${arrayDate[0]}/${arrayDate[2]}`;
+  if (typeof date == "string") {
+    let newDate = new Date(newFormatDate);
+    let resultdate =
+      `${newDate.getDate()}` +
+      " " +
+      mS[newDate.getMonth() + 1 - 1] +
+      ", " +
+      newDate.getFullYear();
+    return resultdate;
+  }
+  return date;
+};
 
-// export const formatedDate = (date: string) => {
-//   if (typeof date == "string") {
-//     let newDate = new Date(date);
-//     let resultdate =
-//       `${newDate.getDate()}` +
-//       " " +
-//       mS[newDate.getMonth() + 1 - 1] +
-//       ", " +
-//       newDate.getFullYear();
-//     return resultdate;
-//   }
-//   return date;
-// };
+export const formatedDate = (date: string) => {
+  if (typeof date == "string") {
+    let newDate = new Date(date);
+    let resultdate =
+      `${newDate.getDate()}` +
+      " " +
+      mS[newDate.getMonth() + 1 - 1] +
+      ", " +
+      newDate.getFullYear();
+    return resultdate;
+  }
+  return date;
+};
 
-// export const getDatewithoutweekday = (date: any) => {
-//   let options = { day: "numeric", month: "short", year: "numeric" };
-//   let scheduleDate = new Date(date.split(" ")).toLocaleDateString(
-//     "en-US",
-//     options
-//   );
-//   return scheduleDate;
-// };
+export const getDatewithoutweekday = (date: any) => {
+  let options = { day: "numeric", month: "short", year: "numeric" };
+  let scheduleDate = new Date(date.split(" ")).toLocaleDateString(
+    "en-US",
+    options
+  );
+  return scheduleDate;
+};
 
-// export const timeformatter = (date: any) => {
-//   let temptime = date.split(" ")[1];
-//   let time = temptime.split(":");
-//   let delivertime =
-//     parseInt(time[0]) > 12
-//       ? `${parseInt(time[0]) % 12}:${time[1]}:${time[2]} PM`
-//       : `${temptime} AM`;
-//   return `${delivertime}`;
-// };
+export const timeformatter = (date: any) => {
+  let temptime = date.split(" ")[1];
+  let time = temptime.split(":");
+  let delivertime =
+    parseInt(time[0]) > 12
+      ? `${parseInt(time[0]) % 12}:${time[1]}:${time[2]} PM`
+      : `${temptime} AM`;
+  return `${delivertime}`;
+};
 
-// export const truncateString = (str: string, length?: number) => {
-//   const lengthToTruncate = length || 50;
-//   if (typeof str === "string" && str.length > lengthToTruncate) {
-//     return `${str.slice(0, lengthToTruncate)}...`;
-//   }
-//   return str;
-// };
+export const truncateString = (str: string, length?: number) => {
+  const lengthToTruncate = length || 50;
+  if (typeof str === "string" && str.length > lengthToTruncate) {
+    return `${str.slice(0, lengthToTruncate)}...`;
+  }
+  return str;
+};
 
-// export const serverSideLog = (errorMessage: any) => {
-//   fetch(`/api/server-logs`, {
-//     method: "POST",
-//     body: JSON.stringify({
-//       errorMsg: errorMessage,
-//     }),
-//   });
-// };
+export const serverSideLog = (errorMessage: any) => {
+  fetch(`/api/server-logs`, {
+    method: "POST",
+    body: JSON.stringify({
+      errorMsg: errorMessage,
+    }),
+  });
+};
 
 export const isMember = (user: UserFragment) => {
   if (user) {
@@ -1321,61 +1321,61 @@ export const getPrices = (
   return { listprice, discountedPrice, discountAmount };
 };
 
-// export const getTextWithoutEmoji = (text: string) => {
-//   if (typeof text === "string") {
-//     return text.replace(
-//       /([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g,
-//       ""
-//     );
-//   }
-//   return text;
-// };
-// export const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));
+export const getTextWithoutEmoji = (text: string) => {
+  if (typeof text === "string") {
+    return text.replace(
+      /([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g,
+      ""
+    );
+  }
+  return text;
+};
+export const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));
 
-// export const isIOSDevice =
-//   typeof window !== "undefined" &&
-//   /iPad|iPhone|iPod/.test(navigator.userAgent) &&
-//   !window?.MSStream;
+export const isIOSDevice =
+  typeof window !== "undefined" &&
+  /iPad|iPhone|iPod/.test(navigator.userAgent) &&
+  !window?.MSStream;
 
-// export const isMobileDevice =
-//   typeof window !== "undefined" &&
-//   (navigator.userAgent.match(/Android/i) ||
-//     navigator.userAgent.match(/webOS/i) ||
-//     navigator.userAgent.match(/iPhone/i) ||
-//     navigator.userAgent.match(/iPad/i) ||
-//     navigator.userAgent.match(/iPod/i) ||
-//     navigator.userAgent.match(/BlackBerry/i) ||
-//     navigator.userAgent.match(/Windows Phone/i));
+export const isMobileDevice =
+  typeof window !== "undefined" &&
+  (navigator.userAgent.match(/Android/i) ||
+    navigator.userAgent.match(/webOS/i) ||
+    navigator.userAgent.match(/iPhone/i) ||
+    navigator.userAgent.match(/iPad/i) ||
+    navigator.userAgent.match(/iPod/i) ||
+    navigator.userAgent.match(/BlackBerry/i) ||
+    navigator.userAgent.match(/Windows Phone/i));
 
-// export const getMobileOs = () => {
-//     var userAgent = navigator.userAgent;
+export const getMobileOs = () => {
+    var userAgent = navigator.userAgent;
 
-//     if (/windows phone/i.test(userAgent)) {
-//         return "Windows Phone";
-//     }
+    if (/windows phone/i.test(userAgent)) {
+        return "Windows Phone";
+    }
 
-//     if (/android/i.test(userAgent)) {
-//         return "Android";
-//     }
-//     if (/iPad|iPhone|iPod/.test(userAgent) && !window?.MSStream) {
-//         return "iOS";
-//     }
+    if (/android/i.test(userAgent)) {
+        return "Android";
+    }
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window?.MSStream) {
+        return "iOS";
+    }
 
-//     return "unknown";
-// }
+    return "unknown";
+}
 
-// export const isInAppBrowser =
-//   typeof window !== "undefined" &&
-//   (/FBAN|FBAV/i.test(navigator.userAgent) ||
-//     /Instagram/i.test(navigator.userAgent) ||
-//     /Twitter/i.test(navigator.userAgent));
+export const isInAppBrowser =
+  typeof window !== "undefined" &&
+  (/FBAN|FBAV/i.test(navigator.userAgent) ||
+    /Instagram/i.test(navigator.userAgent) ||
+    /Twitter/i.test(navigator.userAgent));
 
-// export const isItemInCart = (items, v_id: string) => {
-//   if (items && Array.isArray(items) && v_id) {
-//     return items?.find(item => item?.variant?.id === v_id);
-//   }
-//   return false;
-// };
+export const isItemInCart = (items, v_id: string) => {
+  if (items && Array.isArray(items) && v_id) {
+    return items?.find(item => item?.variant?.id === v_id);
+  }
+  return false;
+};
 
 export const triggerHomepageBannerEvent = (
   id,
@@ -1430,56 +1430,56 @@ export const getRoundedRating = (rating_value: number | string) => {
   }
 };
 
-// export const getMembershipTag = (user: UserFragment) => {
-//   const tagNames = user?.tags?.map(tag => tag.name);
-//   const isMember = tagNames.some(tagName => tagName === "member");
-//   if (tagNames.includes("ULTIMATE")) {
-//     return "Ultimate";
-//   } else if (tagNames.includes("ELITE")) {
-//     return "Elite";
-//   } else if (tagNames.includes("CLASSIC")) {
-//     return "Classic";
-//   } else if (isMember) {
-//     return "Plix Club";
-//   }
-//   return "";
-// };
-// export const getVariantDiscount = (
-//   variant: any,
-//   customPricing?: {
-//     undiscounted: number;
-//     discounted: number;
-//   }
-// ) => {
-//   if (customPricing) {
-//     const discountPercent = Math.ceil(
-//       ((customPricing?.undiscounted - customPricing?.discounted) * 100) /
-//       customPricing?.undiscounted
-//     );
-//     return discountPercent;
-//   }
-//   const discountedPrice = variant && variant?.pricing?.price;
+export const getMembershipTag = (user: UserFragment) => {
+  const tagNames = user?.tags?.map(tag => tag.name);
+  const isMember = tagNames.some(tagName => tagName === "member");
+  if (tagNames.includes("ULTIMATE")) {
+    return "Ultimate";
+  } else if (tagNames.includes("ELITE")) {
+    return "Elite";
+  } else if (tagNames.includes("CLASSIC")) {
+    return "Classic";
+  } else if (isMember) {
+    return "Plix Club";
+  }
+  return "";
+};
+export const getVariantDiscount = (
+  variant: any,
+  customPricing?: {
+    undiscounted: number;
+    discounted: number;
+  }
+) => {
+  if (customPricing) {
+    const discountPercent = Math.ceil(
+      ((customPricing?.undiscounted - customPricing?.discounted) * 100) /
+      customPricing?.undiscounted
+    );
+    return discountPercent;
+  }
+  const discountedPrice = variant && variant?.pricing?.price;
 
-//   const variantMetadata = variant && variant?.metadata;
+  const variantMetadata = variant && variant?.metadata;
 
-//   const discountedListPrice =
-//     variantMetadata &&
-//     variantMetadata.length &&
-//     getMetadataValue(variantMetadata, "listPrice");
+  const discountedListPrice =
+    variantMetadata &&
+    variantMetadata.length &&
+    getMetadataValue(variantMetadata, "listPrice");
 
-//   const undiscountedPrice = discountedListPrice
-//     ? {
-//       gross: { amount: parseFloat(discountedListPrice), currency: "INR" },
-//       net: { amount: parseFloat(discountedListPrice), currency: "INR" },
-//     }
-//     : variant?.pricing?.priceUndiscounted;
-//   const totalDiscount = Math.ceil(
-//     ((undiscountedPrice?.gross?.amount - discountedPrice?.gross?.amount) *
-//       100) /
-//     undiscountedPrice?.gross?.amount
-//   );
-//   return totalDiscount;
-// };
+  const undiscountedPrice = discountedListPrice
+    ? {
+      gross: { amount: parseFloat(discountedListPrice), currency: "INR" },
+      net: { amount: parseFloat(discountedListPrice), currency: "INR" },
+    }
+    : variant?.pricing?.priceUndiscounted;
+  const totalDiscount = Math.ceil(
+    ((undiscountedPrice?.gross?.amount - discountedPrice?.gross?.amount) *
+      100) /
+    undiscountedPrice?.gross?.amount
+  );
+  return totalDiscount;
+};
 
 export const getCheckoutMetaForSubscription = (
   variant: ProductVariant,
@@ -1586,28 +1586,28 @@ export const getCheckoutMetaForVariantAttributeWeight = (
   }
 };
 
-// export const convertStepsData = (steps: any) => {
-//   const result: any = {};
-//   if (steps && Array.isArray(steps)) {
-//     steps.forEach((item: any) => {
-//       const { name, collection } = item;
-//       result[name] = collection;
-//     });
-//   }
-//   return result;
-// }
-// export const getOrderCountByPhone = async phone => {
-//   const updatedPhone = getPhoneNoWithoutPrefix(phone);
-//   if (updatedPhone) {
-//     const res = await client.query({
-//       query: ORDER_COUNT_BY_PHONE,
-//       variables: {
-//         phone: `+91${updatedPhone}`,
-//       },
-//       fetchPolicy: "network-only",
-//     });
-//     console.log("totalCount", res?.data?.userOrders?.totalCount);
-//     return res?.data?.userOrders?.totalCount;
-//   }
-//   return null;
-// };
+export const convertStepsData = (steps: any) => {
+  const result: any = {};
+  if (steps && Array.isArray(steps)) {
+    steps.forEach((item: any) => {
+      const { name, collection } = item;
+      result[name] = collection;
+    });
+  }
+  return result;
+}
+export const getOrderCountByPhone = async phone => {
+  const updatedPhone = getPhoneNoWithoutPrefix(phone);
+  if (updatedPhone) {
+    const res = await client.query({
+      query: ORDER_COUNT_BY_PHONE,
+      variables: {
+        phone: `+91${updatedPhone}`,
+      },
+      fetchPolicy: "network-only",
+    });
+    console.log("totalCount", res?.data?.userOrders?.totalCount);
+    return res?.data?.userOrders?.totalCount;
+  }
+  return null;
+};

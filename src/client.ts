@@ -44,7 +44,7 @@ const links = [authLink, uploadLink];
 
 export const client:any = new ApolloClient({
   link: ApolloLink.from(links),
-  cache: new InMemoryCache({ addTypename: false }),
+  cache: new InMemoryCache({ addTypename: true }),
 });
 
 export const clientSSR = new ApolloClient({

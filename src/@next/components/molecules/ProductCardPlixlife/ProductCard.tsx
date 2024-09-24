@@ -663,7 +663,7 @@ export const ProductCardPlixlife: React.FC<IProductCardPlixlifeProps> = ({
       </>
     );
   }
-  return <> </>;
+  return <></>;
 };
 
 ProductCardPlixlife.displayName = "ProductCardPlixlife";
