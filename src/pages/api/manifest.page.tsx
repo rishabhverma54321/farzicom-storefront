@@ -1,6 +1,6 @@
-import { clientSSR } from "@temp/clients";
+import { clientSSR } from "@temp/client";
+import { ShopMetaQuery } from "@temp/gloablQueries/queries";
 // import { getMetadataValue } from "@utils/misc";
-import { ShopMetaQuery } from "../queries";
 
 function getMetadataValue<T>(
   metadata: any,
