@@ -33,7 +33,6 @@ import {
   parseJson,
   SKIN_QUIZ_STATE,
 } from "@utils/misc";
-import FormControl from "@mui/material";
 import {
   emailRegExp,
   getDBIdFromGraphqlId,
@@ -55,6 +54,7 @@ import { CachedImage } from "@components/molecules/CachedImage";
 import { isNullableType } from "graphql";
 import { NO_PHOTO_PLACEHOLDER } from "@temp/themes/plixlifefc/config";
 import clevertapEvents from "@temp/themes/plixlifefc/lib/clevertapEvents";
+import FormControl from "@mui/material/FormControl";
 
 interface IHairQuizForm {
   metadata: Array<any>;
@@ -98,7 +98,7 @@ const showNextButton: string[] = [
   "mcq",
   "slider"
 ];
-const QuizInputs = ({
+export const QuizInputs = ({
   data,
   quizTrackState,
   formik,
@@ -1262,7 +1262,6 @@ const HairQuizForm: React.FC<IHairQuizForm> = ({
 
                                     return errors;
                                   };
-
                                   return (
                                     <Formik
                                       enableReinitialize

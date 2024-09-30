@@ -72,7 +72,7 @@ const HairQuiz = ({ metadata }: { metadata: Array<any> }) => {
         />
       ) : (
         <>
-          <div className={style.quizpage_cards}>
+          {/* <div className={style.quizpage_cards}>
             {quizHeaderData?.enable ? (
               <QuizCardHeader
                 selectedHeader={selectedHeader}
@@ -81,7 +81,7 @@ const HairQuiz = ({ metadata }: { metadata: Array<any> }) => {
             ) : (
               <></>
             )}
-          </div>
+          </div> */}
           {progressPercent ? (
             <div className={style.quizpage_progressbar}>
               <QuizProgressbar

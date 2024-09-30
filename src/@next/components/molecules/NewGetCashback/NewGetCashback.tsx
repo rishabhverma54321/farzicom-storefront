@@ -1,5 +1,5 @@
 import Checkbox from "@mui/material";
-import FormControlLabel from "@mui/material";
+import FormControlLabel from "@mui/material/FormControlLabel";
 import { styled } from "@styles/themes";
 import React from "react";
 

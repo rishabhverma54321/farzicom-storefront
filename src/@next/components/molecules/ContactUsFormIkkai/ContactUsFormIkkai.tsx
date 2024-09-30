@@ -1,12 +1,10 @@
 import React, { useContext, useRef, useState } from "react";
 import { Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import MenuItem from "@mui/material";
-import FormControl from "@mui/material";
+import MenuItem, { Checkbox, FormControlLabel, Typography } from "@mui/material";
+import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material";
 import Select from "@mui/material";
-import FormControlLabel from "@mui/material";
-import Checkbox from "@mui/material";
 import style from "./scss/index.module.scss"
 import { Button } from "@components/atoms/Button";
 import { StyledInput } from "@components/atoms/StyledInput";
@@ -22,7 +20,6 @@ import { ButtonWrapper } from "../StoreLocatorForm/style";
 import { TypedContactUsCreateMutation } from "../ContactUsForm/queries";
 import Link from "next/link";
 import { CachedImage } from "../CachedImage";
-import Typography from "@mui/material";
 import { customEventTrigger } from "@utils/misc";
 import { useAuthState } from "@saleor/sdk";
 // import { TypedContactUsCreateMutation } from "./queries";

@@ -845,3 +845,15 @@
   }
   }
 }
+
+.maxWidthLargeScreen{
+  @media(min-width: $large-screen){
+    display: none;
+  }
+}
+
+.minWidthLargeScreen{
+  @media(max-width: $large-screen){
+    display: none;
+  }
+}

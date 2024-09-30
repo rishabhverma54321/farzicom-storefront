@@ -25,7 +25,7 @@ import {
   parseJson,
   SKIN_QUIZ_STATE,
 } from "@utils/misc";
-import FormControl from "@mui/material";
+import FormControl from "@mui/material/FormControl";
 import {
   emailRegExp,
   getDBIdFromGraphqlId,

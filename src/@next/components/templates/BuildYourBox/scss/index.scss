@@ -146,3 +146,15 @@
     }
   }
 }
+
+.minWidthMediumScreen{
+  @media(max-width: $medium-screen){
+    display: none;
+  }
+}
+
+.maxWidthMediumScreen{
+  @media(min-width: $medium-screen){
+    display: noness;
+  }
+}

@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import RadioGroup from "@mui/material";
-import FormControlLabel from "@mui/material";
-import Radio from "@mui/material";
+import { FormControlLabel, Radio, RadioGroup } from "@mui/material";
 import { RadioState } from "@app/pages/CheckoutPage";
 import VisaRupay from "images/visa_rupay.jpg";
 import { defaultTheme } from "Themes/globalStyles";

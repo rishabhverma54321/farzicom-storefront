@@ -13,7 +13,7 @@ export default function Layout({ headerAndFooterData, shopMeta, extraFooterData,
           <>{children}</>
         </main>
 
-        {/* <AppFooter extraFooterData={extraFooterData} footerData={headerAndFooterData} /> */}
+        <AppFooter extraFooterData={extraFooterData} footerData={headerAndFooterData} />
       </ShopMetaContext.Provider>
     </>
   );

@@ -8,7 +8,7 @@ import {
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useAuthState } from "@saleor/sdk";
-import FormControl from "@mui/material";
+import FormControl from "@mui/material/FormControl";
 import {
   getMetadataValue,
   isMember,

@@ -1,6 +1,6 @@
 import { Card } from "@components/organisms/AddressForm/styles";
+import FormControlLabel from "@mui/material/FormControlLabel";
 import { Checkbox } from "@mui/material";
-import FormControlLabel from "@mui/material";
 
 import React from "react";
 

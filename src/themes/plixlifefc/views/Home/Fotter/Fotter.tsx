@@ -76,9 +76,7 @@ const DrinkSwaFotter: React.FC<{
       </div>
 
       <div className="container lower" style={{ backgroundColor: "#FFFDF6" }}>
-        <Media
-          query={{ minWidth: "720px" }}
-          render={() => (
+        <div className="minWidthMediumScreen">
             <>
               {menu.items.map(item => (
                 <List key={item.id} heading={item.name} Lists={item.children} />
@@ -88,17 +86,13 @@ const DrinkSwaFotter: React.FC<{
               <List heading="Useful links" Lists={List3} /> */}
               <ContactUs />
             </>
-          )}
-        />
-        <Media
-          query={{ maxWidth: "720px" }}
-          render={() => (
+        </div>
+        <div className="maxWidthMediumScreen">
             <div style={{ width: "100%" }}>
               <Accordian menu={menu} />
               <ContactUs />
             </div>
-          )}
-        />
+        </div>
       </div>
       <div className="nsrcel">
         <img

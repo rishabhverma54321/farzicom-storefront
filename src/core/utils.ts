@@ -7,7 +7,6 @@ import {
   ParsedQuery,
 } from "query-string";
 import queryString from 'query-string';
-// import { FetchResult } from "react-apollo";
 
 import Cookies from "js-cookie";
 
@@ -18,7 +17,8 @@ import isEqual from "lodash/isEqual";
 import sortBy from "lodash/sortBy";
 import { OrderDirection, ProductOrderField } from "../../gqlTypes/globalTypes";
 import { IFilterAttributes } from "../@next/types";
-// import { FormError } from "./types";
+import { FormError } from "./types";
+import { FetchResult } from "@apollo/client";
 
 export const slugify = (text: string | number): string =>
   text
@@ -49,23 +49,23 @@ export const getGraphqlIdFromDBId = (id: string, schema: string): string =>
   // This is temporary solution, we will use slugs in the future
   Base64.encode(`${schema}:${id}`);
 
-// export const phoneRegExp = /^[0-9]{10}$/;
-// export const nameRegExp =  /^[aA-zZ\s]+$/;
-// export const emailRegExp = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+export const phoneRegExp = /^[0-9]{10}$/;
+export const nameRegExp =  /^[aA-zZ\s]+$/;
+export const emailRegExp = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
-// export const priceToString = (
-//   price: { amount: number; currency: string },
-//   locale?: string
-// ): string => {
-//   const { amount } = price;
-//   if (locale) {
-//     return amount.toLocaleString(locale, {
-//       currency: price.currency,
-//       style: "currency",
-//     });
-//   }
-//   return `${price.currency} ${amount.toFixed(2)}`;
-// };
+export const priceToString = (
+  price: { amount: number; currency: string },
+  locale?: string
+): string => {
+  const { amount } = price;
+  if (locale) {
+    return amount.toLocaleString(locale, {
+      currency: price.currency,
+      style: "currency",
+    });
+  }
+  return `${price.currency} ${amount.toFixed(2)}`;
+};
 
 export const generateProductUrl = (id: string, name: string, slug?: string) => {
   const urlProductId = `/product/${slugify(name)}/${getDBIdFromGraphqlId(
@@ -130,18 +130,18 @@ export const convertToAttributeScalar = (
 interface QueryString {
   [key: string]: string[] | string | null | undefined;
 }
-// export const getAttributesFromQs = (qs: QueryString) =>
-//   Object.keys(qs)
-//     .filter(
-//       key => !["pageSize", "priceGte", "priceLte", "sortBy", "q"].includes(key)
-//     )
-//     .reduce((prev: any, curr: any) => {
-//       prev[curr] = typeof qs[curr] === "string" ? [qs[curr]] : qs[curr];
-//       return prev;
-//     }, {});
+export const getAttributesFromQs = (qs: QueryString) =>
+  Object.keys(qs)
+    .filter(
+      key => !["pageSize", "priceGte", "priceLte", "sortBy", "q"].includes(key)
+    )
+    .reduce((prev: any, curr: any) => {
+      prev[curr] = typeof qs[curr] === "string" ? [qs[curr]] : qs[curr];
+      return prev;
+    }, {});
 
-// export const getValueOrEmpty = <T>(value: T): T | string =>
-//   value === undefined || value === null ? "" : value;
+export const getValueOrEmpty = <T>(value: T): T | string =>
+  value === undefined || value === null ? "" : value;
 
 export const convertSortByFromString = (sortBy: string) => {
   if (!sortBy) {
@@ -196,36 +196,36 @@ export const parseQueryString = (
   return query;
 };
 
-// export const updateQueryString = (
-//   location: LocationState,
-//   history: History
-// ) => {
-//   const querystring = parseQueryString(location);
+export const updateQueryString = (
+  location: LocationState,
+  history: History
+) => {
+  const querystring = parseQueryString(location);
 
-//   return (key: string, value?: any) => {
-//     if (value === "") {
-//       delete querystring[key];
-//     } else {
-//       querystring[key] = value || key;
-//     }
-//     history.replace(`?${stringifyQs(querystring)}`);
-//   };
-// };
+  return (key: string, value?: any) => {
+    if (value === "") {
+      delete querystring[key];
+    } else {
+      querystring[key] = value || key;
+    }
+    history.replace(`?${stringifyQs(querystring)}`);
+  };
+};
 
-// export const findFormErrors = (result: void | FetchResult): FormError[] => {
-//   if (result) {
-//     const data = Object.values(maybe(() => result.data) as object);
+export const findFormErrors = (result: void | FetchResult): FormError[] => {
+  if (result) {
+    const data = Object.values(maybe(() => result.data) as object);
 
-//     return data.reduce((prevVal: any, currVal: any) => {
-//       const errors = currVal.errors || [];
+    return data.reduce((prevVal: any, currVal: any) => {
+      const errors = currVal.errors || [];
 
-//       return [...prevVal, ...errors];
-//     }, []);
-//   }
-//   return [];
-// };
+      return [...prevVal, ...errors];
+    }, []);
+  }
+  return [];
+};
 
-// export const removeEmptySpaces = (text: string) => text.replace(/\s+/g, "");
+export const removeEmptySpaces = (text: string) => text.replace(/\s+/g, "");
 export const getUtmData = (location: LocationState) => {
   const querystring = parseQueryString(location);
 

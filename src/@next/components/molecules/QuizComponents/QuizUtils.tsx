@@ -186,7 +186,7 @@ export const getNutritionistData = (
 
   const decodedIds = productIds.map((id: string) => Base64.decode(id));
  
-  products.sort((a: any, b: any) => {
+  [...products].sort((a: any, b: any) => {
     const idA = Base64.decode(a?.node?.id);
     const idB = Base64.decode(b?.node?.id);
     const indexA = decodedIds.indexOf(idA);

@@ -3,7 +3,7 @@ import style from "./scss/index.module.scss";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { getMetadataValue, isMember, parseJson } from "@utils/misc";
 import MemoChevronDownNew from "@components/atoms/SvgIcons/ChevronDownNew";
-import FormControl from "@mui/material";
+import FormControl from "@mui/material/FormControl";
 import { CachedImage } from "@components/molecules/CachedImage";
 import * as Yup from "yup";
 import { useRouter } from "next/router";

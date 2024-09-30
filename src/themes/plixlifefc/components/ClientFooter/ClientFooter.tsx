@@ -943,7 +943,7 @@ export const ClientFooter: React.FC<IClientFooterProps> = ({
                     }
                   }}
                 >
-                  <Link href="/page/login">
+                  <Link legacyBehavior href="/page/login">
                     <a>Sign up</a>
                   </Link>
                 </div>
@@ -995,9 +995,7 @@ export const ClientFooter: React.FC<IClientFooterProps> = ({
 
           <LazyLoad height={50} offset={500}>
             <div className="paymentIconGroup">
-              <Media
-                query={{ maxWidth: largeScreen }}
-                render={() => (
+              <div className="maxWidthLargeScreen">
                   <>
                     <div className="paymentGroup_title">
                       <MemoLockSVGNew />
@@ -1015,11 +1013,8 @@ export const ClientFooter: React.FC<IClientFooterProps> = ({
                       <Memop9SVG />
                     </div>
                   </>
-                )}
-              />
-              <Media
-                query={{ minWidth: largeScreen }}
-                render={() => (
+               </div>
+              <div className="minWidthLargeScreen">
                   <>
                     <div className="paymentGroup_title">
                       <MemoLockSVGNew />
@@ -1037,8 +1032,7 @@ export const ClientFooter: React.FC<IClientFooterProps> = ({
                       <Memop9SVG />
                     </div>
                   </>
-                )}
-              />
+                </div>
             </div>
           </LazyLoad>
         </div>

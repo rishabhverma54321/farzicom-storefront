@@ -218,22 +218,16 @@ export const Banner1: React.FC<any> = ({ metadata }) => {
   return (
     <>
       <div className="whyPlixbanner">
-        <Media
-          query={{ minWidth: mediumScreen }}
-          render={() => (
+        <div className="minWidthMediumScreen">
             <Card content={{ image: bannerData?.banner1?.image }} cardClass="" />
-          )}
-        />
+        </div>
 
-        <Media
-          query={{ maxWidth: mediumScreen }}
-          render={() => (
+        <div className="maxWidthMediumScreen">
             <Card
               content={{ image: bannerData?.banner1?.imageMobile }}
               cardClass=""
             />
-          )}
-        />
+          </div>
       </div>
     </>
   );

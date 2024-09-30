@@ -7,7 +7,7 @@ import WhatsappIcon from "@components/atoms/SvgIcons/Whatsapp";
 import { useCheckout, useCheckoutState } from "@saleor/sdk";
 import { MutationFn } from "react-apollo";
 // import { TypedUpdateCheckoutMetadataWhatsapp } from "./queries";
-import FormControlLabel from "@mui/material";
+import FormControlLabel from "@mui/material/FormControlLabel";
 // import { Checkbox } from "@components/atoms/Checkbox";
 import Checkbox from "@mui/material";
 import {

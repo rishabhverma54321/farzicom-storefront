@@ -31,8 +31,8 @@ import { IAddress, IAddressWithEmailAndTypes } from "@types";
 import { largeScreen } from "@styles/constants";
 
 // import FormLabel from "@mui/material";
-import FormControl from "@mui/material";
-import FormControlLabel from "@mui/material";
+import FormControl from "@mui/material/FormControl";
+import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material";
 import RadioGroup from "@mui/material";
 // import { defaultTheme } from "Themes/globalStyles";

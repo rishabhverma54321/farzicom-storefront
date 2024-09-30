@@ -2,7 +2,7 @@ import React from "react";
 import ReactSVG from "react-svg";
 import styled from "styled-components";
 import RadioGroup from "@mui/material";
-import FormControlLabel from "@mui/material";
+import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material";
 import { RadioState } from "@app/pages/CheckoutPage";
 // import VisaRupay from "images/visa_rupay.jpg";
