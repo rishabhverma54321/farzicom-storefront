@@ -773,7 +773,7 @@ export const PlixLogin: React.FC<IPlixLoginProps> = () => {
                         customEventTrigger("contact_us_cta_click", user);
                       }}
                     >
-                      <Link href="/page/contact-us">
+                      <Link legacyBehavior href="/page/contact-us">
                         <a>Contact Us</a>
                       </Link>
                     </button>

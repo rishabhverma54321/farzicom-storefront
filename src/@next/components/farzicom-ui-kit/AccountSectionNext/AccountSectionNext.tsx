@@ -337,7 +337,7 @@ const OrderHistoryComponent = ({
             />
           </S.NoorderImage>
           <p>No Orders Placed</p>
-          <Link href={"/page/product"}>
+          <Link legacyBehavior href={"/page/product"}>
             <a>Browse Products</a>
           </Link>
         </S.NoorderWrapper>

@@ -1508,7 +1508,7 @@ const ThankYouPageV2 = ({ headerAndFooterData, shopMeta }) => {
                     width={30}
                     height={30}
                   />
-                  <Link href="https://www.instagram.com/myplixlife/">
+                  <Link legacyBehavior href="https://www.instagram.com/myplixlife/">
                     <a>
                       <p>Follow on Instagram</p>
                     </a>
@@ -1521,7 +1521,7 @@ const ThankYouPageV2 = ({ headerAndFooterData, shopMeta }) => {
                     width={30}
                     height={30}
                   />
-                  <Link href="https://www.youtube.com/channel/UCxjpQEVVTxs1P8i9x4KVoKQ">
+                  <Link legacyBehavior href="https://www.youtube.com/channel/UCxjpQEVVTxs1P8i9x4KVoKQ">
                     <a>
                       <p>Subscribe on Youtube</p>
                     </a>
@@ -1530,7 +1530,7 @@ const ThankYouPageV2 = ({ headerAndFooterData, shopMeta }) => {
               </div>
               <div className="contact">
                 <span>Need Help?</span>
-                <Link href="/page/contact-us">
+                <Link legacyBehavior href="/page/contact-us">
                   <a>Contact Us</a>
                 </Link>
               </div>

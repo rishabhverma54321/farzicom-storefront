@@ -4650,7 +4650,7 @@ const CheckoutForm = ({
         }
       }}
     >
-      <Link href="/order-placed">
+      <Link legacyBehavior href="/order-placed">
         <a
           style={{
             color: "transparent",

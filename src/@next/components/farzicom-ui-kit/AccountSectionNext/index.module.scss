@@ -191,12 +191,6 @@
     height: 45px;
     margin-right: 12px;
   }
-  img {
-    width: 100%;
-  }
-  & > span {
-    position: relative !important;
-    display: block !important;
     img {
       position: relative !important;
       width: 100% !important;
@@ -209,7 +203,6 @@
         height: 100% !important;
         max-width: 100% !important;
       }
-    }
   }
 }
 .user_details {
@@ -275,23 +268,16 @@
   width: 14px;
   height: 14px;
   img {
-    width: 100%;
-  }
-  & > span {
     position: relative !important;
-    display: block !important;
-    img {
-      position: relative !important;
-      width: 100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: unset !important;
+    max-height: unset !important;
+    min-width: unset !important;
+    min-height: unset !important;
+    @media (max-width: 520px) {
       height: 100% !important;
-      max-width: unset !important;
-      max-height: unset !important;
-      min-width: unset !important;
-      min-height: unset !important;
-      @media (max-width: 520px) {
-        height: 100% !important;
-        max-width: 100% !important;
-      }
+      max-width: 100% !important;
     }
   }
 }

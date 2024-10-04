@@ -210,8 +210,8 @@ export const ContactUsFormIkkai: React.FC<IContactUsFormIkkaiProps> = () => {
                           }
                           label={
                             <Typography>I agree to the 
-                              <Link href="/page/terms-conditions"><a target="_blank"> terms and conditions</a></Link> and the 
-                              <Link href="/page/privacy-policy"><a target="_blank"> privacy policy</a></Link>
+                              <Link legacyBehavior href="/page/terms-conditions"><a target="_blank"> terms and conditions</a></Link> and the 
+                              <Link legacyBehavior href="/page/privacy-policy"><a target="_blank"> privacy policy</a></Link>
                               </Typography>
                             
                           }
@@ -254,7 +254,7 @@ export const ContactUsFormIkkai: React.FC<IContactUsFormIkkaiProps> = () => {
               </div>
               <h2>Query sent successfully.</h2>
               <p>Our team will get back to you in 24 to 48 working hours.</p>
-              <Link href="/page/shop">
+              <Link legacyBehavior href="/page/shop">
                 <a>Continue Shopping</a>
               </Link>
             </div>

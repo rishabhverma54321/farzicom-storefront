@@ -1108,13 +1108,15 @@
 
       &_level {
         margin-top: 1rem;
-        span {
+        position: relative;
+        img {
           width: 60px !important;
+          height: 100%;
         }
 
         @media (max-width: $medium-screen) {
           margin-top: 1rem;
-          span {
+          img {
             width: 32px !important;
           }
         }
@@ -1290,13 +1292,15 @@
       &_levelImg {
         margin-left: 1rem;
         margin-top: 1.3rem;
-        span {
+        position: relative;
+        img {
           width: 70px !important;
+          height: 100%;
         }
 
         @media (max-width: $medium-screen) {
           margin-top: 0.9rem;
-          span {
+          img {
             width: 64px !important;
           }
         }
@@ -1322,20 +1326,20 @@
       &_background {
         position: absolute;
         top: 0;
-        span {
+        img {
           width: 370px !important;
           height: 83px !important;
         }
 
         @media (min-width: 340px) and (max-width: $large-screen) {
-          span {
+          img {
             width: 320px !important;
             height: 65px !important;
           }
         }
 
         @media (max-width: 340px) {
-          span {
+          img {
             width: 260px !important;
             height: 65px !important;
           }
@@ -1349,13 +1353,13 @@
         position: absolute;
         top: -3rem;
         left: -4rem;
-        span {
+        img {
           width: 500px !important;
           height: 280px !important;
         }
 
         @media (min-width: 340px) and (max-width: $large-screen) {
-          span {
+          img {
             width: 440px !important;
             height: 240px !important;
           }
@@ -1364,7 +1368,7 @@
         @media (max-width: 340px) {
           top: -2.5rem;
           left: -3rem;
-          span {
+          img {
             width: 380px !important;
             height: 200px !important;
           }

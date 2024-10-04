@@ -961,7 +961,7 @@ const OrderDetailsComponent = ({ res, clickHandler }) => {
       <S.Contactwrapper>
         <span>Need Help?</span>
         <button>
-          <Link href="/page/contact-us">
+          <Link legacyBehavior href="/page/contact-us">
             <a>Contact Us</a>
           </Link>
         </button>

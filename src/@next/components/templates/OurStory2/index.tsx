@@ -125,7 +125,8 @@ export interface IOurStoryProps {
                           heading_name: "Our Story - top",
                         });
                       }}>
-                      <Link  
+                      <Link
+                      legacyBehavior 
                       href={bannerData?.cardData?.button?.link}>{bannerData?.cardData?.button?.text}
                       </Link>
                     </span>

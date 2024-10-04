@@ -250,18 +250,18 @@
       }
 
       &_coin {
-        span {
+        img {
           width: 126px !important;
         }
 
         @media(min-width:1400px){
-          span{
+          img{
             width: 146px !important;
           }
         }
 
         @media (max-width: $medium-screen) {
-          span {
+          img {
             width: 98px !important;
           }
         }
@@ -269,19 +269,21 @@
 
       &_level {
         margin-top: 1rem;
-        span {
+        position: relative;
+        img {
           width: 32px !important;
+          height: 100%;
         }
 
         @media(min-width:1400px){
-          span{
+          img{
             width: 36px !important;
           }
         }
 
         @media (max-width: $medium-screen) {
           margin-top: 1.4rem;
-          span {
+          img {
             width: 32px !important;
           }
         }
@@ -528,13 +530,13 @@
       &_background {
         position: absolute;
         top: 0;
-        span {
+        img {
           width: 800px !important;
           height: 93px !important;
         }
 
         @media(min-width:1400px){
-          span {
+          img {
             width: 970px !important;
             height: 90px !important;
           }
@@ -570,7 +572,7 @@
         top: -0.4rem;
         left: 2rem;
         filter: drop-shadow(21px 15px 8px rgba(137, 137, 137, 0.49));
-        span {
+        img {
           width: 320.144px !important;
           height: 204.293px !important;
         }
@@ -578,7 +580,7 @@
         @media(min-width:1400px){
           top:-1.4rem;
           left: 4.5rem;
-          span{
+          img{
             width: 380.144px !important;
             height: 264.293px !important;
           }
