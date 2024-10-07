@@ -2,8 +2,9 @@ import { Formik } from "formik";
 import React from "react";
 import { useIntl, FormattedMessage } from "react-intl";
 
-import { Button} from "@components/atoms/Button";
-import { ButtonLink } from "@components/atoms/ButtonLink";import { commonMessages } from "@temp/intl";
+import { Button } from "@components/atoms/Button";
+import { ButtonLink } from "@components/atoms/ButtonLink";
+import { commonMessages } from "@temp/intl";
 import { IFormError } from "@types";
 import { TextField } from "../TextField";
 import * as S from "./styles";
@@ -41,7 +42,7 @@ export const PasswordChangeForm: React.FC<{
           setSubmitting(false);
         }}
         validateOnChange={false}
-        validate={values => {
+        validate={(values) => {
           const errors: {
             oldPassword?: string;
             confirmPassword?: string;
@@ -50,24 +51,29 @@ export const PasswordChangeForm: React.FC<{
           if (!values.confirmPassword) {
             errors.confirmPassword = intl.formatMessage({
               defaultMessage: "Required field",
+              id: "Required-field",
             });
           }
           if (!values.newPassword) {
             errors.newPassword = intl.formatMessage({
               defaultMessage: "Required field",
+              id: "Required-field",
             });
           }
           if (!values.oldPassword) {
             errors.oldPassword = intl.formatMessage({
               defaultMessage: "Required field",
+              id: "Required-field",
             });
           }
           if (values.confirmPassword !== values.newPassword) {
             errors.confirmPassword = intl.formatMessage({
               defaultMessage: "Passwords do not match",
+              id: "passwords-do-not-match",
             });
             errors.newPassword = intl.formatMessage({
               defaultMessage: "Passwords do not match",
+              id: "passwords-do-not-match",
             });
           }
           return errors;
@@ -87,7 +93,7 @@ export const PasswordChangeForm: React.FC<{
             <S.Form onSubmit={handleSubmit} data-test="changePasswordForm">
               <TextField
                 name="oldPassword"
-                label={intl.formatMessage({ defaultMessage: "Old Password" })}
+                label={intl.formatMessage({ defaultMessage: "Old Password", id: "old-password" })}
                 type="password"
                 value={values.oldPassword}
                 onBlur={handleBlur}
@@ -100,7 +106,7 @@ export const PasswordChangeForm: React.FC<{
               />
               <TextField
                 name="newPassword"
-                label={intl.formatMessage({ defaultMessage: "New Password" })}
+                label={intl.formatMessage({ defaultMessage: "New Password", id: "new-password"})}
                 type="password"
                 value={values.newPassword}
                 onBlur={handleBlur}
@@ -114,7 +120,8 @@ export const PasswordChangeForm: React.FC<{
               <TextField
                 name="confirmPassword"
                 label={intl.formatMessage({
-                  defaultMessage: "Confirm Password",
+                  id: "confirm-password",
+                  defaultMessage: "Confirm Password"
                 })}
                 type="password"
                 value={values.confirmPassword}

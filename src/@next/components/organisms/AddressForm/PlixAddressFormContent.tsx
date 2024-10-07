@@ -445,6 +445,7 @@ export const PlixAddressFormContent: React.FC<PropsWithFormik> = ({
                   required
                   name="firstName"
                   label={intl.formatMessage({
+                    id: "first-name",
                     defaultMessage: "First Name",
                   })}
                   value={values!.firstName}
@@ -462,6 +463,7 @@ export const PlixAddressFormContent: React.FC<PropsWithFormik> = ({
                   variant="outlined"
                   name="lastName"
                   label={intl.formatMessage({
+                    id: "last-name",
                     defaultMessage: "Last Name",
                   })}
                   value={values!.lastName}
@@ -501,6 +503,7 @@ export const PlixAddressFormContent: React.FC<PropsWithFormik> = ({
                   required
                   name="streetAddress1"
                   label={intl.formatMessage({
+                    id: "Address1-details",
                     defaultMessage:
                       "Address 1 (House No, Building, Street, Area)",
                   })}
@@ -650,6 +653,7 @@ export const PlixAddressFormContent: React.FC<PropsWithFormik> = ({
                   variant="outlined"
                   name="streetAddress2"
                   label={intl.formatMessage({
+                    id: "Address2-details",
                     defaultMessage: "Address 2 (Locality, Landmark, Town)",
                   })}
                   value={values!.streetAddress2}
@@ -697,7 +701,7 @@ export const PlixAddressFormContent: React.FC<PropsWithFormik> = ({
                   required
                   variant="outlined"
                   name="postalCode"
-                  label={intl.formatMessage({ defaultMessage: "Pincode" })}
+                  label={intl.formatMessage({id:"pincode", defaultMessage: "Pincode" })}
                   value={values!.postalCode}
                   autoComplete="postal-code"
                   helperText={
@@ -723,7 +727,7 @@ export const PlixAddressFormContent: React.FC<PropsWithFormik> = ({
                   required
                   variant="outlined"
                   name="city"
-                  label={intl.formatMessage({ defaultMessage: "City" })}
+                  label={intl.formatMessage({id: "city", defaultMessage: "City" })}
                   value={values!.city}
                   autoComplete="address-level2"
                   // errors={fieldErrors!.city}
@@ -1056,6 +1060,7 @@ export const PlixAddressFormContent: React.FC<PropsWithFormik> = ({
                   required
                   name="firstName"
                   label={intl.formatMessage({
+                    id: "first-name",
                     defaultMessage: "First Name",
                   })}
                   value={values!.firstName}
@@ -1121,6 +1126,7 @@ export const PlixAddressFormContent: React.FC<PropsWithFormik> = ({
                   required
                   name="streetAddress1"
                   label={intl.formatMessage({
+                    id: "Address1-details",
                     defaultMessage:
                       "Address 1 (House No, Building, Street, Area)",
                   })}
@@ -1269,6 +1275,7 @@ export const PlixAddressFormContent: React.FC<PropsWithFormik> = ({
                   variant="outlined"
                   name="streetAddress2"
                   label={intl.formatMessage({
+                    id: "Address2-details",
                     defaultMessage: "Address 2 (Locality, Landmark, Town)",
                   })}
                   value={values!.streetAddress2}
@@ -1319,7 +1326,7 @@ export const PlixAddressFormContent: React.FC<PropsWithFormik> = ({
                   required
                   variant="outlined"
                   name="postalCode"
-                  label={intl.formatMessage({ defaultMessage: "Pincode" })}
+                  label={intl.formatMessage({id:"pincode", defaultMessage: "Pincode" })}
                   value={values!.postalCode}
                   autoComplete="postal-code"
                   helperText={
@@ -1345,7 +1352,7 @@ export const PlixAddressFormContent: React.FC<PropsWithFormik> = ({
                   required
                   variant="outlined"
                   name="city"
-                  label={intl.formatMessage({ defaultMessage: "City" })}
+                  label={intl.formatMessage({id:"city", defaultMessage: "City" })}
                   value={values!.city}
                   autoComplete="address-level2"
                   // errors={fieldErrors!.city}

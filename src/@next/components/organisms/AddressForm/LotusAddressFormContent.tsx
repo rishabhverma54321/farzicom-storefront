@@ -342,7 +342,7 @@ export const LotusAddressFormContent: React.FC<PropsWithFormik> = ({
           <TextField
             // ref={firstNameRef}
             name="firstName"
-            label={intl.formatMessage({ defaultMessage: "First Name" })}
+            label={intl.formatMessage({id:"first-name", defaultMessage: "First Name" })}
             value={values!.firstName}
             autoComplete="family-name"
             inputMode="text"
@@ -356,7 +356,7 @@ export const LotusAddressFormContent: React.FC<PropsWithFormik> = ({
           />
           <TextField
             name="lastName"
-            label={intl.formatMessage({ defaultMessage: "Last Name" })}
+            label={intl.formatMessage({id:"last-name", defaultMessage: "Last Name" })}
             value={values!.lastName}
             autoComplete="family-name"
             inputMode="text"
@@ -474,6 +474,7 @@ export const LotusAddressFormContent: React.FC<PropsWithFormik> = ({
           <TextField
             name="streetAddress1"
             label={intl.formatMessage({
+              id: "Address-details",
               defaultMessage: "Address (House no, street, area)",
             })}
             value={values!.streetAddress1}
@@ -552,6 +553,7 @@ export const LotusAddressFormContent: React.FC<PropsWithFormik> = ({
           <TextField
             name="streetAddress2"
             label={intl.formatMessage({
+              id: "Locality",
               defaultMessage: "Locality/ Landmark",
             })}
             value={values!.streetAddress2}

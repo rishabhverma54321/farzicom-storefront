@@ -141,33 +141,33 @@ const Costs = ({
         <S.Costs style={{ color: "#808080", fontSize: "14px" }}>
           {subtotalPrice && (
             <CostLine
-              name={intl.formatMessage({ defaultMessage: "Item Total" })}
+              name={intl.formatMessage({id:"item-total", defaultMessage: "Item Total" })}
               cost={subtotalPrice}
             />
           )}
           {shippingTaxedPrice && (
             <CostLine
-              name={intl.formatMessage({ defaultMessage: "Shipping Charges" })}
+              name={intl.formatMessage({id:"shipping-charges", defaultMessage: "Shipping Charges" })}
               cost={shippingTaxedPrice}
             />
           )}
           {couponDiscount && (
             <CostLine
-              name={intl.formatMessage({ defaultMessage: "Coupon Discount" })}
+              name={intl.formatMessage({id:"coupon-discount", defaultMessage: "Coupon Discount" })}
               cost={couponDiscount}
               negative
             />
           )}
           {cashbackDiscount && showCashback && (
             <CostLine
-              name={intl.formatMessage({ defaultMessage: "Wallet Credit" })}
+              name={intl.formatMessage({id:"wallet-credit", defaultMessage: "Wallet Credit" })}
               cost={cashbackDiscount}
               negative
             />
           )}
           {prepaidDiscount && (
             <CostLine
-              name={intl.formatMessage({ defaultMessage: "Prepaid Discount" })}
+              name={intl.formatMessage({id:"prepaid-discount", defaultMessage: "Prepaid Discount" })}
               cost={prepaidDiscount}
               negative
             />

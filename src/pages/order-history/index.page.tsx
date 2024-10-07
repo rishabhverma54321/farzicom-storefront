@@ -94,6 +94,7 @@ export default function OrderHistoryPage({ headerAndFooterData, shopMeta }) {
 
   const router = useRouter();
   const { order_token } = router.query;
+  console.log("router.query", router.query)
   const { checkout} = useCheckoutState();
   // for kwikpass event trigger
   useEffect(() => {

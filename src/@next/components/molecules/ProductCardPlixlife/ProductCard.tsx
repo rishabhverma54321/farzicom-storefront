@@ -32,7 +32,6 @@ import { getThisVariantPrice, getVariantPriceIncludeTaxes } from "./stockHelpers
 import MyCustomLink from "@components/next-react/MyCustomLink";
 import { useCustomLocation } from "@hooks/useCustomLocation";
 import Image from "next/image";
-import Rating from "@material-ui/lab/Rating";
 import RatingNext from "@components/farzicom-ui-kit/RatingNext";
 import { ProductInfoPopUp } from "@components/molecules/ProductInfoPopUp";
 import { getdiscount } from "./stockHelpers";

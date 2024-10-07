@@ -130,6 +130,7 @@ const CheckoutAddressSubpageWithRef: RefForwardingComponent<
       setShippingErrors([
         {
           message: intl.formatMessage({
+            id: "shipping-address",
             defaultMessage: "Please provide shipping address.",
           }),
         },
@@ -202,6 +203,7 @@ const CheckoutAddressSubpageWithRef: RefForwardingComponent<
       setBillingErrors([
         {
           message: intl.formatMessage({
+            id: "billing-address",
             defaultMessage: "Please provide billing address.",
           }),
         },

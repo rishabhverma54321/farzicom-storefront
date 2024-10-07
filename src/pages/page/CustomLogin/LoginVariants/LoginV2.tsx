@@ -1,6 +1,5 @@
 import Input from "@components/farzicom-ui-kit/Input";
 import { useCustomHistory } from "@hooks/useCustomHistory";
-import CircularProgress from "@material-ui/core/CircularProgress";
 import { useAuth, useAuthState } from "@saleor/sdk";
 import React, { useState } from "react";
 import PlixLogin from "@components/organisms/PlixLogin";

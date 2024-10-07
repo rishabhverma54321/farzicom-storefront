@@ -26,7 +26,6 @@ import { MyRating } from "@components/atoms/MyRating";
 import { useStockHelpers } from "@hooks/useStockHelpers";
 import { PdpAccordian } from "@components/organisms/PdpAccordian";
 import { CardsContainer } from "@components/organisms/CardsContainer";
-import LocalOfferOutlinedIcon from "@material-ui/icons/LocalOfferOutlined";
 
 import { TypedGetProductRatings } from "@components/molecules/ProductCard/queries";
 import { TypedCheckForDelivery } from "@temp/themes/lotus/views/Product/queries";

@@ -1,4 +1,5 @@
-import Rating, { RatingProps } from "@material-ui/lab/Rating";
+
+import { Rating, RatingProps } from '@mui/material';
 import { withStyles } from '@mui/styles';;
 import React, { useState } from "react";
 import { defaultTheme } from "Themes/globalStyles/themes";

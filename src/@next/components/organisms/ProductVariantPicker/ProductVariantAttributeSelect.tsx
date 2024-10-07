@@ -137,6 +137,7 @@ export const ProductVariantAttributeSelect: React.FC<{
           disabledOptions={disabledValuesList}
           title={intl.formatMessage(
             {
+              id: "select-label",
               defaultMessage: "Please select {selectLabel}",
             },
             { selectLabel }

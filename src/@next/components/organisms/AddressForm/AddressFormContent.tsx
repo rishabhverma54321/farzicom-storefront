@@ -343,6 +343,7 @@ export const AddressFormContent: React.FC<PropsWithFormik> = ({
               // ref={firstNameRef}
               name="firstName"
               label={intl.formatMessage({
+                id: "first-name",
                 defaultMessage: "First Name",
               })}
               value={values!.firstName}
@@ -356,6 +357,7 @@ export const AddressFormContent: React.FC<PropsWithFormik> = ({
             <S.StyledTextField
               name="lastName"
               label={intl.formatMessage({
+                id: "last-name",
                 defaultMessage: "Last Name",
               })}
               value={values!.lastName}
@@ -412,6 +414,7 @@ export const AddressFormContent: React.FC<PropsWithFormik> = ({
             <S.StyledTextField
               name="postalCode"
               label={intl.formatMessage({
+                id: "pincode",
                 defaultMessage: "Pincode",
               })}
               value={values!.postalCode}
@@ -436,7 +439,7 @@ export const AddressFormContent: React.FC<PropsWithFormik> = ({
             />
             <S.StyledTextField
               name="city"
-              label={intl.formatMessage({ defaultMessage: "City" })}
+              label={intl.formatMessage({ id: "city", defaultMessage: "City" })}
               value={values!.city}
               autoComplete="address-level2"
               // errors={fieldErrors!.city}
@@ -483,6 +486,7 @@ export const AddressFormContent: React.FC<PropsWithFormik> = ({
             <S.StyledTextField
               name="streetAddress1"
               label={intl.formatMessage({
+                id: "Address1-details",
                 defaultMessage: "Address 1 (House No, Building, Street, Area)",
               })}
               value={values!.streetAddress1}
@@ -559,6 +563,7 @@ export const AddressFormContent: React.FC<PropsWithFormik> = ({
             <S.StyledTextField
               name="streetAddress2"
               label={intl.formatMessage({
+                id: "Address2-details",
                 defaultMessage: "Address 2 (Locality, Landmark, Town)",
               })}
               value={values!.streetAddress2}

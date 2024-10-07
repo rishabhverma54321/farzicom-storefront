@@ -39,7 +39,6 @@ import {
   InnerOverlayContextInterface,
 } from "@temp/components/Overlay";
 import ReviewForm from "@temp/themes/plixlifefc/views/Product/ReviewForm";
-import { styled } from "@material-ui/styles";
 import NewMemoCircleTick from "@components/atoms/SvgIcons/NewCircleTick";
 import NewMemoOrderFullfilled from "@components/atoms/SvgIcons/NewMemoOrderFullfilled";
 import { OrdersByUser_me_orders_edges_node } from "./gqlTypes/OrdersByUser";
@@ -378,7 +377,7 @@ const OrderDetailsComponent = ({ res, clickHandler }) => {
                         const sortImages =
                           line?.variant?.images &&
                           !!line?.variant?.images.length
-                            ? line?.variant.images.sort((prev, next) =>
+                            ? [...line?.variant.images].sort((prev, next) =>
                                 prev.sortOrder > next.sortOrder ? 1 : -1
                               )
                             : line?.variant?.product?.thumbnail?.url ||
@@ -477,7 +476,7 @@ const OrderDetailsComponent = ({ res, clickHandler }) => {
                   {orderLines?.map(line => {
                     const sortImages =
                       line?.variant?.images && !!line?.variant?.images.length
-                        ? line?.variant.images.sort((prev, next) =>
+                        ? [...line?.variant.images].sort((prev, next) =>
                             prev.sortOrder > next.sortOrder ? 1 : -1
                           )
                         : line?.variant?.product?.thumbnail?.url ||

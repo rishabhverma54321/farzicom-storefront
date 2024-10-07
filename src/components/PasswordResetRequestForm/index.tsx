@@ -22,9 +22,9 @@ const PasswordResetRequestForm: React.FC = () => {
       return intl.formatMessage(commonMessages.loading);
     }
     if (data?.requestPasswordReset.errors.length === 0) {
-      return intl.formatMessage({ defaultMessage: "Check your inbox" });
+      return intl.formatMessage({id:"check-inbox", defaultMessage: "Check your inbox" });
     }
-    return intl.formatMessage({ defaultMessage: "Reset password" });
+    return intl.formatMessage({id:"reset-password", defaultMessage: "Reset password" });
   };
 
   return (

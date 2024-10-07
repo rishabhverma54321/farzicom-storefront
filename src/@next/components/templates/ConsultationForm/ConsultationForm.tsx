@@ -192,6 +192,7 @@ export const ConsultationForm: React.FC<IConsultationFormProps> = ({
       alert.show(
         {
           title: intl.formatMessage({
+            id:"form-fill",
             defaultMessage: "Please Fill the form correctly!",
           }),
         },
@@ -207,6 +208,7 @@ export const ConsultationForm: React.FC<IConsultationFormProps> = ({
         alert.show(
           {
             title: intl.formatMessage({
+              id: "form-submit",
               defaultMessage: "Form Submitted Successfully",
             }),
           },
@@ -217,6 +219,7 @@ export const ConsultationForm: React.FC<IConsultationFormProps> = ({
         alert.show(
           {
             title: intl.formatMessage({
+              id:"form-fill",
               defaultMessage: "Please Fill the form correctly!",
             }),
           },
