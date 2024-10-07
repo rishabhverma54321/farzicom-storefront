@@ -88,7 +88,7 @@ export async function getStaticPaths() {
       >({
         query: pagesListQuery,
         variables: {
-          first: 1,
+          first: 100,
           after: pageInfo?.endCursor || "",
         },
         fetchPolicy: "no-cache",
@@ -112,7 +112,7 @@ export async function getStaticPaths() {
       console.count("currentPaths getStaticPaths");
 
       paths = [...paths, ...currentPaths];
-    } while (false);
+    } while (pageInfo.hasNextPage);
 
     return {
       paths,

@@ -517,16 +517,16 @@ export const ShopNext: React.FC<IShopNextProps> = ({
     setCurrentProdTypes(currentProdTypes.filter(product => product.id !== id));
   };
 
-  const breadcrumbs = [
-    {
-      link: [
-        `/collection`,
-        `/${slugify(currentCollection?.name)}`,
-        `/${getDBIdFromGraphqlId(currentCollection?.id, "Collection")}/`,
-      ].join(""),
-      value: currentCollection?.name,
-    },
-  ];
+  // const breadcrumbs = [
+  //   {
+  //     link: [
+  //       `/collection`,
+  //       `/${slugify(currentCollection?.name)}`,
+  //       `/${getDBIdFromGraphqlId(currentCollection?.id, "Collection")}/`,
+  //     ].join(""),
+  //     value: currentCollection?.name,
+  //   },
+  // ];
 
   const getProductTypeData = (prodTypes: IShopProductTypesInMeta[]): any[] => {
     return prodTypes.map(prodType => ({
