@@ -27,6 +27,7 @@ import {
   imageURLReplaceWithCDN,
 } from "@utils/misc";
 import gtmConfig from "@temp/themes/plixlifefc/lib/gtmConfig";
+import IsClientSide from "@hooks/IsClientSide";
 
 export interface IUserMenuListProps {
   user: User;
@@ -45,6 +46,8 @@ export const UserMenuList: React.FC<IUserMenuListProps> = ({
   const membershipTier =
     user?.tags?.length &&
     user?.tags?.find(tag => MEMBERSHIP_TAGS.includes(tag.name));
+  
+  const isClient = IsClientSide();
 
   if (CLIENT === clients.PLIXLIFEFC) {
     commonMessages.login = {
@@ -68,9 +71,10 @@ export const UserMenuList: React.FC<IUserMenuListProps> = ({
   // Check if "member" tag is present in the user object
   const isMember =
     user?.tags?.length && user.tags.some(tags => tags.name === "member");
+    
   return (
     <>
-      {user ? (
+      {user && isClient ? (
         <S.Wrapper className="main-menu__dropdown">
           {isMember ? (
             <li

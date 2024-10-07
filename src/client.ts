@@ -4,11 +4,22 @@ import { ApolloClient, ApolloLink, createHttpLink, InMemoryCache } from "@apollo
 import { setContext } from '@apollo/client/link/context';
 import createUploadLink from "apollo-upload-client/createUploadLink.mjs";
 
+const wizzyConfig = {
+  headers: {
+    "x-store-id": "f7ef7722893211eea1b742010aa0000e",
+    "x-store-secret": "a3f553d79c4e19d8cf166add444dfd00",
+    "x-api-key":
+      "ZVFmSGhXMDJteTFwUUFycjBhTGZqU3R3Q1ppcy96dWVySDNGRzg2MFNCOU1BVFlSYlRzdmdtLzhMdFlwWjY0aUM3NlFNS2xIV21ORDBWRjV5L2pWMFE9PQ==",
+  },
+  baseUrl: "https://api.wizzy.ai/v1",
+};
+
 export const saleorClient = createSaleorClient({
   apiUrl,
   channel: "default-channel",
   opts: {},
   restApiUrl,
+  wizzyConfig,
 });
 
 const httpLink = createHttpLink({

@@ -848,12 +848,24 @@
 
 .maxWidthLargeScreen{
   @media(min-width: $large-screen){
-    display: none;
+    display: none !important;
   }
 }
 
 .minWidthLargeScreen{
   @media(max-width: $large-screen){
-    display: none;
+    display: none !important;
+  }
+}
+
+.minWidthSmallScreen{
+  @media(max-width: $small-screen){
+    display: none !important;
+  }
+}
+
+.maxWidthSmallScreen{
+  @media(min-width: $small-screen){
+    display: none !important;
   }
 }

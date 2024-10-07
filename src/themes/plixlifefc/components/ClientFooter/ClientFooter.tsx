@@ -52,6 +52,7 @@ import gtmConfig from "../../lib/gtmConfig";
 import { CachedImage } from "@components/molecules/CachedImage";
 import { pages } from "gqlTypes/customGlobalTypes";
 import MyCustomLink from "@components/next-react/MyCustomLink";
+import IsClientSide from "@hooks/IsClientSide";
 
 export interface IClientFooterProps {
   menu: Footer_menu;
@@ -115,6 +116,7 @@ export const ClientFooter: React.FC<IClientFooterProps> = ({
 }) => {
   const sectionNewData = sectionData && sectionData?.edges[0]?.node;
   const [readmore, setReadMore] = useState(false);
+  const isClient = IsClientSide()
   const extraFooterSection: any =
     extraFooterData &&
     getMetadataValue(extraFooterData, "seo_footer_data") &&
@@ -259,7 +261,7 @@ export const ClientFooter: React.FC<IClientFooterProps> = ({
 
   return (
     <>
-      {!checkroute && (
+      {!checkroute && isClient && (
         <LazyLoad height={200} offset={100}>
           <HaveFun />
         </LazyLoad>
@@ -272,7 +274,7 @@ export const ClientFooter: React.FC<IClientFooterProps> = ({
             : ""
         } footer-container`}
       >
-        {extraFooterSection && section1 && extraFooterSection?.section_1 ? (
+        {extraFooterSection && section1 && extraFooterSection?.section_1 && isClient ? (
           section1?.heading || section1?.text ? (
             <div className="footerNew__container footerNew__background__section1">
               <h2 className="footerNew__container__heading">
@@ -293,7 +295,7 @@ export const ClientFooter: React.FC<IClientFooterProps> = ({
           ) : (
             <></>
           )
-        ) : section1 && Array.isArray(section1) ? (
+        ) : section1 && Array.isArray(section1) && isClient ? (
           section1.map((items, index) => (
             <React.Fragment key={index}>
               {location.asPath?.includes(items?.page) ? (
@@ -551,7 +553,7 @@ export const ClientFooter: React.FC<IClientFooterProps> = ({
         ) : (
           <></>
         )}
-        {extraFooterSection && section5 && extraFooterSection?.section_5 ? (
+        {extraFooterSection && section5 && extraFooterSection?.section_5 && isClient ? (
           section5?.heading || section5?.table.length || section5?.text ? (
             <div className="footerNew__container footerNew__background__section5">
               <h2 className="footerNew__container__heading">
@@ -582,7 +584,7 @@ export const ClientFooter: React.FC<IClientFooterProps> = ({
           ) : (
             <></>
           )
-        ) : section5 && Array.isArray(section5) ? (
+        ) : section5 && Array.isArray(section5) && isClient ? (
           section5.map((items, index) => (
             <React.Fragment key={index}>
               {location.asPath?.includes(items?.page) ? (

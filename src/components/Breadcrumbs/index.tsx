@@ -21,7 +21,7 @@ export interface Breadcrumb {
 }
 
 export const extractBreadcrumbs = (category: Category_category) => {
-  const constructLink = item => ({
+  const constructLink = (item) => ({
     link: [
       `/category`,
       `/${slugify(item.name)}`,
@@ -32,7 +32,7 @@ export const extractBreadcrumbs = (category: Category_category) => {
   let breadcrumbs = [constructLink(category)];
 
   if (category.ancestors.edges.length) {
-    const ancestorsList = category.ancestors.edges.map(edge =>
+    const ancestorsList = category.ancestors.edges.map((edge) =>
       constructLink(edge.node)
     );
     breadcrumbs = ancestorsList.concat(breadcrumbs);
@@ -47,46 +47,35 @@ const getBackLink = (breadcrumbs: Breadcrumb[]) => {
 const Breadcrumbs: React.FC<{
   breadcrumbs: Breadcrumb[];
 }> = ({ breadcrumbs }) => (
-  <Media
-    query={{
-      minWidth: smallScreen,
-    }}
-  >
-    {matches =>
-      matches ? (
-        <ul className="breadcrumbs">
-          <li>
-            <MyCustomLink href={baseUrl}>
-              <FormattedMessage {...commonMessages.home} />
-            </MyCustomLink>
-          </li>
-          {breadcrumbs?.map((breadcrumb, index) => (
-            <li
-              key={breadcrumb.value}
-              className={classNames({
-                breadcrumbs__active: index === breadcrumbs.length - 1,
-              })}
-            >
-              <MyCustomLink href={breadcrumb.link}>
-                {breadcrumb.value}
-              </MyCustomLink>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <div
-          className="breadcrumbs"
-          onClick={() => {
-            Router.back();
-          }}
+  <>
+    <ul className="breadcrumbs minWidthSmallScreen">
+      <li>
+        <MyCustomLink href={baseUrl}>
+          <FormattedMessage {...commonMessages.home} />
+        </MyCustomLink>
+      </li>
+      {breadcrumbs?.map((breadcrumb, index) => (
+        <li
+          key={breadcrumb.value}
+          className={classNames({
+            breadcrumbs__active: index === breadcrumbs.length - 1,
+          })}
         >
-          {/* <MyCustomLink href={getBackLink(breadcrumbs)}> */}
-          <FormattedMessage defaultMessage="Back" />
-          {/* </MyCustomLink> */}
-        </div>
-      )
-    }
-  </Media>
+          <MyCustomLink href={breadcrumb.link}>{breadcrumb.value}</MyCustomLink>
+        </li>
+      ))}
+    </ul>
+    <div
+      className="breadcrumbs maxWidthSmallScreen"
+      onClick={() => {
+        Router.back();
+      }}
+    >
+      {/* <MyCustomLink href={getBackLink(breadcrumbs)}> */}
+      <FormattedMessage id="breadcrumb-back" defaultMessage="Back" />
+      {/* </MyCustomLink> */}
+    </div>
+  </>
 );
 
 export default Breadcrumbs;

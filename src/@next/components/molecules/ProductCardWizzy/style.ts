@@ -81,10 +81,10 @@ export const CardImage = styled.div<{}>`
     border-radius: 8px 8px 0 0;
     width: 100% !important;
     height: 100% !important;
-    padding: 2rem;
+    // padding: 2rem;
 
     ${media.smallScreen`
-      padding: 1rem;
+      // padding: 1rem;
       // max-height: 170px !important;
     `}
   }

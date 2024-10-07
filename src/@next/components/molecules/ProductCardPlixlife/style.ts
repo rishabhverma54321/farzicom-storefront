@@ -93,7 +93,7 @@ export const CardImage = styled.div<{}>`
     width:100% !important;
     height:100% !important;
     ${media.smallScreen`
-      padding: 1rem;
+      // padding: 1rem;
       max-height: 170px !important;
       // width: 93px !important;
       // height: 86px !important;
