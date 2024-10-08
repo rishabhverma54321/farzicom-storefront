@@ -109,7 +109,7 @@ export async function getStaticPaths() {
       >({
         query: collectionNameAndIdForPaths,
         variables: {
-          first: 10,
+          first: 100,
           after: pageInfo?.endCursor || "",
         },
         fetchPolicy: "no-cache",

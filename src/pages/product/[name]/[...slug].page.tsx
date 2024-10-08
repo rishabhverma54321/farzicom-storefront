@@ -70,7 +70,7 @@ export async function getStaticPaths() {
       >({
         query: productVariantNameAndIdsForPaths,
         variables: {
-          first: 10,
+          first: 100,
           after: pageInfo?.endCursor || "",
           filter: {
             isPublished: true,
