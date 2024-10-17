@@ -3,6 +3,7 @@ import { ServerStyleSheet } from "styled-components";
 
 export default class MyDocument extends Document {
   render() {
+    console.log("document is working")
     return (
       <Html lang="en">
         <Head></Head>
@@ -20,7 +21,7 @@ export default class MyDocument extends Document {
     try {
       ctx.renderPage = () =>
         originalRenderPage({
-          enhanceApp: App => props => sheet.collectStyles(<App {...props} />),
+          enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />),
         });
 
       const initialProps = await Document.getInitialProps(ctx);

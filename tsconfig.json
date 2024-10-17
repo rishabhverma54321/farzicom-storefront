@@ -7,18 +7,23 @@
       "es2017"
     ],
     "allowJs": true,
+    "baseUrl": ".",
     "skipLibCheck": true,
     "strict": false,
     "strictNullChecks": false,
-    "noEmit": true,
+    "noEmit": false,
     "target": "esnext",
+    "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true,
+    "sourceMap": false,
+    "incremental": false,
+    "noUnusedLocals": false,
+    "importHelpers": true,
     "paths": {
       "@components/*": [
         "./src/@next/components/*"
@@ -85,6 +90,11 @@
     ]
     // "plugins": [
     //   {
+    //     "name": "next"
+    //   }
+    // ]
+    // "plugins": [
+    //   {
     //     "transform": "@formatjs/ts-transformer",
     //     "import": "default"
     //   },
@@ -104,8 +114,10 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
-, "src/pages/404.js"  ],
+    ".next/types/**/*.ts",
+    ".next2/types/**/*.ts",
+    ".next3/types/**/*.ts"
+  ],
   "exclude": [
     "node_modules"
   ]

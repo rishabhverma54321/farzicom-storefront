@@ -120,7 +120,10 @@ export const QuizInputs = ({
   const questions = Array.isArray(data) && data.length > 0 ? data : [];
   const handleFormikSubmit = () => {
     if (!isLastQuestion) {
-      formik.submitForm();
+      setTimeout(() => {
+        // Ensure the setQuizQuestion state update is completed
+        formik.submitForm();
+      }, 100);
     }
   };
   const handleChangeSelectInput = (
@@ -456,7 +459,6 @@ const HairQuizForm: React.FC<IHairQuizForm> = ({
   const [quizQuestions, setQuizQuestion] = useState<ISkinQuestion[]>(
     checkEnabledQuestions(quizQuestionMeta)
   );
-
   const getQuizStateLocal =
     typeof window !== "undefined"
       ? parseJson(localStorage.getItem(HAIR_QUIZ_STATE))
