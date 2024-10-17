@@ -25,6 +25,9 @@ module.exports = withTM({
   compiler: {
     styledComponents: true,
   },
+  compiler: {
+    styledComponents: true,
+  },
   images: {
     remotePatterns: [
       {
