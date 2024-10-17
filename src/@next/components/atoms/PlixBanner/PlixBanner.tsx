@@ -3,6 +3,7 @@ import { smallScreen } from "@styles/constants";
 import React from "react";
 import Media from "react-media";
 import * as S from "./style";
+import style from "./scss/index.module.scss"
 
 interface BannerData {
   label: string;
@@ -18,19 +19,19 @@ export interface IPlixBannerProps {
 
 export const PlixBanner: React.FC<IPlixBannerProps> = ({ content }) => {
   return (
-    <S.Wrapper>
-      <S.DesktopImage>
+    <div className={style.Wrapper}>
+      <div className={style.desktopImage}>
         <CachedImage
           url={content?.imgUrl}
           imgixProps={{ imgixParams: { sharp: 0 } }}
           imgixSizes="50vw"
           alt={content.imgAlt}
         />
-      </S.DesktopImage>
-      <S.MobileImage>
+      </div>
+      <div className={style.mobileImage}>
         <CachedImage url={content?.mobileImgUrl} alt={content.imgAlt} />
-      </S.MobileImage>
-    </S.Wrapper>
+      </div>
+    </div>
   );
 };
 PlixBanner.displayName = "PlixBanner";

@@ -3,6 +3,7 @@ import ReactSVG from "react-svg";
 import * as S from "./style";
 import CloseButton from "../../assets/closeButton.svg";
 import MemocloseButton from "../../assets/closeButton";
+import style from "../../scss/index.module.scss"
 
 interface PlixChipProps {
   text?: string;
@@ -16,12 +17,12 @@ export const PlixChip: React.FC<PlixChipProps> = ({
   onFilterRemove,
 }) => {
   return text ? (
-    <S.Wrapper>
-      <S.Text>{text}</S.Text>
-      <S.CloseWrapper onClick={() => onFilterRemove(filterId)} >
+    <div className={style.chipWrapper}>
+      <div className={style.Text}>{text}</div>
+      <div className={style.clossWrapper} onClick={() => onFilterRemove(filterId)} >
         <MemocloseButton/>
-      </S.CloseWrapper>
-    </S.Wrapper>
+      </div>
+    </div>
   ) : null;
 };
 PlixChip.displayName = "PlixChip";

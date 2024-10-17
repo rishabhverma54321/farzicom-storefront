@@ -37,16 +37,16 @@ export const ShopBannerWrapper = styled.div`
   `}
 `;
 
-export const CollectionHeader = styled.h1`
-  font-size: 32px;
-  text-align: center;
-  width: 100%;
-  @media (max-width: 720px) {
-    margin-bottom: 12px;
-    font-size: 24px;
-  }
-  /* margin-bottom: 12px; */
-`;
+// export const CollectionHeader = styled.h1`
+//   font-size: 32px;
+//   text-align: center;
+//   width: 100%;
+//   @media (max-width: 720px) {
+//     margin-bottom: 12px;
+//     font-size: 24px;
+//   }
+//   /* margin-bottom: 12px; */
+// `;
 export const Section = styled.div<{
   flexDir: string;
   bgColor?: string;
@@ -63,13 +63,13 @@ export const Section = styled.div<{
   margin-bottom: 16px;
   background-color: ${props => props.bgColor || "tranparent"};
 `;
-export const Divider = styled.div<{ width: string }>`
-  width: ${props => props.width};
-  height: 1px;
-  background-color: #808080;
-  opacity: 0.4;
-  /* margin: 8px 0px; */
-`;
+// export const Divider = styled.div<{ width: string }>`
+//   width: ${props => props.width};
+//   height: 1px;
+//   background-color: #808080;
+//   opacity: 0.4;
+//   /* margin: 8px 0px; */
+// `;
 export const SubHeader = styled.div<{ size: string; lineHeight: string }>`
   font-style: normal;
   font-weight: 700;

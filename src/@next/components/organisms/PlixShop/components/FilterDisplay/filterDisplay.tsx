@@ -1,6 +1,7 @@
 import React from "react";
 import PlixChip from "../PlixChip";
 import * as S from "./style";
+import style from "../../scss/index.module.scss"
 
 interface FilterdisplayProps {
   productCount: string | Number;
@@ -14,8 +15,8 @@ export const Filterdisplay: React.FC<FilterdisplayProps> = ({
   onFilterRemove,
 }) => {
   return (
-    <S.Wrapper>
-      <S.ProductCount>{productCount} Products</S.ProductCount>
+    <div className={style.Wrapper}>
+      <span className={style.productCount}>{productCount} Products</span>
       {activeFilters.map(activeFilter => (
         <PlixChip
           text={activeFilter.name}
@@ -23,7 +24,7 @@ export const Filterdisplay: React.FC<FilterdisplayProps> = ({
           onFilterRemove={onFilterRemove}
         />
       ))}
-    </S.Wrapper>
+    </div>
   );
 };
 Filterdisplay.displayName = "Filterdisplay";

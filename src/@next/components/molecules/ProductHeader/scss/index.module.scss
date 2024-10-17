@@ -1,0 +1,80 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+
+.Wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 15px;
+
+  @media (max-width: $medium-screen) {
+    flex-direction: column;
+  }
+}
+
+.Row1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.Row1Left {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.Headingh2 {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.Heading {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.Right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  @media (max-width: $medium-screen) {
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+.FilterContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 20px;
+
+  &.active {
+    background-color: #56774d;
+    color: white;
+  }
+  @media (max-width: $medium-screen) {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.Filter {
+  white-space: nowrap;
+  padding: 0 8px;
+  margin: 0.3rem;
+  text-align: center;
+  font-weight: 400;
+  font-size: 12px;
+  border-radius: 14px;
+  color: #56774d;
+  background-color: white;
+  cursor: pointer;
+  padding-top: 1px;
+}

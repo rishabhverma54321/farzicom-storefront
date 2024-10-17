@@ -225,16 +225,16 @@ const ProductList: React.FC<IProps> = ({
             }
           }}
         >
-          <S.List
+          <div
             data-test="productList"
             data-test-id={testingContextId}
-            className={productListClassname}
+            className={`${productListClassname} ${styles.List}`}
           >
             {products?.map((product, index) => {
               const { id } = product;
 
               return (
-                <S.ProductCard key={product.id}>
+                <div className={styles.productCard} key={product.id}>
                   <AppProductCard
                     searchTapProductCard={searchTapProductCard}
                     wizzyProductCard={wizzyProductCard}
@@ -266,10 +266,10 @@ const ProductList: React.FC<IProps> = ({
                     parentProducts={parentProducts}
                     productListId={productListId}
                   />
-                </S.ProductCard>
+                </div>
               );
             })}
-          </S.List>
+          </div>
         </CustomVisibilitySensor>
       )}
     </>

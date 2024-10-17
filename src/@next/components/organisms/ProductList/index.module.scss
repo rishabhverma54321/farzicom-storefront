@@ -8,3 +8,17 @@
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
+.List {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.productCard {
+  width: 25%;
+  @media (max-width: $large-screen) {
+    width: 50%;
+  }
+}

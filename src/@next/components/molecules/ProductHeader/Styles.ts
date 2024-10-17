@@ -27,16 +27,12 @@ export const Row1Left = styled.div`
 `;
 export const Heading = styled.h3`
   color: ${props => props.theme.colors.heading};
-  font-weight: 600;
   font-family: ${props => props.theme.typography.headingFontFamily};
-  text-transform: capitalize;
 `;
 
 export const Headingh2 = styled.h2`
   color: ${props => props.theme.colors.heading};
-  font-weight: 600;
   font-family: ${props => props.theme.typography.headingFontFamily};
-  text-transform: capitalize;
 `;
 
 Heading.defaultProps = {
@@ -59,24 +55,6 @@ export const ViewAll = styled.div`
   display: none;
   `}
 `;
-export const Right = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  overflow-x: auto;
-  overflow-y: hidden;
-  ${media.mediumScreen`
-    justify-content:center;
-    width:100%
-    margin-top: 10px;
-  `}/* @media(min-width:720px) {
-    > *:not(:last-child) {
-      margin-right: 10px;
-      padding-right: 20px;
-      border-right: 1px solid #e5e5e5;
-    }
-  } */
-`;
 
 export const FilterContainer = styled.div`
   display: flex;
@@ -93,6 +71,7 @@ export const FilterContainer = styled.div`
     justify-content:center;
   `}
 `;
+
 export const Filter = styled.span`
   white-space: nowrap;
   padding: 0 8px;

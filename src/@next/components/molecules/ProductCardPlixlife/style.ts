@@ -1,164 +1,164 @@
 import { media, minMedia } from "@styles/media";
 import { styled } from "@styles/themes";
 
-export const CardTopHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
-  // padding: 0px 0px 4px 0px;
-  align-items: flex-start;
-  position: absolute;
-  width:100%;
-  top:0;
-  z-index:1;
-  // ${media.smallScreen`
-  // padding: 0px 0px 4px 0px;
-  // `}
-`;
+// export const CardTopHeader = styled.div`
+//   display: flex;
+//   justify-content: space-between;
+//   // padding: 0px 0px 4px 0px;
+//   align-items: flex-start;
+//   position: absolute;
+//   width:100%;
+//   top:0;
+//   z-index:1;
+//   // ${media.smallScreen`
+//   // padding: 0px 0px 4px 0px;
+//   // `}
+// `;
 
-export const TopHeaderTag = styled.div<{ tagColor: string }>`
-  background-color: ${props => props.tagColor || "#fae6e2"};
-  padding: 5px 8px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  white-space: nowrap;
-  overflow: hidden !important;
-  text-overflow: ellipsis;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 120%;
-  text-align: center;
-  letter-spacing: -0.03em;
-  color: #cc3609;
-  background: #ffe2c0;
-  border-radius: 8px 0px;
-  ${media.smallScreen`
-  font-size: 10px
-  `}
-`;
+// export const TopHeaderTag = styled.div<{ tagColor: string }>`
+//   background-color: ${props => props.tagColor || "#fae6e2"};
+//   padding: 5px 8px;
+//   display: flex;
+//   flex-direction: row;
+//   align-items: center;
+//   white-space: nowrap;
+//   overflow: hidden !important;
+//   text-overflow: ellipsis;
+//   font-weight: 700;
+//   font-size: 12px;
+//   line-height: 120%;
+//   text-align: center;
+//   letter-spacing: -0.03em;
+//   color: #cc3609;
+//   background: #ffe2c0;
+//   border-radius: 8px 0px;
+//   ${media.smallScreen`
+//   font-size: 10px
+//   `}
+// `;
 export const CardBody = styled.div<{
   hoverBg: boolean | undefined;
   hoverShadow: string | undefined;
   loading?: boolean;
   bg: string | undefined;
 }>`
-  background: #ffffff;
-  border: 1px solid #e7e7e7;
-  border-radius: 8px;
-  width: 100%;
-  text-align: center;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-  height: 100%;
-  background-color: ${props => (props.bg ? props.bg : "white")};
-  opacity: ${props => (props.loading ? 0.5 : 1)};
-  pointer-events: ${props => (props.loading ? "none" : "auto")};
-  justify-content: space-between;
+  // background: #ffffff;
+  // border: 1px solid #e7e7e7;
+  // border-radius: 8px;
+  // width: 100%;
+  // text-align: center;
+  // position: relative;
+  // display: flex;
+  // flex-direction: column;
+  // -webkit-transition: 0.3s;
+  // transition: 0.3s;
+  // height: 100%;
+  // background-color: ${props => (props.bg ? props.bg : "white")};
+  // opacity: ${props => (props.loading ? 0.5 : 1)};
+  // pointer-events: ${props => (props.loading ? "none" : "auto")};
+  // justify-content: space-between;
 
   &:hover {
     ${props => props.hoverShadow && `box-shadow: ${props.hoverShadow};`}
   }
 `;
 
-export const CardImage = styled.div<{}>`
-  // height: "28rem";
-  // object-fit: "cover";
-  // padding: "2px";
-  // width: "auto";
+// export const CardImage = styled.div<{}>`
+//   // height: "28rem";
+//   // object-fit: "cover";
+//   // padding: "2px";
+//   // width: "auto";
 
-  display: flex;
-  justify-content: center;
-  border-radius: 8px;
-  border-radius: 8px 8px 0 0;
-  // padding: 0px 0px 3px 0px;
-  >span{
-    width:100% !important;
-    height:100% !important;
-    border-top-right-radius:8px;
-    border-top-left-radius:8px;
-  }
-  img {
-    /* border-radius: 8px 8px 0 0;
-    width: 100%;
-    padding: 3rem; */
-    min-width: unset !important;
-    max-width: unset !important;
-    min-height: unset !important;
-    max-height: unset !important;
-    // width: 170px !important;
-    // height: 170px !important;
-    width:100% !important;
-    height:100% !important;
-    ${media.smallScreen`
-      // padding: 1rem;
-      max-height: 170px !important;
-      // width: 93px !important;
-      // height: 86px !important;
-    `}
-  }
-  // ${media.smallScreen`
-  //     padding: 1rem 1rem 0rem 1rem;
-  //   `}
-`;
+//   display: flex;
+//   justify-content: center;
+//   border-radius: 8px;
+//   border-radius: 8px 8px 0 0;
+//   // padding: 0px 0px 3px 0px;
+//   >span{
+//     width:100% !important;
+//     height:100% !important;
+//     border-top-right-radius:8px;
+//     border-top-left-radius:8px;
+//   }
+//   img {
+//     /* border-radius: 8px 8px 0 0;
+//     width: 100%;
+//     padding: 3rem; */
+//     min-width: unset !important;
+//     max-width: unset !important;
+//     min-height: unset !important;
+//     max-height: unset !important;
+//     // width: 170px !important;
+//     // height: 170px !important;
+//     width:100% !important;
+//     height:100% !important;
+//     ${media.smallScreen`
+//       // padding: 1rem;
+//       max-height: 170px !important;
+//       // width: 93px !important;
+//       // height: 86px !important;
+//     `}
+//   }
+//   // ${media.smallScreen`
+//   //     padding: 1rem 1rem 0rem 1rem;
+//   //   `}
+// `;
 
-export const CardInfo = styled.div<{}>`
-  text-align: left;
-  /* margin-bottom: 10px; */
-  text-transform: capitalize;
-  font-family: ${props => props.theme.typography.baseFontFamily}, -apple-system,
-    BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
-    "Open Sans", "Helvetica Neue", sans-serif;
+// export const CardInfo = styled.div<{}>`
+//   text-align: left;
+//   /* margin-bottom: 10px; */
+//   text-transform: capitalize;
+//   font-family: ${props => props.theme.typography.baseFontFamily}, -apple-system,
+//     BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+//     "Open Sans", "Helvetica Neue", sans-serif;
 
-  padding: 8px 12px 0;
-`;
+//   padding: 8px 12px 0;
+// `;
 
-export const CardName = styled.p<{}>`
-  text-align: left;
-  text-transform: capitalize;
-  font-weight: 600;
-  width: 100%;
-  margin: auto;
-  font-family: ${props => props.theme.typography.baseFontFamily}, -apple-system,
-    BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
-    "Open Sans", "Helvetica Neue", sans-serif;
+// export const CardName = styled.p<{}>`
+//   text-align: left;
+//   text-transform: capitalize;
+//   font-weight: 600;
+//   width: 100%;
+//   margin: auto;
+//   font-family: ${props => props.theme.typography.baseFontFamily}, -apple-system,
+//     BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+//     "Open Sans", "Helvetica Neue", sans-serif;
 
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+//   display: -webkit-box;
+//   -webkit-line-clamp: 2;
+//   -webkit-box-orient: vertical;
+//   overflow: hidden;
 
-  font-size: 15px;
+//   font-size: 15px;
 
-  ${media.largeScreen`
-    width: 100%;
-  `}
+//   ${media.largeScreen`
+//     width: 100%;
+//   `}
 
-  ${media.mediumScreen`
-  font-size: 14px;
-  font-weight: 500;
-  `}
-`;
+//   ${media.mediumScreen`
+//   font-size: 14px;
+//   font-weight: 500;
+//   `}
+// `;
 
-export const CardShortDdescription = styled.ul`
-  background-color: ${props => props.theme.colors.primaryDark};
-  color: white;
-  padding: 0.5rem 1rem 0.5rem 2rem;
-  border-radius: 0 0 8px 0;
-  margin: 8px 0;
-  font-weight: bold;
-  width: 85%;
-  /* float: right; */
-  /* margin-left: 46px; */
-  display: flex;
-  flex-direction: column;
-  box-shadow: 3px 3px 5px rgb(0, 0, 0, 0.2);
-  li {
-    text-align: left;
-  }
-`;
+// export const CardShortDdescription = styled.ul`
+//   background-color: ${props => props.theme.colors.primaryDark};
+//   // color: white;
+//   // padding: 0.5rem 1rem 0.5rem 2rem;
+//   // border-radius: 0 0 8px 0;
+//   // margin: 8px 0;
+//   // font-weight: bold;
+//   // width: 85%;
+//   // /* float: right; */
+//   // /* margin-left: 46px; */
+//   // display: flex;
+//   // flex-direction: column;
+//   // box-shadow: 3px 3px 5px rgb(0, 0, 0, 0.2);
+//   // li {
+//   //   text-align: left;
+//   // }
+// `;
 export const CardWishlist = styled.div<{}>`
   /* border-radius: 50%;
   box-shadow: 0 0 15px #d1d0d0; */
@@ -315,12 +315,12 @@ export const VariantPicker = styled.div`
   }
 `;
 
-export const Rating = styled.div`
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  gap: 5px;
-`;
+// export const Rating = styled.div`
+//   display: flex;
+//   justify-content: left;
+//   align-items: center;
+//   gap: 5px;
+// `;
 
 export const Quantity = styled.div`
   width: 100%;

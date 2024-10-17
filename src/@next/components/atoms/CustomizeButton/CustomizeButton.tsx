@@ -7,6 +7,7 @@ import * as S from "./style";
 // import Insta from "./assets/instagram 2.svg";
 import { CustomLink } from "../CustomLink";
 import MemoInstagramSVG from "./assets/InstagramSVG";
+import style from "./scss/index.module.scss"
 
 export interface ICustomizeButtonProps {
   text: string;
@@ -27,19 +28,19 @@ export const CustomizeButton: React.FC<ICustomizeButtonProps> = ({
 }) => {
   return (
     <>
-      <S.ButtonContainer className={buttonClass} onClick={handleClick}>
+      <div className={`${buttonClass} ${style.ButtonContainer}`} onClick={handleClick}>
         <CustomLink
           linkClassName={`${buttonClass}__atag`}
           to={link}
           openInNewTab
         >
-          <S.Span>
+          <span className={style.Span}>
             {leftIcon && (
               <>
                 {typeof leftIcon === "string" ? <MemoInstagramSVG /> : leftIcon}
               </>
             )}
-            <S.Button>{text}</S.Button>
+            <span className={style.Button}>{text}</span>
             {rightIcon && (
               <>
                 {typeof rightIcon === "string" ? (
@@ -49,9 +50,9 @@ export const CustomizeButton: React.FC<ICustomizeButtonProps> = ({
                 )}
               </>
             )}
-          </S.Span>
+          </span>
         </CustomLink>
-      </S.ButtonContainer>
+      </div>
     </>
   );
 };

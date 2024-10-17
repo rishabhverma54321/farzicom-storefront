@@ -22,13 +22,16 @@ import {
 import makeClevertap from "Themes/lib/makeClevertap.js";
 import clevertapEvents from "Themes/lib/clevertapEvents.js";
 import gtmConfig from "Themes/lib/gtmConfig.js";
-
+import style from "./scss/index.module.scss";
 import { IMAGE_CDN_PROVIDERS, IMAGE_CDN, META_DEFAULTS } from "Themes/config";
 import Imgix from "react-imgix";
 import { OverlayType, OverlayTheme, OverlayContext } from "@temp/components";
 import * as S from "./style";
 import AddToCartButton from "../NewAddToCartButton";
-import { getThisVariantPrice, getVariantPriceIncludeTaxes } from "./stockHelpers";
+import {
+  getThisVariantPrice,
+  getVariantPriceIncludeTaxes,
+} from "./stockHelpers";
 import MyCustomLink from "@components/next-react/MyCustomLink";
 import { useCustomLocation } from "@hooks/useCustomLocation";
 import Image from "next/image";
@@ -69,7 +72,7 @@ export interface IProductCardPlixlifeProps {
     addtoBoxButtonText: string;
     addtoBoxOnClickHandler: (id: string, product?: any) => void;
     removeFromBoxButtonText: string;
-    removeFromBoxClickHandler: (id: string, product?: any, sku?:any) => void;
+    removeFromBoxClickHandler: (id: string, product?: any, sku?: any) => void;
     steps: { v_id: string; step_no: number }[];
     current_step_no: number;
   };
@@ -149,10 +152,12 @@ export const ProductCardPlixlife: React.FC<IProductCardPlixlifeProps> = ({
     (defaultVariantMeta &&
       getMetadataValue(defaultVariantMeta, "average_rating")) ||
     (metadata && getMetadataValue(metadata, "average_rating"));
-  
+
   const averageRating = averageRatingString
-    ? parseFloat(averageRatingString) ? parseFloat(averageRatingString).toFixed(1) : '5.0'
-    : '5.0';
+    ? parseFloat(averageRatingString)
+      ? parseFloat(averageRatingString).toFixed(1)
+      : "5.0"
+    : "5.0";
 
   const shortDescription =
     shortDescriptionArray && shortDescriptionArray.length > 0
@@ -186,13 +191,13 @@ export const ProductCardPlixlife: React.FC<IProductCardPlixlifeProps> = ({
 
   const falvorsAtt =
     defaultVariant &&
-    defaultVariant.attributes?.find(att => att.attribute.slug === "flavors");
+    defaultVariant.attributes?.find((att) => att.attribute.slug === "flavors");
   const currFlavor =
     falvorsAtt && falvorsAtt.values.length && falvorsAtt.values[0].value;
 
   const sizeAtt =
     defaultVariant &&
-    defaultVariant.attributes?.find(att => att.attribute.slug === "size");
+    defaultVariant.attributes?.find((att) => att.attribute.slug === "size");
   const currSize = sizeAtt && sizeAtt.values.length && sizeAtt.values[0].value;
 
   const discountedPrice = variantPricing && variantPricing.price.gross.amount;
@@ -273,7 +278,7 @@ export const ProductCardPlixlife: React.FC<IProductCardPlixlifeProps> = ({
       current_step_no,
     } = buildYourBoxButtonProps;
     const currentlySelectedVariantId = steps?.find(
-      step => step.step_no == current_step_no
+      (step) => step.step_no == current_step_no
     )?.v_id;
     const boxProducts = steps;
     disableboxButton =
@@ -283,11 +288,11 @@ export const ProductCardPlixlife: React.FC<IProductCardPlixlifeProps> = ({
       Array.isArray(boxProducts) && currentlySelectedVariantId === variantId
         ? removeFromBoxClickHandler
         : addtoBoxOnClickHandler;
-    boxProductCardButtonText =
-      disableButton ? "Notify Me" : 
-      Array.isArray(boxProducts) && currentlySelectedVariantId === variantId
-        ? removeFromBoxButtonText
-        : addtoBoxButtonText;
+    boxProductCardButtonText = disableButton
+      ? "Notify Me"
+      : Array.isArray(boxProducts) && currentlySelectedVariantId === variantId
+      ? removeFromBoxButtonText
+      : addtoBoxButtonText;
   }
 
   // const { user } = useAuthState();
@@ -309,21 +314,22 @@ export const ProductCardPlixlife: React.FC<IProductCardPlixlifeProps> = ({
         <ConstructImageSchema data={schemaObj} />
 
         <S.CardBody
-          hoverBg={hoverBg}
-          // loading={loading}
-          bg={bg}
+          style={{ backgroundColor: bg }}
           hoverShadow={hoverShadow}
-          className={classname}
+          className={`classname ${style.cardBody}`}
         >
-          <S.CardTopHeader>
+          <div className={style.cardTopHeader}>
             {productCardTag && (
-              <S.TopHeaderTag tagColor={ cardTag && cardTag?.tagColor || ""}>
+              <div
+                className={style.topHeaderColor}
+                style={{ backgroundColor: cardTag?.tagColor || "#fae6e2" }}
+              >
                 {" "}
                 {productCardTag}{" "}
-              </S.TopHeaderTag>
+              </div>
             )}
 
-            <S.Rating>
+            <div className={style.Rating}>
               {/* <RatingNext
                 value={averageRating}
                 size="small"
@@ -332,11 +338,11 @@ export const ProductCardPlixlife: React.FC<IProductCardPlixlifeProps> = ({
               /> */}
 
               {/* <MyRating rating={averageRating ? averageRating : 5} isReadOnly /> */}
-            </S.Rating>
+            </div>
             {discountvalue > 0 ? (
               <div className="discount_percentage">-{discountvalue}%</div>
             ) : null}
-          </S.CardTopHeader>
+          </div>
 
           <MyCustomLink
             onClick={() => {
@@ -361,7 +367,7 @@ export const ProductCardPlixlife: React.FC<IProductCardPlixlifeProps> = ({
             disable={preventClickToPdp}
           >
             {popupstate ? (
-              <S.CardImage>
+              <div className={style.cardImage}>
                 {imageUrlImgixScr && IMAGE_CDN_PROVIDERS[IMAGE_CDN].useCDN ? (
                   <Image
                     src={imageUrlImgixScr}
@@ -373,16 +379,16 @@ export const ProductCardPlixlife: React.FC<IProductCardPlixlifeProps> = ({
                 ) : (
                   <img src={image || NoPhoto} width="90%" alt="img" />
                 )}
-              </S.CardImage>
+              </div>
             ) : (
-              <S.CardImage className={`${classname}__image`}>
+              <div className={`${classname}__image ${style.cardImage}`}>
                 {imageUrlImgixScr && IMAGE_CDN_PROVIDERS[IMAGE_CDN].useCDN ? (
                   <Image
                     src={imageUrlImgixScr}
                     alt="Product Image"
                     width={400}
                     height={400}
-                    onClick={e => {
+                    onClick={(e) => {
                       productDetailPopupOnImage &&
                       typeof productDetailPopupOnImage === "function"
                         ? productDetailPopupOnImage(product)
@@ -398,12 +404,12 @@ export const ProductCardPlixlife: React.FC<IProductCardPlixlifeProps> = ({
                 ) : (
                   <img src={image || NoPhoto} width="90%" alt="img" />
                 )}
-              </S.CardImage>
+              </div>
             )}
           </MyCustomLink>
 
           {/* <div> */}
-          <S.CardInfo className={`${classname}__cardInfo`}>
+          <div className={`${classname}__cardInfo ${style.cardInfo}`}>
             <MyCustomLink
               href={url}
               disable={preventClickToPdp}
@@ -425,9 +431,9 @@ export const ProductCardPlixlife: React.FC<IProductCardPlixlifeProps> = ({
                 }
               }}
             >
-              <S.CardName className="productCard__name">
+              <p className={`productCard__name ${style.cardName}`}>
                 {productCardAttributes?.name || name}
-              </S.CardName>
+              </p>
             </MyCustomLink>
 
             {/* ht rating and_product type wrapper */}
@@ -437,7 +443,7 @@ export const ProductCardPlixlife: React.FC<IProductCardPlixlifeProps> = ({
                 <div className="rating_and_product_type_wrapper">
                   <div className="rating">
                     <img src={ratingImageUrlWithImgix} alt="Rating Star" />
-                    {(averageRating || 5)}
+                    {averageRating || 5}
                   </div>
                   <div className="vertical_bar"></div>
                   <div className="product_type">{cardTag && cardTag?.name}</div>
@@ -448,7 +454,7 @@ export const ProductCardPlixlife: React.FC<IProductCardPlixlifeProps> = ({
                   <div className="collection-variant-name">
                     {
                       product?.defaultVariant?.attributes
-                        ?.filter(item => item?.attribute?.slug === "size")[0]
+                        ?.filter((item) => item?.attribute?.slug === "size")[0]
                         ?.values[0]?.name?.split("__")[0]
                     }
                   </div>
@@ -457,7 +463,9 @@ export const ProductCardPlixlife: React.FC<IProductCardPlixlifeProps> = ({
                     <div className="collection-variant-name">
                       {
                         product?.defaultVariant?.attributes
-                          ?.filter(item => item?.attribute?.slug === "size")[0]
+                          ?.filter(
+                            (item) => item?.attribute?.slug === "size"
+                          )[0]
                           ?.values[0]?.name?.split("__")[0]
                       }
                     </div>
@@ -498,11 +506,11 @@ export const ProductCardPlixlife: React.FC<IProductCardPlixlifeProps> = ({
                       <>
                         <div className="vertical_bar"></div>
                         <div className="faster-result-know-more">
-                          <S.ProductInfoModalToggle
+                          <div className={style.ProductInfoModalToggle}
                             onClick={() => productDetailPopup(product)}
                           >
                             Know more
-                          </S.ProductInfoModalToggle>
+                          </div>
                         </div>
                       </>
                     )}
@@ -510,8 +518,8 @@ export const ProductCardPlixlife: React.FC<IProductCardPlixlifeProps> = ({
                     <>
                       <div className="vertical_bar"></div>
                       <div className="faster-result-know-more">
-                        <S.ProductInfoModalToggle
-                          onClick={e =>
+                        <div className={style.ProductInfoModalToggle}
+                          onClick={(e) =>
                             setModalProps({
                               modalStartPosition: e?.clientX,
                               modalOpen: !modalProps?.modalOpen,
@@ -519,7 +527,7 @@ export const ProductCardPlixlife: React.FC<IProductCardPlixlifeProps> = ({
                           }
                         >
                           Know more
-                        </S.ProductInfoModalToggle>
+                        </div>
                       </div>
                     </>
                   )}
@@ -528,7 +536,7 @@ export const ProductCardPlixlife: React.FC<IProductCardPlixlifeProps> = ({
                   <div className="collection-variant-name">
                     {
                       product?.defaultVariant?.attributes
-                        ?.filter(item => item?.attribute?.slug === "size")[0]
+                        ?.filter((item) => item?.attribute?.slug === "size")[0]
                         ?.values[0]?.name?.split("__")[0]
                     }
                   </div>
@@ -537,7 +545,9 @@ export const ProductCardPlixlife: React.FC<IProductCardPlixlifeProps> = ({
                     <div className="collection-variant-name">
                       {
                         product?.defaultVariant?.attributes
-                          ?.filter(item => item?.attribute?.slug === "size")[0]
+                          ?.filter(
+                            (item) => item?.attribute?.slug === "size"
+                          )[0]
                           ?.values[0]?.name?.split("__")[0]
                       }
                     </div>
@@ -545,38 +555,40 @@ export const ProductCardPlixlife: React.FC<IProductCardPlixlifeProps> = ({
                 )}
               </>
             )}
-          </S.CardInfo>
+          </div>
 
           {shortDescription && pathname === "/" && (
-            <S.CardShortDdescription
-              className={`${classname}__shortDescription`}
+            <ul
+              className={`${classname}__shortDescription ${style.CardShortDdescription}`}
             >
-              {shortDescription.map(desc => (
+              {shortDescription.map((desc) => (
                 <li>-{desc}</li>
               ))}
-            </S.CardShortDdescription>
+            </ul>
           )}
           {/* {getThisVariantPrice(defaultVariant)} */}
           <div className={`${isByob ? "space_content" : ""}`}>
-            <S.PriceRow isCrossSell={ctTitle == "plixlife-faster-results"}>
-              { ctTitle == "plixlife-faster-results" ? getVariantPriceIncludeTaxes(defaultVariant) : getThisVariantPrice(defaultVariant)}
+            <div className={`${style.priceRow} ${ctTitle == "plixlife-faster-results" ? style.priceRow_crossSell :""}`} isCrossSell={ctTitle == "plixlife-faster-results"}>
+              {ctTitle == "plixlife-faster-results"
+                ? getVariantPriceIncludeTaxes(defaultVariant)
+                : getThisVariantPrice(defaultVariant)}
               {(showProductInfoPopup || productDetailPopup) &&
                 !isFasterResultProduct && (
-                  <S.ProductInfoModalToggle
-                    isByob={isByob}
-                    onClick={e => {
-                      if (
-                        productDetailPopup &&
-                        typeof productDetailPopup === "function"
-                      ) {
-                        productDetailPopup(product);
-                      } else {
-                        setModalProps({
-                          modalStartPosition: e?.clientX,
-                          modalOpen: !modalProps?.modalOpen,
-                        });
-                      }
-                    }}
+                  <span
+                  className={`${style.ProductInfoModalToggle} ${isByob ? style.ProductInfoModalToggle_byob : ""}`}
+                  onClick={(e) => {
+                    if (
+                      productDetailPopup &&
+                      typeof productDetailPopup === "function"
+                    ) {
+                      productDetailPopup(product);
+                    } else {
+                      setModalProps({
+                        modalStartPosition: e?.clientX,
+                        modalOpen: !modalProps?.modalOpen,
+                      });
+                    }
+                  }}
                   >
                     {isByob ? (
                       <>
@@ -585,9 +597,9 @@ export const ProductCardPlixlife: React.FC<IProductCardPlixlifeProps> = ({
                     ) : (
                       "Know more"
                     )}
-                  </S.ProductInfoModalToggle>
+                  </span>
                 )}
-            </S.PriceRow>
+            </div>
           </div>
           {showProductInfoPopup && modalProps?.modalOpen && (
             <ProductInfoPopUp
@@ -611,9 +623,9 @@ export const ProductCardPlixlife: React.FC<IProductCardPlixlifeProps> = ({
               buttonClass="whatsNewButton"
             />
           ) : (
-            <S.CardButton className={`${classname}__buttonContainer`}>
+            <div className={`${classname}__buttonContainer ${style.cardButton}`}>
               <AddToCartButton
-                onSubmit={async disabled => {
+                onSubmit={async (disabled) => {
                   if (disabled && refetch) {
                     refetch();
                   } else {
@@ -656,7 +668,7 @@ export const ProductCardPlixlife: React.FC<IProductCardPlixlifeProps> = ({
                 mainText={boxProductCardButtonText}
                 parentProducts={parentProducts}
               />
-            </S.CardButton>
+            </div>
           )}
         </S.CardBody>
       </>

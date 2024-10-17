@@ -1,6 +1,7 @@
 import { CheckBoxItem } from "@components/atoms/CheckBoxItem";
 import React from "react";
 import * as S from "./style";
+import style from "./scss/index.module.scss"
 
 interface contentType {
   id: string;
@@ -26,12 +27,12 @@ export const CheckBoxItemList: React.FC<ICheckBoxItemListProps> = ({
   headerClass,
 }) => {
   return (
-    <S.Wrapper>
-      <S.SubHeader className={headerClass}>{header}</S.SubHeader>
+    <div className={style.Wrapper}>
+      <span className={`${headerClass} ${style.subHeader}`}>{header}</span>
       {contents?.map(content => (
         <CheckBoxItem onProdTypeChange={onProdTypeChange} content={content} />
       ))}
-    </S.Wrapper>
+    </div>
   );
 };
 CheckBoxItemList.displayName = "CheckBoxItemList";

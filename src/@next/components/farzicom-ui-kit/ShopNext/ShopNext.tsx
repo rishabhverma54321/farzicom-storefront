@@ -52,6 +52,7 @@ import { generateCollectionUrl } from "@temp/core/utils";
 import * as S from "./style";
 import gtmConfig from "@temp/themes/plixlifefc/lib/gtmConfig";
 import { useAuthState } from "@saleor/sdk";
+import style from "./scss/index.module.scss"
 
 export interface IShopProductTypesInMeta {
   id: string;
@@ -617,7 +618,7 @@ export const ShopNext: React.FC<IShopNextProps> = ({
                       }}
                     />
                     <Gap size="0.5rem" />
-                    <S.Divider width="100%" />
+                    <div style={{width: "100%"}} className={style.Divider} />
                   </>
                 </div>
               ) : (
@@ -626,24 +627,24 @@ export const ShopNext: React.FC<IShopNextProps> = ({
               <div className="container">
                 {/* <Breadcrumbs breadcrumbs={breadcrumbs} /> */}
                 {currentPageMeta?.h1_text ? (
-                  <S.CollectionHeader>
+                  <h1 className={style.collectionHeading}>
                     {currentPageMeta.h1_text}
-                  </S.CollectionHeader>
+                  </h1>
                 ) : (
                   <></>
                 )}
-                <S.Section flexDir="row" className="plixshop__section">
+                <div style={{flexDirection:"row"}} className={`plixshop__section ${style.Section}`}>
                   <div className="plixshop__filter__col">
                     <div>
-                      <S.SubHeader size="24px" lineHeight="34px">
+                      <div className={style.subHeading}>
                         Filter By
-                      </S.SubHeader>
+                      </div>
 
                       {router.pathname.split("/")[1] === "collection" ? (
                         <></>
                       ) : (
                         <div>
-                          <S.Divider width="100%" />
+                          <div style={{width: "100%"}} className={style.Divider} />
                           <RadioItemList
                             header="Select any one concern"
                             contents={getCollectionsData(collections)}
@@ -653,7 +654,7 @@ export const ShopNext: React.FC<IShopNextProps> = ({
                       )}
                     </div>
                     <div>
-                      <S.Divider width="100%" />
+                      <div className={style.Divider} style={{width: "100%"}} />
                       {productTypes && (
                         <CheckBoxItemList
                           header="Select product type"
@@ -671,9 +672,9 @@ export const ShopNext: React.FC<IShopNextProps> = ({
                         onFilterRemove={handleFilterRemove}
                         activeFilters={[currentCollection, ...currentProdTypes]}
                       />
-                      <S.Divider width="100%" />
+                      <div className={style.Divider} style={{width: "100%"}}/>
                     </div>
-                    <S.Section flexDir="column" noMarginTop>
+                    <div style={{flexDirection:"column"}} className={style.Section}>
                       <div>
                         <PlixBanner
                           content={{
@@ -711,9 +712,9 @@ export const ShopNext: React.FC<IShopNextProps> = ({
                           )}
                         </>
                       </div>
-                    </S.Section>
+                    </div>
                   </div>
-                </S.Section>
+                </div>
               </div>
               {/* <div className="container">
                 <RichTextContent

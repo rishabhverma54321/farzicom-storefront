@@ -1,5 +1,6 @@
 import React from "react";
 import * as S from "./style";
+import style from "./scss/index.module.scss"
 
 export interface IRadioItemProps {
   checked: boolean;
@@ -15,20 +16,21 @@ export const RadioItem: React.FC<IRadioItemProps> = ({
   onCollectionChange,
 }) => {
   return (
-    <S.Wrapper
+    <div
+      className={style.Wrapper}
       onClick={() => {
         onCollectionChange(id, label);
       }}
     >
-      <S.RadioInput
+      <input
         type="radio"
-        className="custom-radio-button"
+        className={`custom-radio-button ${style.RadioInput}`}
         checked={checked}
         value={id}
         id={id}
       />
-      <S.RadioLabel>{label || ""}</S.RadioLabel>
-    </S.Wrapper>
+      <span className={style.RadioLabel}>{label || ""}</span>
+    </div>
   );
 };
 RadioItem.displayName = "RadioItem";

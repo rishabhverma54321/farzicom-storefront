@@ -1,6 +1,7 @@
 import { RadioItem } from "@components/atoms/RadioItem";
 import React from "react";
 import * as S from "./style";
+import style from "./scss/index.module.scss"
 
 interface RadioObject {
   id: string;
@@ -24,8 +25,8 @@ export const RadioItemList: React.FC<IRadioItemListProps> = ({
 }) => {
   return (
     <>
-      <S.Wrapper>
-        <S.SubHeader className={headerClass}>{header}</S.SubHeader>
+      <div className={style.Wrapper}>
+        <span className={`${headerClass} ${style.SubHeader}`}>{header}</span>
         {contents.map((content, index) => (
           <RadioItem
             key={index}
@@ -35,7 +36,7 @@ export const RadioItemList: React.FC<IRadioItemListProps> = ({
             onCollectionChange={onCollectionChange}
           />
         ))}
-      </S.Wrapper>
+      </div>
     </>
   );
 };

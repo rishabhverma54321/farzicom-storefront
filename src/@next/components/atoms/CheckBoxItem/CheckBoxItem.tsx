@@ -1,5 +1,6 @@
 import React from "react";
 import * as S from "./style";
+import style from "./scss/index.module.scss"
 
 export interface ICheckBoxItemProps {
   content: {
@@ -19,7 +20,8 @@ export const CheckBoxItem: React.FC<ICheckBoxItemProps> = ({
   onProdTypeChange,
 }) => {
   return (
-    <S.Wrapper
+    <div
+     className={style.Wrapper}
       onClick={() => {
         onProdTypeChange({
           id: content.id,
@@ -28,16 +30,16 @@ export const CheckBoxItem: React.FC<ICheckBoxItemProps> = ({
         });
       }}
     >
-      <S.Checkbox
-        className="styled-checkbox"
+      <input
+        className={`styled-checkbox ${style.Checkbox}`}
         type="checkbox"
         value={content.id}
         name={content.name}
         id={content.id}
         checked={content?.checked}
       />
-      <S.Label>{content.name}</S.Label>
-    </S.Wrapper>
+      <span className={style.Label}>{content.name}</span>
+    </div>
   );
 };
 CheckBoxItem.displayName = "CheckBoxItem";

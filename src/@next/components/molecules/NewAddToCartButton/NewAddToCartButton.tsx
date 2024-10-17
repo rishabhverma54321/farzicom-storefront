@@ -39,6 +39,7 @@ import { addToCartTrack } from "farzicom-ui/lib/Track/addToCartTrack";
 import { addTags } from "@components/organisms/ProductSubscriptionPopup/queries";
 import { getDBIdFromGraphqlId } from "@utils/core";
 import makeClevertap from "Themes/lib/makeClevertap.js";
+import style from "./scss/style.scss"
 
 export interface INewAddToCartButton {
   disabled: boolean;

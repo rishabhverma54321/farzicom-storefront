@@ -1,0 +1,28 @@
+@import "Themes/globalStyles-scss/scss/variables.module.scss";
+.Wrapper {
+  margin-top: 32px;
+  padding: 8px;
+  img {
+    border-radius: 15px;
+    object-fit: cover;
+    max-height: 400px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  @media (max-width: $medium-screen) {
+    margin-top: 0;
+  }
+}
+
+.desktopImage {
+  @media (max-width: $small-screen) {
+    display: none;
+  }
+}
+
+.mobileImage{
+  @media(min-width: $small-screen){
+    display: none;
+  }  
+}

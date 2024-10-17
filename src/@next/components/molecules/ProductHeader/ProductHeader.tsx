@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { CustomizeButton } from "@components/atoms/CustomizeButton";
 import * as S from "./Styles";
+import style from "./scss/index.module.scss";
 
 export enum ButtonPostion {
   WITH_HEADER = "with_header",
@@ -13,7 +14,7 @@ export interface t {
 export interface IProductHeaderProps {
   heading: string;
   title?: string;
-  headingh2?:string,
+  headingh2?: string;
   navbar?: {
     data: t[];
     navbarHandler: Function;
@@ -26,7 +27,7 @@ export interface IProductHeaderProps {
     link?: string;
     leftIcon?: string | React.ReactNode;
     rightIcon?: string | React.ReactNode;
-    onClick?:  () => void
+    onClick?: () => void;
   };
   headerClass: string;
 }
@@ -45,21 +46,27 @@ export const ProductHeader: React.FC<IProductHeaderProps> = ({
 
   return (
     <>
-      <S.Wrapper className={headerClass}>
-        <S.Row1 className={`${headerClass}__row1`}>
-          <S.Row1Left className={`${headerClass}__left`}>
+      <section className={`${headerClass} ${style.Wrapper}`}>
+        <div className={`${headerClass}__row1 ${style.Row1}`}>
+          <div className={`${headerClass}__left ${style.Row1Left}`}>
             {title && <S.Title>{title}</S.Title>}
-            {headingh2 ?
-            <S.Headingh2 className={`${headerClass}__headingh2`}>{headingh2}</S.Headingh2> :
-            <></>
-            }
-            {heading ? 
-            <S.Heading className={`${headerClass}__heading`}>
-              {heading}
-            </S.Heading>:
-            <></>
-            }
-          </S.Row1Left>
+            {headingh2 ? (
+              <S.Headingh2
+                className={`${headerClass}__headingh2 ${style.Headingh2}`}
+              >
+                {headingh2}
+              </S.Headingh2>
+            ) : (
+              <></>
+            )}
+            {heading ? (
+              <S.Heading className={`${headerClass}__heading ${style.Heading}`}>
+                {heading}
+              </S.Heading>
+            ) : (
+              <></>
+            )}
+          </div>
           {button !== undefined &&
             button.position === ButtonPostion.WITH_HEADER && (
               <CustomizeButton
@@ -71,18 +78,20 @@ export const ProductHeader: React.FC<IProductHeaderProps> = ({
                 handleClick={button?.onClick}
               />
             )}
-        </S.Row1>
+        </div>
 
         {navbar && (
-          <S.Right className={`${headerClass}__right`}>
+          <div className={`${headerClass}__right ${style.Right}`}>
             {navbar && (
-              <S.FilterContainer className={`${headerClass}__right__filter`}>
+              <div
+                className={`${headerClass}__right__filter ${style.FilterContainer}`}
+              >
                 {navbar.data?.map((item, index) => {
                   return (
-                    <S.Filter
+                    <span
                       className={`${headerClass}___right__filter__child ${
                         navlink === item.text ? "active" : ""
-                      }`}
+                      } ${style.Filter}`}
                       onClick={() => {
                         setnavlink(item.text);
                         navbar.navbarHandler(item.id, item.text);
@@ -90,10 +99,10 @@ export const ProductHeader: React.FC<IProductHeaderProps> = ({
                       key={index}
                     >
                       {item.text}
-                    </S.Filter>
+                    </span>
                   );
                 })}
-              </S.FilterContainer>
+              </div>
             )}
 
             {button !== undefined &&
@@ -106,9 +115,9 @@ export const ProductHeader: React.FC<IProductHeaderProps> = ({
                   buttonClass={`${headerClass}__right__button`}
                 />
               )}
-          </S.Right>
+          </div>
         )}
-      </S.Wrapper>
+      </section>
     </>
   );
 };
