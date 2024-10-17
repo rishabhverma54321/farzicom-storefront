@@ -34,7 +34,6 @@ export default function Product({
     parseJson(
       getMetadataValue(productPageData?.product?.metadata, "html_content_head")
     );
-
   return (
     <>
       <Head>
@@ -142,7 +141,7 @@ export async function getStaticProps(context) {
       });
       const headerAndFooterData = await clientSSR.query({
         query: headerAndFooterQuery,
-        fetchPolicy: variantId ? "cache-first" : "network-only",
+        fetchPolicy: variantId ? "cache-first" : "no-cache",
       });
       const shopMeta = await clientSSR.query({
         query: CustomShopMetaQuery,

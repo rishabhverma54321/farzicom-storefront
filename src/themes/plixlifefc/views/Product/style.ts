@@ -25,7 +25,7 @@ const GallaryBannerStyle = css`
      .slider-wrapper::after {
       content: "";
       display: block;
-      height:${props => (props?.backgroundImage ? "4rem" : "0")}
+      height: ${props => (props?.backgroundImage ? "4rem" : "0")};
       width: 100%;
       background:${props =>
         props?.backgroundImage
@@ -55,7 +55,7 @@ const GallaryBannerStyle = css`
     .carousel-slider::after {
       content: "";
       display: block;
-      height:${props => (props?.backgroundImage ? "6rem" : "0")}
+      height:${props => (props?.backgroundImage ? "6rem" : "0")};
       width: 100%;
       background:${props =>
         props?.backgroundImage

@@ -223,10 +223,11 @@
       padding: 0 0.2rem;
     }
     img {
-      padding: 1rem;
+      // padding: 1rem;
       max-width: 500px;
       height: auto;
       aspect-ratio: 1;
+      margin: auto !important;
       @media (max-width: $medium-screen) {
         min-width: unset !important;
         max-width: unset !important;
@@ -243,10 +244,6 @@
         width: 414px !important;
         height: 414px !important;
       }
-    }
-    > span {
-      max-width: 500px;
-      margin: auto !important;
     }
   }
 
